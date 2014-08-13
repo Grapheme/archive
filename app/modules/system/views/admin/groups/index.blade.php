@@ -33,11 +33,9 @@
                     		@endif
 
         					@if(Allow::action('groups', 'edit'))
-							<form method="GET" action="{{ action($module['class'].'@getEdit', array('group_id' => $group->id)) }}" style="display:inline-block">
-								<button type="submit" class="btn btn-success margin-right-10"<? if($group->id == 1){ echo " disabled='disabled'"; }?>>
-									Изменить
-								</button>
-							</form>
+							<a class="btn btn-success margin-right-10" href="{{ action($module['class'].'@getEdit', array('group_id' => $group->id)) }}"<? if($group->id == 1){ echo " disabled='disabled'"; }?>>
+								Изменить
+							</a>
                     		@endif
 
         					@if(Allow::action('groups', 'delete'))

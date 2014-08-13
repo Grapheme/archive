@@ -66,7 +66,7 @@
       <file leaf-file-name="admin_users.controller.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/modules/system/admin_users.controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="54" selection-start="2594" selection-end="2594" vertical-scroll-proportion="0.7246892" vertical-offset="986" max-vertical-offset="4522">
+            <state line="90" column="5" selection-start="2822" selection-end="2822" vertical-scroll-proportion="0.9396092" vertical-offset="1001" max-vertical-offset="4522">
               <folding />
             </state>
           </provider>
@@ -669,7 +669,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/system/admin_users.controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="54" selection-start="2594" selection-end="2594" vertical-scroll-proportion="0.7246892" vertical-offset="986" max-vertical-offset="4522">
+        <state line="90" column="5" selection-start="2822" selection-end="2822" vertical-scroll-proportion="0.9396092" vertical-offset="1001" max-vertical-offset="4522">
           <folding />
         </state>
       </provider>
