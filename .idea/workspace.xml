@@ -72,10 +72,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Helper.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Helper.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/lib/Helper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="305" column="36" selection-start="9391" selection-end="9391" vertical-scroll-proportion="1.0369393" vertical-offset="4809" max-vertical-offset="5576">
+            <state line="305" column="36" selection-start="9391" selection-end="9391" vertical-scroll-proportion="-14.461538" vertical-offset="4809" max-vertical-offset="5576">
               <folding>
                 <marker date="1407934230595" expanded="true" signature="8023:9472" placeholder="..." />
                 <marker date="1407934230595" expanded="true" signature="8023:8135" placeholder="..." />
@@ -87,6 +87,24 @@
                 <marker date="1407934230595" expanded="true" signature="9142:9150" placeholder="..." />
                 <marker date="1407934230595" expanded="true" signature="9142:9150" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/modules/pages/views/admin/edit.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="345" column="93" selection-start="12572" selection-end="12572" vertical-scroll-proportion="0.45756456" vertical-offset="5634" max-vertical-offset="7174">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin_pages.page.controller.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/modules/pages/admin_pages.page.controller.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="39" column="74" selection-start="1590" selection-end="1611" vertical-scroll-proportion="-13.730769" vertical-offset="306" max-vertical-offset="7514">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -149,6 +167,7 @@
         <option value="$PROJECT_DIR$/app/modules/archive/views/admin/request/menu.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/views/admin/funds/menu.blade.php" />
         <option value="$PROJECT_DIR$/app/lib/Helper.php" />
+        <option value="$PROJECT_DIR$/app/modules/pages/views/admin/edit.blade.php" />
       </list>
     </option>
   </component>
@@ -275,10 +294,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.299187" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.299187" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -628,7 +647,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/lib/Helper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="305" column="36" selection-start="9391" selection-end="9391" vertical-scroll-proportion="1.0369393" vertical-offset="4809" max-vertical-offset="5576">
+        <state line="305" column="36" selection-start="9391" selection-end="9391" vertical-scroll-proportion="-14.461538" vertical-offset="4809" max-vertical-offset="5576">
           <folding>
             <marker date="1407934230595" expanded="true" signature="8023:9472" placeholder="..." />
             <marker date="1407934230595" expanded="true" signature="8023:8135" placeholder="..." />
@@ -640,6 +659,20 @@
             <marker date="1407934230595" expanded="true" signature="9142:9150" placeholder="..." />
             <marker date="1407934230595" expanded="true" signature="9142:9150" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/modules/pages/admin_pages.page.controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="74" selection-start="1590" selection-end="1611" vertical-scroll-proportion="-13.730769" vertical-offset="306" max-vertical-offset="7514">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/modules/pages/views/admin/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="345" column="93" selection-start="12572" selection-end="12572" vertical-scroll-proportion="0.45756456" vertical-offset="5634" max-vertical-offset="7174">
+          <folding />
         </state>
       </provider>
     </entry>

@@ -220,7 +220,7 @@
         function update_blocks() {
 
             $.ajax({
-                url: "/ajax-pages-get-page-blocks",
+                url: "{{ action($module['class'].'@postAjaxPagesGetPageBlocks') }}",
                 type: 'post',
                 data: {
                     id: page_id
@@ -247,7 +247,7 @@
             var block_id = $(this).data('id');
             if (block_id) {
                 $.ajax({
-                    url: "/ajax-pages-get-block",
+                    url: "{{ action($module['class'].'@postAjaxPagesGetBlock') }}",
                     type: 'post',
                     //dataType: 'json',
                     data: {
@@ -343,7 +343,7 @@
 
                     if (block_id) {
                         $.ajax({
-                            url: "/ajax-pages-delete-block",
+                            url: "{{ action($module['class'].'@postAjaxPagesDeleteBlock') }}",
                             type: 'post',
                             dataType: 'json',
                             data: {
