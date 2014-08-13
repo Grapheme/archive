@@ -1,63 +1,44 @@
-@extends('templates.'.AuthAccount::getStartPage())
+@extends(Helper::acclayout())
 
 
 @section('content')
-	<div class="row">
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-			<div class="margin-bottom-25 margin-top-10 ">
-			@if(Allow::action('news','create'))
-				<a class="btn btn-primary" href="{{ link::auth('news/create') }}">Добавить новость</a>
-			@endif
-			@if(Allow::action('news','sort') && $news->count() > 2)
-				<!-- <a class="btn btn-default" href="{{ link::auth('news/sort') }}">Сортировать</a> -->
-			@endif
-			</div>
-		</div>
-	</div>
+
+    @include($module['tpl'].'menu')
+
 	@if($news->count())
 	<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 			<table class="table table-striped table-bordered min-table">
 				<thead>
-					<tr>
-						<th class="text-center" style="width:100px">Дата</th>
-						<th class="text-center">Название новости</th>
-    					@if(Allow::action('news','publication'))
-						<th class="text-center">Публикация</th>
-	    				@endif
-						<th></th>
-					</tr>
+                <tr>
+                    <th class="text-center" style="width:40px">#</th>
+                    <th style="width:100%;"class="text-center">Название</th>
+                    <th class="width-250 text-center">Действия</th>
+                </tr>
 				</thead>
 				<tbody>
-				@foreach($news as $new)
+				@foreach($news as $n => $new)
 					<tr>
-						<td class="text-center">{{ date("d.m.Y", strtotime($new->published_at)) }}</a></td>
+						<td class="text-center">
+                            {{ $n+1 }}
+                        </td>
 						<td>
-						    <a href="{{ link::to('news/'.$new->slug) }}" target="_blank">{{$new->slug}}</a>
+						    <a href="{{ link::to('news/'.$new->slug) }}" target="_blank">{{$new->meta->title}}</a><br/>
+                            <span class="note">{{ date("d.m.Y", strtotime($new->published_at)) }}</span>
 						</td>
-						@if(Allow::action('news','publication'))
-						<td class="wigth-100">
-							<div class="smart-form">
-								<label class="toggle pull-left">
-									<input type="checkbox" name="publication" disabled="" checked="" value="1">
-									<i data-swchon-text="да" data-swchoff-text="нет"></i>
-								</label>
-							</div>
-						</td>
-						@endif
-						<td class="wigth-250">
-						@if(Allow::action('news', 'edit'))
-							<a class="btn btn-default pull-left margin-right-10" href="{{ link::auth('news/edit/'.$new->id) }}">
-								Редактировать
-							</a>
-						@endif
-						@if(Allow::action('news', 'delete'))
-							<form method="POST" action="{{ link::auth('name/destroy/'.$new->id) }}">
-								<button type="button" class="btn btn-default remove-news">
-									Удалить
-								</button>
-							</form>
-						@endif
+						<td class="text-center" style="white-space:nowrap;">
+                            @if(Allow::action($module['group'], 'edit'))
+                            <a class="btn btn-success margin-right-10" href="{{ URL::route($module['entity'].'.edit', array('news_id' => $new->id)) }}">
+                                Изменить
+                            </a>
+                            @endif
+                            @if(Allow::action($module['group'], 'delete'))
+                            <form method="POST" action="{{ URL::route($module['entity'].'.destroy', array('news_id' => $new->id)) }}" style="display:inline-block">
+                                <button type="button" class="btn btn-danger remove-{{ $module['entity'] }}">
+                                    Удалить
+                                </button>
+                            </form>
+                            @endif
 						</td>
 					</tr>
 				@endforeach
@@ -71,8 +52,6 @@
 			<div class="ajax-notifications custom">
 				<div class="alert alert-transparent">
 					<h4>Список пуст</h4>
-					В данном разделе находятся новости сайта
-					<p><br><i class="regular-color-light fa fa-th-list fa-3x"></i></p>
 				</div>
 			</div>
 		</div>

@@ -27,8 +27,8 @@ class AdminPagesPageController extends BaseController {
                     )
                 )
             );
-
         });
+
         Route::post('ajax-pages-get-page-blocks', $class.'@postAjaxPagesGetPageBlocks');
         Route::post('ajax-pages-get-block', $class.'@postAjaxPagesGetBlock');
         Route::post('ajax-pages-delete-block', $class.'@postAjaxPagesDeleteBlock');

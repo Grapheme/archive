@@ -13,4 +13,11 @@ class I18nNews extends BaseModel {
 		#'seo_url' => 'alpha_dash',
 	);
 
+    public function metas() {
+        return $this->hasMany('I18nNewsMeta', 'news_id', 'id');
+    }
+
+    public function meta() {
+        return $this->hasOne('I18nNewsMeta', 'news_id', 'id')->where('language', Config::get('app.locale', 'ru'));
+    }
 }

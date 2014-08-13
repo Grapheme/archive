@@ -4,6 +4,8 @@ class AdminNewsController extends BaseController {
 
     public static $name = 'news';
     public static $group = 'news';
+    public static $entity = 'news';
+    public static $entity_name = 'новость';
 
     /****************************************************************************/
 
@@ -11,8 +13,22 @@ class AdminNewsController extends BaseController {
     public static function returnRoutes($prefix = null) {
         $class = __CLASS__;
         Route::group(array('before' => 'auth', 'prefix' => $prefix), function() use ($class) {
-        	Route::controller($class::$group, $class);
+            $entity = $class::$entity;
+            Route::resource($class::$group /* . "/" . $entity */, $class,
+                array(
+                    'except' => array('show'),
+                    'names' => array(
+                        'index'   => $entity.'.index',
+                        'create'  => $entity.'.create',
+                        'store'   => $entity.'.store',
+                        'edit'    => $entity.'.edit',
+                        'update'  => $entity.'.update',
+                        'destroy' => $entity.'.destroy',
+                    )
+                )
+            );
         });
+
     }
 
     ## Shortcodes of module
@@ -59,228 +75,173 @@ class AdminNewsController extends BaseController {
 
 	public function __construct(I18nNews $news, I18nNewsMeta $news_meta){
 
+        $this->essence = $news;
+
 		$this->news = $news;
 		$this->news_meta = $news_meta;
-		$this->beforeFilter('news');
         $this->locales = Config::get('app.locales');
 
-        View::share('module_name', self::$name);
+        $this->module = array(
+            'name' => self::$name,
+            'group' => self::$group,
+            'rest' => self::$group,
+            'tpl' => static::returnTpl('admin'),
+            'gtpl' => static::returnTpl(),
+            'class' => __CLASS__,
 
-        $this->tpl = static::returnTpl('admin');
-        $this->gtpl = static::returnTpl();
-        View::share('module_tpl', $this->tpl);
-        View::share('module_gtpl', $this->gtpl);
-
+            'entity' => self::$entity,
+            'entity_name' => self::$entity_name,
+        );
+        View::share('module', $this->module);
 	}
 
-	public function getIndex(){
+	public function index() {
 
-		#$news = $this->news->all();
-		$news = $this->news->orderBy('published_at', 'DESC')->get();
-		#return View::make('modules.i18n_news.index',compact('news'));
-		#return View::make('modules.i18n_news.index',array('news' => $news, 'locales' => $this->locales));
-		return View::make($this->tpl.'index', array('news' => $news, 'locales' => $this->locales));
+        Allow::permission($this->module['group'], 'view');
+
+		$news = $this->news->orderBy('published_at', 'ASC')->get();
+        $locales = $this->locales;
+
+		return View::make($this->module['tpl'].'index', compact('news', 'locales'));
 	}
 
-	public function getCreate(){
+	public function create() {
 
-		$this->moduleActionPermission('news','create');
-		return View::make($this->tpl.'create', array('templates'=>Template::all(), 'languages'=>Language::all(), 'locales' => $this->locales));
+        Allow::permission($this->module['group'], 'create');
+
+        $element = new $this->news;
+        $locales = $this->locales;
+        $templates = array();
+        foreach ($this->templates(__DIR__) as $template)
+            @$templates[$template] = $template;
+
+		return View::make($this->module['tpl'].'edit', compact('element', 'locales', 'templates'));
 	}
 
-	public function postStore(){
+    public function edit($id){
 
-		$this->moduleActionPermission('news','create');
-		$json_request = array('status'=>FALSE,'responseText'=>'','responseErrorText'=>'','redirect'=>FALSE);
-		if(Request::ajax()):
-			$validator = Validator::make(Input::all(), I18nNews::$rules);
+        Allow::permission($this->module['group'], 'edit');
 
-			if($validator->passes()):
+        $element = $this->essence->where('id', $id)
+            ->with('metas')
+            ->first();
 
-			    #$json_request['responseText'] = "<pre>" . print_r($_POST, 1) . "</pre>";
-			    #return Response::json($json_request,200);
+        if (!is_object($element))
+            return Redirect::route($this->module['entity'] . '.index');
 
-				self::saveNewsModel();
-				$json_request['responseText'] = 'Новость создана';
-				$json_request['redirect'] = link::auth('news');
-				$json_request['status'] = TRUE;
-			else:
-				$json_request['responseText'] = 'Неверно заполнены поля';
-				$json_request['responseErrorText'] = $validator->messages()->all();
-			endif;
-		else:
-			return App::abort(404);
-		endif;
-		return Response::json($json_request,200);
-	}
+        $locales = $this->locales;
+        $templates = array();
+        foreach ($this->templates(__DIR__) as $template)
+            @$templates[$template] = $template;
 
-	public function getEdit($id){
+        #Helper::dd($locales);
 
-		$this->moduleActionPermission('news','edit');
-		$news = $this->news->find($id);
-		if(is_null($news))
-			return App::abort(404);
-        #print_r($page);
+        return View::make($this->module['tpl'].'edit', compact('element', 'locales', 'templates'));
+    }
 
-        $metas = $this->news_meta->where('news_id', $news->id)->get();
-		if(is_null($metas))
-			return App::abort(404);
+    public function store(){
 
-        foreach ($metas as $m => $meta) {
-        	$news_meta[$meta->language] = $meta;
+        return $this->postSave();
+    }
+
+    public function update($id){
+
+        return $this->postSave($id);
+    }
+
+    public function postSave($id = false){
+
+        Allow::permission($this->module['group'], 'create');
+
+        if(!Request::ajax())
+            return App::abort(404);
+
+        $json_request = array('status'=>FALSE,'responseText'=>'','responseErrorText'=>'','redirect'=>FALSE);
+
+        $input = Input::all();
+        $locales = Helper::withdraw($input, 'locales');
+        $input['template'] = @$input['template'] ? $input['template'] : NULL;
+        $input['slug'] = @$input['slug'] ? $input['slug'] : @$locales[Config::get('app.locale')]['title'];
+        $input['slug'] = Helper::translit($input['slug']);
+        $input['published_at'] = @$input['published_at'] ? date('Y-m-d', strtotime($input['published_at'])) : NULL;
+
+        #$json_request['responseText'] = "<pre>" . print_r(Input::all(), 1) . "</pre>";
+        #$json_request['responseText'] = "<pre>" . print_r($input, 1) . print_r($locales, 1) . "</pre>";
+        #return Response::json($json_request,200);
+
+        $json_request = array('status'=>FALSE, 'responseText'=>'', 'responseErrorText'=>'', 'redirect'=>FALSE);
+        $validator = Validator::make($input, $this->essence->rules());
+        if($validator->passes()) {
+
+            $redirect = false;
+
+            ## NEWS
+            if ($id != false && $id > 0 && $this->essence->find($id)->exists()) {
+
+                $element = $this->essence->find($id);
+                $element->update($input);
+
+            } else {
+
+                $element = $this->essence->create($input);
+                $id = $element->id;
+
+                $redirect = URL::route($this->module['entity'].'.edit', array('news_id' => $id));
+            }
+
+            ## NEWS_META
+            if (count($locales)) {
+                foreach ($locales as $locale_sign => $locale_settings) {
+                    #$locale_settings['template'] = $locale_settings['template'] ? $locale_settings['template'] : NULL;
+                    $news_meta = $this->news_meta->where('news_id', $element->id)->where('language', $locale_sign)->first();
+                    if (is_object($news_meta)) {
+                        $news_meta->update($locale_settings);
+                    } else {
+                        $locale_settings['news_id'] = $id;
+                        $locale_settings['language'] = $locale_sign;
+                        $this->news_meta->create($locale_settings);
+                    }
+                }
+            }
+
+            $json_request['responseText'] = 'Сохранено';
+            if (@$redirect)
+                $json_request['redirect'] = $redirect;
+            $json_request['status'] = TRUE;
+        } else {
+            $json_request['responseText'] = 'Неверно заполнены поля';
+            $json_request['responseErrorText'] = $validator->messages()->all();
         }
-        #print_r($news_meta);
-
-		$gall = Rel_mod_gallery::where('module', 'news')->where('unit_id', $id)->first();
-		#print_r($gall->photos);
-
-		return View::make($this->tpl.'edit', array('news'=>$news, 'news_meta'=>@$news_meta, 'templates'=>Template::all(),'languages'=>Language::all(), 'locales' => $this->locales, 'gall' => $gall));
+        return Response::json($json_request, 200);
 	}
 
-	public function postUpdate($id){
 
-		$this->moduleActionPermission('news','edit');
-		$json_request = array('status'=>FALSE,'responseText'=>'','responseErrorText'=>'','redirect'=>FALSE);
-		if(Request::ajax()):
-			$validator = Validator::make(Input::all(), I18nNews::$rules);
-			if($validator->passes()):
+    public function destroy($id){
 
-			    #$json_request['responseText'] = "<pre>" . print_r($_POST, 1) . "</pre>";
-			    #return Response::json($json_request,200);
+        if(!Request::ajax())
+            return App::abort(404);
 
-				$news = $this->news->find($id);
-				self::saveNewsModel($news);
-				$json_request['responseText'] = 'Новость сохранена';
-				$json_request['redirect'] = link::auth('news');
-				$json_request['status'] = TRUE;
-			else:
-				$json_request['responseText'] = 'Неверно заполнены поля';
-				$json_request['responseErrorText'] = $validator->messages()->all();
-			endif;
-		else:
-			return App::abort(404);
-		endif;
-		return Response::json($json_request,200);
-	}
+        Allow::permission($this->module['group'], 'delete');
 
-	public function deleteDestroy($id){
+        $json_request = array('status'=>FALSE, 'responseText'=>'');
 
-		$this->moduleActionPermission('news', 'delete');
-		$json_request = array('status'=>FALSE, 'responseText'=>'');
-		if(Request::ajax()):
-            ## Следующая строка почему-то не работает:
-		    #$b = $this->news_meta->where('news_id', $id)->delete;
-		    ## Ну да ладно, удалим все языковые версии вот так:
-		    $metas = $this->news_meta->where('news_id', $id)->get();
-		    foreach ($metas as $meta)
-		        @$meta->delete();
-		    ## Удаляем саму страницу
-		    $a = @$this->news->find($id)->delete();
-            ## Возвращаем сообщение чт овсе ОК
-			#if( $a && $b ):
-				$json_request['responseText'] = 'Новость удалена';
-				$json_request['status'] = TRUE;
-			#endif;
-		else:
-			return App::abort(404);
-		endif;
-		return Response::json($json_request,200);
-	}
+        $element = $this->essence->find($id);
+        if (is_object($element)) {
 
-	private function saveNewsModel($news = NULL){
+            $metas = $this->news_meta->where('news_id', $id)->get();
+            if (count($metas)) {
+                foreach ($metas as $meta)
+                    $meta->delete();
+            }
+        }
+        $element->delete();
 
-		if(is_null($news)):
-			$news = $this->news;
-		endif;
+        $json_request['responseText'] = 'Удалено';
+        $json_request['status'] = TRUE;
 
-        ## Собираем значения объекта
-		if(Allow::enabled_module('templates')):
-			$news->template = Input::get('template');
-		else:
-			$news->template = 'default';
-		endif;
-		$news->publication = 1;
-		$news->published_at = date("Y-m-d", strtotime(Input::get('published_at')));
-		$slug = Input::get('slug');
-		if (!$slug) {
-		    foreach($this->locales as $locale) {
-    			if(Input::get('title.' . $locale) != '') {
-    				$slug = $this->stringTranslite(Input::get('title.' . $locale));
-    				if ($slug != '')
-    				    break;
-    	        }
-		    }
-		}
-		$news->slug = $slug;
-		## Сохраняем в БД
-        $news->save();
-		$news->touch();
+        return Response::json($json_request,200);
+    }
 
-        ## ID (только что созданный, или сохраненный ранее)
-        $news_id = $news->id;
-        #$news_id = 111; ## Для дебага
-
-		#return "<pre>" . print_r($news, 1) . "</pre>";
-
-        ## Перебираем все локали и создаем объекты _meta для каждой языковой версии
-		foreach($this->locales as $locale) {
-    		#$news->name = (Input::get('name.' . $locale));
-
-            ## Ищем нужную языковую версию текущей новости
-            $news_meta = I18nNewsMeta::where('news_id', $news_id)->where('language', $locale)->first();
-            ## Если ее нет - создаем новую
-            if (!isset($news_meta) || !$news_meta->id)
-                $news_meta = new I18nNewsMeta;
-            ## Заполняем свойства новости переданными данными
-            $news_meta->news_id = $news_id;
-            $news_meta->language = $locale;
-            $news_meta->title = Input::get('title.' . $locale);
-            $news_meta->preview = Input::get('preview.' . $locale);
-            $news_meta->content = Input::get('content.' . $locale);
-    		if(Allow::enabled_module('seo')):
-    			if(is_null(Input::get('seo_url.' . $locale))):
-    				$news_meta->seo_url = '';
-    			elseif(Input::get('seo_url.' . $locale) === ''):
-    				$news_meta->seo_url = $this->stringTranslite(Input::get('title.' . $locale));
-    			else:
-    				$news_meta->seo_url = $this->stringTranslite(Input::get('seo_url.' . $locale));
-    			endif;
-    			$news_meta->seo_url = (string)$news_meta->seo_url;
-    			if(Input::get('seo_title.' . $locale) == ''):
-    				$news_meta->seo_title = $news_meta->title;
-    			else:
-    				$news_meta->seo_title = trim(Input::get('seo_title.' . $locale));
-    			endif;
-    			$news_meta->seo_description = Input::get('seo_description.' . $locale);
-    			$news_meta->seo_keywords = Input::get('seo_keywords.' . $locale);
-    			$news_meta->seo_h1 = Input::get('seo_h1.' . $locale);
-    		else:
-    			$news_meta->seo_url = $this->stringTranslite(Input::get('title.' . $locale));
-    			$news_meta->seo_title = Input::get('title.' . $locale);
-    			$news_meta->seo_description = $page->seo_keywords = $page->seo_h1 = '';
-    		endif;
-
-    		## Дебаг перед сохранением
-    		#return "<pre>" . print_r($news_meta, 1) . "</pre>";
-
-            ## Сохраняем языковую версию в БД
-            $news_meta->save();
-            $news_meta->touch();
-		}
-
-		## Работа с загруженными изображениями
-		$images = @Input::get('uploaded_images');
-		$gallery_id = @Input::get('gallery_id');
-		if (@count($images)) {
-
-			#$gallery_id = GalleriesController::moveImagesToGallery($images, $gallery_id);
-			#GalleriesController::relModuleUnitGallery('news', $news->id, $gallery_id);
-
-			GalleriesController::imagesToUnit($images, 'news', $news->id, $gallery_id);	
-		}
-
-		return $news->id;
-	}
 }
 
 

@@ -74,7 +74,7 @@
                     <hr class="simple">
 
                     <section>
-                        <label class="label">Индивидуальные настройки для разных (необязательно)</label>
+                        <label class="label">Индивидуальные настройки для разных языков (необязательно)</label>
 
                         <div class="widget-body">
                             <ul id="myTab1" class="nav nav-tabs bordered">
