@@ -73,7 +73,7 @@ class AdminNewsController extends BaseController {
 
 	protected $news;
 
-	public function __construct(I18nNews $news, I18nNewsMeta $news_meta){
+	public function __construct(News $news, NewsMeta $news_meta){
 
         $this->essence = $news;
 

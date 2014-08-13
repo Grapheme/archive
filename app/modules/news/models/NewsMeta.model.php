@@ -1,10 +1,10 @@
 <?php
 
-class I18nNewsMeta extends BaseModel {
+class NewsMeta extends BaseModel {
 
 	protected $guarded = array();
 
-	protected $table = 'i18n_news_meta';
+	protected $table = 'news_meta';
 
 	public static $order_by = 'created_at DESC,updated_at DESC';
 
