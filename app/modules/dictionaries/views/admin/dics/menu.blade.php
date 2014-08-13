@@ -2,7 +2,7 @@
     $menus = array();
     if (Allow::action($module['group'], 'create')) {
         $menus[] = array(
-            'link' => action('dic.create'),
+            'link' => URL::route('dic.create'),
             'title' => 'Добавить',
             'class' => 'btn btn-primary'
         );
