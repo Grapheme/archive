@@ -57,7 +57,7 @@
       <file leaf-file-name="menu.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/modules/archive/views/admin/request/menu.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="25" selection-start="1175" selection-end="1175" vertical-scroll-proportion="0.8073879" vertical-offset="204" max-vertical-offset="1717">
+            <state line="30" column="25" selection-start="1154" selection-end="1154" vertical-scroll-proportion="0.8073879" vertical-offset="204" max-vertical-offset="1717">
               <folding />
             </state>
           </provider>
@@ -110,7 +110,6 @@
         <option value="$PROJECT_DIR$/app/modules/archive/admin_archive.request.controller.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2014_08_12_100070_create_archivefunds_tables.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/models/ArchiveFund.model.php" />
-        <option value="$PROJECT_DIR$/app/modules/archive/views/admin/request/menu.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/views/admin/funds/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/views/admin/funds/index.blade.php" />
         <option value="$PROJECT_DIR$/app/lib/Helper.php" />
@@ -121,6 +120,7 @@
         <option value="$PROJECT_DIR$/app/modules/pages/admin_pages.menu.controller.php" />
         <option value="$PROJECT_DIR$/app/config/app.php" />
         <option value="$PROJECT_DIR$/public/routes.php" />
+        <option value="$PROJECT_DIR$/app/modules/archive/views/admin/request/menu.blade.php" />
       </list>
     </option>
   </component>
@@ -609,7 +609,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/archive/views/admin/request/menu.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="25" selection-start="1175" selection-end="1175" vertical-scroll-proportion="0.8073879" vertical-offset="204" max-vertical-offset="1717">
+        <state line="30" column="25" selection-start="1154" selection-end="1154" vertical-scroll-proportion="0.8073879" vertical-offset="204" max-vertical-offset="1717">
           <folding />
         </state>
       </provider>
