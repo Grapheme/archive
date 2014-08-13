@@ -99,7 +99,11 @@ class AdminNewsController extends BaseController {
 
         Allow::permission($this->module['group'], 'view');
 
-		$news = $this->news->orderBy('published_at', 'ASC')->get();
+		$news = $this->news
+            ->orderBy('published_at', 'DESC')
+            ->orderBy('created_at', 'DESC')
+            ->paginate(Config::get('site.paginate_limit', 30))->appends($_GET);
+
         $locales = $this->locales;
 
 		return View::make($this->module['tpl'].'index', compact('news', 'locales'));
