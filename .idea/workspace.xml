@@ -43,10 +43,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin_archive.menu.controller.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="admin_archive.menu.controller.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/modules/archive/admin_archive.menu.controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="0" selection-start="536" selection-end="536" vertical-scroll-proportion="0.33333334" vertical-offset="236" max-vertical-offset="1258">
+            <state line="21" column="0" selection-start="536" selection-end="536" vertical-scroll-proportion="-4.6538463" vertical-offset="236" max-vertical-offset="1258">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="40" selection-start="207" selection-end="207" vertical-scroll-proportion="0.1811723" vertical-offset="0" max-vertical-offset="563">
               <folding />
             </state>
           </provider>
@@ -146,6 +155,7 @@
         <option value="$PROJECT_DIR$/public/funds_parse.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/admin_archive.funds.controller.php" />
         <option value="$PROJECT_DIR$/app/modules/pages/admin_pages.menu.controller.php" />
+        <option value="$PROJECT_DIR$/public/routes.php" />
       </list>
     </option>
   </component>
@@ -259,10 +269,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32520324" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32520324" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -271,7 +281,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21463415" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="336" y="122" width="331" height="615" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284553" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -434,13 +444,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/lib/Helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="238" column="42" selection-start="7303" selection-end="7318" vertical-scroll-proportion="-8.423077" vertical-offset="3827" max-vertical-offset="4369">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/archive/views/admin/funds/menu.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="72" column="17" selection-start="3024" selection-end="3024" vertical-scroll-proportion="-6.5384617" vertical-offset="1054" max-vertical-offset="2822">
@@ -503,7 +506,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/archive/admin_archive.menu.controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="536" selection-end="536" vertical-scroll-proportion="0.33333334" vertical-offset="236" max-vertical-offset="1258">
+        <state line="21" column="0" selection-start="536" selection-end="536" vertical-scroll-proportion="-4.6538463" vertical-offset="236" max-vertical-offset="1258">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/lib/Helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="26" selection-start="268" selection-end="268" vertical-scroll-proportion="-2.0497336" vertical-offset="1307" max-vertical-offset="4369">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../infiniti/app/libraries/Helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3842">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="40" selection-start="207" selection-end="207" vertical-scroll-proportion="0.1811723" vertical-offset="0" max-vertical-offset="563">
           <folding />
         </state>
       </provider>
