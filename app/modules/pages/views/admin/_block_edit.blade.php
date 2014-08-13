@@ -5,7 +5,7 @@
 #$edit_title   = "Новая страница:";
 
 #$url        = @$element->id ? URL::route($module['entity'].'.update', array('id' => $element->id)) : URL::route($module['entity'].'.store', array());
-$url        = URL::route($module['entity'].'.save-block', array(), false);
+$url        = action($module['class'].'@postAjaxPagesSaveBlock');
 #$method     = @$element->id ? 'PUT' : 'POST';
 $method     = 'POST';
 #$form_title = @$element->id ? $create_title : $edit_title;

@@ -94,7 +94,7 @@
       <file leaf-file-name="edit.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/modules/pages/views/admin/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="7021">
+            <state line="345" column="89" selection-start="12516" selection-end="12568" vertical-scroll-proportion="-8.5" vertical-offset="5644" max-vertical-offset="7021">
               <folding />
             </state>
           </provider>
@@ -103,7 +103,7 @@
       <file leaf-file-name="admin_pages.page.controller.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/modules/pages/admin_pages.page.controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="0" selection-start="1229" selection-end="1229" vertical-scroll-proportion="0.300738" vertical-offset="381" max-vertical-offset="7429">
+            <state line="38" column="57" selection-start="1554" selection-end="1576" vertical-scroll-proportion="0.39483395" vertical-offset="432" max-vertical-offset="7429">
               <folding />
             </state>
           </provider>
@@ -665,14 +665,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/pages/views/admin/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="7021">
+        <state line="345" column="89" selection-start="12516" selection-end="12568" vertical-scroll-proportion="-8.5" vertical-offset="5644" max-vertical-offset="7021">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/pages/admin_pages.page.controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="1229" selection-end="1229" vertical-scroll-proportion="0.300738" vertical-offset="381" max-vertical-offset="7429">
+        <state line="38" column="57" selection-start="1554" selection-end="1576" vertical-scroll-proportion="0.39483395" vertical-offset="432" max-vertical-offset="7429">
           <folding />
         </state>
       </provider>
