@@ -264,6 +264,8 @@ class Helper {
 
         $return = '';
 
+        #Helper::d($_SERVER);
+
         $return .= <<<HTML
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -280,12 +282,14 @@ HTML;
 
                 $return .= $menu['raw'];
 
-            } else {
+            } elseif (isset($menu['link'])) {
 
-                $current = $_SERVER['REQUEST_URI'] == $menu['link'];
+                $current = ((Request::secure() ? 'https://' : 'http://') . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] == $menu['link']);
+
+                $return .= "\n<!--\n" . $_SERVER['REQUEST_URI'] . "\n" . $menu['link'] . "\n-->\n";
 
                 $return .= '<a class="' . $menu['class'] . '" href="' . $menu['link'] . '">'
-                    . ($current ? '<i class="fa fa-check"></i>' : '')
+                    . ($current ? '<i class="fa fa-check"></i> ' : '')
                     . $menu['title'] . '</a> ';
 
                 if ($child_exists) {
