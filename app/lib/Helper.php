@@ -263,6 +263,7 @@ class Helper {
             return false;
 
         $return = '';
+        $current_url = (Request::secure() ? 'https://' : 'http://') . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
         #Helper::d($_SERVER);
 
@@ -284,7 +285,7 @@ HTML;
 
             } elseif (isset($menu['link'])) {
 
-                $current = ((Request::secure() ? 'https://' : 'http://') . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] == $menu['link']);
+                $current = ($current_url == $menu['link']);
 
                 $return .= "\n<!--\n" . $_SERVER['REQUEST_URI'] . "\n" . $menu['link'] . "\n-->\n";
 

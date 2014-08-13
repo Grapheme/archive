@@ -75,17 +75,17 @@
       <file leaf-file-name="Helper.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/lib/Helper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="291" column="63" selection-start="8957" selection-end="8957" vertical-scroll-proportion="0.84547067" vertical-offset="4471" max-vertical-offset="5644">
+            <state line="287" column="28" selection-start="8704" selection-end="8704" vertical-scroll-proportion="0.13456464" vertical-offset="4828" max-vertical-offset="5661">
               <folding>
-                <marker date="1407935619821" expanded="true" signature="8054:9705" placeholder="..." />
-                <marker date="1407935619821" expanded="true" signature="8054:8166" placeholder="..." />
-                <marker date="1407935619821" expanded="true" signature="8112:9705" placeholder="..." />
-                <marker date="1407935619821" expanded="true" signature="8112:8166" placeholder="..." />
-                <marker date="1407935619821" expanded="true" signature="8166:9705" placeholder="..." />
-                <marker date="1407935619821" expanded="true" signature="9275:9314" placeholder="..." />
-                <marker date="1407935619821" expanded="true" signature="9375:9397" placeholder="..." />
-                <marker date="1407935619821" expanded="true" signature="9375:9383" placeholder="..." />
-                <marker date="1407935619821" expanded="true" signature="9375:9383" placeholder="..." />
+                <marker date="1407935677273" expanded="true" signature="8175:9742" placeholder="..." />
+                <marker date="1407935677273" expanded="true" signature="8175:8287" placeholder="..." />
+                <marker date="1407935677273" expanded="true" signature="8233:9742" placeholder="..." />
+                <marker date="1407935677273" expanded="true" signature="8233:8287" placeholder="..." />
+                <marker date="1407935677273" expanded="true" signature="8287:9742" placeholder="..." />
+                <marker date="1407935677273" expanded="true" signature="9312:9351" placeholder="..." />
+                <marker date="1407935677273" expanded="true" signature="9412:9434" placeholder="..." />
+                <marker date="1407935677273" expanded="true" signature="9412:9420" placeholder="..." />
+                <marker date="1407935677273" expanded="true" signature="9412:9420" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -280,7 +280,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.299187" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.299187" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -651,17 +651,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/lib/Helper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="291" column="63" selection-start="8957" selection-end="8957" vertical-scroll-proportion="0.84547067" vertical-offset="4471" max-vertical-offset="5644">
+        <state line="287" column="28" selection-start="8704" selection-end="8704" vertical-scroll-proportion="0.13456464" vertical-offset="4828" max-vertical-offset="5661">
           <folding>
-            <marker date="1407935619821" expanded="true" signature="8054:9705" placeholder="..." />
-            <marker date="1407935619821" expanded="true" signature="8054:8166" placeholder="..." />
-            <marker date="1407935619821" expanded="true" signature="8112:9705" placeholder="..." />
-            <marker date="1407935619821" expanded="true" signature="8112:8166" placeholder="..." />
-            <marker date="1407935619821" expanded="true" signature="8166:9705" placeholder="..." />
-            <marker date="1407935619821" expanded="true" signature="9275:9314" placeholder="..." />
-            <marker date="1407935619821" expanded="true" signature="9375:9397" placeholder="..." />
-            <marker date="1407935619821" expanded="true" signature="9375:9383" placeholder="..." />
-            <marker date="1407935619821" expanded="true" signature="9375:9383" placeholder="..." />
+            <marker date="1407935677273" expanded="true" signature="8175:9742" placeholder="..." />
+            <marker date="1407935677273" expanded="true" signature="8175:8287" placeholder="..." />
+            <marker date="1407935677273" expanded="true" signature="8233:9742" placeholder="..." />
+            <marker date="1407935677273" expanded="true" signature="8233:8287" placeholder="..." />
+            <marker date="1407935677273" expanded="true" signature="8287:9742" placeholder="..." />
+            <marker date="1407935677273" expanded="true" signature="9312:9351" placeholder="..." />
+            <marker date="1407935677273" expanded="true" signature="9412:9434" placeholder="..." />
+            <marker date="1407935677273" expanded="true" signature="9412:9420" placeholder="..." />
+            <marker date="1407935677273" expanded="true" signature="9412:9420" placeholder="..." />
           </folding>
         </state>
       </provider>
