@@ -2,7 +2,7 @@
 <?
 #Helper::tad($element->metas->where('language', $locale_sign)->first());
 #Helper::ta($element);
-$element_meta = new I18nNewsMeta;
+$element_meta = new NewsMeta;
 foreach ($element->metas as $tmp) {
     #Helper::ta($tmp);
     if ($tmp->language == $locale_sign) {

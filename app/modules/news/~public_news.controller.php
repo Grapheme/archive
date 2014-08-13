@@ -1,6 +1,6 @@
 <?php
 
-class NewsController extends BaseController {
+class PublicNewsController extends BaseController {
 
     public static $name = 'news_public';
     public static $group = 'news';

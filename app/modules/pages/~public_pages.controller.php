@@ -1,6 +1,6 @@
 <?php
 
-class PagesController extends BaseController {
+class PublicPagesController extends BaseController {
 
     public static $name = 'pages_public';
     public static $group = 'pages';

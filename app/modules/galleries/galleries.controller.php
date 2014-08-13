@@ -59,79 +59,10 @@ class GalleriesController extends BaseController {
         );
         
     }
-
-
-    ## Actions of module (for distribution rights of users)
-    ## return false;   # for loading default actions from config
-    ## return array(); # no rules will be loaded
-    /*
-    public static function returnActions() {
-        return array();
-    }
-    */
-    
-    ## Info about module (now only for admin dashboard & menu)
-    /*
-    public static function returnInfo() {
-    }
-    */
     
     /****************************************************************************/
 
-	public function __construct(I18nNews $news, I18nNewsMeta $news_meta){
-
-        $this->tpl = static::returnTpl();
-        View::share('module_name', self::$name);
-
-        $this->tpl = $this->gtpl = static::returnTpl();
-        View::share('module_tpl', $this->tpl);
-        View::share('module_gtpl', $this->gtpl);
+	public function __construct(){
     }
     
-    /*
-    |--------------------------------------------------------------------------
-    | Раздел "Новости" - I18N
-    |--------------------------------------------------------------------------
-    */
-    ## Функция для просмотра полной мультиязычной новости
-    public function showFullByUrl($url){
-
-        if (!@$url)
-            $url = Input::get('url');
-
-        if(!Allow::enabled_module('i18n_news'))
-            return App::abort(404);
-
-        $i18n_news = I18nNews::where('slug', $url)->where('publication', 1)->first();
-
-        if (!$i18n_news)
-            return App::abort(404);
-
-        if(empty($i18n_news->template) || !View::exists($this->tpl.$i18n_news->template)) {
-			#return App::abort(404, 'Отсутствует шаблон: ' . $this->tpl . $i18n_news->template);
-            throw new Exception('Template not found: ' . $this->tpl.$i18n_news->template);
-        }
-
-        $i18n_news_meta = I18nNewsMeta::where('news_id', $i18n_news->id)->where('language', Config::get('app.locale'))->first();
-
-        if(!$i18n_news_meta || !$i18n_news_meta->title)
-            return App::abort(404);
-
-		$gall = Rel_mod_gallery::where('module', 'news')->where('unit_id', $i18n_news->id)->first();
-
-        return View::make($this->tpl.$i18n_news->template,
-            array(
-            	'new' => $i18n_news,
-                'news'=>$i18n_news_meta,
-                'page_title'=>$i18n_news_meta->seo_title,
-                'page_description'=>$i18n_news_meta->seo_description,
-                'page_keywords'=>$i18n_news_meta->seo_keywords,
-                'page_author'=>'',
-                'page_h1'=>$i18n_news_meta->seo_h1,
-                'menu'=> Page::getMenu('news'),
-                'gall' => $gall
-            )
-        );
-	}
-
 }
