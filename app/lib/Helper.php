@@ -303,7 +303,7 @@ HTML;
             }
 
             if ($child_exists)
-                $return .=  "</div>";
+                $return .=  "</div> ";
 
         }
 
