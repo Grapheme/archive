@@ -247,5 +247,75 @@ class Helper {
         }
         return $return;
     }
+
+
+    public static function routes() {
+        $routes = Route::getRoutes();
+        foreach($routes as $route) {
+            echo URL::to($route->getPath()) . " <br/>\n";
+        }
+    }
+
+
+    public static function drawmenu($menus = false) {
+
+        if (!$menus || !is_array($menus) || !count($menus))
+            return false;
+
+        $return = '';
+
+        $return .= <<<HTML
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="margin-bottom-25 margin-top-10 ">
+HTML;
+
+        foreach ($menus as $menu) {
+            $child_exists = (isset($menu['child']) && is_array($menu['child']) && count($menu['child']));
+
+            if ($child_exists)
+                $return .= '<div class="btn-group">';
+
+            if (isset($menu['raw']) && $menu['raw'] != '') {
+
+                $return .= $menu['raw'];
+
+            } else {
+
+                $current = $_SERVER['REQUEST_URI'] == $menu['link'];
+
+                $return .= '<a class="' . $menu['class'] . '" href="' . $menu['link'] . '">'
+                    . ($current ? '<i class="fa fa-check"></i>' : '')
+                    . $menu['title'] . '</a> ';
+
+                if ($child_exists) {
+                    $return .=  '<a class="btn btn-default ' . @$menu['class'] . '" dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
+    <span class="caret"></span>
+</a>
+<ul class="dropdown-menu text-left">';
+
+                    foreach ($menu['child'] as $child)
+                        $return .=  '<li><a class="' . @$child['class'] . '" href="' . @$child['link'] . '">' . @$child['title'] . '</a></li> ';
+
+                    $return .=  '</ul> ';
+                }
+
+            }
+
+            if ($child_exists)
+                $return .=  "</div>";
+
+        }
+
+        $return .=  <<<HTML
+        </div>
+    </div>
+</div>
+HTML;
+
+        return $return;
+
+    }
+
 }
 
