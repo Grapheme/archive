@@ -55,7 +55,7 @@
       <file leaf-file-name="routes.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="40" selection-start="207" selection-end="207" vertical-scroll-proportion="0.1811723" vertical-offset="0" max-vertical-offset="563">
+            <state line="9" column="7" selection-start="227" selection-end="227" vertical-scroll-proportion="0.4214876" vertical-offset="0" max-vertical-offset="363">
               <folding />
             </state>
           </provider>
@@ -272,7 +272,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32520324" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32520324" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -527,7 +527,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="40" selection-start="207" selection-end="207" vertical-scroll-proportion="0.1811723" vertical-offset="0" max-vertical-offset="563">
+        <state line="9" column="7" selection-start="227" selection-end="227" vertical-scroll-proportion="0.4214876" vertical-offset="0" max-vertical-offset="363">
           <folding />
         </state>
       </provider>

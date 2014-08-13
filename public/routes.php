@@ -6,3 +6,5 @@ $routes = Route::getRoutes();
 foreach($routes as $route) {
     echo URL::to($route->getPath()) . " <br/>\n";
 }
+
+echo '!';
