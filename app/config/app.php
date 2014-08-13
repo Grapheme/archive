@@ -17,7 +17,7 @@ return array(
 	'manifest' => storage_path('meta'),
 
 	'debug' => FALSE,
-	'url' => 'http://test.grapheme.ru/archive/',
+	'url' => 'http://test.grapheme.ru/archive',
 	'timezone' => 'UTC',
 
     'locales' => array(
