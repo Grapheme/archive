@@ -4,7 +4,9 @@ class AdminUsersController extends BaseController {
 
     public static $name = 'users';
     public static $group = 'system';
-    
+    public static $entity = 'user';
+    public static $entity_name = 'юзер';
+
     /****************************************************************************/
 
     ## Routing rules of module
@@ -51,6 +53,11 @@ class AdminUsersController extends BaseController {
             'rest' => self::$name,
             'tpl'  => static::returnTpl('admin/' . self::$name),
             'gtpl' => static::returnTpl(),
+
+            'entity' => self::$entity,
+            'entity_name' => self::$entity_name,
+
+            'class' => __CLASS__,
         );
         View::share('module', $this->module);
 	}
@@ -71,6 +78,9 @@ class AdminUsersController extends BaseController {
 		    $users = User::where('group_id', $group->id)->get();
         else
             $users = User::all();
+
+        if (@!is_object($group))
+            $group = Group::firstOrNew(array('id' => 0));
 
 		$groups = Group::all();
         $groups_ids = array();

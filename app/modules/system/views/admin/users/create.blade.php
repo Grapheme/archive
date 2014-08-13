@@ -1,16 +1,12 @@
-@extends('templates.'.AuthAccount::getStartPage())
-
-
-@section('style')
-
-@stop
+@extends(Helper::acclayout())
 
 
 @section('content')
-    <h1>Добавить пользователя</h1>
 
-{{ Form::open(array('url'=>link::auth($module['rest'].'/store'), 'role'=>'form', 'class'=>'smart-form', 'id'=>'user-form', 'method'=>'post')) }}
-	<div class="row margin-top-10">
+    @include($module['tpl'].'menu')
+
+    {{ Form::open(array('url' => action($module['class'].'@postStore'), 'role'=>'form', 'class'=>'smart-form', 'id'=>'user-form', 'method'=>'post')) }}
+	<div class="row">
 		<section class="col col-6">
 			<div class="well">
 				<header>Для создания пользователя заполните форму:</header>
@@ -60,7 +56,7 @@
 			</div>
 		</section>
 	</div>
-{{ Form::close() }}
+    {{ Form::close() }}
 @stop
 
 

@@ -1,18 +1,9 @@
-@extends('templates.'.AuthAccount::getStartPage())
+@extends(Helper::acclayout())
 
 
 @section('content')
-    <h1>Группы пользователей</h1>
 
-    <div class="row">
-    	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-bottom-25 margin-top-10">
-    		<div class="">
-    		@if(Allow::action('groups', 'create'))
-    			<a class="btn btn-primary" href="{{ link::auth($module['rest'].'/create')}}">Добавить группу</a>
-    		@endif
-    		</div>
-    	</div>
-    </div>
+    @include($module['tpl'].'menu')
 
     @if($groups->count())
     <div class="row">
@@ -36,13 +27,13 @@
     					<td class="text-center" style="white-space:nowrap;">
 
         					@if(Allow::action('groups', 'view'))
-    						<a class="btn btn-info margin-right-10" href="{{ link::auth('users?group=' . $group->name) }}">
+    						<a class="btn btn-info margin-right-10" href="{{ mb_substr(action('AdminUsersController@getIndex'), 0, -6) }}?group={{ $group->name }}">
     							Участники
     						</a>
                     		@endif
 
         					@if(Allow::action('groups', 'edit'))
-							<form method="GET" action="{{ link::auth($module['rest'].'/edit/'.$group->id) }}" style="display:inline-block">
+							<form method="GET" action="{{ action($module['class'].'@getEdit', array('group_id' => $group->id)) }}" style="display:inline-block">
 								<button type="submit" class="btn btn-success margin-right-10"<? if($group->id == 1){ echo " disabled='disabled'"; }?>>
 									Изменить
 								</button>
@@ -50,7 +41,7 @@
                     		@endif
 
         					@if(Allow::action('groups', 'delete'))
-							<form method="POST" action="{{ link::auth($module['rest'].'/destroy/'.$group->id) }}" style="display:inline-block">
+							<form method="POST" action="{{ action($module['class'].'@deleteDestroy', array('group_id' => $group->id)) }}" style="display:inline-block">
 								<button type="submit" class="btn btn-danger remove-group"<? if($group->id == 1){ echo " disabled='disabled'"; }?>>
 									Удалить
 								</button>

@@ -1,16 +1,12 @@
-@extends('templates.'.AuthAccount::getStartPage())
-
-
-@section('style')
-
-@stop
+@extends(Helper::acclayout())
 
 
 @section('content')
-    <h1>Изменить данные пользователя</h1>
 
-	<div class="row margin-top-10">
-        {{ Form::model($user, array('url'=>link::auth($module['rest'].'/update/'.$user->id), 'role'=>'form', 'class'=>'smart-form', 'id'=>'user-form', 'method'=>'post')) }}
+    @include($module['tpl'].'menu')
+
+	<div class="row">
+        {{ Form::model($user, array('url' => action($module['class'].'@postUpdate', array('user_id' => $user->id)), 'role'=>'form', 'class'=>'smart-form', 'id'=>'user-form', 'method'=>'post')) }}
 		<section class="col col-6">
 			<div class="well">
 				<header>Для изменения данных пользователя заполните форму:</header>
@@ -61,7 +57,7 @@
 		</section>
         {{ Form::close() }}
 
-        {{ Form::model($user, array('url'=>link::auth($module['rest'].'/changepass/'.$user->id), 'role'=>'form', 'class'=>'smart-form', 'id'=>'user-changepass-form', 'method'=>'post')) }}
+        {{ Form::model($user, array('url' => action($module['class'].'@postChangepass', array('user_id' => $user->id)), 'role'=>'form', 'class'=>'smart-form', 'id'=>'user-changepass-form', 'method'=>'post')) }}
 		<section class="col col-6">
 			<div class="well">
 				<header>Сменить пароль:</header>

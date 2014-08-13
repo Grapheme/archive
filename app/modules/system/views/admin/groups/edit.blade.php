@@ -1,49 +1,11 @@
-@extends('templates.'.AuthAccount::getStartPage())
-
-
-@section('style')
-
-@stop
+@extends(Helper::acclayout())
 
 
 @section('content')
-    <h1>Изменить группу &laquo;{{ $group->desc }}&raquo;</h1>
 
-    <div class="row">
-    	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-bottom-25 margin-top-10">
+    @include($module['tpl'].'menu')
 
-            @if($groups->count())
-            <div class="btn-group pull-left margin-right-10">
-                @if (is_object($group) && $group->id)
-                <a class="btn btn-default" href="javascript:void(0);">
-                    {{ $group->desc }} ({{ $group->count_users() }})
-                </a>
-                @endif
-                <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
-                    <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    @foreach($groups as $grp)
-                        @if ($grp->id != $group->id && $grp->id != 1)
-                        <li>
-                            <a href="{{ link::auth("groups/edit/".$grp->id) }}">{{ $grp->desc }} ({{ $grp->count_users() }})</a>
-                        </li>
-                        @endif
-                    @endforeach
-                </ul>
-            </div>
-    		@endif
-
-			@if(Allow::action('users', 'view'))
-			<a class="btn btn-info pull-left margin-right-10" href="{{ link::auth('users?group=' . $group->name) }}">
-				Участники
-			</a>
-    		@endif
-
-    	</div>
-    </div>
-
-{{ Form::model($group, array('url'=>link::auth($module['rest'].'/update/'.$group->id), 'class'=>'smart-form', 'id'=>'group-form', 'role'=>'form', 'method'=>'post')) }}
+    {{ Form::model($group, array('url' => action($module['class'].'@postUpdate', array('group_id' => $group->id)), 'class'=>'smart-form', 'id'=>'group-form', 'role'=>'form', 'method'=>'post')) }}
 	<div class="row">
 		<section class="col col-6">
 			<div class="well">
@@ -158,7 +120,7 @@
 		</section>
 
 	</div>
-{{ Form::close() }}
+    {{ Form::close() }}
 @stop
 
 

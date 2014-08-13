@@ -1,52 +1,9 @@
-@extends('templates.'.AuthAccount::getStartPage())
+@extends(Helper::acclayout())
 
 
 @section('content')
-    <h1>Пользователи</h1>
 
-    <div class="row">
-    	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-bottom-25 margin-top-10">
-
-    		<div class="pull-left margin-right-10">
-    		@if(Allow::action('users', 'create'))
-    			<a class="btn btn-primary" href="{{ link::auth($module['rest'].'/create')}}">Добавить пользователя</a>
-    		@endif
-    		</div>
-
-            @if($groups->count())
-            <div class="btn-group pull-left margin-right-10">
-                @if (is_object($group) && $group->id)
-                <a class="btn btn-default" href="javascript:void(0);">
-                    {{ $group->desc }} ({{ $group->count_users() }})
-                </a>
-                @else
-                <a class="btn btn-default" href="javascript:void(0);">
-                    Все пользователи ({{ User::count() }})
-                </a>
-                @endif
-                <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
-                    <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    @if (is_object($group) && $group->id || 1)
-                    <li>
-                        <a href="?">
-                            Все пользователи ({{ User::count() }})
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    @endif
-                    @foreach($groups as $group)
-                    <li>
-                        <a href="?group={{ $group->name }}">{{ $group->desc }} ({{ $group->count_users() }})</a>
-                    </li>
-                    @endforeach
-                </ul>
-            </div>
-    		@endif
-
-    	</div>
-    </div>
+    @include($module['tpl'].'menu')
 
     @if($users->count())
     <div class="row">
@@ -83,13 +40,13 @@
     					<td class="text-center" style="white-space:nowrap;">
 
         					@if(Allow::action('users', 'edit'))
-    						<a class="btn btn-success margin-right-10" href="{{ link::auth('users/edit/'.$user->id) }}">
+    						<a class="btn btn-success margin-right-10" href="{{ action($module['class'].'@getEdit', array('user_id' => $user->id)) }}">
     							Изменить
     						</a>
         					@endif
 
         					@if(Allow::action('users', 'delete'))
-    						<form method="POST" action="{{ link::auth($module['rest'].'/destroy/'.$user->id) }}" style="display:inline-block">
+    						<form method="POST" action="{{ action($module['class'].'@deleteDestroy', array('user_id' => $user->id)) }}" style="display:inline-block">
     							<button type="submit" class="btn btn-danger remove-user"<? if($user->id == 1){ echo " disabled='disabled'"; }?>>
     								Удалить
     							</button>

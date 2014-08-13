@@ -1,13 +1,11 @@
-@extends('templates.'.AuthAccount::getStartPage())
-
-
-@section('style')
-
-@stop
+@extends(Helper::acclayout())
 
 
 @section('content')
-{{ Form::open(array('url'=>link::auth($module['rest'].'/store'), 'role'=>'form', 'class'=>'smart-form', 'id'=>'group-form', 'method'=>'post')) }}
+
+    @include($module['tpl'].'menu')
+
+    {{ Form::open(array('url' => action($module['class'].'@postStore'), 'role'=>'form', 'class'=>'smart-form', 'id'=>'group-form', 'method'=>'post')) }}
 	<div class="row margin-top-10">
 		<section class="col col-6">
 			<div class="well">
@@ -46,7 +44,8 @@
 			</div>
 		</section>
 	</div>
-{{ Form::close() }}
+    {{ Form::close() }}
+
 @stop
 
 

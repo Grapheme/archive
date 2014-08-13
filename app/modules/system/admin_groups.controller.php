@@ -4,6 +4,8 @@ class AdminGroupsController extends BaseController {
 
     public static $name = 'groups';
     public static $group = 'system';
+    public static $entity = 'group';
+    public static $entity_name = 'группа';
 
     /****************************************************************************/
 
@@ -18,15 +20,7 @@ class AdminGroupsController extends BaseController {
     }
 
     ## Actions of module (for distribution rights of users)
-    ## return false;   # for loading default actions from config
-    ## return array(); # no rules will be loaded
     public static function returnActions() {
-        return array(
-        	'view'   => 'Просмотр',
-        	'create' => 'Создание',
-        	'edit'   => 'Редактирование',
-        	'delete' => 'Удаление',
-        );
     }
 
     ## Info about module (now only for admin dashboard & menu)
@@ -51,6 +45,11 @@ class AdminGroupsController extends BaseController {
             'rest' => self::$name,
             'tpl'  => static::returnTpl('admin/' . self::$name),
             'gtpl' => static::returnTpl(),
+
+            'entity' => self::$entity,
+            'entity_name' => self::$entity_name,
+
+            'class' => __CLASS__,
         );
         View::share('module', $this->module);
 	}
@@ -60,7 +59,7 @@ class AdminGroupsController extends BaseController {
         Allow::permission($this->module['name'], 'view');
 
 		$groups = Group::all();
-		#$roles = Role::all();
+
 		return View::make($this->module['tpl'].'index', compact('groups'));
 	}
 

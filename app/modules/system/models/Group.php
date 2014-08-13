@@ -16,20 +16,8 @@ class Group extends Eloquent {
 		'dashboard' => 'required'
 	);
 
-    /**
-     * @todo нужно выпилить как пережиток прошлого
-     */
-	public function roles(){
-		return $this->belongsToMany('Role');
-	}
-    /*
-	public function actions(){
-		return $this->hasMany('Action', 'id', 'group_id');
-	}
-    */
-    
     ## Количество юзеров в группе
-	public function count_users(){
+	public function count_users() {
 		return User::where('group_id', $this->id)->count();
 	}
 	

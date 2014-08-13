@@ -289,12 +289,12 @@ HTML;
 
                 $return .= "\n<!--\n" . $_SERVER['REQUEST_URI'] . "\n" . $menu['link'] . "\n-->\n";
 
-                $return .= '<a class="' . $menu['class'] . '" href="' . $menu['link'] . '">'
+                $return .= '<a class="' . @$menu['class'] . '" href="' . $menu['link'] . '">'
                     . ($current ? '<i class="fa fa-check"></i> ' : '')
-                    . $menu['title'] . '</a> ';
+                    . @$menu['title'] . '</a> ';
 
                 if ($child_exists) {
-                    $return .=  '<a class="btn btn-default ' . @$menu['class'] . '" dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
+                    $return .=  '<a class="btn btn-default dropdown-toggle ' . @$menu['class'] . '" dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
     <span class="caret"></span>
 </a>
 <ul class="dropdown-menu text-left">';
