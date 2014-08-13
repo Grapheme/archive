@@ -1,0 +1,13 @@
+/usersfiles
+#/public/uploads
+#public/uploads/*
+/vendor/*
+#composer.phar
+#composer.lock
+#.DS_Store
+
+.htaccess
+*.clpprj
+Thumbs.db
+#app/config/database.php
+/!info

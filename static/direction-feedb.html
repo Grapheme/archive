@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/fonts.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/fotorama.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+        <!-- VK LIKE BUTTON -->
+        <script type="text/javascript" src="//vk.com/js/api/openapi.js?113"></script>
+
+        <script type="text/javascript">
+          VK.init({apiId: 2661341, onlyWidgets: true});
+        </script>
+        <!--  -->
+
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <header>
+            <div class="wrapper">
+                <div class="fl-l">
+                    <a href="#" class="logo">
+                        <span class="logo-left">Видео</span><span class="logo-right">гид</span>
+                    </a>
+                    <div class="head-social">
+                        <a href="#" class="soc-vk"><i class="fa fa-vk"></i></a>
+                        <a href="#" class="soc-tw"><i class="fa fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="fl-r">
+                    <a href="#" class="bubble-i"></a>
+                    <a href="#" class="m-apps">Мобильные приложения</a>
+                    <a href="#" class="head-search">
+                        <i class="fa fa-search"></i>
+                        <span>Поиск</span>
+                    </a>
+                    <div class="head-cab">
+                        <a href="#" class="cab-img"><img src="img/head-face.png" alt=""></a>
+                        <div class="cab-cont">
+                            <a href="#" class="cab-name">Виктор Янукович</a>
+                            <a href="#" class="cab-news"><span class="cab-count">10</span> новых комментариев</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="wrapper-full wrapper-pad">
+            <div class="wrapper">
+                <div class="bread">
+                    <span class="crumb"><a href="#" class="us-link">Главная</a></span>
+                    <span class="crumb">
+                        <a href="#" class="us-link">Санкт-Петербург</a>
+                        <span class="crumb-sub">86 вузов</span>
+                    </span>
+                    <span class="crumb">
+                        <a href="#" class="us-link">Поиск по направлениям</a>
+                        <span class="crumb-sub">12 вузов</span>
+                    </span>
+                    <span class="crumb">Результаты поиска</a>
+                </div>
+                <div class="dir-search-left">
+                    <div class="gray-block">
+                        <div class="normal-title">Похожие направления</div>
+                        <ul class="relative-dirs unstyled-list">
+                            <li class="margin-t15">
+                                <div class="dir-left">
+                                    <div class="title">
+                                        <a href="#" class="us-link">Математика и экономика</a>
+                                    </div>
+                                    <div class="desc">
+                                        Санкт-Петербургский государственный университет экономики и финансов
+                                    </div>
+                                </div>
+                                <div class="rating fl-r">4,5</div>
+                            </li>
+                            <li class="margin-t15">
+                                <div class="dir-left">
+                                    <div class="title">
+                                        <a href="#" class="us-link">Математика и экономика</a>
+                                    </div>
+                                    <div class="desc">
+                                        Санкт-Петербургский государственный университет экономики и финансов
+                                    </div>
+                                </div>
+                                <div class="rating fl-r">4,5</div>
+                            </li>
+                            <li class="margin-t15">
+                                <div class="dir-left">
+                                    <div class="title">
+                                        <a href="#" class="us-link">Математика и экономика</a>
+                                    </div>
+                                    <div class="desc">
+                                        Санкт-Петербургский государственный университет экономики и финансов
+                                    </div>
+                                </div>
+                                <div class="rating fl-r">4,5</div>
+                            </li>
+                        </ul>
+                    </div>
+                       
+                    <div class="dir-map min-map">
+                        <div class="title">Поиск по карте</div>
+                        <div id="dir-map"></div>
+                        <div class="dir-hints">
+                            <span><i class="fa fa-map-marker h-univ"></i>Вуз</span>
+                            <span><i class="fa fa-map-marker h-dir"></i>Направление</span>
+                            <span><i class="fa fa-map-marker h-camp"></i>Общежитие</span>
+                        </div>
+                    </div>
+
+                    <div class="gray-block margin-t20">
+                        <div class="normal-title">Ранее вы смотрели</div>
+                        <ul class="relative-dirs unstyled-list">
+                            <li class="margin-t15">
+                                <div class="dir-left">
+                                    <div class="title">
+                                        <a href="#" class="us-link">Математика и экономика</a>
+                                    </div>
+                                    <div class="desc">
+                                        Санкт-Петербургский государственный университет экономики и финансов
+                                    </div>
+                                </div>
+                                <div class="rating fl-r">4,5</div>
+                            </li>
+                            <li class="margin-t15">
+                                <div class="dir-left">
+                                    <div class="title">
+                                        <a href="#" class="us-link">Математика и экономика</a>
+                                    </div>
+                                    <div class="desc">
+                                        Санкт-Петербургский государственный университет экономики и финансов
+                                    </div>
+                                </div>
+                                <div class="rating fl-r">4,5</div>
+                            </li>
+                            <li class="margin-t15">
+                                <div class="dir-left">
+                                    <div class="title">
+                                        <a href="#" class="us-link">Математика и экономика</a>
+                                    </div>
+                                    <div class="desc">
+                                        Санкт-Петербургский государственный университет экономики и финансов
+                                    </div>
+                                </div>
+                                <div class="rating fl-r">4,5</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dir-search-right dir-feedback">
+                    <div class="dir-title">
+                        Отзывы о <a href="#" class="us-link">Прикладной информатике в экономике</a>
+                    </div>
+                    <div class="dir-feedb">
+                        <div class="dir-photo" style="background-image: url(img/test/direction.jpg);"></div>
+                        <div class="feedb-block">
+                            <div class="margin-b5">
+                                Санкт-Петербургский государственный университет экономики и финансов
+                            </div>
+                            <div class="main-info-row">
+                                <span>Вуз:</span><span><a href="#" class="us-link">СПбГУ</a></span>
+                            </div>
+                            <div class="main-info-row">
+                                <span>Организация:</span><span><a href="#" class="us-link">университет</a></span>
+                            </div>
+                            <div class="main-info-row">
+                                <span>Тип:</span><span><a href="#" class="us-link">государственный</a></span>
+                            </div>
+                            <div class="main-info-row">
+                                <span>Профиль:</span><span><a href="#" class="us-link">классический</a></span>
+                            </div>
+                        </div>
+                        <div class="feedb-rating">
+                            <div class="medium-text">Общая оценка:</div>
+                            <div class="rating">8,3</div>
+                            <div class="rating-word">отлично</div>
+                            <ul class="unstyled-list rating-ul">
+                                <li><i class="fa fa-star"></i>
+                                <li><i class="fa fa-star"></i>
+                                <li><i class="fa fa-star"></i>
+                                <li><i class="fa fa-star-half-o"></i>
+                                <li><i class="fa fa-star-o"></i>
+                            </ul>
+                        </div>
+                        <div class="feedb-rating">
+                            <div class="medium-text">Составные части:</div>
+                            <div class="rating-row">
+                                <span>Качество преподавания:</span><span>3,5</span>
+                            </div>
+                            <div class="rating-row">
+                                <span>Техническая оснащенность:</span><span>3,5</span>
+                            </div>
+                            <div class="rating-row">
+                                <span>Адекватность цены:</span><span>3,5</span>
+                            </div>
+                            <div class="rating-row">
+                                <span>Интеллект. деятельность:</span><span>3,5</span>
+                            </div>
+                            <div class="rating-row">
+                                <span>Расположение:</span><span>3,5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dir-amount">Показано 5 отзывов из 20</div>
+                    <div class="search-navbar">
+                        <span>Сортировать отзывы по:</span>
+                        <ul class="sort-type unstyled-list">
+                            <li>Рейтингу<i class="fa fa-caret-right fa-rotate-90"></i></li>
+                            <li>Дате добавления<i class="fa fa-caret-right fa-rotate-90"></i></li>
+                        </ul>
+                        <span class="fl-r">
+                            <button class="apply-btn">Добавить</button>
+                        </span>
+                    </div>
+                    <ul class="feedb-ul unstyled-list medium-text">
+                        <li class="feedb-item">
+                            <div class="left-block">
+                                <ul class="unstyled-list rating-ul">
+                                    <li><i class="fa fa-star"></i>
+                                    <li><i class="fa fa-star"></i>
+                                    <li><i class="fa fa-star"></i>
+                                    <li><i class="fa fa-star-half-o"></i>
+                                    <li><i class="fa fa-star-o"></i>
+                                </ul>
+                                <div class="margin-l5">
+                                    <span class="rating">8,3</span>
+                                    <span class="rating-word">отлично</span>
+                                    
+                                    <ul class="unstyled-list margin-t5 little-text">
+                                        <li><span class="rating-word">3,7</span> за преподавание
+                                        <li><span class="rating-word">8,9</span> за тех. оснащение
+                                        <li><span class="rating-word">3,4</span> за адекватность цены
+                                        <li><span class="rating-word">8,9</span> за интеллект. деят.
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="right-block">
+                                <div class="feed-message">
+                                    <div class="title-img">
+                                        <div class="title-img-cont">
+                                            <img src="img/feedbackface.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="item-cont">
+                                        <div class="title">
+                                            <span class="title-text">Студент <a href="#" class="us-link js-user-tooltip">Иван Петров</a> написал сегодня:</span>
+                                        </div>
+                                        <div class="desc">
+                                            Механическая система, как следует из системы уравнений, вращает установившийся режим, составляя уравнения Эйлера для этой системы координат. Прецессионная теория различна.
+                                        </div>
+                                        <div class="bottom-block">
+                                            <a href="#" class="us-link-dash fl-l">12 комментариев <i class="fa fa-caret-right fa-rotate-90"></i></a>
+                                            <a href="#" class="us-link-dash fl-l">Оставить комментарий</a>
+                                            <span class="fl-r">
+                                                <a href="#" class="feed-like us-link js-like" data-thumbs="down" data-likes="120">
+                                                    Не нравится <i class="fa fa-thumbs-down"></i>120
+                                                </a>
+                                                <a href="#" class="feed-like us-link js-like" data-thumbs="up" data-likes="14">
+                                                    Нравится <i class="fa fa-thumbs-up"></i>14
+                                                </a>
+                                            </span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <ul class="feed-comments unstyled-list">
+                                            <li class="feed-message">
+                                                <div class="title-img">
+                                                    <div class="title-img-cont">
+                                                        <img src="img/feedbackface.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="item-cont">
+                                                    <div class="title">
+                                                        <span class="title-text">Студент <a href="#" class="us-link js-user-tooltip">Иван Петров</a> проккоментировал сегодня в 12:30:</span>
+                                                    </div>
+                                                    <div class="desc">
+                                                        Составляя уравнения Эйлера для этой системы координат. Прецессионная теория различна.
+                                                    </div>
+                                                    <div class="bottom-block">
+                                                        <a href="#" class="us-link-dash">Ответить</a>
+                                                    </div>
+                                                </div>
+
+                                            <li class="feed-message">
+                                                <div class="title-img">
+                                                    <div class="title-img-cont">
+                                                        <img src="img/feedbackface.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="item-cont">
+                                                    <div class="title">
+                                                        <span class="title-text">Студент <a href="#" class="us-link js-user-tooltip">Иван Петров</a> проккоментировал сегодня в 12:30:</span>
+                                                    </div>
+                                                    <div class="desc">
+                                                        Механическая система
+                                                    </div>
+                                                    <div class="bottom-block">
+                                                        <a href="#" class="us-link-dash">Ответить</a>
+                                                    </div>
+                                                </div>
+
+                                        </ul>
+                                        <div class="leave-comment">
+                                            <textarea class="us-textarea" placeholder="Ваш комментарий"></textarea>
+                                            <button class="event-btn">Отправить</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <li class="feedb-item">
+                            <div class="left-block">
+                                <ul class="unstyled-list rating-ul">
+                                    <li><i class="fa fa-star"></i>
+                                    <li><i class="fa fa-star"></i>
+                                    <li><i class="fa fa-star"></i>
+                                    <li><i class="fa fa-star-half-o"></i>
+                                    <li><i class="fa fa-star-o"></i>
+                                </ul>
+                                <div class="margin-l5">
+                                    <span class="rating">8,3</span>
+                                    <span class="rating-word">отлично</span>
+                                    
+                                    <ul class="unstyled-list margin-t5 little-text">
+                                        <li><span class="rating-word">3,7</span> за преподавание
+                                        <li><span class="rating-word">8,9</span> за тех. оснащение
+                                        <li><span class="rating-word">3,4</span> за адекватность цены
+                                        <li><span class="rating-word">8,9</span> за интеллект. деят.
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="right-block">
+                                <div class="feed-message">
+                                    <div class="title-img">
+                                        <div class="title-img-cont">
+                                            <img src="img/feedbackface.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="item-cont">
+                                        <div class="title">
+                                            <span class="title-text">Студент <a href="#" class="us-link js-user-tooltip">Иван Петров</a> написал сегодня:</span>
+                                        </div>
+                                        <div class="desc">
+                                            Механическая система, как следует из системы уравнений, вращает установившийся режим, составляя уравнения Эйлера для этой системы координат. Прецессионная теория различна.
+                                        </div>
+                                        <div class="bottom-block">
+                                            <a href="#" class="us-link-dash fl-l">12 комментариев <i class="fa fa-caret-right fa-rotate-90"></i></a>
+                                            <a href="#" class="us-link-dash fl-l">Оставить комментарий</a>
+                                            <span class="fl-r">
+                                                <a href="#" class="feed-like us-link js-like" data-thumbs="down" data-likes="120">
+                                                    Не нравится <i class="fa fa-thumbs-down"></i>120
+                                                </a>
+                                                <a href="#" class="feed-like us-link js-like" data-thumbs="up" data-likes="14">
+                                                    Нравится <i class="fa fa-thumbs-up"></i>14
+                                                </a>
+                                            </span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <ul class="feed-comments unstyled-list">
+
+                                        </ul>
+                                        <div class="leave-comment">
+                                            <textarea class="us-textarea" placeholder="Ваш комментарий"></textarea>
+                                            <button class="event-btn">Отправить</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </main>
+
+        <footer>
+            <div class="wrapper">
+                <div class="fl-l"><a href="#" class="us-link">Достоверность информации</a></div>
+                <div class="fl-r">
+                    <a href="#" class="soc-vk"><i class="fa fa-vk"></i></a>
+                    <a href="#" class="soc-tw"><i class="fa fa-twitter"></i></a>
+                </div>
+                <div class="ftr-center">
+                    <div>© «Гид по вузам». Все права защищены.</div>
+                    <div><a href="#" class="us-link">О проекте</a>, <a href="#" class="us-link">Часто задаваемые вопросы</a>, <a href="#" class="us-link">Служба поддержки клиентов</a>.</div>
+                </div>
+            </div>
+        </footer>
+
+        <div class="overlay">
+            <div class="pop-prof pop-window closed" data-popup="proffesions">
+                <div class="pop-title">
+                    Профессии
+                    <i class="pop-close js-pop-close"></i>
+                </div>
+                <div class="double-block">
+                    <div class="pop-text">Возможные профессии:</div>
+                    <ul class="unstyled-list">
+                        <li>Прикладная информатика
+                        <li>Математические технологии
+                        <li>Общих теорий
+                        <li>Математики в экономике
+                        <li>Информационные технологии
+                        <li>Прикладная информатика
+                        <li>Математические технологии
+                        <li>Общих теорий
+                        <li>Математики в экономике
+                        <li>Информационные технологии
+                        <li>Прикладная информатика
+                        <li>Математические технологии
+                        <li>Общих теорий
+                        <li>Математики в экономике
+                        <li>Информационные технологии
+                    </ul>
+                </div><!--
+             --><div class="double-block">
+                    <div class="pop-text">Сферы деятельности:</div>
+                    <ul class="unstyled-list">
+                        <li>Математические технологии
+                        <li>Общих теорий
+                        <li>Математики в экономике
+                        <li>Информационные технологии
+                        <li>Прикладная информатика
+                        <li>Математические технологии
+                        <li>Общих теорий
+                        <li>Математики в экономике
+                        <li>Информационные технологии
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pop-edplan pop-window closed" data-popup="education-plan">
+                <div class="pop-title">
+                    Учебный план
+                    <i class="pop-close js-pop-close"></i>
+                </div>
+                <table class="educ-table">
+                    <thead>
+                        <th>Курс</th>
+                        <th>Дисциплина</th>
+                        <th>Уч. часов</th>
+                        <th>Форма контроля</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="spec-td">1 курс</td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+
+                        <tr>
+                            <td class="spec-td">2 курс</td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+
+                        <tr>
+                            <td class="spec-td">3 курс</td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+
+                        <tr>
+                            <td class="spec-td">4 курс</td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+
+                        <tr>
+                            <td class="spec-td">5 курс</td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>История</td>
+                            <td>306</td>
+                            <td>экзамен</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/vendor/fotorama.js"></script>
+        <script src="js/main.js"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA4Q5VgK-858jgeSbJKHbclop_XIJs3lXs&sensor=true">
+        </script>
+        <script type="text/javascript">
+          function initialize() {
+
+            var myLatlng = new google.maps.LatLng(47.2248231, 39.7273844);
+
+            var mapOptions = {
+              center: myLatlng,
+              zoom: 17,
+              mapTypeId: google.maps.MapTypeId.ROADMAP,
+            };
+            var map = new google.maps.Map(document.getElementById("dir-map"),
+                mapOptions);
+
+            
+
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                icon: 'img/mark-univ.png',
+                map: map
+            });
+
+          }
+          var map = google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+    </body>
+</html>
