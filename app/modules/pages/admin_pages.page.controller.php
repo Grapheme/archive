@@ -29,22 +29,17 @@ class AdminPagesPageController extends BaseController {
             );
 
         });
-        Route::post('ajax-pages-delete-block', $class.'@postAjaxPagesDeleteBlock');
         Route::post('ajax-pages-get-page-blocks', $class.'@postAjaxPagesGetPageBlocks');
-        Route::post('ajax-pages-blocks-order-save',
-            array(
-                'as' => self::$entity.'.blocks-order-profile',
-                'uses' => $class.'@postAjaxPagesBlocksOrderSave'
-            )
-        );
         Route::post('ajax-pages-get-block', $class.'@postAjaxPagesGetBlock');
+        Route::post('ajax-pages-delete-block', $class.'@postAjaxPagesDeleteBlock');
+        /*
         Route::post('ajax-pages-save-block',
             array(
                 'as' => self::$entity.'.save-block',
                 'uses' => $class.'@postAjaxPagesSaveBlock'
             )
         );
-
+        */
     }
 
     ## Shortcodes of module

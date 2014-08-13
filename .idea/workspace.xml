@@ -91,19 +91,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="edit.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/modules/pages/views/admin/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="345" column="93" selection-start="12572" selection-end="12572" vertical-scroll-proportion="0.45756456" vertical-offset="5634" max-vertical-offset="7174">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="7021">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin_pages.page.controller.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="admin_pages.page.controller.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/modules/pages/admin_pages.page.controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="74" selection-start="1590" selection-end="1611" vertical-scroll-proportion="-13.730769" vertical-offset="306" max-vertical-offset="7514">
+            <state line="32" column="0" selection-start="1229" selection-end="1229" vertical-scroll-proportion="0.300738" vertical-offset="381" max-vertical-offset="7429">
               <folding />
             </state>
           </provider>
@@ -168,6 +168,7 @@
         <option value="$PROJECT_DIR$/app/modules/archive/views/admin/funds/menu.blade.php" />
         <option value="$PROJECT_DIR$/app/lib/Helper.php" />
         <option value="$PROJECT_DIR$/app/modules/pages/views/admin/edit.blade.php" />
+        <option value="$PROJECT_DIR$/app/modules/pages/admin_pages.page.controller.php" />
       </list>
     </option>
   </component>
@@ -662,16 +663,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/modules/pages/admin_pages.page.controller.php">
+    <entry file="file://$PROJECT_DIR$/app/modules/pages/views/admin/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="74" selection-start="1590" selection-end="1611" vertical-scroll-proportion="-13.730769" vertical-offset="306" max-vertical-offset="7514">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="7021">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/modules/pages/views/admin/edit.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/modules/pages/admin_pages.page.controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="345" column="93" selection-start="12572" selection-end="12572" vertical-scroll-proportion="0.45756456" vertical-offset="5634" max-vertical-offset="7174">
+        <state line="32" column="0" selection-start="1229" selection-end="1229" vertical-scroll-proportion="0.300738" vertical-offset="381" max-vertical-offset="7429">
           <folding />
         </state>
       </provider>

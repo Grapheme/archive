@@ -376,15 +376,6 @@
                     // On finish of sorting
                     stop: function() {
                         sorting(this);
-                        /*
-                         // Send ajax request to server for saving sorting order
-                         $.ajax({
-                         url: "{{ URL::route($module['entity'].'.blocks-order-profile', array(), false) }}",
-                         type: "post",
-                         data: {poss: poss},
-                         success: function() {}
-                         });
-                         */
                     }
                 });
             }
