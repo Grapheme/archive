@@ -149,7 +149,7 @@ class PublicPagesController extends BaseController {
                 }
             }
 
-        } else {
+        } elseif ($url != '') {
 
             ## Page by SLUG
 
@@ -165,6 +165,16 @@ class PublicPagesController extends BaseController {
                     ->page;
                 #Helper::tad($page);
 
+                /*
+                ## Check SEO url & gettin' $url
+                ## and make 301 redirect if need it
+                if (@is_object($page->meta) && @is_object($page->meta->seo) && $page->meta->seo->url != '' && $page->meta->seo->url != $url) {
+                    $redirect = URL::route('page_i18n', array('url' => $page->meta->seo->url));
+                    #Helper::dd($redirect);
+                    return Redirect::to($redirect, 301);
+                }
+                */
+
             } else {
 
                 ## Search slug in SLUG
@@ -173,7 +183,17 @@ class PublicPagesController extends BaseController {
                     ->with('meta.seo')
                     ->with('blocks.meta')
                     ->first();
+                #Helper::tad($page);
 
+                /*
+                ## Check SEO url & gettin' $url
+                ## and make 301 redirect if need it
+                if (@is_object($page->meta) && @is_object($page->meta->seo) && $page->meta->seo->url != '' && $page->meta->seo->url != $url) {
+                    $redirect = URL::route('page_i18n', array('url' => $page->meta->seo->url));
+                    #Helper::dd($redirect);
+                    return Redirect::to($redirect, 301);
+                }
+                */
             }
 
             ## Check SEO url & gettin' $url
@@ -183,6 +203,9 @@ class PublicPagesController extends BaseController {
                 #Helper::dd($redirect);
                 return Redirect::to($redirect, 301);
             }
+
+        } else {
+            $page = $page->where('start_page', 1)->first();
         }
 
         #Helper::tad($page);

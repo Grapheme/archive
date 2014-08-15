@@ -62,8 +62,9 @@
 
                 </div>
 
-                <fieldset>
-                    <section>
+                <fieldset class="clearfix">
+
+                    <section class="col col-lg-6 col-sm-12 col-xs-12">
                         <label class="checkbox">
                             {{ Form::checkbox('publication', 1, ($element->publication === 0 ? null : true)) }}
                             <i></i>
@@ -71,7 +72,7 @@
                         </label>
                     </section>
 
-                    <section>
+                    <section class="col col-lg-6 col-sm-12 col-xs-12">
                         <label class="checkbox">
                             {{ Form::checkbox('in_menu', 1, (!$element->in_menu ? null : true)) }}
                             <i></i>
@@ -79,9 +80,19 @@
                         </label>
                     </section>
 
-                    @if (count($locales) > 1 || 1)
+                    <section class="col col-lg-6 col-sm-12 col-xs-12">
+                        <label class="checkbox">
+                            {{ Form::checkbox('start_page', 1) }}
+                            <i></i>
+                            Стартовая страница
+                        </label>
+                    </section>
 
-                    <hr class="simple">
+                </fieldset>
+
+                <fieldset class="clearfix">
+
+                    @if (count($locales) > 1 || 1)
 
                     <section>
                         <label class="label">Индивидуальные настройки для разных языков (необязательно)</label>

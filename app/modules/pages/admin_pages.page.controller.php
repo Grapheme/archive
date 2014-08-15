@@ -162,8 +162,10 @@ class AdminPagesPageController extends BaseController {
 
         $input['template'] = $input['template'] ? $input['template'] : NULL;
 
-        $input['slug'] = $input['slug'] ? $input['slug'] : $input['name'];
+        $input['slug'] = @$input['slug'] ? $input['slug'] : $input['name'];
         $input['slug'] = Helper::translit($input['slug']);
+
+        $input['start_page'] = @$input['start_page'] ? 1 : NULL;
 
         #$json_request['responseText'] = "<pre>" . print_r(Input::all(), 1) . "</pre>";
         #$json_request['responseText'] = "<pre>" . print_r($input, 1) . print_r($locales, 1) . print_r($blocks, 1) . print_r($blocks_new, 1) . "</pre>";
@@ -200,6 +202,9 @@ class AdminPagesPageController extends BaseController {
 
                 $redirect = URL::route($this->module['entity'].'.edit', array('page_id' => $id));
             }
+
+            if (!is_null($element->start_page))
+                $this->essence->where('start_page', 1)->where('id', '!=', $element->id)->update(array('start_page' => NULL));
 
             ## PAGES_META
             if (count($locales)) {
