@@ -3,10 +3,10 @@
     <!-- loadScript("/js/modules/gallery.js"); -->
 
 
-	<div class="egg-dropzone dropzone" data-name="{{ $name }}" data-gallery_id="{{ (isset($gallery) && is_object($gallery)) ? (int)$gallery->gallery_id : '0' }}"></div>
+	<div class="egg-dropzone dropzone" data-name="{{ $name }}" data-gallery_id="{{ (isset($gallery) && is_object($gallery)) ? (int)$gallery->id : '0' }}"></div>
     <div class="superbox_" style="margin-top:10px;">
 
-    	<input type="hidden" name="{{ $name }}[gallery_id]" value="{{ (isset($gallery) && is_object($gallery)) ? (int)$gallery->gallery_id : '0' }}" />
+    	<input type="hidden" name="{{ $name }}[gallery_id]" value="{{ (isset($gallery) && is_object($gallery)) ? (int)$gallery->id : '0' }}" />
 
         @if (@is_object($gallery))
             <? $gallery_photos = @$gallery->photos()->orderBy('id', 'DESC')->get(); ?>

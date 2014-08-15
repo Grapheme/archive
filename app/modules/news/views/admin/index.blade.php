@@ -23,7 +23,7 @@
                             {{ $n+1 }}
                         </td>
 						<td>
-						    <a href="{{ link::to('news/'.$new->slug) }}" target="_blank">{{$new->meta->title}}</a><br/>
+						    <a href="{{ URL::to('news/'.$new->slug) }}" target="_blank">{{ is_object($new->meta) ? $new->meta->title : $new->slug }}</a><br/>
                             <span class="note">{{ date("d.m.Y", strtotime($new->published_at)) }}</span>
 						</td>
 						<td class="text-center" style="white-space:nowrap;">

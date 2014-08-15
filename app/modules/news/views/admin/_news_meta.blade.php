@@ -11,21 +11,61 @@ foreach ($element->metas as $tmp) {
     }
 }
 ?>
-<section>
-    <label class="label">Название</label>
-    <label class="input">
-        {{ Form::text('locales['.$locale_sign.'][title]', $element_meta->title) }}
-    </label>
-</section>
-<section>
-    <label class="label">Анонс</label>
-    <label class="textarea">
-        {{ Form::textarea('locales['.$locale_sign.'][preview]', $element_meta->preview, array('class'=>'redactor redactor_150')) }}
-    </label>
-</section>
-<section>
-    <label class="label">Содержание</label>
-    <label class="textarea">
-        {{ Form::textarea('locales['.$locale_sign.'][content]', $element_meta->content, array('class'=>'redactor redactor_450')) }}
-    </label>
-</section>
+<fieldset class="col col-lg-7 clearfix">
+
+    <section>
+        <label class="label">Название</label>
+        <label class="input">
+            {{ Form::text('locales['.$locale_sign.'][title]', $element_meta->title) }}
+        </label>
+    </section>
+
+    <section>
+        <label class="label">Анонс</label>
+        <label class="textarea">
+            {{ Form::textarea('locales['.$locale_sign.'][preview]', $element_meta->preview, array('class' => 'redactor redactor_preview')) }}
+        </label>
+    </section>
+
+    <section>
+        <label class="label">Содержание</label>
+        <label class="textarea">
+            {{ Form::textarea('locales['.$locale_sign.'][content]', $element_meta->content, array('class' => 'redactor redactor_content')) }}
+        </label>
+    </section>
+
+    @if (Allow::module('galleries'))
+    <section>
+        <label class="label">Основная фотография</label>
+        <label class="input">
+            {{ ExtForm::image('locales[' . $locale_sign . '][photo_id]', $element_meta->photo_id) }}
+        </label>
+    </section>
+
+    <section>
+        <label class="label">Галерея</label>
+        <label class="input">
+            {{ ExtForm::gallery('locales[' . $locale_sign . '][gallery_id]', $element_meta->gallery_id) }}
+        </label>
+    </section>
+    @endif
+
+</fieldset>
+
+<span><!-- .smart-form fieldset + fieldset border-top 1px fix --></span>
+
+<fieldset class="col col-lg-5 clearfix margin-bottom-10">
+
+    {{ ExtForm::seo('seo['.$locale_sign.']', $element_meta->seo) }}
+    {{-- ExtForm::seo('seo['.$locale_sign.']') --}}
+
+</fieldset>
+
+<style>
+    .redactor_redactor_preview {
+        height: 80px !important;
+    }
+    .redactor_redactor_content {
+        height: 200px !important;
+    }
+</style>

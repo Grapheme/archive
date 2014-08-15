@@ -54,6 +54,13 @@ class AdminGalleriesController extends BaseController {
                     $tpl = $params['tpl'];
                     unset($params['tpl']);
                 }
+
+                #Helper::dd($value);
+
+                if (is_numeric($value)) {
+                    $value = Gallery::find($value);
+                }
+
                 $gallery = $value;
                 ## return view with form element
                 return View::make($mod_tpl.$tpl, compact('name', 'gallery', 'params'));                
@@ -72,8 +79,17 @@ class AdminGalleriesController extends BaseController {
                 $module = (string)trim($module);
                 $unit_id = (int)trim($unit_id);
 
-                ## Perform all actions for adding photos to the gallery & bind gallery to the unit_id of module
-                $gallery_id = $class::imagesToUnit($uploaded_images, $module, $unit_id, $gallery_id);
+                if (@$params['single']) {
+
+                    $gallery_id = $class::moveImagesToGallery($uploaded_images, $gallery_id);
+                    if ($gallery_id)
+                        $class::renameGallery($gallery_id, $module . " - " . $unit_id);
+
+                } else {
+
+                    ## Perform all actions for adding photos to the gallery & bind gallery to the unit_id of module
+                    $gallery_id = $class::imagesToUnit($uploaded_images, $module, $unit_id, $gallery_id);
+                }
 
                 #Helper::dd($gallery_id);
 
@@ -119,6 +135,8 @@ class AdminGalleriesController extends BaseController {
                     if ( $val > 0 ) {
                         $value = Photo::firstOrNew(array('id' => $val));
                     }
+                } elseif (is_numeric($value)) {
+                    $value = Photo::find($value);
                 }
 
                 $photo = $value;
@@ -442,7 +460,7 @@ class AdminGalleriesController extends BaseController {
 	public static function moveImagesToGallery($images = array(), $gallery_id = false) {
 
 		if ( !isset($images) || !is_array($images) || !count($images) )
-			return false;
+			return $gallery_id;
 
         ## Find gallery
         $gallery = $gallery_id ? Gallery::find($gallery_id) : null;
@@ -488,12 +506,24 @@ class AdminGalleriesController extends BaseController {
 			));
 		}
 
-		$gallery = Gallery::find($gallery_id);
-		$gallery->name = $module . " - " . $unit_id;
-		$gallery->save();
+        self::renameGallery($gallery_id, $module . " - " . $unit_id);
 
 		return $rel->id;
 	}
+
+    public static function renameGallery($gallery_id = false, $name = false) {
+        if ( !$gallery_id || !$name )
+            return false;
+
+        $gallery = Gallery::find($gallery_id);
+        if (is_object($gallery)) {
+            $gallery->name = $name;
+            $gallery->save();
+            return true;
+        }
+
+        return false;
+    }
 
 	public static function imagesToUnit($images = array(), $module = '', $unit_id = 0, $gallery_id = false) {
 
@@ -501,7 +531,7 @@ class AdminGalleriesController extends BaseController {
 			!isset($images) || !is_array($images) || !count($images)
 			|| !@$module || !$unit_id
 		)
-			return false;
+			return $gallery_id;
 
 		$gallery_id = self::moveImagesToGallery($images, $gallery_id);
 		self::relModuleUnitGallery($module, (int)$unit_id, $gallery_id);

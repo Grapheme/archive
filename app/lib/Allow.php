@@ -30,7 +30,7 @@ class Allow {
      * @param string $action
      * @return bool
 	 */
-	public static function action($module_name, $action, $check_module_enabled = false, $admin_grants_all = true){
+	public static function action($module_name, $action, $check_module_enabled = true, $admin_grants_all = true){
 
         self::init();
 
@@ -42,28 +42,31 @@ class Allow {
 
             #Helper::dd(self::$modules[$module_name]->actions);
 
-            /**
-             * @todo Полные права на действия админа, т.к. новые имена модулей не совпадают со старыми ролями ( news != admin_news ). Нужно во всех модулях поменять valid_action_permission на Action
-             */
-            ## Grants all to ADMIN
-            if ($user_group->id == '1' && $admin_grants_all) {
+            if (!$check_module_enabled || isset(self::$modules[$module_name])) {
 
-                $access = true;
+                /**
+                 * @todo Полные права на действия админа, т.к. новые имена модулей не совпадают со старыми ролями ( news != admin_news ). Нужно во всех модулях поменять valid_action_permission на Action
+                 */
+                ## Grants all to ADMIN
+                if ($user_group->id == '1' && $admin_grants_all) {
 
-            } else {
+                    $access = true;
 
-			    $module = isset(self::$modules[$module_name]) ? self::$modules[$module_name] : null;
+                } else {
 
-                ## Check all conditions
-    			if(!is_null($user_group) && !is_null($module) && !is_null($action)) {
-                    ## If user group is not ADMIN
-                    $permission = isset($module->actions[$action]) ? $module->actions[$action] : null;
-                    ## If permission exists & is activated
-                    if (!is_null($permission) && $permission->status == '1') {
-                        $access = true;
+                    $module = isset(self::$modules[$module_name]) ? self::$modules[$module_name] : null;
+
+                    ## Check all conditions
+                    if(!is_null($user_group) && !is_null($module) && !is_null($action)) {
+                        ## If user group is not ADMIN
+                        $permission = isset($module->actions[$action]) ? $module->actions[$action] : null;
+                        ## If permission exists & is activated
+                        if (!is_null($permission) && $permission->status == '1') {
+                            $access = true;
+                        }
+                    } else {
+                        #Helper::d($user_group . " / " . $module_name . " = " . (int)$module . " / " . $action);
                     }
-    			} else {
-                    #Helper::d($user_group . " / " . $module_name . " = " . (int)$module . " / " . $action);
                 }
             }
 		}

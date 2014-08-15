@@ -100,9 +100,13 @@ class AdminNewsController extends BaseController {
         Allow::permission($this->module['group'], 'view');
 
 		$news = $this->news
+            #->with('seo') ## nope.
+            #->with('meta.seo', 'meta.photo', 'meta.gallery.photos') ## works well!
             ->orderBy('published_at', 'DESC')
             ->orderBy('created_at', 'DESC')
             ->paginate(Config::get('site.paginate_limit', 30))->appends($_GET);
+
+        #Helper::tad($news);
 
         $locales = $this->locales;
 
@@ -127,8 +131,12 @@ class AdminNewsController extends BaseController {
         Allow::permission($this->module['group'], 'edit');
 
         $element = $this->essence->where('id', $id)
-            ->with('metas')
+            ->with('metas.seo')
+            #->with('seo') ## nope again.
+            #->with('type')
             ->first();
+
+        #Helper::tad($element);
 
         if (!is_object($element))
             return Redirect::route($this->module['entity'] . '.index');
@@ -164,13 +172,14 @@ class AdminNewsController extends BaseController {
 
         $input = Input::all();
         $locales = Helper::withdraw($input, 'locales');
+        $seo = Helper::withdraw($input, 'seo');
         $input['template'] = @$input['template'] ? $input['template'] : NULL;
         $input['slug'] = @$input['slug'] ? $input['slug'] : @$locales[Config::get('app.locale')]['title'];
         $input['slug'] = Helper::translit($input['slug']);
         $input['published_at'] = @$input['published_at'] ? date('Y-m-d', strtotime($input['published_at'])) : NULL;
 
-        #$json_request['responseText'] = "<pre>" . print_r(Input::all(), 1) . "</pre>";
-        #$json_request['responseText'] = "<pre>" . print_r($input, 1) . print_r($locales, 1) . "</pre>";
+        $json_request['responseText'] = "<pre>" . print_r(Input::all(), 1) . "</pre>";
+        #$json_request['responseText'] = "<pre>" . print_r($input, 1) . print_r($locales, 1) . print_r($seo, 1) . "</pre>";
         #return Response::json($json_request,200);
 
         $json_request = array('status'=>FALSE, 'responseText'=>'', 'responseErrorText'=>'', 'redirect'=>FALSE);
@@ -195,7 +204,12 @@ class AdminNewsController extends BaseController {
 
             ## NEWS_META
             if (count($locales)) {
+
                 foreach ($locales as $locale_sign => $locale_settings) {
+
+                    ## Withdraw gallery_id
+                    $gallery_data = Helper::withdraw($locale_settings, 'gallery_id');
+
                     #$locale_settings['template'] = $locale_settings['template'] ? $locale_settings['template'] : NULL;
                     $news_meta = $this->news_meta->where('news_id', $element->id)->where('language', $locale_sign)->first();
                     if (is_object($news_meta)) {
@@ -203,8 +217,41 @@ class AdminNewsController extends BaseController {
                     } else {
                         $locale_settings['news_id'] = $id;
                         $locale_settings['language'] = $locale_sign;
-                        $this->news_meta->create($locale_settings);
+                        $news_meta = $this->news_meta->create($locale_settings);
                     }
+
+                    ## NEWS_META GALLERY
+                    if (isset($gallery_data)) {
+
+                        ###############################
+                        ## Process GALLERY
+                        ###############################
+                        $gallery_id = ExtForm::process('gallery', array(
+                            'module'  => 'news_meta',
+                            'unit_id' => $news_meta->id,
+                            'gallery' => $gallery_data,
+                            'single'  => true,
+                        ));
+                        ###############################
+                        $locale_settings['gallery_id'] = $gallery_id;
+                        $news_meta->update($locale_settings);
+                    }
+
+                    ## NEWS_META SEO
+                    if (isset($seo[$locale_sign])) {
+
+                        ###############################
+                        ## Process SEO
+                        ###############################
+                        $seo_result = ExtForm::process('seo', array(
+                            'module'  => 'news_meta',
+                            'unit_id' => $news_meta->id,
+                            'data'    => $seo[$locale_sign],
+                        ));
+                        #Helper::tad($seo_result);
+                        ###############################
+                    }
+
                 }
             }
 

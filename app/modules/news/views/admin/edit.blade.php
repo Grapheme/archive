@@ -24,41 +24,75 @@
 	{{ Form::model($element, array('url' => $url, 'class' => 'smart-form', 'id' => $module['entity'].'-form', 'role' => 'form', 'method' => $method)) }}
 
     <div class="row margin-top-10">
-        <section class="col col-6">
+        <section class="col col-lg-12">
             <div class="well">
 
                 <header>{{ $form_title }}</header>
 
-                <fieldset>
+                <div class="clearfix">
 
-                    <section>
-                        <label class="label">
-                            Идентификатор новости
-                        </label>
-                        {{--
-                        <label class="note">
-                            Может содержать <strong>только</strong> английские буквы в нижнем регистре, цифры, знаки подчеркивания и тире
-                        </label>
-                        --}}
-                        <label class="input">
-                            <i class="icon-append fa fa-list-alt"></i>
-                            {{ Form::text('slug') }}
-                        </label>
-                    </section>
+                    <?
+                    $news_types = Dictionary::whereSlugValues('news_type');
+                    ?>
 
-                    <section>
-                        <label class="label">Шаблон</label>
-                        <label class="input select input-select2">
-                            {{ Form::select('template', array('Выберите...')+$templates) }}
-                        </label>
-                    </section>
+                    <fieldset class="col col-lg-{{ $news_types->count() ? '4' : '7' }}">
 
-                    <section class="col-3 clearfix">
-                        <label class="label">Дата публикации:</label>
-                        <label class="input">
-                            {{ Form::text('published_at', ($element->published_at ? date("d.m.Y", strtotime($element->published_at)) : date("d.m.Y", time())), array('class' => 'datepicker text-center')) }}
-                        </label>
-                    </section>
+                        <section class="">
+                            <label class="label">
+                                Идентификатор новости
+                            </label>
+                            <label class="input">
+                                <i class="icon-append fa fa-list-alt"></i>
+                                {{ Form::text('slug') }}
+                            </label>
+                            <label class="note">
+                                <i class="fa fa-warning"></i> <strong>Только</strong> английские буквы в нижнем регистре, цифры или знак нижнего подчеркивания: "_"
+                            </label>
+                        </section>
+
+                    </fieldset>
+
+                    @if ($news_types->count())
+                    <span></span>
+                    <fieldset class="col col-3">
+
+                        <section class="">
+                            <label class="label">Тип новости</label>
+                            <label class="input select input-select2">
+                                {{ Form::select('type_id', array('Выберите...')+$news_types->lists('name', 'id')) }}
+                            </label>
+                        </section>
+
+                    </fieldset>
+                    @endif
+
+                    <span></span>
+                    <fieldset class="col col-2">
+
+                        <section class="clearfix">
+                            <label class="label">Дата публикации:</label>
+                            <label class="input">
+                                {{ Form::text('published_at', ($element->published_at ? date("d.m.Y", strtotime($element->published_at)) : date("d.m.Y", time())), array('class' => 'datepicker text-center')) }}
+                            </label>
+                        </section>
+
+                    </fieldset>
+
+                    <span></span>
+                    <fieldset class="col col-3">
+
+                        <section class="">
+                            <label class="label">Шаблон</label>
+                            <label class="input select input-select2">
+                                {{ Form::select('template', array('Выберите...')+$templates) }}
+                            </label>
+                        </section>
+
+                    </fieldset>
+
+                </div>
+
+                <fieldset class="clearfix">
 
                     <section>
                         <div class="widget-body">
@@ -72,10 +106,10 @@
                                 </li>
                                 @endforeach
                             </ul>
-                            <div id="myTabContent1" class="tab-content padding-10">
+                            <div id="myTabContent1" class="tab-content">
                                 <? $i = 0; ?>
                                 @foreach ($locales as $locale_sign => $locale_name)
-                                <div class="tab-pane fade {{ !$i++ ? 'active in' : '' }}" id="locale_{{ $locale_sign }}">
+                                <div class="tab-pane fade {{ !$i++ ? 'active in' : '' }} clearfix" id="locale_{{ $locale_sign }}">
 
                                     @include($module['tpl'].'_news_meta', compact('locale_sign', 'locale_name', 'templates', 'element'))
 
@@ -87,7 +121,7 @@
 
                 </fieldset>
 
-                <footer>
+                <footer class="clearfix">
                 	<a class="btn btn-default no-margin regular-10 uppercase pull-left btn-spinner" href="{{URL::previous()}}">
                 		<i class="fa fa-arrow-left hidden"></i> <span class="btn-response-text">Назад</span>
                 	</a>
@@ -139,5 +173,6 @@
     {{ HTML::script('js/vendor/redactor.min.js') }}
     {{ HTML::script('js/system/redactor-config.js') }}
 
+    {{ HTML::script('js/modules/gallery.js') }}
 
 @stop

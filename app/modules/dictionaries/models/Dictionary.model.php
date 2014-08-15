@@ -34,3 +34,7 @@ class Dictionary extends BaseModel {
 
 
 }
+
+class Dic extends Dictionary {
+    ## Alias
+}
