@@ -19,7 +19,7 @@
 
 			var myDropzone = new Dropzone(
 				el, {
-                    url: "/admin/galleries/abstractupload",
+                    url: base_url + "/admin/galleries/abstractupload",
                     addRemoveLinks : true,
                     maxFilesize: 0.5,
                     dictResponseError: 'Error uploading file!'
@@ -67,7 +67,7 @@
 
 			var myDropzone = new Dropzone(
 				el, {
-                    url: "/admin/galleries/singleupload",
+                    url: base_url + "/admin/galleries/singleupload",
                     addRemoveLinks : true,
                     maxFilesize: 0.5,
                     dictResponseError: 'Error uploading file!',
@@ -139,7 +139,7 @@
     		},function(ButtonPressed) {
     			if(ButtonPressed == "Да") {
                     $.ajax({
-                        url: "/admin/galleries/photodelete",
+                        url: base_url + "/admin/galleries/photodelete",
                         data: { id: image_id },
                         type: 'post',
                     }).done(function(){
@@ -167,7 +167,7 @@
     		},function(ButtonPressed) {
     			if(ButtonPressed == "Да") {
                     $.ajax({
-                        url: "/admin/galleries/photodelete",
+                        url: base_url + "/admin/galleries/photodelete",
                         data: { id: image_id },
                         type: 'post',
                     }).done(function(){
@@ -190,7 +190,7 @@
 
 		function deleteUploadedImage(image_id) {
             $.ajax({
-                url: "/admin/galleries/photodelete",
+                url: base_url + "/admin/galleries/photodelete",
                 data: { id: image_id },
                 type: 'post',
             }).done(function(){
