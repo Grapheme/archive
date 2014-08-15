@@ -26,10 +26,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="global.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="global.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/start/global.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="30" selection-start="3758" selection-end="3765" vertical-scroll-proportion="0.54706925" vertical-offset="1579" max-vertical-offset="2210">
+            <state line="120" column="30" selection-start="3758" selection-end="3765" vertical-scroll-proportion="-11.846154" vertical-offset="1579" max-vertical-offset="2210">
               <folding />
             </state>
           </provider>
@@ -73,10 +73,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="demo.blade.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="demo.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/modules/pages/views/demo.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="61" selection-start="982" selection-end="982" vertical-scroll-proportion="-17.653847" vertical-offset="153" max-vertical-offset="935">
+            <state line="37" column="39" selection-start="1057" selection-end="1057" vertical-scroll-proportion="0.78507996" vertical-offset="187" max-vertical-offset="969">
               <folding />
             </state>
           </provider>
@@ -171,8 +171,8 @@
         <option value="$PROJECT_DIR$/app/modules/pages/public_pages.controller.php" />
         <option value="$PROJECT_DIR$/app/modules/pages/views/admin/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/config/app.php" />
-        <option value="$PROJECT_DIR$/app/modules/pages/views/demo.blade.php" />
         <option value="$PROJECT_DIR$/app/start/global.php" />
+        <option value="$PROJECT_DIR$/app/modules/pages/views/demo.blade.php" />
       </list>
     </option>
   </component>
@@ -700,16 +700,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/modules/pages/views/demo.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/start/global.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="61" selection-start="982" selection-end="982" vertical-scroll-proportion="-17.653847" vertical-offset="153" max-vertical-offset="935">
+        <state line="120" column="30" selection-start="3758" selection-end="3765" vertical-scroll-proportion="-11.846154" vertical-offset="1579" max-vertical-offset="2210">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/start/global.php">
+    <entry file="file://$PROJECT_DIR$/app/modules/pages/views/demo.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="30" selection-start="3758" selection-end="3765" vertical-scroll-proportion="0.54706925" vertical-offset="1579" max-vertical-offset="2210">
+        <state line="37" column="39" selection-start="1057" selection-end="1057" vertical-scroll-proportion="0.78507996" vertical-offset="187" max-vertical-offset="969">
           <folding />
         </state>
       </provider>
