@@ -2,22 +2,12 @@
 
 
 @if (@is_object($news->meta->seo))
-@section('title')
-{{ $news->meta->seo->title }}
-@stop
-@section('description')
-{{ $news->meta->seo->description }}
-@stop
-@section('keywords')
-{{ $news->meta->seo->keywords }}
-@stop
+    @section('title'){{ $news->meta->seo->title }}@stop
+    @section('description'){{ $news->meta->seo->description }}@stop
+    @section('keywords'){{ $news->meta->seo->keywords }}@stop
 @else
-@section('title')
-{{ $news->meta->title }}
-@stop
-@section('description')
-{{ striptags($news->meta->preview) }}
-@stop
+    @section('title'){{ $news->meta->title }}@stop
+    @section('description'){{ striptags($news->meta->preview) }}@stop
 @endif
 
 @section('style')
@@ -59,11 +49,6 @@
         <img src="{{ URL::to($photo->full()) }}">
         @endforeach
         </div>
-    @endif
-
-    @if (@is_object($news->meta->seo))
-        <h3>SEO-данные</h3>
-        {{ Helper::ta($news->meta->seo) }}
     @endif
 
 </main1>
