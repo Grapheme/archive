@@ -13,8 +13,8 @@
             @if ($gallery_photos)
 
             	@foreach ($gallery_photos as $photo)
-            	<div class="photo-preview" style="background-image:url({{ $photo->thumb() }});">
-            		<a href="{{ $photo->path() }}" target="_blank" title="Полноразмерное изображение" style="display:block; height:100%; color:#090; background:transparent"></a>
+            	<div class="photo-preview" style="background-image:url({{ URL::to($photo->thumb()) }});">
+            		<a href="{{ URL::to($photo->path()) }}" target="_blank" title="Полноразмерное изображение" style="display:block; height:100%; color:#090; background:transparent"></a>
             		<a href="#" class="photo-delete" data-photo-id="{{ $photo->id }}" style="">Удалить</a>
             	</div>
             	@endforeach
