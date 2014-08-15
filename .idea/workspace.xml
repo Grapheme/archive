@@ -67,7 +67,7 @@
       <file leaf-file-name="public_pages.controller.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/modules/pages/public_pages.controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="202" column="17" selection-start="8384" selection-end="8384" vertical-scroll-proportion="0.30550623" vertical-offset="3279" max-vertical-offset="6103">
+            <state line="216" column="49" selection-start="8751" selection-end="8751" vertical-scroll-proportion="0.72824156" vertical-offset="3279" max-vertical-offset="6103">
               <folding />
             </state>
           </provider>
@@ -727,7 +727,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/pages/public_pages.controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="202" column="17" selection-start="8384" selection-end="8384" vertical-scroll-proportion="0.30550623" vertical-offset="3279" max-vertical-offset="6103">
+        <state line="216" column="49" selection-start="8751" selection-end="8751" vertical-scroll-proportion="0.72824156" vertical-offset="3279" max-vertical-offset="6103">
           <folding />
         </state>
       </provider>

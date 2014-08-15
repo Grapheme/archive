@@ -214,7 +214,7 @@ class PublicPagesController extends BaseController {
             App::abort(404);
 
         if ($page->start_page && $url != '') {
-            $redirect = URL::route('mainpage');
+            $redirect = URL::route('mainpage_i18n');
             #Helper::dd('to mainpage: ' . $redirect);
             return Redirect::to($redirect, 301);
         }
