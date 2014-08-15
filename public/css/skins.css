@@ -833,3 +833,7 @@ margin-left: 0;
     text-decoration: none;
 }
 
+.dz-error-message {
+    max-width: 140px !important;
+    top: 20px;
+}
