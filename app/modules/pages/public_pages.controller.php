@@ -200,7 +200,7 @@ class PublicPagesController extends BaseController {
             ## and make 301 redirect if need it
             if (@is_object($page->meta) && @is_object($page->meta->seo) && $page->meta->seo->url != '' && $page->meta->seo->url != $url) {
                 $redirect = URL::route('page_i18n', array('url' => $page->meta->seo->url));
-                Helper::dd($redirect);
+                #Helper::dd($redirect);
                 return Redirect::to($redirect, 301);
             }
 
