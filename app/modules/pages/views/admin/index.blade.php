@@ -18,7 +18,7 @@
 				</thead>
 				<tbody>
 				@foreach($pages as $p => $page)
-					<tr>
+					<tr class="{{ $page->start_page ? 'success' : '' }}">
                         <td>
                             {{ $p+1 }}
                         </td>
