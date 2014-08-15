@@ -35,10 +35,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="app.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/config/app.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="8" selection-start="503" selection-end="503" vertical-scroll-proportion="-10.461538" vertical-offset="153" max-vertical-offset="1870">
+            <state line="25" column="9" selection-start="504" selection-end="504" vertical-scroll-proportion="0.4831261" vertical-offset="153" max-vertical-offset="1870">
               <folding />
             </state>
           </provider>
@@ -64,10 +64,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="public_pages.controller.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="public_pages.controller.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/modules/pages/public_pages.controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="216" column="49" selection-start="8751" selection-end="8751" vertical-scroll-proportion="0.72824156" vertical-offset="3279" max-vertical-offset="6103">
+            <state line="216" column="49" selection-start="8751" selection-end="8751" vertical-scroll-proportion="-30.807692" vertical-offset="2871" max-vertical-offset="6103">
               <folding />
             </state>
           </provider>
@@ -185,12 +185,12 @@
         <option value="$PROJECT_DIR$/app/modules/pages/views/default.blade.php" />
         <option value="$PROJECT_DIR$/app/lib/Helper.php" />
         <option value="$PROJECT_DIR$/app/modules/pages/views/demo.blade.php" />
-        <option value="$PROJECT_DIR$/app/config/app.php" />
         <option value="$PROJECT_DIR$/app/modules/pages/views/admin/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/pages/admin_pages.page.controller.php" />
         <option value="$PROJECT_DIR$/app/modules/pages/views/admin/index.blade.php" />
         <option value="$PROJECT_DIR$/app/start/global.php" />
         <option value="$PROJECT_DIR$/app/modules/pages/public_pages.controller.php" />
+        <option value="$PROJECT_DIR$/app/config/app.php" />
       </list>
     </option>
   </component>
@@ -690,13 +690,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="8" selection-start="503" selection-end="503" vertical-scroll-proportion="-10.461538" vertical-offset="153" max-vertical-offset="1870">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/pages/views/admin/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="46" selection-start="320" selection-end="320" vertical-scroll-proportion="0.4077491" vertical-offset="0" max-vertical-offset="1428">
@@ -727,7 +720,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/pages/public_pages.controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="216" column="49" selection-start="8751" selection-end="8751" vertical-scroll-proportion="0.72824156" vertical-offset="3279" max-vertical-offset="6103">
+        <state line="216" column="49" selection-start="8751" selection-end="8751" vertical-scroll-proportion="-30.807692" vertical-offset="2871" max-vertical-offset="6103">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="9" selection-start="504" selection-end="504" vertical-scroll-proportion="0.4831261" vertical-offset="153" max-vertical-offset="1870">
           <folding />
         </state>
       </provider>
