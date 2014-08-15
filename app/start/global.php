@@ -123,7 +123,7 @@ require app_path().'/filters.php';
             if (Request::segment(1) === Config::get('app.default_locale')) {
                 ## Вырезаем первый сегмент с дефолтным языком
                 $path_without_first_segment = preg_replace("~^" . Config::get('app.default_locale') . "~s", '', Request::path(), 1);
-                $path_without_first_segment = preg_replace("~^/~s", '', $path_without_first_segment, 1);
+                #$path_without_first_segment = preg_replace("~^/~s", '', $path_without_first_segment, 1);
                 ## Здесь не сработает return Redirect::to(...), так что делаем переадресацию через кастомную функцию
                 Redirect(URL::to($path_without_first_segment));
             }
