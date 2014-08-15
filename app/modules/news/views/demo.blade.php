@@ -6,8 +6,10 @@
     @section('description'){{ $news->meta->seo->description }}@stop
     @section('keywords'){{ $news->meta->seo->keywords }}@stop
 @else
-    @section('title'){{ $news->meta->title }}@stop
-    @section('description'){{ striptags($news->meta->preview) }}@stop
+    @section('title')
+{{{ $news->meta->title }}}@stop
+    @section('description')
+{{{ striptags($news->meta->preview) }}}@stop
 @endif
 
 @section('style')
