@@ -116,8 +116,8 @@ class PublicPagesController extends BaseController {
             $url = '';
         */
 
-        if ( @$this->locales[Request::segment(1)] )
-            $url = '';
+        #if ( @$this->locales[Request::segment(1)] )
+        #    $url = '';
 
         #Helper::dd($url);
         #Helper::dd( Request::segment(1) );
