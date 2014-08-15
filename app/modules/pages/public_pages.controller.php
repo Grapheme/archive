@@ -144,7 +144,7 @@ class PublicPagesController extends BaseController {
 
                 if ($slug) {
                     $redirect = URL::route('page', array('url' => $slug));
-                    Helper::dd('from is_numeric check' . $redirect);
+                    #Helper::dd('from is_numeric check' . $redirect);
                     return Redirect::to($redirect, 301);
                 }
             }
@@ -215,7 +215,7 @@ class PublicPagesController extends BaseController {
 
         if ($page->start_page && $url != '') {
             $redirect = URL::route('mainpage');
-            Helper::dd('to mainpage: ' . $redirect);
+            #Helper::dd('to mainpage: ' . $redirect);
             return Redirect::to($redirect, 301);
         }
 
