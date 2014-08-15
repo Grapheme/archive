@@ -1,15 +1,34 @@
 @extends(Helper::layout())
 
 
+@if (@is_object($news->meta->seo))
+@section('title')
+{{ $news->meta->seo->title }}
+@stop
+@section('description')
+{{ $news->meta->seo->description }}
+@stop
+@section('keywords')
+{{ $news->meta->seo->keywords }}
+@stop
+@else
+@section('title')
+{{ $news->meta->title }}
+@stop
+@section('description')
+{{ striptags($news->meta->preview) }}
+@stop
+@endif
+
 @section('style')
-	<link rel="stylesheet" href="/css/fotorama.css">
+    {{ HTML::style('css/fotorama.css') }}
 @stop
 
 
 @section('content')
 <main1>
     <h1>
-        {{ $news->meta->title }}
+        {{ @is_object($news->meta->seo) && $news->meta->seo->h1 ? $news->meta->seo->h1 : $news->meta->title }}
     </h1>
 
     <p class="news-date">
@@ -52,5 +71,5 @@
 
 
 @section('scripts')
-    <script src="/js/vendor/fotorama.js"></script>
+    {{ HTML::script('js/vendor/fotorama.js') }}
 @stop

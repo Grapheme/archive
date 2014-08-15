@@ -12,16 +12,17 @@ class PublicNewsController extends BaseController {
      */
     ## Routing rules of module
     public static function returnRoutes($prefix = null) {
-        
+
+        $class = __CLASS__;
         ## УРЛЫ С ЯЗЫКОВЫМИ ПРЕФИКСАМИ ДОЛЖНЫ ИДТИ ПЕРЕД ОБЫЧНЫМИ!
         ## Если в конфиге прописано несколько языковых версий...
-        if (is_array(Config::get('app.locales')) && count(Config::get('app.locales'))) {
+        if (is_array(Config::get('app.locales')) && count(Config::get('app.locales')) > 1) {
             ## Для каждого из языков...
-            foreach(Config::get('app.locales') as $locale) {
+            foreach(Config::get('app.locales') as $locale_sign => $locale_name) {
             	## ...генерим роуты с префиксом (первый сегмент), который будет указывать на текущую локаль.
             	## Также указываем before-фильтр i18n_url, для выставления текущей локали.
-                Route::group(array('before' => 'i18n_url', 'prefix' => $locale), function(){
-                    Route::get('/news/{url}', array('as' => 'news_full', 'uses' => __CLASS__.'@showFullByUrl')); ## I18n News
+                Route::group(array('before' => 'i18n_url', 'prefix' => $locale_sign), function() use ($class) {
+                    Route::get('/news/{url}', array('as' => 'news_full', 'uses' => $class.'@showFullNews'));
                 });
             }
         }
@@ -29,11 +30,7 @@ class PublicNewsController extends BaseController {
         ## Генерим роуты без префикса, и назначаем before-фильтр i18n_url.
         ## Это позволяет нам делать редирект на урл с префиксом только для этих роутов, не затрагивая, например, /admin и /login
         Route::group(array('before' => 'i18n_url'), function(){
-            Route::get('/news/{url}', array('as' => 'news_full', 'uses' => __CLASS__.'@showFullByUrl'
-            	#function($url) {
-            	#	return $this->showFullByUrl($url);
-            	#}
-            )); ## I18n News
+            Route::get('/news/{url}', array('as' => 'news_full', 'uses' => __CLASS__.'@showFullNews'));
         });
     }
     
@@ -108,29 +105,40 @@ class PublicNewsController extends BaseController {
     }
 
     ## Actions of module (for distribution rights of users)
-    ## return false;   # for loading default actions from config
-    ## return array(); # no rules will be loaded
-    /*
     public static function returnActions() {
-        return array();
     }
-    */
 
     ## Info about module (now only for admin dashboard & menu)
-    /*
     public static function returnInfo() {
     }
-    */
-    
+
     /****************************************************************************/
 
-	public function __construct(I18nNews $news, I18nNewsMeta $news_meta){
+	public function __construct(News $news, NewsMeta $news_meta){
 
+        /*
         View::share('module_name', self::$name);
-
         $this->tpl = $this->gtpl = static::returnTpl();
         View::share('module_tpl', $this->tpl);
         View::share('module_gtpl', $this->gtpl);
+        */
+
+        $this->news = $news;
+        $this->news_meta = $news_meta;
+        $this->locales = Config::get('app.locales');
+
+        $this->module = array(
+            'name' => self::$name,
+            'group' => self::$group,
+            #'rest' => self::$group,
+            'tpl' => static::returnTpl('admin'),
+            'gtpl' => static::returnTpl(),
+            'class' => __CLASS__,
+
+            #'entity' => self::$entity,
+            #'entity_name' => self::$entity_name,
+        );
+        View::share('module', $this->module);
 	}
     
     /*
@@ -139,52 +147,96 @@ class PublicNewsController extends BaseController {
     |--------------------------------------------------------------------------
     */
     ## Функция для просмотра полной мультиязычной новости
-    public function showFullByUrl($url){
+    public function showFullNews($url){
+
+        if(!Allow::module($this->module['group']))
+            App::abort(404);
 
         if (!@$url)
             $url = Input::get('url');
 
-        if(!Allow::enabled_module('i18n_news'))
-            return App::abort(404);
+        $news = $this->news->where('publication', 1);
 
-        $i18n_news = I18nNews::where('slug', $url)->where('publication', 1)->first();
+        #dd($url);
 
-        if (!$i18n_news)
-            return App::abort(404);
+        ## News by ID
+        if (is_numeric($url)) {
 
-        if(empty($i18n_news->template) || !View::exists($this->tpl.$i18n_news->template)) {
-			#return App::abort(404, 'Отсутствует шаблон: ' . $this->tpl . $i18n_news->template);
-            throw new Exception('Template not found: ' . $this->tpl.$i18n_news->template);
+            $slug = false;
+            $news = $news->where('id', $url);
+            $news = $news
+                ->with('meta.seo', 'meta.photo', 'meta.gallery.photos')
+                ->first();
+
+            #Helper::tad($news);
+
+            if (@is_object($news->meta) && @is_object($news->meta->seo)) {
+                $slug = $news->meta->seo->url;
+            } else {
+                $slug = $news->slug;
+            }
+
+            #$slug = false;
+            #Helper::dd($slug);
+
+            if ($slug) {
+                $redirect = URL::route('news_full', array('url' => $slug));
+                #Helper::dd($redirect);
+                return Redirect::to($redirect, 301);
+            }
+
+        } else {
+
+            ## News by SLUG
+
+            ## Search slug in SEO URL
+            $news_meta_seo = Seo::where('module', 'news_meta')->where('url', $url)->first();
+            #Helper::tad($news_meta_seo);
+            if (is_object($news_meta_seo) && is_numeric($news_meta_seo->unit_id)) {
+
+                $news = $this->news_meta
+                    ->where('id', $news_meta_seo->unit_id)
+                    ->with(array('news' => function($query){
+                            $query->with(
+                                'meta.seo',
+                                'meta.photo',
+                                'meta.gallery.photos');
+                        }))->first()->news;
+                #Helper::tad($news);
+
+            } else {
+
+                ## Search slug in NEWS SLUG
+                $news = $this->news
+                    ->where('slug', $url)
+                    ->with('meta.seo', 'meta.photo', 'meta.gallery.photos')
+                    ->first();
+
+                ## Check news SEO url & gettin' $url
+                ## and make 301 redirect if need it
+                if (@is_object($news->meta) && @is_object($news->meta->seo) && $news->meta->seo->url != '' && $news->meta->seo->url != $url) {
+                    $redirect = URL::route('news_full', array('url' => $news->meta->seo->url));
+                    #Helper::dd($redirect);
+                    return Redirect::to($redirect, 301);
+                }
+            }
+
         }
 
-        $i18n_news_meta = I18nNewsMeta::where('news_id', $i18n_news->id)->where('language', Config::get('app.locale'))->first();
+        #Helper::tad($news);
 
-        if(!$i18n_news_meta || !$i18n_news_meta->title)
-            return App::abort(404);
+        if (!@is_object($news) || !@is_object($news->meta))
+            App::abort(404);
 
-		$gall = Rel_mod_gallery::where('module', 'news')->where('unit_id', $i18n_news->id)->first();
+        if (!$news->template)
+            $news->template = 'default';
 
-        /**
-         * @todo После того, как будет сделано управление модулями (актив/неактив) - поменять условие, активен ли модуль страниц
-         */
-        if ( method_exists('PagesController', 'content_render') ) {
-            $i18n_news_meta->preview = PagesController::content_render($i18n_news_meta->preview);
-            $i18n_news_meta->content = PagesController::content_render($i18n_news_meta->content);
-        }
+        #Helper::tad($news);
 
-        return View::make($this->tpl.$i18n_news->template,
-            array(
-            	'new' => $i18n_news,
-                'news'=>$i18n_news_meta,
-                'page_title'=>$i18n_news_meta->seo_title,
-                'page_description'=>$i18n_news_meta->seo_description,
-                'page_keywords'=>$i18n_news_meta->seo_keywords,
-                'page_author'=>'',
-                'page_h1'=>$i18n_news_meta->seo_h1,
-                'menu'=> Page::getMenu('news'),
-                'gall' => $gall
-            )
-        );
+        if(empty($news->template) || !View::exists($this->module['gtpl'].$news->template))
+            throw new Exception('Template [' . $this->module['gtpl'].$news->template . '] not found.');
+
+        return View::make($this->module['gtpl'].$news->template, compact('news'));
 	}
 
 }

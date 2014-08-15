@@ -24,6 +24,10 @@ class NewsMeta extends BaseModel {
 		#'seo_url' => 'alpha_dash',
 	);
 
+    public function news() {
+        return $this->belongsTo('News', 'news_id', 'id');
+    }
+
     public function seo() {
         return $this->hasOne('Seo', 'unit_id', 'id')->where('module', 'news_meta');
     }

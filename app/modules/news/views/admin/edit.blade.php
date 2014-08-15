@@ -35,7 +35,7 @@
                     $news_types = Dictionary::whereSlugValues('news_type');
                     ?>
 
-                    <fieldset class="col col-lg-{{ $news_types->count() ? '4' : '7' }}">
+                    <fieldset class="col col-sm-12 col-md-12 col-lg-{{ $news_types->count() ? '4' : '7' }}">
 
                         <section class="">
                             <label class="label">
@@ -54,7 +54,7 @@
 
                     @if ($news_types->count())
                     <span></span>
-                    <fieldset class="col col-3">
+                    <fieldset class="col col-sm-12 col-md-6 col-lg-3">
 
                         <section class="">
                             <label class="label">Тип новости</label>
@@ -67,7 +67,7 @@
                     @endif
 
                     <span></span>
-                    <fieldset class="col col-2">
+                    <fieldset class="col col-sm-12 col-md-6 col-lg-2">
 
                         <section class="clearfix">
                             <label class="label">Дата публикации:</label>
@@ -79,7 +79,7 @@
                     </fieldset>
 
                     <span></span>
-                    <fieldset class="col col-3">
+                    <fieldset class="col col-sm-12 col-md-6 col-lg-3">
 
                         <section class="">
                             <label class="label">Шаблон</label>

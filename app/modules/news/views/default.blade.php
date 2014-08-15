@@ -1,1 +1,1 @@
-@extends($module_gtpl.'news-full')
+@extends($module['gtpl'].'demo')
