@@ -52,8 +52,8 @@ class PublicPagesController extends BaseController {
         ## Генерим роуты без префикса, и назначаем before-фильтр i18n_url.
         ## Это позволяет нам делать редирект на урл с префиксом только для этих роутов, не затрагивая, например, /admin и /login
         Route::group(array('before' => 'i18n_url'), function(){
-            Route::any('/{url}', array('as' => 'page', 'uses' => __CLASS__.'@showPage')); ## Show Page
-            Route::any('/', array('as' => 'mainpage', 'uses' => __CLASS__.'@showPage')); ## Show Main Page
+            Route::any('/{url}', array('as' => 'page_i18n', 'uses' => __CLASS__.'@showPage')); ## Show Page
+            Route::any('/', array('as' => 'mainpage_i18n', 'uses' => __CLASS__.'@showPage')); ## Show Main Page
         });
     }
     
