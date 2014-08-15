@@ -41,7 +41,7 @@ class SystemModules {
         #die();
 
         ## System permissions
-        if (Allow::action('system', 'permissions')) {
+        if (Allow::action('system', 'permissions', false)) {
 
             $menu_child = array();
             if (Allow::action('users', 'view')) {
@@ -69,7 +69,7 @@ class SystemModules {
         }
         
         ## System settings
-        if (Allow::action('system', 'settings_view')) {
+        if (Allow::action('system', 'settings_view', false)) {
             $menu[] = array(
                 'title' => trans('admin.settings'),
                 'link' => 'settings',
