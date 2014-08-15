@@ -119,6 +119,13 @@ require app_path().'/filters.php';
         Config::set('app.default_locale', Config::get('app.locale'));
         ## Если в данный момент первый сегмент урла соответствует какому-то из наших языков - делаем его активным
         if ( @$locales[Request::segment(1)] ) {
+            ## Если первым сегментом идет дефолтный язык
+            if (Request::segment(1) === Config::get('app.default_locale')) {
+                ## Вырезаем первый сегмент с дефолтным языком
+                $path_without_first_segment = preg_replace("~^" . Config::get('app.default_locale') . "/~s", '', Request::path(), 1);
+                ## Здесь не сработает return Redirect::to(...), так что делаем переадресацию через кастомную функцию
+                Redirect(URL::to($path_without_first_segment));
+            }
             Config::set('app.locale', Request::segment(1));
         }
         ## Сохраняем в сессию текущий язык
