@@ -79,7 +79,7 @@
                         </label>
                     </section>
 
-                    @if (count($locales) > 1)
+                    @if (count($locales) > 1 || 1)
 
                     <hr class="simple">
 

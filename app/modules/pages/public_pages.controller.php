@@ -43,8 +43,8 @@ class PublicPagesController extends BaseController {
             	## ...генерим роуты с префиксом (первый сегмент), который будет указывать на текущую локаль.
             	## Также указываем before-фильтр i18n_url, для выставления текущей локали.
                 Route::group(array('before' => 'i18n_url', 'prefix' => $locale_sign), function(){
-                    Route::any('/{url}', array('as' => 'page',     'uses' => __CLASS__.'@showPage')); ## Show Page
-                    Route::any('/',      array('as' => 'mainpage', 'uses' => __CLASS__.'@showPage')); ## Show Main Page
+                    Route::any('/{url}', array('as' => 'page_i18n',     'uses' => __CLASS__.'@showPage')); ## Show Page
+                    Route::any('/',      array('as' => 'mainpage_i18n', 'uses' => __CLASS__.'@showPage')); ## Show Main Page
                 });
             }
         }
@@ -174,15 +174,15 @@ class PublicPagesController extends BaseController {
                     ->with('blocks.meta')
                     ->first();
 
-                ## Check SEO url & gettin' $url
-                ## and make 301 redirect if need it
-                if (@is_object($page->meta) && @is_object($page->meta->seo) && $page->meta->seo->url != '' && $page->meta->seo->url != $url) {
-                    $redirect = URL::route('page', array('url' => $page->meta->seo->url));
-                    #Helper::dd($redirect);
-                    return Redirect::to($redirect, 301);
-                }
             }
 
+            ## Check SEO url & gettin' $url
+            ## and make 301 redirect if need it
+            if (@is_object($page->meta) && @is_object($page->meta->seo) && $page->meta->seo->url != '' && $page->meta->seo->url != $url) {
+                $redirect = URL::route('page_i18n', array('url' => $page->meta->seo->url));
+                #Helper::dd($redirect);
+                return Redirect::to($redirect, 301);
+            }
         }
 
         #Helper::tad($page);
