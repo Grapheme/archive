@@ -65,7 +65,7 @@
       <file leaf-file-name="demo.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/modules/news/views/demo.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="4" selection-start="124" selection-end="124" vertical-scroll-proportion="0.15097691" vertical-offset="0" max-vertical-offset="1105">
+            <state line="55" column="0" selection-start="1475" selection-end="1475" vertical-scroll-proportion="0.6980462" vertical-offset="542" max-vertical-offset="1105">
               <folding>
                 <element signature="n#style#0;n#div#2;n#main1#0;n#!!top" expanded="true" />
               </folding>
@@ -316,7 +316,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -729,7 +729,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/news/views/demo.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="4" selection-start="124" selection-end="124" vertical-scroll-proportion="0.15097691" vertical-offset="0" max-vertical-offset="1105">
+        <state line="55" column="0" selection-start="1475" selection-end="1475" vertical-scroll-proportion="0.6980462" vertical-offset="542" max-vertical-offset="1105">
           <folding>
             <element signature="n#style#0;n#div#2;n#main1#0;n#!!top" expanded="true" />
           </folding>
