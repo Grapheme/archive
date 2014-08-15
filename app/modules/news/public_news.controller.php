@@ -170,19 +170,22 @@ class PublicNewsController extends BaseController {
 
             #Helper::tad($news);
 
-            if (@is_object($news->meta) && @is_object($news->meta->seo)) {
-                $slug = $news->meta->seo->url;
-            } else {
-                $slug = $news->slug;
-            }
+            if (@is_object($news)) {
 
-            #$slug = false;
-            #Helper::dd($slug);
+                if (@is_object($news->meta) && @is_object($news->meta->seo)) {
+                    $slug = $news->meta->seo->url;
+                } else {
+                    $slug = $news->slug;
+                }
 
-            if ($slug) {
-                $redirect = URL::route('news_full', array('url' => $slug));
-                #Helper::dd($redirect);
-                return Redirect::to($redirect, 301);
+                #$slug = false;
+                #Helper::dd($slug);
+
+                if ($slug) {
+                    $redirect = URL::route('news_full', array('url' => $slug));
+                    #Helper::dd($redirect);
+                    return Redirect::to($redirect, 301);
+                }
             }
 
         } else {

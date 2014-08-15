@@ -53,19 +53,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="public_news.controller.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="public_news.controller.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/modules/news/public_news.controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="238" column="65" selection-start="9410" selection-end="9410" vertical-scroll-proportion="-16.26923" vertical-offset="3623" max-vertical-offset="4216">
+            <state line="189" column="12" selection-start="7561" selection-end="7561" vertical-scroll-proportion="0.030195381" vertical-offset="3213" max-vertical-offset="4267">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="demo.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="demo.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/modules/news/views/demo.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="0" selection-start="1475" selection-end="1475" vertical-scroll-proportion="0.6980462" vertical-offset="542" max-vertical-offset="1105">
+            <state line="49" column="19" selection-start="1432" selection-end="1432" vertical-scroll-proportion="-32.03846" vertical-offset="0" max-vertical-offset="1105">
               <folding>
                 <element signature="n#style#0;n#div#2;n#main1#0;n#!!top" expanded="true" />
               </folding>
@@ -185,11 +185,11 @@
         <option value="$PROJECT_DIR$/app/modules/news/views/admin/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/news/admin_news.controller.php" />
         <option value="$PROJECT_DIR$/app/modules/news/models/NewsMeta.model.php" />
-        <option value="$PROJECT_DIR$/app/modules/news/public_news.controller.php" />
         <option value="$PROJECT_DIR$/app/modules/news/views/default.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/news/views/news-full.blade.php" />
         <option value="$PROJECT_DIR$/app/views/templates/default/head.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/news/views/demo.blade.php" />
+        <option value="$PROJECT_DIR$/app/modules/news/public_news.controller.php" />
       </list>
     </option>
   </component>
@@ -699,13 +699,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/modules/news/public_news.controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="238" column="65" selection-start="9410" selection-end="9410" vertical-scroll-proportion="-16.26923" vertical-offset="3623" max-vertical-offset="4216">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/templates/site/head.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="88" selection-start="145" selection-end="182" vertical-scroll-proportion="0.09058615" vertical-offset="0" max-vertical-offset="563">
@@ -729,10 +722,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/news/views/demo.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="0" selection-start="1475" selection-end="1475" vertical-scroll-proportion="0.6980462" vertical-offset="542" max-vertical-offset="1105">
+        <state line="49" column="19" selection-start="1432" selection-end="1432" vertical-scroll-proportion="-32.03846" vertical-offset="0" max-vertical-offset="1105">
           <folding>
             <element signature="n#style#0;n#div#2;n#main1#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/modules/news/public_news.controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="189" column="12" selection-start="7561" selection-end="7561" vertical-scroll-proportion="0.030195381" vertical-offset="3213" max-vertical-offset="4267">
+          <folding />
         </state>
       </provider>
     </entry>
