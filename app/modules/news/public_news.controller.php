@@ -47,23 +47,23 @@ class PublicNewsController extends BaseController {
                 $default = array(
                     'tpl' => Config::get('app-default.news_template'),
                     'limit' => Config::get('app-default.news_count_on_page'),
-                    'order' => Helper::stringToArray(I18nNews::$order_by),
+                    'order' => Helper::stringToArray(News::$order_by),
                     'pagination' => 1,
                 );
         		## Применяем переданные настройки
                 $params = array_merge($default, $params);
                 #dd($params);
 
-        		#if(Allow::enabled_module('i18n_news')):
+        		#if(Allow::enabled_module('news')):
         		    ## Получаем новости, делаем LEFT JOIN с news_meta, с проверкой языка и тайтла
-        			$selected_news = I18nNews::where('i18n_news.publication', 1)
-        			                        ->leftJoin('i18n_news_meta', 'i18n_news_meta.news_id', '=', 'i18n_news.id')
-        			                        ->where('i18n_news_meta.language', Config::get('app.locale'))
-        			                        ->where('i18n_news_meta.title', '!=', '')
-        			                        ->select('*', 'i18n_news.id AS original_id', 'i18n_news.published_at AS created_at')
-                                            ->orderBy('i18n_news.published_at', 'desc');
+        			$selected_news = News::where('news.publication', 1)
+        			                        ->leftJoin('news_meta', 'news_meta.news_id', '=', 'news.id')
+        			                        ->where('news_meta.language', Config::get('app.locale'))
+        			                        ->where('news_meta.title', '!=', '')
+        			                        ->select('*', 'news.id AS original_id', 'news.published_at AS created_at')
+                                            ->orderBy('news.published_at', 'desc');
                                             
-                    #$selected_news = $selected_news->where('i18n_news_meta.wtitle', '!=', '');
+                    #$selected_news = $selected_news->where('news_meta.wtitle', '!=', '');
 
                     ## Получаем новости с учетом пагинации
                     #echo $selected_news->toSql(); die;
@@ -89,7 +89,7 @@ class PublicNewsController extends BaseController {
 
                         #if(empty($params['tpl']) || !View::exists($this->tpl.$params['tpl'])) {
                         if(empty($params['tpl']) || !View::exists($tpl.$params['tpl'])) {
-                			#return App::abort(404, 'Отсутствует шаблон: ' . $this->tpl . $i18n_news->template);
+                			#return App::abort(404, 'Отсутствует шаблон: ' . $this->tpl . $news->template);
         					#return "Отсутствует шаблон: templates.".$params['tpl'];
                             throw new Exception('Template not found: ' . $tpl.$params['tpl']);
                         }
@@ -141,13 +141,8 @@ class PublicNewsController extends BaseController {
         View::share('module', $this->module);
 	}
     
-    /*
-    |--------------------------------------------------------------------------
-    | Раздел "Новости" - I18N
-    |--------------------------------------------------------------------------
-    */
     ## Функция для просмотра полной мультиязычной новости
-    public function showFullNews($url){
+    public function showFullNews($url = false) {
 
         if(!Allow::module($this->module['group']))
             App::abort(404);
@@ -203,19 +198,20 @@ class PublicNewsController extends BaseController {
                             $query->with(
                                 'meta.seo',
                                 'meta.photo',
-                                'meta.gallery.photos');
+                                'meta.gallery.photos'
+                            );
                         }))->first()->news;
                 #Helper::tad($news);
 
             } else {
 
-                ## Search slug in NEWS SLUG
+                ## Search slug in SLUG
                 $news = $this->news
                     ->where('slug', $url)
                     ->with('meta.seo', 'meta.photo', 'meta.gallery.photos')
                     ->first();
 
-                ## Check news SEO url & gettin' $url
+                ## Check SEO url & gettin' $url
                 ## and make 301 redirect if need it
                 if (@is_object($news->meta) && @is_object($news->meta->seo) && $news->meta->seo->url != '' && $news->meta->seo->url != $url) {
                     $redirect = URL::route('news_full', array('url' => $news->meta->seo->url));

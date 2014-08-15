@@ -50,6 +50,14 @@ class Helper {
         self::dd($object->toArray());
     }
 
+    public static function ta_($array) {
+        return false;
+    }
+
+    public static function tad_($array) {
+        return false;
+    }
+
     public static function layout($file = '') {
         $layout = Config::get('app.template');
         #Helper::dd(Config::get('app'));

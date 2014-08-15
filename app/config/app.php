@@ -20,11 +20,13 @@ return array(
 	'url' => 'http://test.grapheme.ru/archive',
 	'timezone' => 'UTC',
 
+
     'locales' => array(
         'ru' => 'Русский',
-        #'en' => 'English',
+        'en' => 'English',
     ),
 	'locale' => 'ru',
+
 
 	'key' => 'TSHZVixcD1cLGLSTObouk6Tmo3ChmyxD',
 	'providers' => array(

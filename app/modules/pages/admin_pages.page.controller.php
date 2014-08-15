@@ -112,7 +112,7 @@ class AdminPagesPageController extends BaseController {
         Allow::permission($this->module['group'], 'edit');
 
         $element = $this->essence->where('id', $id)
-            ->with('metas')
+            ->with('metas.seo')
             ->with('blocks')
             ->first();
 
@@ -158,6 +158,7 @@ class AdminPagesPageController extends BaseController {
         $locales = Helper::withdraw($input, 'locales');
         $blocks = Helper::withdraw($input, 'blocks');
         $blocks_new = Helper::withdraw($input, 'blocks_new');
+        $seo = Helper::withdraw($input, 'seo');
 
         $input['template'] = $input['template'] ? $input['template'] : NULL;
 
@@ -210,7 +211,22 @@ class AdminPagesPageController extends BaseController {
                     } else {
                         $locale_settings['page_id'] = $id;
                         $locale_settings['language'] = $locale_sign;
-                        $this->pages_meta->create($locale_settings);
+                        $page_meta = $this->pages_meta->create($locale_settings);
+                    }
+
+                    ## PAGES META SEO
+                    if (isset($seo[$locale_sign])) {
+
+                        ###############################
+                        ## Process SEO
+                        ###############################
+                        $seo_result = ExtForm::process('seo', array(
+                            'module'  => 'page_meta',
+                            'unit_id' => $page_meta->id,
+                            'data'    => $seo[$locale_sign],
+                        ));
+                        #Helper::tad($seo_result);
+                        ###############################
                     }
                 }
             }

@@ -18,6 +18,7 @@ class PublicPagesController extends BaseController {
          * Laravel не дает возможности переписывать пути (роуты), если они были зарегистрированы ранее.
          * А это значит, что если данный модуль активен и в нем создана хоть одна страница, то будет переписан корневой путь: /
          * Это не даст в будущем добавлять роуты от корня с помощью метода Route::controller('', '..@..'), придется все прописывать руками.
+         * Надо бы подключать модуль страниц последним
          * [
          *     '/login' => Route object to /login,
          *     '{_missing}' => Fallthrough route object,
@@ -31,19 +32,19 @@ class PublicPagesController extends BaseController {
          * https://github.com/bencorlett/framework/pull/1
          * https://github.com/bencorlett/framework/commit/ac091a25465d070f8925a80b46eb237ef21ea912
          */
-        if (!Allow::module(self::$group) || !I18nPage::count())
+        if (!Allow::module(self::$group) || !Page::count())
             return false;
 
         ## УРЛЫ С ЯЗЫКОВЫМИ ПРЕФИКСАМИ ДОЛЖНЫ ИДТИ ПЕРЕД ОБЫЧНЫМИ!
         ## Если в конфиге прописано несколько языковых версий...
-        if (is_array(Config::get('app.locales')) && count(Config::get('app.locales'))) {
+        if (is_array(Config::get('app.locales')) && count(Config::get('app.locales')) > 1) {
             ## Для каждого из языков...
-            foreach(Config::get('app.locales') as $locale) {
+            foreach(Config::get('app.locales') as $locale_sign => $locale_name) {
             	## ...генерим роуты с префиксом (первый сегмент), который будет указывать на текущую локаль.
             	## Также указываем before-фильтр i18n_url, для выставления текущей локали.
-                Route::group(array('before' => 'i18n_url', 'prefix' => $locale), function(){
-                    Route::any('/{url}', array('as' => 'page',     'uses' => __CLASS__.'@showPageByUrl')); ## I18n Pages
-                    Route::any('/',      array('as' => 'mainpage', 'uses' => __CLASS__.'@showPageByUrl')); ## I18n Main Page
+                Route::group(array('before' => 'i18n_url', 'prefix' => $locale_sign), function(){
+                    Route::any('/{url}', array('as' => 'page',     'uses' => __CLASS__.'@showPage')); ## Show Page
+                    Route::any('/',      array('as' => 'mainpage', 'uses' => __CLASS__.'@showPage')); ## Show Main Page
                 });
             }
         }
@@ -51,12 +52,8 @@ class PublicPagesController extends BaseController {
         ## Генерим роуты без префикса, и назначаем before-фильтр i18n_url.
         ## Это позволяет нам делать редирект на урл с префиксом только для этих роутов, не затрагивая, например, /admin и /login
         Route::group(array('before' => 'i18n_url'), function(){
-            
-            ## I18n Pages
-            Route::any('/{url}', array('as' => 'page', 'uses' => __CLASS__.'@showPageByUrl'));
-            ## I18n Main Page
-            Route::any('/', array('as' => 'mainpage', 'uses' => __CLASS__.'@showPageByUrl'));
-
+            Route::any('/{url}', array('as' => 'page', 'uses' => __CLASS__.'@showPage')); ## Show Page
+            Route::any('/', array('as' => 'mainpage', 'uses' => __CLASS__.'@showPage')); ## Show Main Page
         });
     }
     
@@ -67,57 +64,173 @@ class PublicPagesController extends BaseController {
          */
         #$tpl = static::returnTpl();
     	#shortcode::add("page",
-        #    function($params = null) use ($tpl) {}
+        #    function($params = null) use ($tpl) {},
+        #    function($params = null) use ($tpl) {},
         #);
     }
 
     ## Actions of module (for distribution rights of users)
-    ## return false;   # for loading $default_actions from config
-    ## return array(); # no rules will be loaded
-    /*
     public static function returnActions() {
-        return array();
     }
-    */
 
     ## Info about module (now only for admin dashboard & menu)
-    /*
     public static function returnInfo() {
     }
-    */
-    
+
     /****************************************************************************/
 
-	public function __construct(I18nNews $news, I18nNewsMeta $news_meta){
+	public function __construct(Page $page, PageMeta $page_meta, PageBlock $page_block, PageBlockMeta $page_block_meta){
 
-        View::share('module_name', self::$name);
+        $this->page = $page;
+        $this->page_meta = $page_meta;
+        $this->page_block = $page_block;
+        $this->page_block_meta = $page_block_meta;
+        $this->locales = Config::get('app.locales');
 
-        $this->tpl = $this->gtpl = static::returnTpl();
-        View::share('module_tpl', $this->tpl);
-        View::share('module_gtpl', $this->gtpl);
+        $this->module = array(
+            'name' => self::$name,
+            'group' => self::$group,
+            #'rest' => self::$group,
+            'tpl' => static::returnTpl('admin'),
+            'gtpl' => static::returnTpl(),
+            'class' => __CLASS__,
+
+            #'entity' => self::$entity,
+            #'entity_name' => self::$entity_name,
+        );
+        View::share('module', $this->module);
 	}
 
     ## Функция для просмотра мультиязычной страницы
-    public function showPageByUrl($url = ""){
+    public function showPage($url = false){
 
-        if (!@$url)
+        if (!$this->page->count())
+            return View::make(Config::get('app.welcome_page_tpl'));
+
+        if (!$url)
             $url = Input::get('url');
 
-		if(I18nPage::count() == 0)
-			return View::make(Config::get('app.welcome_page_tpl'));
-
+        /*
         ## Страница /de упорно не хотела открываться, пытаясь найти страницу со slug = "de", пришлось сделать вот такой хак:
         if ($url == Config::get('app.locale'))
             $url = '';
+        */
 
-        if ($url != '')
-    		$page = I18nPage::where('slug', $url)->where('publication', 1)->first();
-        else
-            $page = I18nPage::where('start_page', '1')->where('publication', 1)->first();
+        #Helper::dd($url);
 
-		if(!is_object($page) || !$page->id)
-			return App::abort(404);
+        $page = $this->page->where('publication', 1);
 
+        ## Page by ID
+        if (is_numeric($url)) {
+
+            $slug = false;
+            $page = $page->where('id', $url);
+            $page = $page
+                ->with('meta.seo', 'blocks.meta')
+                ->first();
+
+            #Helper::tad($page);
+
+            if (@is_object($page)) {
+
+                if (@is_object($page->meta) && @is_object($page->meta->seo)) {
+                    $slug = $page->meta->seo->url;
+                } else {
+                    $slug = $page->slug;
+                }
+
+                #$slug = false;
+                #Helper::dd($slug);
+
+                if ($slug) {
+                    $redirect = URL::route('page', array('url' => $slug));
+                    #Helper::dd($redirect);
+                    return Redirect::to($redirect, 301);
+                }
+            }
+
+        } else {
+
+            ## Page by SLUG
+
+            ## Search slug in SEO URL
+            $page_meta_seo = Seo::where('module', 'page_meta')->where('url', $url)->first();
+            #Helper::tad($page_meta_seo);
+            if (is_object($page_meta_seo) && is_numeric($page_meta_seo->unit_id)) {
+
+                $page = $this->page_meta
+                    ->where('id', $page_meta_seo->unit_id)
+                    ->with('page.meta.seo', 'page.blocks.meta')
+                    ->first()
+                    ->page;
+                #Helper::tad($page);
+
+            } else {
+
+                ## Search slug in SLUG
+                $page = $this->page
+                    ->where('slug', $url)
+                    ->with('meta.seo')
+                    ->with('blocks.meta')
+                    ->first();
+
+                ## Check SEO url & gettin' $url
+                ## and make 301 redirect if need it
+                if (@is_object($page->meta) && @is_object($page->meta->seo) && $page->meta->seo->url != '' && $page->meta->seo->url != $url) {
+                    $redirect = URL::route('page', array('url' => $page->meta->seo->url));
+                    #Helper::dd($redirect);
+                    return Redirect::to($redirect, 301);
+                }
+            }
+
+        }
+
+        #Helper::tad($page);
+
+        if (!@is_object($page))
+            App::abort(404);
+
+        if ($page->start_page && $url != '') {
+            $redirect = URL::route('mainpage');
+            #Helper::dd($redirect);
+            return Redirect::to($redirect, 301);
+        }
+
+        if (!$page->template)
+            $page->template = 'default';
+
+        if(empty($page->template) || !View::exists($this->module['gtpl'].$page->template))
+            throw new Exception('Template [' . $this->module['gtpl'].$page->template . '] not found.');
+
+        #Helper::dd($page);
+        #Helper::dd($page->blocks['pervyy_blok']->meta->content);
+
+        ## Рендерим контент всех блоков - обрабатываем шорткоды
+        if (is_object($page->blocks) && $page->blocks->count()) {
+
+            $page = $page->blocksBySlug();
+
+            foreach ($page->blocks as $b => $block) {
+                if (is_object($block) && is_object($block->meta)) {
+                    #Helper::dd($block->meta);
+                    if ($block->meta->content != '') {
+                        #$block->meta->content = self::content_render($meta->content);
+                        $page->blocks[$b]->meta->content = self::content_render($block->meta->content);
+                    }
+                }
+            }
+        }
+
+        #Helper::tad($page);
+
+        return View::make($this->module['gtpl'].$page->template, compact('page'));
+
+
+
+
+
+
+        /*
         ## Если текущая страница - главная, и по какой-то необъяснимой причине у нее задан SLUG - обязательно редиректом юзера на главную страницу для его локали, чтобы не было дублей контента
         if (isset($page->slug) && $page->slug != '' && $page->slug == $url && $page->start_page == 1) {
         	## А чтобы ссылка на главную страницу была правильной - делаем вот такую штуку
@@ -125,19 +238,6 @@ class PublicPagesController extends BaseController {
         	$str = Config::get('app.default_locale') == Config::get('app.locale') ? "" : Config::get('app.locale');
 	    	Redirect(link::to($str));
         }
-
-        if(empty($page->template) || !View::exists($this->tpl.$page->template)) {
-			#return App::abort(404, 'Отсутствует шаблон: ' . $this->tpl . $page->template);
-            throw new Exception('Template not found: ' . $this->tpl.$page->template);
-        }
-
-		$page_meta = I18nPageMeta::where('page_id',$page->id)->where('language', Config::get('app.locale'))->first();
-		if(!is_object($page_meta) || !$page_meta->id)
-			return App::abort(404);
-
-        #print_r($page_meta);
-        #echo $page->template;
-
 		$content = self::content_render($page_meta->content);
 		return View::make(
 		    $this->tpl.$page->template,
@@ -151,6 +251,7 @@ class PublicPagesController extends BaseController {
 				'content' => $content
 			)
         );
+        */
 	}
     
 

@@ -29,7 +29,9 @@
         <!-- Form -->
         <section class="col col-6">
             <div class="well">
+
                 <header>{{ $form_title }}</header>
+
                 <fieldset>
 
                     <section>
@@ -39,20 +41,28 @@
                         </label>
                     </section>
 
-                    <section>
-                        <label class="label">Системное имя</label>
+                </fieldset>
+
+
+                <div>
+
+                    <section class="col col-lg-6 col-sm-12">
+                        <label class="label">Идентификатор страницы</label>
                         <label class="input">
                             {{ Form::text('slug') }}
                         </label>
                     </section>
 
-                    <section>
+                    <section class="col col-lg-6 col-sm-12">
                         <label class="label">Шаблон</label>
                         <label class="input select input-select2">
                             {{ Form::select('template', array('Выберите...')+$templates) }}
                         </label>
                     </section>
 
+                </div>
+
+                <fieldset>
                     <section>
                         <label class="checkbox">
                             {{ Form::checkbox('publication', 1, ($element->publication === 0 ? null : true)) }}
@@ -137,6 +147,15 @@
                     </div>
 
                 </fieldset>
+
+                <footer>
+                    <a class="btn btn-default no-margin regular-10 uppercase pull-left btn-spinner" href="{{ link::previous() }}">
+                        <i class="fa fa-arrow-left hidden"></i> <span class="btn-response-text">Назад</span>
+                    </a>
+                    <button type="submit" autocomplete="off" class="btn btn-success no-margin regular-10 uppercase btn-form-submit">
+                        <i class="fa fa-spinner fa-spin hidden"></i> <span class="btn-response-text">Сохранить</span>
+                    </button>
+                </footer>
 
             </div>
         </section>

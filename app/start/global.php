@@ -92,7 +92,6 @@ require app_path().'/filters.php';
 | Переадресовываем uspensky-pk.com на немецкую версию
 |--------------------------------------------------------------------------
 */
-
 /*
     if (
         isset($_SERVER['HTTP_HOST'])
@@ -108,21 +107,25 @@ require app_path().'/filters.php';
 
 /*
 |--------------------------------------------------------------------------
-| Определяем язык сайта для всего приложения,
-| a не только для роутов с фильтром i18n_url
-|--------------------------------------------------------------------------
-| По идее этот код должен идти ДО фильтров, но т.к. в строке выше фильтры
-| только инициализируются, а запускаться будут в роутах - то можно и так.
+| Определяем язык сайта для всего приложения
 |--------------------------------------------------------------------------
 */
-
-/*
-	Config::set('app.default_locale', Config::get('app.locale'));
-    if (in_array(Request::segment(1), Config::get('app.locales')) ) {
-    	Config::set('app.locale', Request::segment(1));
+#/*
+    ## Получаем все активные языки сайта
+    $locales = Config::get('app.locales');
+    ## Если языков больше, чем 1...
+    if (count($locales) > 1) {
+        ## Запомним язык по-умолчанию
+        Config::set('app.default_locale', Config::get('app.locale'));
+        ## Если в данный момент первый сегмент урла соответствует какому-то из наших языков - делаем его активным
+        if ( @$locales[Request::segment(1)] ) {
+            Config::set('app.locale', Request::segment(1));
+        }
+        ## Сохраняем в сессию текущий язык
+        Session::put('locale', Config::get('app.locale'));
     }
-	Session::put('locale', Config::get('app.locale'));
-*/
+    #Helper::d( '/' . Request::segment(1) . '/ - (' . Config::get('app.default_locale') . ') => (' . Config::get('app.locale') . ") - " . Session::get('locale') );
+#*/
 
 
 #Event::listen('illuminate.query', function($query){ echo $query . "<br/>\n"; });

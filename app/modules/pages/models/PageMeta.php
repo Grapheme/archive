@@ -11,4 +11,12 @@ class PageMeta extends BaseModel {
 		#'seo_url' => 'alpha_dash',
 	);
 
+    public function seo() {
+        return $this->hasOne('Seo', 'unit_id', 'id')->where('module', 'page_meta');
+    }
+
+    public function page() {
+        return $this->belongsTo('Page', 'page_id', 'id');
+    }
+
 }

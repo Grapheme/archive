@@ -57,15 +57,5 @@ foreach ($element->metas as $tmp) {
 <fieldset class="col col-lg-5 clearfix margin-bottom-10">
 
     {{ ExtForm::seo('seo['.$locale_sign.']', $element_meta->seo) }}
-    {{-- ExtForm::seo('seo['.$locale_sign.']') --}}
 
 </fieldset>
-
-<style>
-    .redactor_redactor_preview {
-        height: 80px !important;
-    }
-    .redactor_redactor_content {
-        height: 200px !important;
-    }
-</style>
