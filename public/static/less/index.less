@@ -1,0 +1,114 @@
+.index-block {
+	position: relative;
+	padding: 90rem / @htmlFontSize 0;
+	background: url(../img/index/index-back.jpg) no-repeat 0 0 e('/') cover;
+	color:  #ffffff;
+	min-width: @min-width;
+
+	&:before {
+		content: "";
+		position: absolute;
+		background: #2b5c9d;
+		opacity: .9;
+		top: 0; left: 0; right: 0; bottom: 0;
+	}
+
+	.wrapper {
+		position: relative;
+		z-index: 1;
+	}
+
+	.title {
+		.regular;
+		font-size: 40rem / @htmlFontSize;
+		line-height: 44.444rem / @htmlFontSize;
+		width: 770rem / @htmlFontSize;
+	}
+
+	.desc {
+		margin-top: 20rem / @htmlFontSize;
+		font-size: 18rem / @htmlFontSize;
+		line-height: 28.125rem / @htmlFontSize;
+		width: 754rem / @htmlFontSize;
+		height: 102rem / @htmlFontSize;
+	}
+
+	.btns {
+		margin-top: 50rem / @htmlFontSize;
+	}
+}
+
+.index-info {
+	padding: 45rem / @htmlFontSize 0 100rem / @htmlFontSize;
+
+	.title {
+		font-size: 16rem / @htmlFontSize;
+		color: #888888;
+		text-transform: uppercase;
+		margin-bottom: 50rem / @htmlFontSize;
+	}
+
+	.left-block {
+		display: inline-block;
+		vertical-align: top;
+		width: 100%/4*3;
+	}
+
+	.services {
+		.list-unstyled;
+
+		li {
+			.box-sizing;
+			display: inline-block;
+			vertical-align: top;
+			width: 100%/3;
+			padding: 0 60rem / @htmlFontSize 0 20rem / @htmlFontSize;
+			border-left: 2px solid #dddddd;
+
+			.service-img {
+				height: 75rem / @htmlFontSize;
+				width: 62rem / @htmlFontSize;
+				background-size: 100% auto;
+				background-repeat: no-repeat;
+				background-position: center center;
+				margin: 10rem / @htmlFontSize 0 17.5rem / @htmlFontSize;
+			}
+
+			.service-title {
+				.regular;
+				font-size: 18rem / @htmlFontSize;
+				color: #27599f;
+				text-transform: uppercase;
+				margin-bottom: 10rem / @htmlFontSize;
+			}
+
+			.service-desc {
+				font-size: 16rem / @htmlFontSize;
+			}
+		}
+	}
+
+	.right-block {
+		display: inline-block;
+		vertical-align: top;
+		width: 100%/4;
+
+		.index-news {
+			.list-unstyled;
+
+			li {
+				margin-bottom: 30rem / @htmlFontSize;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+
+				.news-date {
+					color: #545454;
+					font-size: 14rem / @htmlFontSize;
+					margin-bottom: 10rem / @htmlFontSize;
+				}
+			}
+		}
+	}
+}
