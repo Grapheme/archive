@@ -16,6 +16,11 @@ h3 {
 	.regular;
 	font-size: 24rem / @htmlFontSize;
 	margin: 0 0 15rem / @htmlFontSize;
+
+	a {
+		color: #525252;
+		text-decoration: none;
+	}
 }
 
 .us-btn {
@@ -39,6 +44,16 @@ h3 {
 		background: #fff;
 		color: #295aa0;
 	}
+
+	&.invert {
+		color: #295aa0;
+		border-color: #295aa0;
+
+		&:hover {
+			color: #fff;
+			background: #295aa0;
+		}
+	}
 }
 
 .us-link {
@@ -50,4 +65,27 @@ h3 {
 	&:hover {
 		border-color: transparent;
 	}
+}
+
+.text-element {
+	.box-sizing;
+	.light;
+	border: 1px solid #c3c7ca;
+	padding: 0 10rem / @htmlFontSize;
+	outline: 0 none;
+	border-radius: 3rem / @htmlFontSize;
+
+	&:focus {
+		box-shadow: 0 0 0 1rem / @htmlFontSize #295aa0;
+		border-color: #295aa0;
+	}
+}
+
+.us-input {
+	.text-element;
+	height: 50rem / @htmlFontSize;
+}
+
+.us-textarea {
+	.text-element;
 }
