@@ -33,3 +33,63 @@
 		margin-top: 25rem / @htmlFontSize;
 	}
 }
+
+.apply-form {
+	.box-sizing;
+	padding: 40rem / @htmlFontSize 0 0 100rem / @htmlFontSize;
+	width: 930rem / @htmlFontSize;
+
+	.apply-input {
+		.us-input;
+		width: 100%;
+	}
+
+	.apply-textarea {
+		.us-textarea;
+		width: 100%;
+		resize: none;
+		height: 150rem / @htmlFontSize;
+	}
+
+	.apply-select {
+		.us-select;
+		width: 100%;
+	}
+
+	.file-td {
+		height: 50rem / @htmlFontSize;
+	}
+
+	.form-container {
+		position: relative;
+		margin: 10rem / @htmlFontSize 0 0 130rem / @htmlFontSize;
+
+		.apply-file {
+			position: absolute;
+			top: 0; left: -70rem / @htmlFontSize;
+			outline: 0 none;
+			opacity: 0;
+			cursor: pointer;
+		}
+
+		.us-btn {
+			margin-top: 50rem / @htmlFontSize;
+		}
+	}
+
+	.desc {
+		margin-bottom: 50rem / @htmlFontSize;
+	}
+
+	.apply-table {
+		width: 100%;
+
+		tr {
+			height: 80rem / @htmlFontSize;
+
+			td:first-child {
+				width: 130rem / @htmlFontSize;
+			}
+		}
+	}
+}

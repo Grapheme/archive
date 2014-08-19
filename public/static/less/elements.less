@@ -54,6 +54,17 @@ h3 {
 			background: #295aa0;
 		}
 	}
+
+	&.loading {
+		&:before {
+			.font-awesome;
+			.fa-spin;
+			position: relative;
+			content: "\f110";
+			left: -15rem / @htmlFontSize;
+			margin-right: 5rem / @htmlFontSize;
+		}
+	}
 }
 
 .us-link {
@@ -79,6 +90,11 @@ h3 {
 		box-shadow: 0 0 0 1rem / @htmlFontSize #295aa0;
 		border-color: #295aa0;
 	}
+
+	&.inp-error {
+		box-shadow: 0 0 0 1rem / @htmlFontSize #FD7373;
+		border-color: #FD7373;
+	}
 }
 
 .us-input {
@@ -88,4 +104,11 @@ h3 {
 
 .us-textarea {
 	.text-element;
+	padding-top: 10rem / @htmlFontSize;
+}
+
+.us-select {
+	.text-element;
+	height: 50rem / @htmlFontSize;
+	background: #fff;
 }
