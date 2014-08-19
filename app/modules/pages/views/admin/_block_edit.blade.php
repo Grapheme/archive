@@ -33,29 +33,39 @@ $method     = 'POST';
 
             <div class="row">
                 <div class="col-md-12">
+
                     <div class="form-group">
                         <label class="control-label">
                             Название
                         </label>
                         <input type="text" class="form-control" placeholder="Название блока" name="name" value="{{ $element->name }}" required />
                     </div>
-                    <div class="form-group">
-                        <label class="control-label">
-                            Системное имя
-                        </label>
-                        {{--
-                        <textarea class="form-control" placeholder="Системное имя" rows="2" name="slug">{{ $element->slug }}</textarea>
-                        --}}
-                        {{ Form::text('slug', null, array('class' => 'form-control')) }}
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">
-                            Шаблон блока
-                        </label>
-                        {{ Form::select('template', array('Выберите...')+$templates, null, array('class' => 'form-control')) }}
-                    </div>
+
+                    <fieldset class="row">
+
+                        <section class="col col-lg-6">
+                            <label class="control-label">
+                                Системное имя
+                            </label>
+                            {{--
+                            <textarea class="form-control" placeholder="Системное имя" rows="2" name="slug">{{ $element->slug }}</textarea>
+                            --}}
+                            {{ Form::text('slug', null, array('class' => 'form-control')) }}
+                        </section>
+
+                        <section class="col col-lg-6">
+                            <label class="control-label">
+                                Шаблон блока
+                            </label>
+                            {{ Form::select('template', array('Выберите...')+$templates, null, array('class' => 'form-control')) }}
+                        </section>
+
+                    </fieldset>
+
                 </div>
             </div>
+
+            @if (count($locales) > 1)
 
             <div class="widget-body">
                 <ul id="myTab2" class="nav nav-tabs bordered" role="tablist">
@@ -79,6 +89,14 @@ $method     = 'POST';
                     @endforeach
                 </div>
             </div>
+
+            @else
+
+                @foreach ($locales as $locale_sign => $locale_name)
+                    @include($module['tpl'].'_block_meta', compact('locale_sign', 'locale_name', 'templates', 'element'))
+                @endforeach
+
+            @endif
 
         </div>
         <div class="modal-footer">
