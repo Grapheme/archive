@@ -37,4 +37,13 @@ class Page extends BaseModel {
         return $this;
     }
 
+    public function block($slug = false) {
+
+        if (!$slug || !@count($this->blocks) || !@is_object($this->blocks[$slug]) || !@is_object($this->blocks[$slug]->meta))
+            return false;
+
+        return $this->blocks[$slug]->meta->content;
+
+    }
+
 }

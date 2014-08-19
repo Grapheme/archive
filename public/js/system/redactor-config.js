@@ -24,6 +24,7 @@ ImperaviRedactor.config = {
 	convertLinks: false,
 	convertImageLinks: false,
 	convertVideoLinks: false,
+    //deniedTags: ['li'],
 	//buttonsAdd: ['button_undo','button_redo','|'],
 //	buttonsCustom: ImperaviRedactor.buttonsCustom,
 	lang: 'ru',
@@ -189,6 +190,7 @@ $(function(){
 		fullscreen: 'Во весь экран',deleted: 'Зачеркнутый',anchor: 'Якорь',link_new_tab: 'Открывать в новой вкладке',underline: 'Подчеркнутый',
 		alignment: 'Выравнивание',filename: 'Название (необязательно)',edit: 'Ред.'
 	};
+    ImperaviRedactor.config_nofilter = ImperaviRedactor.config;
 	$(".redactor-no-filter").redactor(ImperaviRedactor.config);
 	ImperaviRedactor.config['linebreaks'] = false;
 	ImperaviRedactor.config['paragraphy'] = true;

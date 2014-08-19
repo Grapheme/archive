@@ -1,0 +1,170 @@
+.main-header {
+	padding: 30rem / @htmlFontSize 0;
+
+	.header-logo {
+		display: inline-block;
+		vertical-align: middle;
+
+		.logo {
+			display: inline-block;
+			vertical-align: middle;
+			width: 67rem / @htmlFontSize;
+			height: 70rem / @htmlFontSize;
+			background: url(../img/logo.jpg) no-repeat 0 0 e('/') 100%;
+		}
+		.text {
+			display: inline-block;
+			vertical-align: middle;
+			color:  #444444;
+			text-decoration: none;
+			text-transform: uppercase;
+			font-size: 14rem / @htmlFontSize;
+			line-height: 22.4rem / @htmlFontSize;
+			width: 180rem / @htmlFontSize;
+			margin-left: 25rem / @htmlFontSize;
+		}
+	}
+
+	.header-block {
+		position: relative;
+		top: -10rem / @htmlFontSize;
+		display: inline-block;
+		float: right;
+
+		.apply-div {
+			margin-bottom: 25rem / @htmlFontSize;
+
+			a {
+				float: right;
+				color: #1e54a6;
+				font-size: 16px;
+				font-weight: 500;
+				text-decoration: none;
+				border-bottom: 1px dashed #1e54a6;
+			}
+		}
+
+		.header-menu {
+			height: 40rem / @htmlFontSize;
+			line-height: 40rem / @htmlFontSize;
+		}
+
+		.nav-block {
+			position: relative;
+			display: inline-block;
+			vertical-align: top;
+			width: 820rem / @htmlFontSize;
+
+			.header-search {
+				.transition(opacity);
+				display: none;
+				position: absolute;
+				width: 100%;
+				top: 0;
+				right: -40rem / @htmlFontSize;
+				background: #fff;
+				opacity: 0;
+
+				&.active {
+					opacity: 1;
+				}
+
+				.header-input {
+					.light;
+					position: inline-block;
+					vertical-align: middle;
+					width: 80%;
+					float: right;
+					height: 35rem / @htmlFontSize;
+					background: transparent;
+					border: 0 none;
+					border-bottom: 2rem / @htmlFontSize solid #dddddd;
+					outline: 0 none;
+					padding: 0 40rem / @htmlFontSize 5rem / @htmlFontSize 0;
+				}
+
+				.menu-icon {
+					.transition(opacity);
+					float: right;
+					position: relative;
+					display: inline-block;
+					vertical-align: middle;
+					height: 35rem / @htmlFontSize;
+					width: 30rem / @htmlFontSize;
+					margin-right: 25rem / @htmlFontSize;
+					opacity: 0;
+
+					&.active {
+						opacity: 1;
+					}
+
+					span {
+						display: inline-block;
+						position: absolute;
+						width: 70%;
+						height: 2rem / @htmlFontSize;
+						top: 50%;
+						margin-top: -1rem / @htmlFontSize;
+						margin-left: 15%;
+						background: #000;
+
+						&:before {
+							content: "";
+							position: absolute;
+							width: 100%;
+							height: 100%;
+							background: #000;
+							top: -300%;
+						}
+
+						&:after {
+							content: "";
+							position: absolute;
+							width: 100%;
+							height: 100%;
+							background: #000;
+							top: 300%;
+						}
+					}
+				}
+			}
+		}
+
+		.main-nav {
+			.transition(opacity);
+			position: absolute;
+			right: 0;
+
+			&.closed {
+				opacity: 0;
+			}
+
+			ul {
+				.list-unstyled;
+
+				li {
+					display: inline-block;
+					margin-right: 15rem / @htmlFontSize;
+
+					a {
+						text-decoration: none;
+						text-transform: uppercase;
+						color:  #444444;
+						font-size: 14rem / @htmlFontSize;
+					}
+				}
+			}
+		}
+
+		.search-icon {
+			position: relative;
+			display: inline-block;
+			//top: -4rem / @htmlFontSize;
+			color: #2256a4;
+			background: transparent;
+			border: 0;
+			outline: 0;
+			font-size: 25rem / @htmlFontSize;
+		}
+	}
+}

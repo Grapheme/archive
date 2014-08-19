@@ -7,13 +7,7 @@
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-        {{ HTML::stylemod('css/select2.css') }}
-        {{ HTML::stylemod('css/fonts.css') }}
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
         {{ HTML::stylemod('css/normalize.css') }}
         {{ HTML::stylemod('css/main.css') }}
-        {{ HTML::stylemod('css/fotorama.css') }}
-
-        {{ HTML::stylemod('css/slider.css') }}
-
         {{ HTML::scriptmod('js/vendor/modernizr-2.6.2.min.js') }}

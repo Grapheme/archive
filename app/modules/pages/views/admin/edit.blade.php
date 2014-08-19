@@ -286,7 +286,7 @@
                 }).done(function(data){
                     //console.log(data);
                     $('#blockEditModal').html(data).modal('show');
-                    $('#blockEditModal .redactor').redactor();
+                    $('#blockEditModal .redactor').redactor(ImperaviRedactor.config || {});
                     return false;
                 }).fail(function(data){
                     console.log(data);Z

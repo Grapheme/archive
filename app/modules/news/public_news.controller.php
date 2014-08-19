@@ -42,63 +42,71 @@ class PublicNewsController extends BaseController {
     	shortcode::add("news",
         
             function($params = null) use ($tpl) {
+
                 #print_r($params); die;
-        		## Gfhfvtnhs по-умолчанию
+
+                if(!Allow::module('news'))
+                    return false;
+
+                ## Параметры по-умолчанию
                 $default = array(
-                    'tpl' => Config::get('app-default.news_template'),
-                    'limit' => Config::get('app-default.news_count_on_page'),
+                    'tpl' => Config::get('app-default.news_template', 'default'),
+                    'limit' => Config::get('app-default.news_count_on_page', 3),
                     'order' => Helper::stringToArray(News::$order_by),
                     'pagination' => 1,
                 );
         		## Применяем переданные настройки
-                $params = array_merge($default, $params);
+                $params = $params+$default;
                 #dd($params);
 
-        		#if(Allow::enabled_module('news')):
-        		    ## Получаем новости, делаем LEFT JOIN с news_meta, с проверкой языка и тайтла
-        			$selected_news = News::where('news.publication', 1)
-        			                        ->leftJoin('news_meta', 'news_meta.news_id', '=', 'news.id')
-        			                        ->where('news_meta.language', Config::get('app.locale'))
-        			                        ->where('news_meta.title', '!=', '')
-        			                        ->select('*', 'news.id AS original_id', 'news.published_at AS created_at')
-                                            ->orderBy('news.published_at', 'desc');
-                                            
-                    #$selected_news = $selected_news->where('news_meta.wtitle', '!=', '');
+                #echo $tpl.$params['tpl'];
 
-                    ## Получаем новости с учетом пагинации
-                    #echo $selected_news->toSql(); die;
-                    #var_dump($params['limit']);
-        			$news = $selected_news->paginate($params['limit']); ## news list with pagination
-        			#$news = $selected_news->get(); ## all news, without pagination
+                if(empty($params['tpl']) || !View::exists($tpl.$params['tpl']))
+                    throw new Exception('Template [' . $tpl.$params['tpl'] . '] not found.');
 
-        			foreach ($news as $n => $new) {
-        				#print_r($new); die;
-        				$gall = Rel_mod_gallery::where('module', 'news')->where('unit_id', $new->original_id)->first();
-        				#foreach ($gall->photos as $photo) {
-        				#	print_r($photo->path());
-        				#}
-        				#print_r($gall->photos); die;
-        				$new->gall = @$gall;
-        				$new->image = is_object(@$gall->photos[0]) ? @$gall->photos[0]->path() : "";
-        				$news[$n]->$new;
-        			}
-        			
-                    #echo $news->count(); die;
-                    
-        			if($news->count()) {
+                $news = News::orderBy('news.published_at', 'desc')->with('meta.photo', 'meta.gallery.photos', 'meta.seo');
 
-                        #if(empty($params['tpl']) || !View::exists($this->tpl.$params['tpl'])) {
-                        if(empty($params['tpl']) || !View::exists($tpl.$params['tpl'])) {
-                			#return App::abort(404, 'Отсутствует шаблон: ' . $this->tpl . $news->template);
-        					#return "Отсутствует шаблон: templates.".$params['tpl'];
-                            throw new Exception('Template not found: ' . $tpl.$params['tpl']);
-                        }
+                /*
+                ## Получаем новости, делаем LEFT JOIN с news_meta, с проверкой языка и тайтла
+                $selected_news = News::where('news.publication', 1)
+                                        ->leftJoin('news_meta', 'news_meta.news_id', '=', 'news.id')
+                                        ->where('news_meta.language', Config::get('app.locale'))
+                                        ->where('news_meta.title', '!=', '')
+                                        ->select('*', 'news.id AS original_id', 'news.published_at AS created_at')
+                                        ->orderBy('news.published_at', 'desc');
 
-    					return View::make($tpl.$params['tpl'], compact('news'));
-        			}
-        		#else:
-        		#	return '';
-        		#endif;
+                #$selected_news = $selected_news->where('news_meta.wtitle', '!=', '');
+
+                ## Получаем новости с учетом пагинации
+                #echo $selected_news->toSql(); die;
+                #var_dump($params['limit']);
+                $news = $selected_news->paginate($params['limit']); ## news list with pagination
+                #$news = $selected_news->get(); ## all news, without pagination
+                */
+
+                $news = $news->paginate($params['limit']);
+
+                #Helper::tad($news);
+
+                /*
+                foreach ($news as $n => $new) {
+                    #print_r($new); die;
+                    $gall = Rel_mod_gallery::where('module', 'news')->where('unit_id', $new->original_id)->first();
+                    #foreach ($gall->photos as $photo) {
+                    #	print_r($photo->path());
+                    #}
+                    #print_r($gall->photos); die;
+                    $new->gall = @$gall;
+                    $new->image = is_object(@$gall->photos[0]) ? @$gall->photos[0]->path() : "";
+                    $news[$n]->$new;
+                }
+                */
+                #echo $news->count(); die;
+
+                if(!$news->count())
+                    return false;
+
+                return View::make($tpl.$params['tpl'], compact('news'));
     	    }
         );
         
