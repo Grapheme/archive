@@ -17,6 +17,7 @@
 		}
 
 		.input-cross {
+			.transition(color, .25s);
 			text-decoration: none;
 			color: #ddd;
 			font-size: 20rem / @htmlFontSize;
@@ -24,6 +25,10 @@
 
 			&:before {
 				content: "✕";
+			}
+
+			&:hover {
+				color: #333;
 			}
 		}
 
@@ -77,11 +82,23 @@
 		}
 
 		tbody {
+
 			tr {
 				.regular;
 
 				&:nth-of-type(2n+1) {
 					background: #efefef;
+				}
+
+				td:first-child {
+					position: relative;
+
+					&:before {
+						content: attr(data-number);
+						position: absolute;
+						left: 10rem / @htmlFontSize;
+						color: #cdcdcd;
+					}
 				}
 			}
 		}
@@ -90,7 +107,7 @@
 			height: 45rem / @htmlFontSize;
 
 			td {
-				padding: 0 25rem / @htmlFontSize;
+				padding: 0 30rem / @htmlFontSize;
 
 				&:nth-of-type(2) {
 					text-align: right;
