@@ -254,7 +254,7 @@ class PublicPagesController extends BaseController {
         #Helper::tad($page);
 
         return View::make($this->module['gtpl'].$page->template, compact('page'));
-        
+
 	}
     
 

@@ -1,3 +1,7 @@
+<?
+$route = Route::currentRouteName();
+#Helper::dd($page);
+?>
 
         <header class="main-header">
             <div class="wrapper">
@@ -16,13 +20,15 @@
                             <div class="nav-block">
                                 <nav class="main-nav">
                                     <ul>
-                                        <li><a href="#">Запросы</a>
-                                        <li><a href="#">Запросы</a>
-                                        <li><a href="#">Запросы</a>
-                                        <li><a href="#">Запросы</a>
-                                        <li><a href="#">Запросы</a>
-                                        <li><a href="#">Запросы</a>
-                                        <li><a href="#">Запросы</a>
+                                        <li{{ $route == 'page' && $page->slug == 'requests' ? ' class="active"' : '' }}><a href="{{ URL::route('page', array('requests')) }}">Запросы</a>
+                                        <li{{ $route == 'page' && $page->slug == 'fonds' ? ' class="active"' : '' }}><a href="{{ URL::route('page', array('fonds')) }}">Фонды</a>
+                                        {{--
+                                        <li><a href="#">НСА</a>
+                                        <li><a href="#">Комплектация</a>
+                                        --}}
+                                        <li{{ $route == 'news' ? ' class="active"' : '' }}><a href="{{ URL::route('news') }}">Новости</a>
+                                        <li{{ $route == 'page' && $page->slug == 'about' ? ' class="active"' : '' }}><a href="{{ URL::route('page', array('about')) }}">Об архиве</a>
+                                        <li{{ $route == 'page' && $page->slug == 'contact' ? ' class="active"' : '' }}><a href="{{ URL::route('page', array('contact')) }}">Контакты</a>
                                     </ul>
                                 </nav>
                                 <div class="header-search">

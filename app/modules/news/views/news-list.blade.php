@@ -1,3 +1,4 @@
+
 @if(isset($news) && $news->count())
     <ul class="news-list">
 	@foreach($news as $new)

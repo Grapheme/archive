@@ -53,3 +53,24 @@ var search = (function(){
 		search_close();
 	});
 })();
+
+var file_input = (function(){
+	$(document).on('change', '.apply-file', function(){
+		var str = $(this).val().split("\\");
+		var name = str[str.length - 1];
+		$(this).parent().find('.file-btn .us-link').text(name);
+	});
+})();
+
+var fonds = (function(){
+	function setNumbers() {
+		var element = $('.fonds-list tbody tr');
+		var i = 1;
+		element.each(function(){
+			$(this).find('td').first().attr('data-number', i);
+			i++;
+		});
+	}
+
+	return { setNumbers: setNumbers };
+})();

@@ -22,6 +22,7 @@ class PublicNewsController extends BaseController {
             	## ...генерим роуты с префиксом (первый сегмент), который будет указывать на текущую локаль.
             	## Также указываем before-фильтр i18n_url, для выставления текущей локали.
                 Route::group(array('before' => 'i18n_url', 'prefix' => $locale_sign), function() use ($class) {
+                    Route::get('/news/', array('as' => 'news', 'uses' => $class.'@showNews'));
                     Route::get('/news/{url}', array('as' => 'news_full', 'uses' => $class.'@showFullNews'));
                 });
             }
@@ -30,6 +31,7 @@ class PublicNewsController extends BaseController {
         ## Генерим роуты без префикса, и назначаем before-фильтр i18n_url.
         ## Это позволяет нам делать редирект на урл с префиксом только для этих роутов, не затрагивая, например, /admin и /login
         Route::group(array('before' => 'i18n_url'), function(){
+            Route::get('/news/', array('as' => 'news', 'uses' => __CLASS__.'@showNews'));
             Route::get('/news/{url}', array('as' => 'news_full', 'uses' => __CLASS__.'@showFullNews'));
         });
     }
@@ -148,7 +150,40 @@ class PublicNewsController extends BaseController {
         );
         View::share('module', $this->module);
 	}
-    
+
+    ## Функция для просмотра полной мультиязычной новости
+    public function showNews() {
+
+        if(!Allow::module($this->module['group']))
+            App::abort(404);
+
+        $limit = Config::get('site.news_page_limit', 10);
+        $tpl = Config::get('site.news_page_template', 'news-list-page');
+
+        $news = $this->news->where('publication', 1)
+            ->with('meta.seo', 'meta.photo', 'meta.gallery.photos')
+            ->take($limit)
+            ->paginate($limit);
+
+        #Helper::tad($news);
+
+        if (!@count($news))
+            App::abort(404);
+
+        if (!$tpl)
+            $tpl = 'news-list-page';
+
+        #Helper::tad($news);
+
+        #Helper::dd( $this->module['gtpl'].$tpl );
+
+        if(empty($tpl) || !View::exists($this->module['gtpl'].$tpl))
+            throw new Exception('Template [' . $this->module['gtpl'].$tpl . '] not found.');
+
+        return View::make($this->module['gtpl'].$tpl, compact('news'));
+    }
+
+
     ## Функция для просмотра полной мультиязычной новости
     public function showFullNews($url = false) {
 
@@ -244,6 +279,6 @@ class PublicNewsController extends BaseController {
             throw new Exception('Template [' . $this->module['gtpl'].$news->template . '] not found.');
 
         return View::make($this->module['gtpl'].$news->template, compact('news'));
-	}
+    }
 
 }
