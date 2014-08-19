@@ -158,7 +158,7 @@ class AdminPagesPageController extends BaseController {
         $locales = Helper::withdraw($input, 'locales');
         $blocks = Helper::withdraw($input, 'blocks');
         $blocks_new = Helper::withdraw($input, 'blocks_new');
-        $seo = Helper::withdraw($input, 'seo');
+        #$seo = Helper::withdraw($input, 'seo');
 
         $input['template'] = $input['template'] ? $input['template'] : NULL;
 
@@ -168,7 +168,7 @@ class AdminPagesPageController extends BaseController {
         $input['start_page'] = @$input['start_page'] ? 1 : NULL;
 
         #$json_request['responseText'] = "<pre>" . print_r(Input::all(), 1) . "</pre>";
-        #$json_request['responseText'] = "<pre>" . print_r($input, 1) . print_r($locales, 1) . print_r($blocks, 1) . print_r($blocks_new, 1) . "</pre>";
+        $json_request['responseText'] = "<pre>" . print_r($input, 1) . print_r($locales, 1) . print_r($blocks, 1) . print_r($blocks_new, 1) . "</pre>";
         #return Response::json($json_request,200);
 
         $json_request = array('status'=>FALSE, 'responseText'=>'', 'responseErrorText'=>'', 'redirect'=>FALSE);
@@ -209,7 +209,9 @@ class AdminPagesPageController extends BaseController {
             ## PAGES_META
             if (count($locales)) {
                 foreach ($locales as $locale_sign => $locale_settings) {
-                    $locale_settings['template'] = $locale_settings['template'] ? $locale_settings['template'] : NULL;
+
+                    $seo = Helper::withdraw($locale_settings, 'seo');
+                    $locale_settings['template'] = @$locale_settings['template'] ? $locale_settings['template'] : NULL;
                     $page_meta = $this->pages_meta->where('page_id', $element->id)->where('language', $locale_sign)->first();
                     if (is_object($page_meta)) {
                         $page_meta->update($locale_settings);
@@ -220,7 +222,8 @@ class AdminPagesPageController extends BaseController {
                     }
 
                     ## PAGES META SEO
-                    if (isset($seo[$locale_sign])) {
+                    #if (isset($seo[$locale_sign])) {
+                    if (isset($seo)) {
 
                         ###############################
                         ## Process SEO
@@ -228,7 +231,7 @@ class AdminPagesPageController extends BaseController {
                         $seo_result = ExtForm::process('seo', array(
                             'module'  => 'page_meta',
                             'unit_id' => $page_meta->id,
-                            'data'    => $seo[$locale_sign],
+                            'data'    => $seo,
                         ));
                         #Helper::tad($seo_result);
                         ###############################
