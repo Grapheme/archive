@@ -1,5 +1,5 @@
 
-        <footer class="main-footer">
+        <footer class="main-footer @yield('footer-class')">
             <div class="wrapper">
                 <div class="footer-block s-text">
                     © 2014, ГКУ РО Архив документов<br> по личному составу Ростовской области.

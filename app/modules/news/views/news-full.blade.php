@@ -6,48 +6,38 @@
 @stop
 
 
+@section('footer-class') white-footer @stop
+
+
 @section('content')
-<main1>
-    <h1>
-        {{ $news->meta->title }}
-    </h1>
 
-    <p class="news-date">
-        {{ date("d/m/Y", strtotime($news->published_at)) }}
-    </p>
-
-    <div class="news-desc">
-        <h3>Анонс новости</h3>
-        {{ $news->meta->preview }}
-    </div>
-
-    <div class="news-desc">
-        <h3>Содержание новости</h3>
-        {{ $news->meta->content }}
-    </div>
-
-    <hr />
-
-    @if (@is_object($news->meta->photo))
-        <h3>Изображение</h3>
-        <img src="{{ URL::to($news->meta->photo->thumb()) }}">
-    @endif
-
-    @if (@is_object($news->meta->gallery) && $news->meta->gallery->photos->count())
-        <h3>Галерея (слайдер)</h3>
-        <div class="fotorama" data-nav="false" data-width="100%" data-fit="contain" style="width:300px">
-        @foreach($news->meta->gallery->photos as $photo)
-        <img src="{{ URL::to($photo->full()) }}">
-        @endforeach
+    <section class="normal-page">
+        <div class="wrapper">
+            <h1>Новости</h1>
+            <ul class="news-list">
+                <li>
+                    <h3>
+                        <a href="#">{{ $news->meta->title }}</a>
+                    </h3>
+                    <div class="news-date">{{ Helper::rdate("d M Y", strtotime($news->published_at)) }}</div>
+                    <div class="news-text">
+                        <p>
+                            {{ $news->meta->preview }}
+                        </p>  
+                        <p>
+                            {{ $news->meta->content }}
+                        </p>
+                    </div>
+            </ul>
+            <ul class="news-year">
+                <li class="active"><a href="#">2014</a>
+                <li><a href="#">2013</a>
+                <li><a href="#">2012</a>
+                <li><a href="#">2011</a>
+            </ul>
         </div>
-    @endif
+    </section>
 
-    @if (@is_object($news->meta->seo))
-        <h3>SEO-данные</h3>
-        {{ Helper::ta($news->meta->seo) }}
-    @endif
-
-</main1>
 @stop
 
 
