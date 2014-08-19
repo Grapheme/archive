@@ -5,6 +5,7 @@
     	@foreach(SystemModules::getSidebarModules() as $name => $module)
 <? #echo (string)Request::segment(2) . " == " . $module['link'] . " > " . (int)((string)Request::segment(2) == $module['link']); ?>
 <? #dd(Request::segment(2)); ?>
+<? Helper::d_($module); ?>
 <?
 #Helper::d($_SERVER['REQUEST_URI']);
 #Helper::d("/" . AuthAccount::getStartPage($module['link']));
