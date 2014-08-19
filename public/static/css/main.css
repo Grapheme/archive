@@ -300,6 +300,12 @@ html {
   font-family: 'lato_light';
   color: #333333;
 }
+ul {
+  font-size: 0;
+}
+ul li {
+  font-size: 1rem;
+}
 .wrapper {
   width: 73.125rem;
   margin: 0 auto;
@@ -744,6 +750,10 @@ html {
   color: #545454;
   text-decoration: none;
 }
+.news-year li a:hover {
+  font-family: 'lato_medium';
+  color: #2658a2;
+}
 .news-year li.active a {
   font-family: 'lato_medium';
   color: #2658a2;
@@ -768,6 +778,8 @@ html {
   line-height: 3.125rem;
 }
 .fonds .fonds-blocks .input-cross {
+  -webkit-transition: color 0.25s ease;
+  transition: color 0.25s ease;
   text-decoration: none;
   color: #ddd;
   font-size: 1.25rem;
@@ -775,6 +787,9 @@ html {
 }
 .fonds .fonds-blocks .input-cross:before {
   content: "✕";
+}
+.fonds .fonds-blocks .input-cross:hover {
+  color: #333;
 }
 .fonds .fonds-blocks .left-block {
   display: inline-block;
@@ -854,11 +869,20 @@ html {
 .fonds .fonds-list tbody tr:nth-of-type(2n+1) {
   background: #efefef;
 }
+.fonds .fonds-list tbody tr td:first-child {
+  position: relative;
+}
+.fonds .fonds-list tbody tr td:first-child:before {
+  content: attr(data-number);
+  position: absolute;
+  left: 0.625rem;
+  color: #cdcdcd;
+}
 .fonds .fonds-list tr {
   height: 2.8125rem;
 }
 .fonds .fonds-list tr td {
-  padding: 0 1.5625rem;
+  padding: 0 1.875rem;
 }
 .fonds .fonds-list tr td:nth-of-type(2) {
   text-align: right;
@@ -1026,6 +1050,51 @@ html {
 }
 .apply-form .apply-table tr td:first-child {
   width: 8.125rem;
+}
+.contacts {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 3.4375rem 0 0 6.25rem;
+  width: 66.875rem;
+}
+.contacts .btn-cont {
+  padding: 2.1875rem 0 3.75rem;
+}
+.contacts .contact-hr {
+  width: 4.6875rem;
+  height: 0.125rem;
+  background: #bbbbbb;
+  margin: 0.625rem 0 2.1875rem;
+}
+.contacts .phone-link {
+  color: #333;
+  text-decoration: none;
+}
+.contacts .phone-block {
+  display: inline-block;
+  color: #333;
+  text-decoration: none;
+  margin-top: 0.625rem;
+}
+.contacts .contact-block {
+  margin-bottom: 1.5625rem;
+}
+.contacts .contact-blocks {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.contacts .contact-blocks li {
+  display: inline-block;
+  vertical-align: top;
+  width: 32%;
+  line-height: 1.875rem;
+}
+.contacts .contact-blocks li span,
+.contacts .contact-blocks li i {
+  display: inline-block;
+  line-height: normal;
 }
 /* ==========================================================================
    Helper classes

@@ -61,3 +61,16 @@ var file_input = (function(){
 		$(this).parent().find('.file-btn .us-link').text(name);
 	});
 })();
+
+var fonds = (function(){
+	function setNumbers() {
+		var element = $('.fonds-list tbody tr');
+		var i = 1;
+		element.each(function(){
+			$(this).find('td').first().attr('data-number', i);
+			i++;
+		});
+	}
+
+	return { setNumbers: setNumbers };
+})();
