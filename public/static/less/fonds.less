@@ -1,0 +1,101 @@
+.fonds {
+	.box-sizing;
+	position: relative;
+	padding: 25rem / @htmlFontSize 0 0 100rem / @htmlFontSize;
+	width: 930rem / @htmlFontSize;
+
+	.fonds-blocks {
+
+		.title {
+			font-size: 14rem / @htmlFontSize;
+			margin-bottom: 7rem / @htmlFontSize;
+		}
+
+		.search-body {
+			height: 50rem / @htmlFontSize;
+			line-height: 50rem / @htmlFontSize;
+		}
+
+		.input-cross {
+			text-decoration: none;
+			color: #ddd;
+			font-size: 20rem / @htmlFontSize;
+			margin-left: 10rem / @htmlFontSize;
+
+			&:before {
+				content: "✕";
+			}
+		}
+
+		.left-block {
+			display: inline-block;
+			vertical-align: top;
+			width: 55%;
+
+			.fond-input {
+				.us-input;
+				width: 85%;
+			}
+
+			.search-cont {
+				display: inline-block;
+				vertical-align: top;
+				width: 100%;
+			}
+		}
+
+		.right-block {
+			display: inline-block;
+			vertical-align: top;
+			width: 45%;
+
+			.slider-inputs {
+				position: relative;
+				display: inline-block;
+				vertical-align: top;
+				width: 40%;
+
+				span {
+					color: #cdcdcd;
+					margin-right: 10rem / @htmlFontSize;
+				}
+
+				.slider-input {
+					.us-input;
+					width: 55%;
+				}
+			}
+		}
+	}
+
+	.fonds-list {
+		margin-top: 50rem / @htmlFontSize;
+		width: 100%;
+
+		thead {
+			font-size: 14rem / @htmlFontSize;
+		}
+
+		tbody {
+			tr {
+				.regular;
+
+				&:nth-of-type(2n+1) {
+					background: #efefef;
+				}
+			}
+		}
+
+		tr {
+			height: 45rem / @htmlFontSize;
+
+			td {
+				padding: 0 25rem / @htmlFontSize;
+
+				&:nth-of-type(2) {
+					text-align: right;
+				}
+			}
+		}
+	}
+}

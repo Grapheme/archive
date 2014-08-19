@@ -53,3 +53,11 @@ var search = (function(){
 		search_close();
 	});
 })();
+
+var file_input = (function(){
+	$(document).on('change', '.apply-file', function(){
+		var str = $(this).val().split("\\");
+		var name = str[str.length - 1];
+		$(this).parent().find('.file-btn .us-link').text(name);
+	});
+})();
