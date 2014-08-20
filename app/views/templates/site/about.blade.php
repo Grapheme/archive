@@ -19,8 +19,10 @@
             	<div class="nav-line"></div>
             </div>
 
-            {{ $page->block('history') }}
-            {{ $page->block('ustav') }}
+            <ul class="js-tabs list-unstyled">
+                <li data-tab="history">{{ $page->block('history') }}
+                <li data-tab="ustav">{{ $page->block('ustav') }}
+            </ul>
 
         </div>
     </section>
