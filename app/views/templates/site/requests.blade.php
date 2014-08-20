@@ -17,7 +17,7 @@
 
                     {{ $page->block('menu') }}
 
-                    <ul class="apply-list">
+                    <ul class="apply-list js-tabs">
                         
                         {{ $page->block('main') }}
                         {{ $page->block('social') }}
@@ -39,4 +39,5 @@
 
 
 @section('scripts')
+    <script>page_nav.init();</script>
 @stop

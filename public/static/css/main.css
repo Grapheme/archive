@@ -1058,6 +1058,12 @@ ul li {
 .apply-form .apply-table tr td:first-child {
   width: 8.125rem;
 }
+.js-tabs li {
+  display: none;
+}
+.js-tabs li.active {
+  display: block;
+}
 .contacts {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

@@ -118,6 +118,33 @@ var crosses = (function(){
 	});
 })();
 
+var page_nav = (function(){
+	$(window).on('hashchange', function(){
+		$(document).trigger('pagenav::change');
+		show();
+	});
+
+	$(document).on('pagenav::change', function(){
+		//alert(1);
+	});
+
+	function init() {
+		if(window.location.hash == '') {
+			$('.js-tabs li').first().addClass('active');
+			$('.page-nav li').first().addClass('active');
+		} else {
+			var data = window.location.hash.substr(1);
+			$('.page-nav li').removeClass('active');
+			$('.js-tabs li').removeClass('active');
+			$('.page-nav a[href="#' + data + '"]').parent().addClass('active');
+			$('.js-tabs li[data-tab="' + data + '"]').addClass('active');
+		}
+	}
+	
+	return {init : init};
+
+})();
+
 
 /***************************************************************/
 

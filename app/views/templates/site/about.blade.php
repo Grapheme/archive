@@ -27,4 +27,5 @@
 
 
 @section('scripts')
+	<script>page_nav.init();</script>
 @stop
