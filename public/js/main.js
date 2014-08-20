@@ -77,6 +77,8 @@ var fonds = (function(){
 
 
 
+/***************************************************************/
+
 // validate signup form on keyup and submit
 $("#sendRequestForm").validate({
     rules: {
@@ -116,32 +118,7 @@ function sendRequestForm(form) {
 
     //console.log(form);
 
-    /*
-    $.ajax({
-        type: $(form).attr('method') || 'GET',
-        url:  $(form).attr('action'),
-        data: $(form).serialize(),
-        beforeSend: function(xhr) {
-            //xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
-            $(form).find('button').addClass('loading');
-        }
-    }).done(function(data, textStatus, jqXHR) {
-
-        console.log(data);
-        $('.success').hide().removeClass('hidden').slideDown();
-        $(form).slideUp();
-
-    }).fail(function(jqXHR, textStatus, errorThrown) {
-
-        console.log(jqXHR);
-    }).always(function(data) {
-
-        //console.log(data);
-        $(form).find('button').removeClass('loading');
-    });
-    */
-
-    var options = { target: null, type: 'post' };
+    var options = { target: null, type: $(form).attr('method') };
 
     options.beforeSubmit = function(formData, jqForm, options){
         $(form).find('button').addClass('loading');
@@ -157,10 +134,125 @@ function sendRequestForm(form) {
         console.log(jqXHR);
     }
 
-    options.always = function(data, textStatus, jqXHR){
+    options.complete = function(data, textStatus, jqXHR){
         $(form).find('button').removeClass('loading');
     }
 
     $(form).ajaxSubmit(options);
+}
 
+/*
+$.validator.addMethod("atleastone",
+    function(value, element, params) {
+        //console.log($.validator);
+        var valid = false;
+        $(params.selector).each(function(key, val){
+            //console.log(val);
+            //console.log($(val).val());
+            if ($(val).val())
+                if (
+                    !params.minlength
+                    ||( params.minlength > 0 && $(val).val().length >= params.minlength )
+                    ) {
+                    valid = true;
+                    return;
+                }
+        });
+        //alert(valid);
+        $(params.selector).each(function(key, val){
+            if (valid)
+                $(val).removeClass(params.errorClass);
+            else
+                $(val).addClass(params.errorClass);
+        });
+        //return false;
+        return valid;
+    },
+    "Fill in at least one field"
+);
+*/
+
+$("#fundsForm").validate({
+    rules: {
+        //name: "required",
+        filter: {
+            require_from_group: [1, ".atleastone"],
+            minlength: 4
+        },
+        start: {
+            require_from_group: [1, ".atleastone"],
+            digits: true,
+            min: 1900,
+            max: 2014
+        },
+        stop: {
+            require_from_group: [1, ".atleastone"],
+            digits: true,
+            min: 1900,
+            max: 2014
+        }
+    },
+    messages: {
+        filter: '',
+        start: '',
+        stop: ''
+    },
+    errorClass: "inp-error",
+    submitHandler: function(form) {
+        //console.log(form);
+        fundsFormSubmit(form);
+        return false;
+    }
+});
+
+function fundsFormSubmit(form) {
+
+    //console.log(form);
+
+    var options = {
+        target: null,
+        type: $(form).attr('method'),
+        dataType: 'json'
+    };
+
+    options.beforeSubmit = function(formData, jqForm, options){
+        //$(form).find('button').addClass('loading');
+        $('.fonds-list').addClass('hidden');
+        $('.ajaxload').removeClass('hidden');
+    }
+
+    options.success = function(response, status, xhr, jqForm){
+        //console.log(response);
+        //$('.success').hide().removeClass('hidden').slideDown();
+        //$(form).slideUp();
+
+        //console.log( jQuery.parseJSON(response.funds) );
+        //return;
+        var funds = jQuery.parseJSON(response.funds);
+        if (typeof(response.funds) != 'undefined' && funds.length) {
+            $('.fonds-list tbody').html('');
+            $(funds).each(function(key, val){
+                //console.log(val.name);
+                var date_start = new Date(val.date_start);
+                var date_stop = new Date(val.date_stop);
+                //$('.fonds-list tbody').append('<tr><td>' + val.name + '</td><td>' + d.getFullYear() + '-' + val.date_stop + '</td></tr>');
+                $('.fonds-list tbody').append('<tr><td>' + val.name + '</td><td>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</td></tr>');
+
+            });
+        } else {
+            $('.fonds-list tbody').html('<tr><td colspan="2" style="text-align: center">Не найдено подходящих записей. Попробуйте изменить условия поиска.</td></tr>');
+        }
+    }
+
+    options.error = function(xhr, textStatus, errorThrown){
+        console.log(jqXHR);
+    }
+
+    options.complete = function(data, textStatus, jqXHR){
+        //$(form).find('button').removeClass('loading');
+        $('.fonds-list').removeClass('hidden');
+        $('.ajaxload').addClass('hidden');
+    }
+
+    $(form).ajaxSubmit(options);
 }

@@ -142,7 +142,7 @@ class AdminArchiveFundsController extends BaseController {
         Allow::permission($this->module['group'], $this->module['entity'].'_edit');
 
 		if(!Request::ajax())
-            return App::abort(404);
+            App::abort(404);
 
         #$id = Input::get('id');
 
@@ -206,7 +206,7 @@ class AdminArchiveFundsController extends BaseController {
         Allow::permission($this->module['group'], $this->module['entity'].'_edit');
 
 		if(!Request::ajax())
-            return App::abort(404);
+            App::abort(404);
 
 		$json_request = array('status'=>FALSE, 'responseText'=>'');
 

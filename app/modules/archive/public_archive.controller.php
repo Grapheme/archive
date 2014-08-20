@@ -32,6 +32,8 @@ class PublicArchiveController extends BaseController {
         });
         */
         Route::post('/ajax/send-request', array('as' => 'send-user-request', 'uses' => __CLASS__.'@postSendUserRequest'));
+        Route::post('/ajax/funds-data', array('as' => 'ajax-get-funds-data', 'uses' => __CLASS__.'@postGetFundsData'));
+
     }
 
     ## Shortcodes of module
@@ -70,7 +72,9 @@ class PublicArchiveController extends BaseController {
 	}
 
 	public function postSendUserRequest(){
-        #return '123';
+
+        if(!Request::ajax())
+            App::abort(404);
 
         $password = false;
 
@@ -85,11 +89,6 @@ class PublicArchiveController extends BaseController {
         if (!$user->password) {
             $password = mb_substr(md5(time() + rand(9999, 99999)), 0, 8);
             $user->password = Hash::make($password);
-
-            /*
-             * SEND PASSWORD TO EMAIL
-             */
-
         }
         if (!$user->name && Input::get('name'))
             $user->name = Input::get('name');
@@ -134,7 +133,7 @@ class PublicArchiveController extends BaseController {
                 'status_id' => $status_new,
             ));
 
-            ## Send confirmation to user
+            ## Send confirmation to user - with password
             $data = array(
                 'name' => $user->name,
                 'email' => $user->email,
@@ -149,6 +148,47 @@ class PublicArchiveController extends BaseController {
 
         return Response::make('1', 200);
 	}
+
+
+    public function postGetFundsData() {
+
+        #Helper::dd(Input::all());
+
+        $json_request = array('status' => FALSE, 'responseText' => '');
+
+        $search = false;
+        $records = ArchiveFund::take(50)
+            ->orderBy('name', 'ASC')
+            ->where('name', '!=', '')
+            ->where('date_start', '!=', '0000-00-00')
+            ->where('date_stop', '!=', '0000-00-00')
+        ;
+
+        if ($filter = Input::get('filter')) {
+            $records = $records->where('name', 'LIKE', '%' . $filter . '%');
+            $search = true;
+        }
+        if ($start = Input::get('start')) {
+            $records = $records->where('date_start', '<=', $start);
+            $search = true;
+        }
+        if ($stop = Input::get('stop')) {
+            $records = $records->where('date_stop', '>=', $stop);
+            $search = true;
+        }
+
+        if (!$search)
+            return Response::json($json_request, 200);
+
+        $records = $records->get();
+
+        $json_request['funds'] = $records->toJson();
+        $json_request['status'] = TRUE;
+
+        #Helper::tad($records);
+        return Response::json($json_request, 200);
+
+    }
 
 }
 

@@ -7,7 +7,17 @@
 
 @section('content')
 
-    {{ $page->block('first') }}
+
+    <section class="index-block">
+        <div class="wrapper">
+
+            {{ $page->block('first') }}
+
+            <div class="btns">
+                <a href="{{ URL::route('page', 'request') }}" class="us-btn">Подать запрос</a>
+            </div>
+        </div>
+    </section>
 
 
     <section class="index-info">

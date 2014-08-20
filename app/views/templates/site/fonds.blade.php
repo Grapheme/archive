@@ -15,12 +15,15 @@
                 <h1>Фонды</h1>
                 <div class="fonds">
                     <div class="fonds-blocks">
+
+                        {{ Form::open(array('url' => URL::route('ajax-get-funds-data'), 'class' => '', 'id' => 'fundsForm', 'role' => 'form', 'method' => 'POST', 'files' => true)) }}
+
                         <div class="left-block">
                             <div class="search-block">
                                 <div class="title">Быстрый поиск</div>
                                 <div class="search-body">
                                     <div class="search-cont">
-                                        <input type="text" class="fond-input" placeholder="Введите название организации">
+                                       {{ Form::text('filter', '', array('class' => 'fond-input atleastone', 'placeholder' => 'Введите название организации')) }}
                                         <a href="#" class="input-cross"></a>
                                     </div>
                                 </div>
@@ -29,17 +32,18 @@
                                 Всего: <span><span class='founded_count'>7</span> фондов</span>
                             </div>
                         </div><!--
-                     --><div class="right-block">
+
+                        --><div class="right-block">
                             <div class="search-block">
                                 <div class="title">Временной диапазон</div>
                                 <div class="search-body">
                                     <div class="slider-inputs">
                                         <span>от</span>
-                                        <input type="text" class="slider-input">
+                                        {{ Form::text('start', '', array('class' => 'slider-input atleastone', 'maxlength' => 4)) }}
                                     </div>
                                     <div class="slider-inputs">
                                         <span>до</span>
-                                        <input type="text" class="slider-input">
+                                        {{ Form::text('stop', '', array('class' => 'slider-input atleastone', 'maxlength' => 4)) }}
                                         <a href="#" class="input-cross"></a>
                                     </div>
                                     <!-- <div class="js-slider-bar">
@@ -48,16 +52,26 @@
                                 </div>
                             </div>
                         </div>
+
+                        <button class="btn btn-default">Отправить</button>
+
+                        {{ Form::close() }}
+
+                    </div>
+
+                    <div class="ajaxload clearfix hidden" style="margin: 30px; text-align: center">
+                        <i class="fa fa-cog fa-5x fa-spin"></i>
                     </div>
 
                     <table class="fonds-list hidden">
                         <thead>
                             <tr>
-                                <td>Название организации</td>
-                                <td>Крайние даты</td>
+                                <td nowrap>Название организации</td>
+                                <td nowrap>Крайние даты</td>
                             </tr>
                         </thead>
                         <tbody>
+                        @if (0)
                             <tr>
                                 <td>Областной земельный отдел</td>
                                 <td>1780-1917</td>
@@ -82,6 +96,7 @@
                                 <td>Областной земельный отдел</td>
                                 <td>1780-1917</td>
                             </tr>
+                        @endif
                         </tbody>
                     </table>
                 </div>

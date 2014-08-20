@@ -28,13 +28,13 @@
                                 <td>Ф.И.О.</td>
                                 <td>
                                     {{--<input type="text" class="apply-input">--}}
-                                    {{ Form::text('name', 'Иван', array('class' => 'apply-input')) }}
+                                    {{ Form::text('name', '', array('class' => 'apply-input')) }}
                                 </td>
                             </tr>
                             <tr>
                                 <td>Email</td>
                                 <td>
-                                    {{ Form::text('email', 'email@test.de', array('class' => 'apply-input')) }}
+                                    {{ Form::text('email', '', array('class' => 'apply-input')) }}
                                 </td>
                             </tr>
                             <tr>
@@ -43,7 +43,7 @@
                                     {{ Form::select(
                                     'type',
                                     array('Выберите...')+Dictionary::whereSlugValues('request_types')->lists('name', 'id'),
-                                    5,
+                                    '',
                                     array('class' => 'apply-select')
                                     ) }}
                                 </td>
@@ -51,7 +51,7 @@
                             <tr>
                                 <td>Текст запроса</td>
                                 <td>
-                                    {{ Form::textarea('content', '111111111111111111', array('class' => 'apply-textarea')) }}
+                                    {{ Form::textarea('content', '', array('class' => 'apply-textarea')) }}
                                 </td>
                             </tr>
                         </table>
