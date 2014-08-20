@@ -625,6 +625,18 @@ ul li {
 .normal-page .nav-cont {
   position: relative;
 }
+.normal-page .nav-cont .nav-line {
+  position: absolute;
+  height: 0.1875rem;
+  left: 0;
+  bottom: 0;
+  background: #000;
+  z-index: 2;
+}
+.normal-page .nav-cont .nav-line.transition {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
 .normal-page .page-nav {
   margin: 0;
   padding: 0;

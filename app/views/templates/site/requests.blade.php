@@ -15,7 +15,10 @@
                 <h1>Запросы</h1>
                 <div class="applies">
 
-                    {{ $page->block('menu') }}
+                    <div class="nav-cont">
+                        {{ $page->block('menu') }}
+                        <div class="nav-line"></div>
+                    </div>
 
                     <ul class="apply-list js-tabs">
                         
@@ -39,5 +42,5 @@
 
 
 @section('scripts')
-    <script>page_nav.init();</script>
+    <script>$(window).on('load', page_nav.init);</script>
 @stop

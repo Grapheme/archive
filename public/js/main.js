@@ -119,16 +119,36 @@ var crosses = (function(){
 })();
 
 var page_nav = (function(){
+	var line_time = false;
+
 	$(window).on('hashchange', function(){
-		$(document).trigger('pagenav::change');
 		show();
 	});
 
-	$(document).on('pagenav::change', function(){
-		//alert(1);
+	$(document).on('mouseover', '.page-nav a', function(){
+		clearTimeout(line_time);
+		setLine($(this).parent());
 	});
 
-	function init() {
+	$(document).on('mouseout', '.page-nav a', function(){
+		line_time = setTimeout(function(){
+			setLine();
+		}, 1000);
+	});
+
+	function setLine(element) {
+		if(!element) {
+			element = $('.page-nav li.active');
+		}
+		var left = element.position().left;
+		var width = element.find('a').width();
+		$('.nav-line').css({
+			'width': width,
+			'left': left
+		});
+	}
+
+	function show() {
 		if(window.location.hash == '') {
 			$('.js-tabs li').first().addClass('active');
 			$('.page-nav li').first().addClass('active');
@@ -139,6 +159,14 @@ var page_nav = (function(){
 			$('.page-nav a[href="#' + data + '"]').parent().addClass('active');
 			$('.js-tabs li[data-tab="' + data + '"]').addClass('active');
 		}
+		setLine(false);
+	}
+
+	function init() {
+		show();
+		setTimeout(function(){
+			$('.nav-line').addClass('transition');
+		}, 100);
 	}
 	
 	return {init : init};

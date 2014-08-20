@@ -5,6 +5,19 @@
 
 	.nav-cont {
 		position: relative;
+
+		.nav-line {
+			position: absolute;
+			height: 3rem / @htmlFontSize;
+			left: 0;
+			bottom: 0;
+			background: #000;
+			z-index: 2;
+
+			&.transition {
+				.transition;
+			}
+		}
 	}
 
 	.page-nav {

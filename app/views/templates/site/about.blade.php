@@ -16,6 +16,7 @@
 
             <div class="nav-cont">
             	{{ $page->block('menu') }}
+            	<div class="nav-line"></div>
             </div>
 
             {{ $page->block('history') }}
@@ -27,5 +28,5 @@
 
 
 @section('scripts')
-	<script>page_nav.init();</script>
+	<script>$(window).on('load', page_nav.init);</script>
 @stop
