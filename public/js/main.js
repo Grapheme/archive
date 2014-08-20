@@ -283,3 +283,10 @@ function fundsFormSubmit(form) {
 
     $(form).ajaxSubmit(options);
 }
+
+
+
+
+function isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
