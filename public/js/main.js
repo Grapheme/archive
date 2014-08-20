@@ -76,6 +76,8 @@ var fonds = (function(){
 })();
 
 var crosses = (function(){
+	var fond_bytes = 0;
+
 	$(document).on('input', '.search-body input', function(){
 		var	parent = $(this).parents('.search-body'),
 			cross = parent.find('.input-cross'),
@@ -100,6 +102,19 @@ var crosses = (function(){
 		parent.find('input').val('');
 		parent.find('.input-cross').removeClass('active');
 		return false;
+	});
+	$(document).on('input', '.fond-input', function(){
+		var form = $(this).parents('form');
+		if($(this).val().length > 2) {
+			form.trigger('submit');
+		}
+		fond_bytes = $(this).val().length;
+	});
+	$(document).on('input', '.slider-input', function(){
+		var form = $(this).parents('form');
+		if($(this).val().length == 4) {
+			form.trigger('submit');
+		}
 	});
 })();
 
@@ -204,7 +219,7 @@ $("#fundsForm").validate({
         //name: "required",
         filter: {
             require_from_group: [1, ".atleastone"],
-            minlength: 4
+            minlength: 3
         },
         start: {
             require_from_group: [1, ".atleastone"],
@@ -242,10 +257,14 @@ function fundsFormSubmit(form) {
         dataType: 'json'
     };
 
+    var this_timeout = false;
+
     options.beforeSubmit = function(formData, jqForm, options){
         //$(form).find('button').addClass('loading');
         $('.fonds-list').addClass('hidden');
-        $('.ajaxload').removeClass('hidden');
+        this_timeout = setTimeout(function(){
+        	$('.ajaxload').removeClass('hidden');
+        }, 1000);
     }
 
     options.success = function(response, status, xhr, jqForm){
@@ -255,17 +274,18 @@ function fundsFormSubmit(form) {
 
         //console.log( jQuery.parseJSON(response.funds) );
         //return;
+        clearTimeout(this_timeout);
         var funds = jQuery.parseJSON(response.funds);
         if (typeof(response.funds) != 'undefined' && funds.length) {
-            $('.fonds-list tbody').html('');
+            var new_str = '';
             $(funds).each(function(key, val){
                 //console.log(val.name);
                 var date_start = new Date(val.date_start);
                 var date_stop = new Date(val.date_stop);
+                new_str += '<tr><td>' + val.name + '</td><td>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</td></tr>';
                 //$('.fonds-list tbody').append('<tr><td>' + val.name + '</td><td>' + d.getFullYear() + '-' + val.date_stop + '</td></tr>');
-                $('.fonds-list tbody').append('<tr><td>' + val.name + '</td><td>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</td></tr>');
-
             });
+            $('.fonds-list tbody').html(new_str);
         } else {
             $('.fonds-list tbody').html('<tr><td colspan="2" style="text-align: center">Не найдено подходящих записей. Попробуйте изменить условия поиска.</td></tr>');
         }
