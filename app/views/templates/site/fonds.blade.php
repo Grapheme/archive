@@ -53,8 +53,6 @@
                             </div>
                         </div>
 
-                        <button class="btn btn-default">Отправить</button>
-
                         {{ Form::close() }}
 
                     </div>
