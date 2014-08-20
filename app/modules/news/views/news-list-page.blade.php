@@ -34,7 +34,7 @@ $years = array();
 
             <ul class="news-year">
                 @foreach ($years as $year => $null)
-                <li{{ date('Y') == $year ? ' class="active"' : '' }}><a href="#">{{ $year }}</a>
+                <li{{ date('Y') == $year ? ' class="active"' : '' }}><a href="#{{ $year }}">{{ $year }}</a>
                 @endforeach
             </ul>
         </div>
