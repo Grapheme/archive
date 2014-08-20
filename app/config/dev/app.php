@@ -2,6 +2,6 @@
 
 return array(
 
-	'debug' => FALSE,
+	'debug' => TRUE,
 
 );
