@@ -74,3 +74,69 @@ var fonds = (function(){
 
 	return { setNumbers: setNumbers };
 })();
+
+
+
+// validate signup form on keyup and submit
+$("#sendRequestForm").validate({
+    rules: {
+        //fio: "required",
+        name: {
+            required: true,
+            minlength: 4
+        },
+        email: {
+            required: true,
+            email: true
+        },
+        type: {
+            required: true,
+            min: 1
+        },
+        content: {
+            required: true,
+            minlength: 10
+        }
+    },
+    messages: {
+        name: '',
+        email: '',
+        type: '',
+        content: ''
+    },
+    errorClass: "inp-error",
+    submitHandler: function(form) {
+        //console.log(form);
+        sendRequestForm(form);
+        return false;
+    }
+});
+
+function sendRequestForm(form) {
+
+    //console.log(form);
+
+    $.ajax({
+        type: $(form).attr('method') || 'GET',
+        url:  $(form).attr('action'),
+        data: $(form).serialize(),
+        beforeSend: function(xhr) {
+            //xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
+            $(form).find('button').addClass('loading');
+        }
+    }).done(function(data, textStatus, jqXHR) {
+
+        console.log(data);
+        $('.success').hide().removeClass('hidden').slideDown();
+        $(form).slideUp();
+
+    }).fail(function(jqXHR, textStatus, errorThrown) {
+
+        console.log(jqXHR);
+    }).always(function(data) {
+
+        //console.log(data);
+        $(form).find('button').removeClass('loading');
+    });
+
+}

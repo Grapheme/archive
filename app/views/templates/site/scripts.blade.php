@@ -6,6 +6,8 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
     @endif
 
+    {{ HTML::script("js/vendor/jquery.validate.min.js") }}
+
     {{ HTML::scriptmod("js/plugins.js") }}
     {{ HTML::scriptmod("js/main.js") }}
 
