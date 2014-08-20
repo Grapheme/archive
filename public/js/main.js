@@ -96,7 +96,10 @@ var crosses = (function(){
 		}
 	});
 	$(document).on('click', '.search-body .input-cross', function(){
-		var parent;
+		var parent = $(this).parents('.search-body');
+		parent.find('input').val('');
+		parent.find('.input-cross').removeClass('active');
+		return false;
 	});
 })();
 

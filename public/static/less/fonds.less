@@ -22,17 +22,19 @@
 			font-size: 20rem / @htmlFontSize;
 			margin-left: 10rem / @htmlFontSize;
 			color: transparent;
+			cursor: default;
 
 			&.active {
+				cursor: pointer;
 				color: #ddd;
+
+				&:hover {
+					color: #333;
+				}
 			}
 
 			&:before {
 				content: "✕";
-			}
-
-			&:hover {
-				color: #333;
 			}
 		}
 
