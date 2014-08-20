@@ -75,6 +75,30 @@ var fonds = (function(){
 	return { setNumbers: setNumbers };
 })();
 
+var crosses = (function(){
+	$(document).on('input', '.search-body input', function(){
+		var	parent = $(this).parents('.search-body'),
+			cross = parent.find('.input-cross'),
+			inputs = parent.find('input'),
+			length = inputs.length,
+			i = 0;
+
+		inputs.each(function(){
+			if($(this).val() != '') {
+				i++;
+			}
+		});
+
+		if(i > 0) {
+			cross.addClass('active');
+		} else {
+			cross.removeClass('active');
+		}
+	});
+	$(document).on('click', '.search-body .input-cross', function(){
+		var parent;
+	});
+})();
 
 
 /***************************************************************/
