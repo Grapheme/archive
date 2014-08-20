@@ -39,7 +39,14 @@
                     <section>
                         <label class="label">Текст запроса</label>
                         <label class="textarea">
-                            {{ Form::textarea('content') }}
+                            {{ Form::textarea('content', null, array('disabled' => $element->content ? 'disabled' : NULL)) }}
+                        </label>
+                    </section>
+
+                    <section>
+                        <label class="label">Коментарий к запросу</label>
+                        <label class="input textarea">
+                            {{ Form::textarea('comment', null, array('rows' => 4)) }}
                         </label>
                     </section>
 
@@ -89,7 +96,7 @@
                         {{ Form::select('status_id', Dictionary::whereSlugValues('request_statuses')->lists('name', 'id'), @$element->statuses[0]->status_id) }}
                     </label>
 
-                    <div class="alert alert-info fade in padding-10">
+                    <div class="alert alert-info fade in padding-10 margin-bottom-10">
                         <i class="fa-fw fa fa-info"></i>
                         <strong>Внимение!</strong><br/>
                         Пользователь получит сообщение об изменении статуса.

@@ -92,7 +92,7 @@
 
                 <fieldset class="clearfix">
 
-                    @if (count($locales) > 1 || 1)
+                    @if (count($locales) > 1)
 
                     <section>
                         <label class="label">Индивидуальные настройки для разных языков (необязательно)</label>
@@ -120,6 +120,12 @@
                             </div>
                         </div>
                     </section>
+
+                    @else
+
+                    @foreach ($locales as $locale_sign => $locale_name)
+                        @include($module['tpl'].'_page_meta', compact('locale_sign', 'locale_name', 'templates', 'element'))
+                    @endforeach
 
                     @endif
 
@@ -192,12 +198,12 @@
         var validation_rules = {
             name:              { required: true, maxlength: 100 },
             photo:             { required: true, minlength: 1 },
-            date:              { required: true, minlength: 10, maxlength: 10 },
+            date:              { required: true, minlength: 10, maxlength: 10 }
         };
         var validation_messages = {
             name:              { required: "Укажите название", maxlength: "Слишком длинное название" },
             photo:             { required: "Загрузите фотографию", minlength: "Загрузите фотографию" },
-            date:              { required: "Выберите дату", minlength: "Выберите дату", maxlength: "Выберите дату" },
+            date:              { required: "Выберите дату", minlength: "Выберите дату", maxlength: "Выберите дату" }
         };
         var onsuccess_function = 'update_blocks()';
     </script>

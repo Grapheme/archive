@@ -18,6 +18,9 @@ class Allow {
                 $tmp->actions = $actions;
                 self::$modules[$tmp['name']] = $tmp;
             }
+            self::$modules['system'] = array('system' => 1);
+            self::$modules['groups'] = array('system' => 1);
+            self::$modules['users'] = array('system' => 1);
         }
         #Helper::dd(self::$modules);
     }
@@ -40,9 +43,10 @@ class Allow {
             ## Get current user group
             $user_group = Auth::user()->group;
 
-            #Helper::dd(self::$modules[$module_name]->actions);
+            #Helper::dd(@self::$modules);
+            #Helper::dd(@self::$modules[$module_name]);
 
-            if (!$check_module_enabled || isset(self::$modules[$module_name])) {
+            if (!$check_module_enabled || isset(self::$modules[$module_name]) || @self::$modules[$module_name]['system']) {
 
                 /**
                  * @todo Полные права на действия админа, т.к. новые имена модулей не совпадают со старыми ролями ( news != admin_news ). Нужно во всех модулях поменять valid_action_permission на Action
