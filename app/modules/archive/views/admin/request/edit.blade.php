@@ -43,6 +43,20 @@
                         </label>
                     </section>
 
+                    @if ($element->file)
+                    <section class="clearfix">
+                            <a href="{{ URL::to($element->file) }}" class="btn btn-primary pull-right" target="_blank">
+                                <i class="fa fa-save"></i>
+                                Прикрепленный файл
+                            </a>
+                    </section>
+                    @endif
+
+                </fieldset>
+
+                @if ($element->content)
+                <fieldset>
+
                     <section>
                         <label class="label">Коментарий к запросу</label>
                         <label class="input textarea">
@@ -51,6 +65,7 @@
                     </section>
 
                 </fieldset>
+                @endif
 
                 <footer>
                 	<a class="btn btn-default no-margin regular-10 uppercase pull-left btn-spinner" href="{{ link::previous() }}">

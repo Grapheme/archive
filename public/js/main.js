@@ -116,6 +116,7 @@ function sendRequestForm(form) {
 
     //console.log(form);
 
+    /*
     $.ajax({
         type: $(form).attr('method') || 'GET',
         url:  $(form).attr('action'),
@@ -138,5 +139,28 @@ function sendRequestForm(form) {
         //console.log(data);
         $(form).find('button').removeClass('loading');
     });
+    */
+
+    var options = { target: null, type: 'post' };
+
+    options.beforeSubmit = function(formData, jqForm, options){
+        $(form).find('button').addClass('loading');
+    }
+
+    options.success = function(response, status, xhr, jqForm){
+        console.log(response);
+        $('.success').hide().removeClass('hidden').slideDown();
+        $(form).slideUp();
+    }
+
+    options.error = function(xhr, textStatus, errorThrown){
+        console.log(jqXHR);
+    }
+
+    options.always = function(data, textStatus, jqXHR){
+        $(form).find('button').removeClass('loading');
+    }
+
+    $(form).ajaxSubmit(options);
 
 }

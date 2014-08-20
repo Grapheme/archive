@@ -109,6 +109,7 @@ class PublicArchiveController extends BaseController {
         $request = UserRequest::firstOrNew($input);
         if (!$request->status_id) {
 
+            ## NEW status of request
             $status_new = Dic::valueBySlugs('request_types', 'new')->id;
 
             ## If new request
@@ -122,9 +123,12 @@ class PublicArchiveController extends BaseController {
                 $request->file = Config::get('app-default.upload_dir') . '/' . $filename;
             }
 
+            #Helper::tad($request);
+
             ## Save request
             $request->save();
 
+            ## Add first default request status - NEW
             UserRequestStatus::create(array(
                 'request_id' => $request->id,
                 'status_id' => $status_new,
