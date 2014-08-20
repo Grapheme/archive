@@ -7,7 +7,7 @@
                 <div class="news-photo" style="background-image: url({{ @$new->image }});"></div>
                 <p class="news-date">{{ date("d/m/Y", strtotime($new->published_at)) }}</p>
                 <h3>
-                    <a href="{{ link::i18n(URL::route('news_full', array('url' => $new->slug), false)) }}">{{$new->title}}</a>
+                    <a href="{{ URL::route('news_full', array('url' => $new->slug)) }}">{{$new->title}}</a>
                 </h3>
                 <div class="news-desc">
                     {{$new->preview}}
