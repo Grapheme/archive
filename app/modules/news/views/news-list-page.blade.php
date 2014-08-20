@@ -22,7 +22,7 @@ $years = array();
                 <? $years[date('Y', strtotime($new->published_at))] = 1; ?>
                 <li data-year="{{ date('Y', strtotime($new->published_at)) }}">
                     <h3>
-                        <a href="#">{{ $new->meta->title }}</a>
+                        <a name="{{ $new->slug }}">{{ $new->meta->title }}</a>
                     </h3>
                     <div class="news-date">{{ Helper::rdate('j M Y', $new->published_at) }}</div>
                     <div class="news-text">
