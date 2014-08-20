@@ -14,7 +14,9 @@
         <div class="wrapper">
             <h1>Об архиве</h1>
 
-            {{ $page->block('menu') }}
+            <div class="nav-cont">
+            	{{ $page->block('menu') }}
+            </div>
 
             {{ $page->block('history') }}
             {{ $page->block('ustav') }}
