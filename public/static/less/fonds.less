@@ -19,9 +19,13 @@
 		.input-cross {
 			.transition(color, .25s);
 			text-decoration: none;
-			color: #ddd;
 			font-size: 20rem / @htmlFontSize;
 			margin-left: 10rem / @htmlFontSize;
+			color: transparent;
+
+			&.active {
+				color: #ddd;
+			}
 
 			&:before {
 				content: "✕";

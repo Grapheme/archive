@@ -781,9 +781,12 @@ ul li {
   -webkit-transition: color 0.25s ease;
   transition: color 0.25s ease;
   text-decoration: none;
-  color: #ddd;
   font-size: 1.25rem;
   margin-left: 0.625rem;
+  color: transparent;
+}
+.fonds .fonds-blocks .input-cross.active {
+  color: #ddd;
 }
 .fonds .fonds-blocks .input-cross:before {
   content: "✕";
