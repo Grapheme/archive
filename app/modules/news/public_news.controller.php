@@ -160,7 +160,9 @@ class PublicNewsController extends BaseController {
         $limit = Config::get('site.news_page_limit', 10);
         $tpl = Config::get('site.news_page_template', 'news-list-page');
 
-        $news = $this->news->where('publication', 1)
+        $news = $this->news
+            ->where('publication', 1)
+            ->orderBy('published_at', 'DESC')
             ->with('meta.seo', 'meta.photo', 'meta.gallery.photos')
             ->take($limit)
             ->paginate($limit);
