@@ -22,17 +22,17 @@ class PublicNewsController extends BaseController {
             	## ...генерим роуты с префиксом (первый сегмент), который будет указывать на текущую локаль.
             	## Также указываем before-фильтр i18n_url, для выставления текущей локали.
                 Route::group(array('before' => 'i18n_url', 'prefix' => $locale_sign), function() use ($class) {
-                    Route::get('/news/', array('as' => 'news', 'uses' => $class.'@showNews'));
                     Route::get('/news/{url}', array('as' => 'news_full', 'uses' => $class.'@showFullNews'));
+                    Route::get('/news/',      array('as' => 'news',      'uses' => $class.'@showNews'));
                 });
             }
         }
 
         ## Генерим роуты без префикса, и назначаем before-фильтр i18n_url.
         ## Это позволяет нам делать редирект на урл с префиксом только для этих роутов, не затрагивая, например, /admin и /login
-        Route::group(array('before' => 'i18n_url'), function(){
-            Route::get('/news/', array('as' => 'news', 'uses' => __CLASS__.'@showNews'));
+        Route::group(array('before' => 'i18n_url'), function() {
             Route::get('/news/{url}', array('as' => 'news_full', 'uses' => __CLASS__.'@showFullNews'));
+            Route::get('/news/',      array('as' => 'news',      'uses' => __CLASS__.'@showNews'));
         });
     }
     
