@@ -28,7 +28,7 @@
                             <tr>
                                 <td>Email</td>
                                 <td>
-                                    {{ Form::text('email', 'reserved@mail.ru', array('class' => 'apply-input')) }}
+                                    {{ Form::text('email', '', array('class' => 'apply-input')) }}
                                 </td>
                             </tr>
                             <tr>

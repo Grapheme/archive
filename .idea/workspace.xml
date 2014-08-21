@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9eb288a-66f5-42e9-a6ae-4f6f60b8c9bd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/mail.php" afterPath="$PROJECT_DIR$/app/config/mail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/templates/site/login.blade.php" afterPath="$PROJECT_DIR$/app/views/templates/site/login.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="archive.iws" />
@@ -47,6 +47,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="login.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/templates/site/login.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="60" selection-start="1000" selection-end="1000" vertical-scroll-proportion="0.56149733" vertical-offset="212" max-vertical-offset="1054">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="site.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/templates/site.blade.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -67,10 +76,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mail.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="mail.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/mail.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="2" selection-start="535" selection-end="535" vertical-scroll-proportion="0.6969697" vertical-offset="0" max-vertical-offset="561">
+            <state line="23" column="2" selection-start="535" selection-end="535" vertical-scroll-proportion="-15.038462" vertical-offset="0" max-vertical-offset="493">
               <folding />
             </state>
           </provider>
@@ -158,7 +167,6 @@
         <option value="$PROJECT_DIR$/app/modules/news/public_news.controller.php" />
         <option value="$PROJECT_DIR$/app/modules/news/views/news-list-page.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/news/admin_news.controller.php" />
-        <option value="$PROJECT_DIR$/app/views/templates/site/login.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/views/admin/request/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/admin_archive.request.controller.php" />
         <option value="$PROJECT_DIR$/app/lib/Allow.php" />
@@ -176,6 +184,7 @@
         <option value="$PROJECT_DIR$/app/views/templates/site/feedback.blade.php" />
         <option value="$PROJECT_DIR$/app/views/templates/site.blade.php" />
         <option value="$PROJECT_DIR$/app/config/mail.php" />
+        <option value="$PROJECT_DIR$/app/views/templates/site/login.blade.php" />
       </list>
     </option>
   </component>
@@ -390,7 +399,11 @@
       <created>1408622004714</created>
       <updated>1408622004714</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="mailjet">
+      <created>1408622435507</created>
+      <updated>1408622435507</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -450,7 +463,8 @@
     <MESSAGE value="feedback+" />
     <MESSAGE value="search tpl" />
     <MESSAGE value="seo+" />
-    <option name="LAST_COMMIT_MESSAGE" value="seo+" />
+    <MESSAGE value="mailjet" />
+    <option name="LAST_COMMIT_MESSAGE" value="mailjet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -679,13 +693,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/templates/site/login.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="40" selection-start="281" selection-end="281" vertical-scroll-proportion="0.33333334" vertical-offset="68" max-vertical-offset="1054">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/news/views/news-list-page.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="68" column="5" selection-start="1943" selection-end="1943" vertical-scroll-proportion="0.57575756" vertical-offset="833" max-vertical-offset="1649">
@@ -786,9 +793,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/templates/site/about.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/config/mail.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="34" selection-start="252" selection-end="252" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="714">
+        <state line="23" column="2" selection-start="535" selection-end="535" vertical-scroll-proportion="-15.038462" vertical-offset="0" max-vertical-offset="493">
           <folding />
         </state>
       </provider>
@@ -800,9 +807,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/mail.php">
+    <entry file="file://$PROJECT_DIR$/app/views/templates/site/about.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="2" selection-start="535" selection-end="535" vertical-scroll-proportion="0.6969697" vertical-offset="0" max-vertical-offset="561">
+        <state line="16" column="34" selection-start="252" selection-end="252" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/templates/site/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="60" selection-start="1000" selection-end="1000" vertical-scroll-proportion="0.56149733" vertical-offset="212" max-vertical-offset="1054">
           <folding />
         </state>
       </provider>
