@@ -1121,6 +1121,58 @@ ul li {
   display: inline-block;
   line-height: normal;
 }
+.status {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  padding: 3.125rem 0 0 6.25rem;
+  width: 58.125rem;
+}
+.status li {
+  margin-bottom: 3.75rem;
+}
+.status .row {
+  margin-bottom: 1.5625rem;
+}
+.status .row:last-child {
+  margin-bottom: 0;
+}
+.status .row .left-td {
+  display: inline-block;
+  vertical-align: top;
+  width: 14%;
+}
+.status .row .right-td {
+  display: inline-block;
+  vertical-align: top;
+  width: 85%;
+}
+.status .status-type {
+  font-family: 'lato_regular';
+  display: inline-block;
+  border: 2px solid;
+  border-radius: 0.625rem;
+  padding: 0 0.3125rem;
+  margin-right: 0.625rem;
+  text-transform: lowercase;
+  font-size: 0.875rem;
+}
+.status .status-type.fail {
+  border-color: #535353;
+  color: #535353;
+}
+.status .status-type.done {
+  border-color: #005cad;
+  color: #005cad;
+}
+.status .status-desc {
+  font-family: 'lato_regular';
+  display: inline-block;
+  vertical-align: top;
+}
+.status .status-date {
+  font-family: 'lato_regular';
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */

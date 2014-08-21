@@ -1,0 +1,57 @@
+.status {
+	.list-unstyled;
+	padding: 50rem / @htmlFontSize 0 0 100rem / @htmlFontSize;
+	width: 930rem / @htmlFontSize;
+
+	li {
+		margin-bottom: 60rem / @htmlFontSize;
+	}
+
+	.row {
+		margin-bottom: 25rem / @htmlFontSize;
+		&:last-child {margin-bottom: 0;}
+
+		.left-td {
+			display: inline-block;
+			vertical-align: top;
+			width: 14%;
+		}
+
+		.right-td {
+			display: inline-block;
+			vertical-align: top;
+			width: 85%;
+		}
+	}
+
+	.status-type {
+		.regular;
+		display: inline-block;
+		border: 2px solid;
+		border-radius: 10rem / @htmlFontSize;
+		padding: 0 5rem / @htmlFontSize;
+		margin-right: 10rem / @htmlFontSize;
+		text-transform: lowercase;
+		font-size: 14rem / @htmlFontSize;
+
+		&.fail {
+			border-color: #535353;
+			color: #535353;
+		}
+
+		&.done {
+			border-color: #005cad;
+			color: #005cad;
+		}
+	}
+
+	.status-desc {
+		.regular;
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	.status-date {
+		.regular;
+	}
+}
