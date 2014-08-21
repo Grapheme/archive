@@ -1,6 +1,10 @@
 @extends(Helper::layout())
 
 
+@section('title')
+Задать вопрос@stop
+
+
 @section('style')
 @stop
 

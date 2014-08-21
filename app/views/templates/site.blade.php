@@ -1,3 +1,11 @@
+@if (@is_object($page->meta->seo))
+@section('title'){{ $page->meta->seo->title ? $page->meta->seo->title : $page->name }}@stop
+@section('description'){{ $page->meta->seo->description }}@stop
+@section('keywords'){{ $page->meta->seo->keywords }}@stop
+@elseif (@is_object($page->meta))
+@section('title')
+{{{ $page->name }}}@stop
+@endif
 <!DOCTYPE html>
     <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
     <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
