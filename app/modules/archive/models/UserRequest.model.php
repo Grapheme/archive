@@ -26,4 +26,9 @@ class UserRequest extends BaseModel {
     public function status() {
         return $this->belongsTo('DicVal', 'status_id', 'id');
     }
+
+    public function user() {
+        return $this->belongsTo('UserInfo', 'user_id', 'id');
+    }
+
 }

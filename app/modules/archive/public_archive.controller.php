@@ -34,6 +34,9 @@ class PublicArchiveController extends BaseController {
         Route::post('/ajax/send-request', array('as' => 'send-user-request', 'uses' => __CLASS__.'@postSendUserRequest'));
         Route::post('/ajax/funds-data', array('as' => 'ajax-get-funds-data', 'uses' => __CLASS__.'@postGetFundsData'));
 
+        Route::any('/login', array('as' => 'login', 'uses' => __CLASS__.'@anyLogin'));
+        Route::get('/status', array('as' => 'status', 'uses' => __CLASS__.'@getStatus'));
+
     }
 
     ## Shortcodes of module
@@ -188,6 +191,78 @@ class PublicArchiveController extends BaseController {
         #Helper::tad($records);
         return Response::json($json_request, 200);
 
+    }
+
+    public function anyLogin() {
+
+        $json_request = array('status' => FALSE, 'responseText' => '');
+
+        $auth = Session::get('auth');
+
+        #Helper::dd($auth);
+
+        if (Request::method() == 'POST') {
+
+            if ($auth) {
+                #return Redirect::route('status');
+                $json_request['redirect'] = URL::route('status');
+                $json_request['status'] = TRUE;
+                return Response::json($json_request, 200);
+            }
+
+            $email = Input::get('email');
+            $password = Input::get('password');
+
+            $user_info = UserInfo::firstOrNew(array('email' => $email));
+            if ($user_info->password && $user_info->id) {
+
+                if (Hash::check($password, $user_info->password)) {
+                    $auth = true;
+                    Session::set('auth', $user_info->id);
+                    #return Redirect::route('status');
+                    $json_request['redirect'] = URL::route('status');
+                    $json_request['status'] = TRUE;
+                }
+
+            }
+
+            if (!$auth) {
+                $error = "Неверный логин или пароль";
+                $json_request['responseText'] = $error;
+                #return View::make(Helper::layout('login'), compact('email', 'error'));
+            }
+
+            return Response::json($json_request, 200);
+
+        } elseif (Request::method() == 'GET') {
+
+            if ($auth)
+                return Redirect::route('status');
+            else
+                return View::make(Helper::layout('login'), compact('null'));
+        }
+    }
+
+    public function getStatus() {
+
+        $auth = Session::get('auth');
+
+        $user = UserInfo::find($auth);
+
+        if (!$auth || !$user) {
+            Session::set('auth', false);
+            return Redirect::route('login');
+        }
+
+        $requests = UserRequest::where('user_id', $auth)
+            ->with('status')
+            ->orderBy('created_at', 'DESC')
+            ->take(50)
+            ->get();
+
+        #Helper::tad($requests);
+
+        return View::make(Helper::layout('status'), compact('requests', 'user'));
     }
 
 }
