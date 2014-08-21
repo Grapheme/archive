@@ -5,6 +5,10 @@
 @elseif (@is_object($page->meta))
 @section('title')
 {{{ $page->name }}}@stop
+@elseif (@is_object($seo))
+@section('title'){{ $seo->title }}@stop
+@section('description'){{ $seo->description }}@stop
+@section('keywords'){{ $seo->keywords }}@stop
 @endif
 <!DOCTYPE html>
     <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
