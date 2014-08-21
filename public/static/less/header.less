@@ -60,19 +60,26 @@
 			vertical-align: top;
 			width: 820rem / @htmlFontSize;
 
+			.search-anim {
+				.transition;
+				position: absolute;
+				overflow: hidden;
+				right: -40rem / @htmlFontSize;
+				height: 42rem / @htmlFontSize;
+				width: 0;
+				opacity: 0;
+			}
+
+			.search-cont {
+				position: relative;
+				width: 820rem / @htmlFontSize;
+			}
+
 			.header-search {
 				.transition(opacity);
-				display: none;
 				position: absolute;
 				width: 100%;
-				top: 0;
-				right: -40rem / @htmlFontSize;
 				background: #fff;
-				opacity: 0;
-
-				&.active {
-					opacity: 1;
-				}
 
 				.header-input {
 					.light;
@@ -97,11 +104,6 @@
 					height: 35rem / @htmlFontSize;
 					width: 30rem / @htmlFontSize;
 					margin-right: 25rem / @htmlFontSize;
-					opacity: 0;
-
-					&.active {
-						opacity: 1;
-					}
 
 					&:hover {
 						opacity: .5;

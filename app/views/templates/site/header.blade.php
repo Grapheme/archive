@@ -31,9 +31,13 @@ $route = Route::currentRouteName();
                                         <li{{ $route == 'page' && $page->slug == 'contact' ? ' class="active"' : '' }}><a href="{{ URL::route('page', array('contact')) }}">Контакты</a>
                                     </ul>
                                 </nav>
-                                <div class="header-search">
-                                    <input type="text" class="header-input" placeholder="Часы приема граждан">
-                                    <a href="#" class="menu-icon"><span></span></a>
+                                <div class="search-anim">
+                                    <div class="search-cont">
+                                        <div class="header-search">
+                                            <input type="text" class="header-input">
+                                            <a href="#" class="menu-icon"><span></span></a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>  
                             <button type="submit" class="search-icon"><i class="fa fa-search"></i></button>

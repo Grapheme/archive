@@ -2,18 +2,17 @@ var search = (function(){
 	var open = false,
 		allow = true,
 		search_block = $('.header-search'),
+        search_anim = $('.search-anim'),
 		nav_block = $('.main-nav');
 
 	function search_open() {
 		open = true;
 		nav_block.addClass('closed');
-		search_block.show();
-		setTimeout(function(){
-			search_block.addClass('active');
-			setTimeout(function(){
-				search_block.find('.menu-icon').addClass('active');
-			}, 100);
-		}, 15);
+        search_anim.css({
+            'width': '820px',
+            'opacity': 1
+        });
+        search_block.find('input').trigger('focus');
 		setTimeout(function(){
 			nav_block.hide();
 			allow = true;
@@ -21,16 +20,16 @@ var search = (function(){
 	}
 
 	function search_close() {
+        allow = false;
 		open = false;
 		nav_block.show();
-		search_block.removeClass('active');
+		search_anim.removeAttr('style');
+        setTimeout(function(){
+            nav_block.removeClass('closed');
+        }, 500);
 		setTimeout(function(){
-			nav_block.removeClass('closed');
-		}, 15);
-		setTimeout(function(){
-			search_block.hide();
 			allow = true;
-		}, 500);
+		}, 1000);
 	}
 
 	$(document).on('click', '.search-icon', function(){
@@ -49,7 +48,6 @@ var search = (function(){
 
 	$(document).on('click', '.menu-icon', function(){
 		if(!allow) return;
-		allow = false;
 		search_close();
 	});
 })();
