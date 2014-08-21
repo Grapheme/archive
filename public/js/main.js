@@ -397,7 +397,7 @@ function sendLoginForm(form) {
     }
 
     options.success = function(response, status, xhr, jqForm){
-        console.log(response);
+        //console.log(response);
         //$('.success').hide().removeClass('hidden').slideDown();
         //$(form).slideUp();
 
@@ -406,6 +406,71 @@ function sendLoginForm(form) {
             location.href = response.redirect;
         } else {
             $('.error').text(response.responseText).show();
+        }
+
+    }
+
+    options.error = function(xhr, textStatus, errorThrown){
+        console.log(xhr);
+    }
+
+    options.complete = function(data, textStatus, jqXHR){
+        $(form).find('button').removeClass('loading');
+    }
+
+    $(form).ajaxSubmit(options);
+}
+
+
+
+$("#feedbackForm").validate({
+    rules: {
+        name: "required",
+        email: {
+            required: true,
+            email: true
+        },
+        message: {
+            required: true,
+            minlength: 4
+        },
+    },
+    messages: {
+        name: '',
+        email: '',
+        message: ''
+    },
+    errorClass: "inp-error",
+    submitHandler: function(form) {
+        //console.log(form);
+        sendFeedbackForm(form);
+        return false;
+    }
+});
+
+function sendFeedbackForm(form) {
+
+    //console.log(form);
+
+    var options = { target: null, type: $(form).attr('method'), dataType: 'json' };
+
+    options.beforeSubmit = function(formData, jqForm, options){
+        $(form).find('button').addClass('loading');
+        //$('.error').text('').hide();
+    }
+
+    options.success = function(response, status, xhr, jqForm){
+        //console.log(response);
+        //$('.success').hide().removeClass('hidden').slideDown();
+        //$(form).slideUp();
+
+        if (response.status) {
+            //$('.error').text('').hide();
+            //location.href = response.redirect;
+            $('.response').text(response.responseText).slideDown();
+            $(form).slideUp();
+        } else {
+            $('.response').text(response.responseText).show();
         }
 
     }

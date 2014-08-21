@@ -111,10 +111,18 @@ class Allow {
         self::init();
 
         #Helper::dd(self::$modules);
+
+        #Helper::dd(self::$modules);
         #if (@self::$modules[$module_name])
         #    Helper::dd(self::$modules[$module_name]);
 
-        return (bool)(isset(self::$modules[$module_name]) && is_object(self::$modules[$module_name]) && self::$modules[$module_name]->on == '1');
+        return (bool)(
+            isset(self::$modules[$module_name])
+            && (
+                (is_object(self::$modules[$module_name]) && self::$modules[$module_name]->on == '1')
+                || @self::$modules[$module_name]['system']
+            )
+        );
 	}
 
 

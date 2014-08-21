@@ -37,6 +37,8 @@ class PublicArchiveController extends BaseController {
         Route::any('/login', array('as' => 'login', 'uses' => __CLASS__.'@anyLogin'));
         Route::get('/status', array('as' => 'status', 'uses' => __CLASS__.'@getStatus'));
 
+        #Route::get('/feedback', array('as' => 'feedback', 'uses' => __CLASS__.'@getFeedback'));
+        Route::post('/ajax/send-feedback', array('as' => 'ajax-send-feedback', 'uses' => __CLASS__.'@postAjaxSendFeedback'));
     }
 
     ## Shortcodes of module
@@ -265,6 +267,37 @@ class PublicArchiveController extends BaseController {
         return View::make(Helper::layout('status'), compact('requests', 'user'));
     }
 
+    /*
+    public function getFeedback() {
+
+        return View::make(Helper::layout('feedback'), compact('null'));
+    }
+    */
+
+    public function postAjaxSendFeedback() {
+
+        #Helper::dd(Input::all());
+
+        $json_request = array('status' => FALSE, 'responseText' => '');
+
+        ## Send confirmation to user - with password
+        $data = array(
+            'name' => Input::get('name'),
+            'email' => Input::get('email'),
+            'content' => Input::get('message'),
+        );
+        Mail::send('emails.feedback', $data, function ($message) use ($data) {
+            $message->from($data['email'], $data['name']);
+            $message->subject('Сообщение от ' . $data['name']);
+            $message->to(Config::get('mail.feedback.address'));
+        });
+
+        $json_request['responseText'] = 'Сообщение успешно отправлено.';
+        $json_request['status'] = TRUE;
+
+        #Helper::tad($records);
+        return Response::json($json_request, 200);
+    }
 }
 
 

@@ -217,8 +217,20 @@ class PublicPagesController extends BaseController {
 
         #Helper::tad($page);
 
-        if (!@is_object($page))
+        ## Page not found... Hmmm... Check template dir...
+        if (!@is_object($page)) {
+
+            if (
+                $url != ''
+                && preg_match("~^[A-Za-z0-9\-\_]+?$~is", $url)
+                && View::exists(Helper::layout($url))
+            ) {
+                $page = new Page;
+                return View::make(Helper::layout($url), compact('url', 'page'));
+            }
+
             App::abort(404);
+        }
 
         if ($page->start_page && $url != '') {
             $redirect = URL::route('mainpage');

@@ -213,6 +213,11 @@ foreach ($files as $file) {
     ## If class have right name...
     if (class_exists($module_fullname)) {
 
+        ## Get module group & check him to active
+        $module_group = @$module_fullname::$group;
+        if (!Allow::module($module_group))
+            continue;
+
         ## Load routes...
         if (method_exists($module_fullname, $returnRoutes)) {
             if ($load_debug) echo " [ load routes... ] ";

@@ -6,7 +6,7 @@
 <body>
 	<div>
 		<p>
-            Сообщение: &lt;{{ $email }}&gt;
+            Сообщение от {{ $name }} &lt;{{ $email }}&gt;
             <hr/>
 			{{ Helper::nl2br($content) }}
             <hr/>
