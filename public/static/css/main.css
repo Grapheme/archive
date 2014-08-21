@@ -1045,7 +1045,7 @@ ul li {
 }
 .apply-form .form-container {
   position: relative;
-  margin: 0.625rem 0 0 8.125rem;
+  margin: 0.625rem 0 0 9.5625rem;
 }
 .apply-form .form-container .apply-file {
   position: absolute;
@@ -1068,7 +1068,7 @@ ul li {
   height: 5rem;
 }
 .apply-form .apply-table tr td:first-child {
-  width: 8.125rem;
+  width: 9.375rem;
 }
 .js-tabs li {
   display: none;
