@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9eb288a-66f5-42e9-a6ae-4f6f60b8c9bd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/grapheme_server_2/app.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/grapheme_server_2/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bootstrap/start.php" afterPath="$PROJECT_DIR$/bootstrap/start.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="archive.iws" />
@@ -388,7 +385,11 @@
       <created>1408617172345</created>
       <updated>1408617172345</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="local vars">
+      <created>1408617668568</created>
+      <updated>1408617668568</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -443,7 +444,8 @@
     <MESSAGE value="news js" />
     <MESSAGE value="user auth &amp; requests" />
     <MESSAGE value="user auth &amp; requests+" />
-    <option name="LAST_COMMIT_MESSAGE" value="user auth &amp; requests+" />
+    <MESSAGE value="local vars" />
+    <option name="LAST_COMMIT_MESSAGE" value="local vars" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
