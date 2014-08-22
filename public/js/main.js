@@ -422,7 +422,7 @@ function fundsFormSubmit(form) {
                     $(val.olds).each(function(key, val){
                         var date_start = new Date(val.date_start);
                         var date_stop = new Date(val.date_stop);
-                        old_names += '<tr class="hidden" data-parent="' + parent_val_id + '"><td style="padding-left:50px;">' + val.fund_number + '</td><td>' + val.name + '</td><td>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</td></tr>';
+                        old_names += '<tr class="hidden" data-parent="' + parent_val_id + '"><td>' + val.fund_number + '</td><td style="padding-left:50px;">' + val.name + '</td><td>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</td></tr>';
                     });
                     val.olds.length;
                     //old_names += '</span>';

@@ -113,10 +113,9 @@
       <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="429" column="17" selection-start="11136" selection-end="11136" vertical-scroll-proportion="0.6908127" vertical-offset="6919" max-vertical-offset="10183">
+            <state line="424" column="155" selection-start="10869" selection-end="10869" vertical-scroll-proportion="0.54063606" vertical-offset="6919" max-vertical-offset="10183">
               <folding>
-                <marker date="1408716443024" expanded="false" signature="10818:10836" placeholder="..." />
-                <marker date="1408716443024" expanded="false" signature="11784:11802" placeholder="..." />
+                <marker date="1408716637880" expanded="false" signature="11784:11802" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -483,7 +482,11 @@
       <created>1408716268015</created>
       <updated>1408716268015</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="old funds company name view &amp; admin">
+      <created>1408716469901</created>
+      <updated>1408716469901</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -847,10 +850,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="429" column="17" selection-start="11136" selection-end="11136" vertical-scroll-proportion="0.6908127" vertical-offset="6919" max-vertical-offset="10183">
+        <state line="424" column="155" selection-start="10869" selection-end="10869" vertical-scroll-proportion="0.54063606" vertical-offset="6919" max-vertical-offset="10183">
           <folding>
-            <marker date="1408716443024" expanded="false" signature="10818:10836" placeholder="..." />
-            <marker date="1408716443024" expanded="false" signature="11784:11802" placeholder="..." />
+            <marker date="1408716637880" expanded="false" signature="11784:11802" placeholder="..." />
           </folding>
         </state>
       </provider>
