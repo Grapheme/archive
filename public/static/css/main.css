@@ -1181,10 +1181,24 @@ header {
   margin-bottom: 1.5625rem;
 }
 .contacts .contact-blocks {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.contacts .contact-blocks li {
+  display: inline-block;
+  vertical-align: top;
+  width: 32%;
+  line-height: 1.875rem;
+}
+.contacts .contact-blocks li span,
+.contacts .contact-blocks li i {
+  display: inline-block;
+  line-height: normal;
+}
+.contacts .contact-blocks.auto-columns {
   -webkit-column-count: 3;
-  /* Chrome, Safari, Opera */
   -moz-column-count: 3;
-  /* Firefox */
   column-count: 3;
 }
 .contacts .map-cont {
