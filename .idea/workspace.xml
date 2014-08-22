@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9eb288a-66f5-42e9-a6ae-4f6f60b8c9bd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/modules/archive/views/admin/request/edit.blade.php" afterPath="$PROJECT_DIR$/app/modules/archive/views/admin/request/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/modules/archive/public_archive.controller.php" afterPath="$PROJECT_DIR$/app/modules/archive/public_archive.controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/templates/site/request.blade.php" afterPath="$PROJECT_DIR$/app/views/templates/site/request.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/templates/site/status.blade.php" afterPath="$PROJECT_DIR$/app/views/templates/site/status.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/main.js" afterPath="$PROJECT_DIR$/public/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="archive.iws" />
@@ -88,21 +85,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="public_archive.controller.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="public_archive.controller.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/modules/archive/public_archive.controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="190" column="46" selection-start="6581" selection-end="6581" vertical-scroll-proportion="0.8111111" vertical-offset="2792" max-vertical-offset="5423">
+            <state line="166" column="8" selection-start="5749" selection-end="5749" vertical-scroll-proportion="-3.1153846" vertical-offset="2741" max-vertical-offset="5423">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="408" column="29" selection-start="9931" selection-end="9931" vertical-scroll-proportion="0.0" vertical-offset="6621" max-vertical-offset="9724">
+            <state line="306" column="0" selection-start="7223" selection-end="7223" vertical-scroll-proportion="0.8268551" vertical-offset="4734" max-vertical-offset="9758">
               <folding>
-                <marker date="1408701185457" expanded="true" signature="10597:10615" placeholder="..." />
+                <marker date="1408707312265" expanded="true" signature="10595:10613" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -216,12 +213,12 @@
         <option value="$PROJECT_DIR$/app/views/templates/site/header.blade.php" />
         <option value="$PROJECT_DIR$/app/views/guests/login.blade.php" />
         <option value="$PROJECT_DIR$/app/views/templates/site/login.blade.php" />
-        <option value="$PROJECT_DIR$/public/js/main.js" />
         <option value="$PROJECT_DIR$/app/views/templates/site/fonds.blade.php" />
         <option value="$PROJECT_DIR$/app/views/templates/site/status.blade.php" />
         <option value="$PROJECT_DIR$/app/views/templates/site/request.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/views/admin/request/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/public_archive.controller.php" />
+        <option value="$PROJECT_DIR$/public/js/main.js" />
       </list>
     </option>
   </component>
@@ -468,7 +465,15 @@
       <created>1408703286127</created>
       <updated>1408703286127</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="fixes">
+      <created>1408705334382</created>
+      <updated>1408705334382</updated>
+    </task>
+    <task id="LOCAL-00033" summary="fixes+">
+      <created>1408706695347</created>
+      <updated>1408706695347</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -534,7 +539,8 @@
     <MESSAGE value="funds" />
     <MESSAGE value="close session" />
     <MESSAGE value="fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
+    <MESSAGE value="fixes+" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes+" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -833,15 +839,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="408" column="29" selection-start="9931" selection-end="9931" vertical-scroll-proportion="0.0" vertical-offset="6621" max-vertical-offset="9724">
-          <folding>
-            <marker date="1408701185457" expanded="true" signature="10597:10615" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/templates/site/requests.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="24" selection-start="517" selection-end="517" vertical-scroll-proportion="0.42424244" vertical-offset="153" max-vertical-offset="867">
@@ -895,8 +892,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/archive/public_archive.controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="190" column="46" selection-start="6581" selection-end="6581" vertical-scroll-proportion="0.8111111" vertical-offset="2792" max-vertical-offset="5423">
+        <state line="166" column="8" selection-start="5749" selection-end="5749" vertical-scroll-proportion="-3.1153846" vertical-offset="2741" max-vertical-offset="5423">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="306" column="0" selection-start="7223" selection-end="7223" vertical-scroll-proportion="0.8268551" vertical-offset="4734" max-vertical-offset="9758">
+          <folding>
+            <marker date="1408707312265" expanded="true" signature="10595:10613" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

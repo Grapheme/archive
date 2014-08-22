@@ -302,7 +302,7 @@ function sendRequestForm(form) {
     }
 
     options.error = function(xhr, textStatus, errorThrown){
-        console.log(jqXHR);
+        console.log(xhr);
     }
 
     options.complete = function(data, textStatus, jqXHR){
