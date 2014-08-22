@@ -71,7 +71,7 @@
 <script type="text/javascript">pageSetUp();</script>
 {{HTML::script('js/account/guest.js');}}
 
-@if(Allow::module('users'))
+@if(Allow::module('users') && 0)
 {{HTML::script('js/modules/users.js');}}
 <script type="text/javascript">
 	loadScript("{{asset('js/vendor/jquery-form.min.js');}}", moduleFormValidtion);

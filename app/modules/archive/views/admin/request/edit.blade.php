@@ -39,7 +39,7 @@
                     <section>
                         <label class="label">Текст запроса</label>
                         <label class="textarea">
-                            {{ Form::textarea('content', null, array('disabled' => $element->content ? 'disabled' : NULL)) }}
+                            {{ Form::textarea('content', null, array('disabled' => $element->content && 0 ? 'disabled' : NULL)) }}
                         </label>
                     </section>
 

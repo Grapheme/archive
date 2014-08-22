@@ -19,7 +19,7 @@
                 {{ $page->block('contacts') }}
     
                 <div class="btn-cont">
-                    <a href="{{ URL::route('page', array('request')) }}" class="us-btn invert">Задать вопрос</a>
+                    <a href="{{ URL::route('page', array('feedback')) }}" class="us-btn invert">Задать вопрос</a>
                 </div>
                 <div class="map-cont">
                     <div id="contact-map"></div>

@@ -139,6 +139,7 @@ class AdminArchiveRequestController extends BaseController {
             'type' => Input::get('type'),
             'content' => Input::get('content'),
             'status_id' => Input::get('status_id'),
+            'comment' => Input::get('comment'),
         );
         $status = Input::get('status_id');
 
@@ -150,29 +151,55 @@ class AdminArchiveRequestController extends BaseController {
 
             if ($id > 0) {
 
-                $element = $this->essence->where('id', $id)->with('status')->first();
+                $element = $this->essence->where('id', $id)->with('status')->with('user')->first();
 
                 #Helper::tad($element);
+
+                $status_old = $element->status;
 
                 if ($element->exists()) {
     
         		    #$json_request['responseText'] = "<pre>" . print_r($_POST, 1) . "</pre>";
         		    #return Response::json($json_request,200);
 
+                    #Helper::d($element->status->id);
+                    #Helper::d($status);
+                    #Helper::d(($status && $element->status->id != $status));
+
                     $element->update($input);
 
-                    if ($status && $element->status->status_id != $status) {
-                        UserRequestStatus::create(
+                    #Helper::tad($element);
+
+                    if ($status && $element->status->id != $status) {
+                        $status_new = UserRequestStatus::create(
                             array(
                                 'request_id' => $id,
                                 'status_id' => $status,
                             )
                         );
+                        $status_new = DicVal::find($status);
 
-                        /**
-                         * @TODO Отправка сообщения пользователю
-                         */
+                        ## Отправка уведомления пользователю
+                        $user = $element->user;
+                        #Helper::ta($user);
+                        #Helper::d($user->id);
+                        if ($user->id) {
+                            ## Send email to user with info about request status changed
+                            $data = array(
+                                'name' => $user->name,
+                                'email' => $user->email,
+                                'request' => $element,
+                                'status_old' => $status_old,
+                                'status_new' => $status_new,
+                            );
 
+                            Mail::send('emails.request_status_changed', $data, function ($message) use ($user) {
+                                $message->from(Config::get('mail.from.address'), Config::get('mail.from.name'));
+                                $message->subject('Статус Вашего запроса изменился');
+                                $message->to($user->email);
+                            });
+                            #Helper::dd($data);
+                        }
                     }
                 }
 

@@ -34,6 +34,11 @@ class PublicArchiveController extends BaseController {
         Route::post('/ajax/send-request', array('as' => 'send-user-request', 'uses' => __CLASS__.'@postSendUserRequest'));
         Route::post('/ajax/funds-data', array('as' => 'ajax-get-funds-data', 'uses' => __CLASS__.'@postGetFundsData'));
 
+        Route::any('/log-in', array('as' => 'log-in', 'uses' => __CLASS__.'@anyLogin'));
+        Route::get('/status', array('as' => 'status', 'uses' => __CLASS__.'@getStatus'));
+
+        #Route::get('/feedback', array('as' => 'feedback', 'uses' => __CLASS__.'@getFeedback'));
+        Route::post('/ajax/send-feedback', array('as' => 'ajax-send-feedback', 'uses' => __CLASS__.'@postAjaxSendFeedback'));
     }
 
     ## Shortcodes of module
@@ -190,6 +195,109 @@ class PublicArchiveController extends BaseController {
 
     }
 
+    public function anyLogin() {
+
+        $json_request = array('status' => FALSE, 'responseText' => '');
+
+        $auth = Session::get('auth');
+
+        #Helper::dd($auth);
+
+        if (Request::method() == 'POST') {
+
+            if ($auth) {
+                #return Redirect::route('status');
+                $json_request['redirect'] = URL::route('status');
+                $json_request['status'] = TRUE;
+                return Response::json($json_request, 200);
+            }
+
+            $email = Input::get('email');
+            $password = Input::get('password');
+
+            $user_info = UserInfo::firstOrNew(array('email' => $email));
+            if ($user_info->password && $user_info->id) {
+
+                if (Hash::check($password, $user_info->password)) {
+                    $auth = true;
+                    Session::set('auth', $user_info->id);
+                    #return Redirect::route('status');
+                    $json_request['redirect'] = URL::route('status');
+                    $json_request['status'] = TRUE;
+                }
+
+            }
+
+            if (!$auth) {
+                $error = "Неверный логин или пароль";
+                $json_request['responseText'] = $error;
+                #return View::make(Helper::layout('login'), compact('email', 'error'));
+            }
+
+            return Response::json($json_request, 200);
+
+        } elseif (Request::method() == 'GET') {
+
+            if ($auth)
+                return Redirect::route('status');
+            else
+                return View::make(Helper::layout('login'), compact('null'));
+        }
+    }
+
+    public function getStatus() {
+
+        $auth = Session::get('auth');
+
+        $user = UserInfo::find($auth);
+
+        if (!$auth || !$user) {
+            Session::set('auth', false);
+            return Redirect::route('log-in');
+        }
+
+        $requests = UserRequest::where('user_id', $auth)
+            ->with('status')
+            ->orderBy('created_at', 'DESC')
+            ->take(50)
+            ->get();
+
+        #Helper::tad($requests);
+
+        return View::make(Helper::layout('status'), compact('requests', 'user'));
+    }
+
+    /*
+    public function getFeedback() {
+
+        return View::make(Helper::layout('feedback'), compact('null'));
+    }
+    */
+
+    public function postAjaxSendFeedback() {
+
+        #Helper::dd(Input::all());
+
+        $json_request = array('status' => FALSE, 'responseText' => '');
+
+        ## Send confirmation to user - with password
+        $data = array(
+            'name' => Input::get('name'),
+            'email' => Input::get('email'),
+            'content' => Input::get('message'),
+        );
+        Mail::send('emails.feedback', $data, function ($message) use ($data) {
+            $message->from($data['email'], $data['name']);
+            $message->subject('Сообщение от ' . $data['name']);
+            $message->to(Config::get('mail.feedback.address'));
+        });
+
+        $json_request['responseText'] = 'Сообщение успешно отправлено.';
+        $json_request['status'] = TRUE;
+
+        #Helper::tad($records);
+        return Response::json($json_request, 200);
+    }
 }
 
 

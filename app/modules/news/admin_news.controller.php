@@ -270,7 +270,7 @@ class AdminNewsController extends BaseController {
     public function destroy($id){
 
         if(!Request::ajax())
-            return App::abort(404);
+            App::abort(404);
 
         Allow::permission($this->module['group'], 'delete');
 

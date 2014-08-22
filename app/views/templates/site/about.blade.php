@@ -21,7 +21,10 @@
 
             <ul class="js-tabs list-unstyled">
                 <li data-tab="history">{{ $page->block('history') }}
+                <li data-tab="structure">{{ $page->block('structure') }}
                 <li data-tab="ustav">{{ $page->block('ustav') }}
+                <li data-tab="reglament">{{ $page->block('reglament') }}
+                <li data-tab="uslugi">{{ $page->block('uslugi') }}
             </ul>
 
         </div>

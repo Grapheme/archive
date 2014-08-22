@@ -14,9 +14,13 @@ $route = Route::currentRouteName();
                     </a>
                 </div>
                 <div class="header-block">
-                    <div class="apply-div clearfix"><a href="#">Проверить статус запроса</a></div>
+                    <div class="apply-div clearfix">
+                        <a href="{{ URL::route('log-in') }}">Проверить статус запроса</a>
+                    </div>
                     <div class="header-menu">
-                        <form>
+
+                        {{ Form::open(array('url' => URL::route('page', 'search'), 'class' => '', 'id' => 'searchForm', 'role' => 'form', 'method' => 'POST', 'files' => false)) }}
+
                             <div class="nav-block">
                                 <nav class="main-nav">
                                     <ul>
@@ -41,7 +45,9 @@ $route = Route::currentRouteName();
                                 </div>
                             </div>  
                             <button type="submit" class="search-icon"><i class="fa fa-search"></i></button>
-                        </form>
+
+                        {{ Form::close() }}
+
                     </div>
                 </div>
             </div>

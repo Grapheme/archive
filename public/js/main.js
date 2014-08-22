@@ -435,6 +435,131 @@ function fundsFormSubmit(form) {
 
 
 
+$("#loginForm").validate({
+    rules: {
+        //fio: "required",
+        email: {
+            required: true,
+            email: true
+        },
+        password: {
+            required: true,
+            minlength: 4
+        },
+    },
+    messages: {
+        email: '',
+        password: ''
+    },
+    errorClass: "inp-error",
+    submitHandler: function(form) {
+        //console.log(form);
+        sendLoginForm(form);
+        return false;
+    }
+});
+
+function sendLoginForm(form) {
+
+    //console.log(form);
+
+    var options = { target: null, type: $(form).attr('method'), dataType: 'json' };
+
+    options.beforeSubmit = function(formData, jqForm, options){
+        $(form).find('button').addClass('loading');
+        $('.error').text('').hide();
+    }
+
+    options.success = function(response, status, xhr, jqForm){
+        //console.log(response);
+        //$('.success').hide().removeClass('hidden').slideDown();
+        //$(form).slideUp();
+
+        if (response.status && response.redirect) {
+            $('.error').text('').hide();
+            location.href = response.redirect;
+        } else {
+            $('.error').text(response.responseText).show();
+        }
+
+    }
+
+    options.error = function(xhr, textStatus, errorThrown){
+        console.log(xhr);
+    }
+
+    options.complete = function(data, textStatus, jqXHR){
+        $(form).find('button').removeClass('loading');
+    }
+
+    $(form).ajaxSubmit(options);
+}
+
+
+
+$("#feedbackForm").validate({
+    rules: {
+        name: "required",
+        email: {
+            required: true,
+            email: true
+        },
+        message: {
+            required: true,
+            minlength: 4
+        },
+    },
+    messages: {
+        name: '',
+        email: '',
+        message: ''
+    },
+    errorClass: "inp-error",
+    submitHandler: function(form) {
+        //console.log(form);
+        sendFeedbackForm(form);
+        return false;
+    }
+});
+
+function sendFeedbackForm(form) {
+
+    //console.log(form);
+
+    var options = { target: null, type: $(form).attr('method'), dataType: 'json' };
+
+    options.beforeSubmit = function(formData, jqForm, options){
+        $(form).find('button').addClass('loading');
+        //$('.error').text('').hide();
+    }
+
+    options.success = function(response, status, xhr, jqForm){
+        //console.log(response);
+        //$('.success').hide().removeClass('hidden').slideDown();
+        //$(form).slideUp();
+
+        if (response.status) {
+            //$('.error').text('').hide();
+            //location.href = response.redirect;
+            $('.response').text(response.responseText).slideDown();
+            $(form).slideUp();
+        } else {
+            $('.response').text(response.responseText).show();
+        }
+
+    }
+
+    options.error = function(xhr, textStatus, errorThrown){
+        console.log(xhr);
+    }
+
+    options.complete = function(data, textStatus, jqXHR){
+        $(form).find('button').removeClass('loading');
+    }
+
+    $(form).ajaxSubmit(options);
+}
+
 
 function isNumber(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
