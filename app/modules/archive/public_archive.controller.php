@@ -164,7 +164,7 @@ class PublicArchiveController extends BaseController {
         $json_request = array('status' => FALSE, 'responseText' => '');
 
         $search = false;
-        #$limit = 100;
+        $limit = 100;
         $records = ArchiveFund::orderBy('name', 'ASC')
             ->where('name', '!=', '')
             ->where('date_start', '!=', '0000-00-00')
