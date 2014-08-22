@@ -65,7 +65,7 @@
                     </div>
 
                     <div class="ajaxload clearfix hidden" style="margin: 30px; text-align: center">
-                        <i class="fa fa-refresh fa-3x fa-spin"></i>
+                        <i class="fa fa-refresh fa-2x fa-spin" style="color:#005CAD"></i>
                     </div>
 
                     <table class="fonds-list hidden">

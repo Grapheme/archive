@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f9eb288a-66f5-42e9-a6ae-4f6f60b8c9bd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/templates/site/fonds.blade.php" afterPath="$PROJECT_DIR$/app/views/templates/site/fonds.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/main.js" afterPath="$PROJECT_DIR$/public/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/modules/archive/public_archive.controller.php" afterPath="$PROJECT_DIR$/app/modules/archive/public_archive.controller.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="archive.iws" />
@@ -43,7 +41,7 @@
       <file leaf-file-name="header.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/templates/site/header.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="42" selection-start="529" selection-end="529" vertical-scroll-proportion="-2.0769231" vertical-offset="201" max-vertical-offset="1037">
+            <state line="19" column="42" selection-start="742" selection-end="742" vertical-scroll-proportion="-2.0769231" vertical-offset="269" max-vertical-offset="1020">
               <folding />
             </state>
           </provider>
@@ -61,8 +59,10 @@
       <file leaf-file-name="fonds.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/templates/site/fonds.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="0" selection-start="2581" selection-end="2581" vertical-scroll-proportion="0.6060606" vertical-offset="612" max-vertical-offset="2023">
-              <folding />
+            <state line="73" column="56" selection-start="3542" selection-end="3542" vertical-scroll-proportion="0.6060606" vertical-offset="935" max-vertical-offset="2142">
+              <folding>
+                <element signature="n#style#0;n#i#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -79,9 +79,9 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="333" column="51" selection-start="7734" selection-end="7734" vertical-scroll-proportion="0.0" vertical-offset="5346" max-vertical-offset="8500">
+            <state line="408" column="29" selection-start="9931" selection-end="9931" vertical-scroll-proportion="0.0" vertical-offset="6621" max-vertical-offset="9724">
               <folding>
-                <marker date="1408701064328" expanded="true" signature="8447:8465" placeholder="..." />
+                <marker date="1408701185457" expanded="true" signature="10597:10615" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -90,12 +90,12 @@
       <file leaf-file-name="site.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/templates/site.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="51" selection-start="444" selection-end="444" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="680">
+            <state line="11" column="6" selection-start="497" selection-end="497" vertical-scroll-proportion="-5.8846154" vertical-offset="34" max-vertical-offset="697">
               <folding>
-                <marker date="1408621975408" expanded="true" signature="785:1316" placeholder="..." />
-                <marker date="1408621975408" expanded="true" signature="813:876" placeholder="..." />
-                <marker date="1408621975408" expanded="true" signature="883:1308" placeholder="..." />
-                <marker date="1408621975408" expanded="true" signature="893:1101" placeholder="..." />
+                <marker date="1408701185392" expanded="true" signature="785:1398" placeholder="..." />
+                <marker date="1408701185392" expanded="true" signature="813:876" placeholder="..." />
+                <marker date="1408701185392" expanded="true" signature="883:1390" placeholder="..." />
+                <marker date="1408701185392" expanded="true" signature="893:1101" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -431,7 +431,11 @@
       <created>1408694964186</created>
       <updated>1408694964186</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="funds">
+      <created>1408701166178</created>
+      <updated>1408701166178</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -494,7 +498,8 @@
     <MESSAGE value="mailjet" />
     <MESSAGE value="login" />
     <MESSAGE value="log-in fix+" />
-    <option name="LAST_COMMIT_MESSAGE" value="log-in fix+" />
+    <MESSAGE value="funds" />
+    <option name="LAST_COMMIT_MESSAGE" value="funds" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -783,7 +788,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/templates/site/header.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="42" selection-start="529" selection-end="529" vertical-scroll-proportion="-2.0769231" vertical-offset="201" max-vertical-offset="1037">
+        <state line="19" column="42" selection-start="742" selection-end="742" vertical-scroll-proportion="-2.0769231" vertical-offset="269" max-vertical-offset="1020">
           <folding />
         </state>
       </provider>
@@ -797,12 +802,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/templates/site.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="51" selection-start="444" selection-end="444" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="680">
+        <state line="11" column="6" selection-start="497" selection-end="497" vertical-scroll-proportion="-5.8846154" vertical-offset="34" max-vertical-offset="697">
           <folding>
-            <marker date="1408621975408" expanded="true" signature="785:1316" placeholder="..." />
-            <marker date="1408621975408" expanded="true" signature="813:876" placeholder="..." />
-            <marker date="1408621975408" expanded="true" signature="883:1308" placeholder="..." />
-            <marker date="1408621975408" expanded="true" signature="893:1101" placeholder="..." />
+            <marker date="1408701185392" expanded="true" signature="785:1398" placeholder="..." />
+            <marker date="1408701185392" expanded="true" signature="813:876" placeholder="..." />
+            <marker date="1408701185392" expanded="true" signature="883:1390" placeholder="..." />
+            <marker date="1408701185392" expanded="true" signature="893:1101" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -837,9 +842,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="333" column="51" selection-start="7734" selection-end="7734" vertical-scroll-proportion="0.0" vertical-offset="5346" max-vertical-offset="8500">
+        <state line="408" column="29" selection-start="9931" selection-end="9931" vertical-scroll-proportion="0.0" vertical-offset="6621" max-vertical-offset="9724">
           <folding>
-            <marker date="1408701064328" expanded="true" signature="8447:8465" placeholder="..." />
+            <marker date="1408701185457" expanded="true" signature="10597:10615" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -853,8 +858,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/templates/site/fonds.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="0" selection-start="2581" selection-end="2581" vertical-scroll-proportion="0.6060606" vertical-offset="612" max-vertical-offset="2023">
-          <folding />
+        <state line="73" column="56" selection-start="3542" selection-end="3542" vertical-scroll-proportion="0.6060606" vertical-offset="935" max-vertical-offset="2142">
+          <folding>
+            <element signature="n#style#0;n#i#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
