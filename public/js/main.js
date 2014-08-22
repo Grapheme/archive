@@ -412,15 +412,31 @@ function fundsFormSubmit(form) {
         if (typeof(response.funds) != 'undefined' && funds.length) {
             var new_str = '';
             $(funds).each(function(key, val){
-                //console.log(val.name);
+                console.log(val);
                 var date_start = new Date(val.date_start);
                 var date_stop = new Date(val.date_stop);
-                new_str += '<tr><td>' + val.name + '</td><td>' + val.fund_number + '</td><td>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</td></tr>';
+                var old_names = '';
+                if (val.olds.length) {
+                    var parent_val_id = val.id;
+                    //old_names += '<span class="oldnames">';
+                    $(val.olds).each(function(key, val){
+                        var date_start = new Date(val.date_start);
+                        var date_stop = new Date(val.date_stop);
+                        old_names += '<tr class="hidden" data-parent="' + parent_val_id + '"><td style="padding-left:50px;">' + val.name + '</td><td>' + val.fund_number + '</td><td>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</td></tr>';
+                    });
+                    val.olds.length;
+                    //old_names += '</span>';
+                    //alert(old_names);
+                }
+                new_str += '<tr><td>'
+                    + val.name
+                    + (old_names ? '<br/><a href="#" data-childs-for="' + val.id + '">Старые названия</a>' : '')
+                    + '</td><td>' + val.fund_number + '</td><td>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</td></tr>' + old_names;
                 //$('.fonds-list tbody').append('<tr><td>' + val.name + '</td><td>' + d.getFullYear() + '-' + val.date_stop + '</td></tr>');
             });
             $('.fonds-list tbody').html(new_str);
         } else {
-            $('.fonds-list tbody').html('<tr><td colspan="2" style="text-align: center">Не найдено подходящих записей. Попробуйте изменить условия поиска.</td></tr>');
+            $('.fonds-list tbody').html('<tr><td colspan="3" style="text-align: center">Не найдено подходящих записей. Попробуйте изменить условия поиска.</td></tr>');
         }
     }
 
@@ -437,7 +453,11 @@ function fundsFormSubmit(form) {
     $(form).ajaxSubmit(options);
 }
 
-
+$(document).on('click', 'a[data-childs-for]', function(){
+    //alert($(this).data('childs-for'));
+    $('tr[data-parent="' + $(this).data('childs-for') + '"]').toggleClass('hidden');
+    return false;
+});
 
 $("#loginForm").validate({
     rules: {

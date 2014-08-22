@@ -24,7 +24,7 @@
                                 <div class="title">Быстрый поиск</div>
                                 <div class="search-body">
                                     <div class="search-cont">
-                                       {{ Form::text('filter', '', array('class' => 'fond-input atleastone', 'placeholder' => 'Введите название организации')) }}
+                                       {{ Form::text('filter', 'Экспедиция по борьбе', array('class' => 'fond-input atleastone', 'placeholder' => 'Введите название организации')) }}
                                         <a href="#" class="input-cross"></a>
                                     </div>
                                 </div>
@@ -115,11 +115,12 @@
     //fundsFormSubmit($('#fundsForm'));
     var uislider = (function() {
         var maximum = new Date().getFullYear();
-        var minimum = 1900;
+        var minimum = {{ date('Y', strtotime(ArchiveFund::where('date_start', '!=', '0000-00-00')->orderBy('date_start', 'ASC')->first()->date_start)) }};
+
         // Минимальное и максимальное значения
 
-        var default_min = 2000;
-        var default_max = 2005;
+        var default_min = 1991;
+        var default_max = 2002;
         // Значения которые подставляются при загрузке страницы
 
         $( "#slider-range" ).slider({

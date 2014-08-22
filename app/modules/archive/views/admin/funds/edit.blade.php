@@ -95,16 +95,51 @@
                 </fieldset>
 
                 <footer>
-                	<a class="btn btn-default no-margin regular-10 uppercase pull-left btn-spinner" href="{{ link::previous() }}">
-                		<i class="fa fa-arrow-left hidden"></i> <span class="btn-response-text">Назад</span>
-                	</a>
-                	<button type="submit" autocomplete="off" class="btn btn-success no-margin regular-10 uppercase btn-form-submit">
-                		<i class="fa fa-spinner fa-spin hidden"></i> <span class="btn-response-text">Сохранить</span>
-                	</button>
+                    <a class="btn btn-default no-margin regular-10 uppercase pull-left btn-spinner" href="{{ link::previous() }}">
+                        <i class="fa fa-arrow-left hidden"></i> <span class="btn-response-text">Назад</span>
+                    </a>
+                    <button type="submit" autocomplete="off" class="btn btn-success no-margin regular-10 uppercase btn-form-submit">
+                        <i class="fa fa-spinner fa-spin hidden"></i> <span class="btn-response-text">Сохранить</span>
+                    </button>
                 </footer>
 
-		    </div>
-    	</section>
+            </div>
+        </section>
+
+        @if (is_object($element->olds) && $element->olds->count())
+        <section class="col col-6">
+            <div class="well">
+                <header>Старые названия</header>
+                <fieldset>
+
+                    <table class="table table-bordered margin-bottom-10">
+                    @foreach ($element->olds as $old)
+                    <tr>
+                        <td>
+                            <a href="{{ action($module['entity'].'.edit', $old->id) }}">{{ $old->name }}</a>
+                        </td>
+                        <td>
+                            @if ($element->date_start > 0)
+                            {{ DateTime::createFromFormat('Y-m-d', $element->date_start)->format('m.Y') }}
+                            @else
+                            ???
+                            @endif
+                            -
+                            @if ($element->date_stop > 0)
+                            {{ DateTime::createFromFormat('Y-m-d', $element->date_stop)->format('m.Y') }}
+                            @else
+                            ???
+                            @endif
+                        </td>
+                    </tr>
+                    @endforeach
+                    </table>
+
+                </fieldset>
+
+            </div>
+        </section>
+        @endif
         <!-- /Form -->
 
    	</div>

@@ -166,6 +166,7 @@ class PublicArchiveController extends BaseController {
         $search = false;
         $limit = 100;
         $records = ArchiveFund::orderBy('name', 'ASC')
+            ->with('olds')
             ->where('name', '!=', '')
             ->where('date_start', '!=', '0000-00-00')
             ->where('date_stop', '!=', '0000-00-00')
