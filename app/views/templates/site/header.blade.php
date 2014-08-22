@@ -15,7 +15,7 @@ $route = Route::currentRouteName();
                 </div>
                 <div class="header-block">
                     <div class="apply-div clearfix">
-                        <a href="{{ URL::route('login') }}">Проверить статус запроса</a>
+                        <a href="{{ URL::route('log-in') }}">Проверить статус запроса</a>
                     </div>
                     <div class="header-menu">
 

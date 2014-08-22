@@ -34,7 +34,7 @@ class PublicArchiveController extends BaseController {
         Route::post('/ajax/send-request', array('as' => 'send-user-request', 'uses' => __CLASS__.'@postSendUserRequest'));
         Route::post('/ajax/funds-data', array('as' => 'ajax-get-funds-data', 'uses' => __CLASS__.'@postGetFundsData'));
 
-        Route::any('/login', array('as' => 'login', 'uses' => __CLASS__.'@anyLogin'));
+        Route::any('/log-in', array('as' => 'log-in', 'uses' => __CLASS__.'@anyLogin'));
         Route::get('/status', array('as' => 'status', 'uses' => __CLASS__.'@getStatus'));
 
         #Route::get('/feedback', array('as' => 'feedback', 'uses' => __CLASS__.'@getFeedback'));
