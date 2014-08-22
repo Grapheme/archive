@@ -61,13 +61,17 @@
 			width: 820rem / @htmlFontSize;
 
 			.search-anim {
-				.transition;
+				.transition(all, .5s, ease-in);
 				position: absolute;
 				overflow: hidden;
 				right: -40rem / @htmlFontSize;
 				height: 42rem / @htmlFontSize;
 				width: 0;
 				opacity: 0;
+
+				&.active {
+					.transition(all, .5s, cubic-bezier(0.165, 0.84, 0.44, 1));
+				}
 			}
 
 			.search-cont {
