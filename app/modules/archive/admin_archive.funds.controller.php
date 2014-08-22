@@ -119,7 +119,7 @@ class AdminArchiveFundsController extends BaseController {
 
         Allow::permission($this->module['group'], $this->module['entity'].'_edit');
 		
-		$element = $this->essence->find($id);
+		$element = $this->essence->where('id', $id)->with('current')->first();
 		return View::make($this->module['tpl'].'edit', compact('element'));
 	}
 
@@ -146,7 +146,7 @@ class AdminArchiveFundsController extends BaseController {
 
         #$id = Input::get('id');
 
-        #$json_request['responseText'] = "<pre>" . print_r($_POST, 1) . "</pre>";
+        $json_request['responseText'] = "<pre>" . print_r($_POST, 1) . "</pre>";
         #$json_request['responseText'] = "<pre>" . print_r(date_parse_from_format('mm.yyyy', $input['date_start']), 1) . "</pre>";
         #return Response::json($json_request,200);
 

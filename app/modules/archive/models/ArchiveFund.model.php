@@ -13,4 +13,13 @@ class ArchiveFund extends BaseModel {
         'name' => 'required',
 	);
 
+
+    public function current() {
+        return $this->hasOne('ArchiveFund', 'id', 'current_company_id');
+    }
+
+    public function olds() {
+        return $this->hasMany('ArchiveFund', 'current_company_id', 'id')->orderBy('date_start', 'DESC');
+    }
+
 }

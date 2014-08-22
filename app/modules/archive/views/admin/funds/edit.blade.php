@@ -29,6 +29,8 @@
                 <header>{{ $form_title }}</header>
                 <fieldset>
 
+                    {{ Helper::ta_($element) }}
+
                     <div class="clearfix">
 
                         <section class="col-3 pull-left">
@@ -67,6 +69,24 @@
                             <label class="label">Вторая крайняя дата</label>
                             <label class="input">
                                 {{ Form::text('date_stop', $element->date_stop ? DateTime::createFromFormat('Y-m-d', $element->date_stop)->format('m.Y') : '') }}
+                            </label>
+                        </section>
+
+                    </div>
+
+                    <div class="clearfix">
+
+                        <section class="col-lg-9 pull-left">
+                            <label class="label">Нынешнее название (необязательно)</label>
+                            <label class="input">
+                                {{ Form::hidden('current_company_id', null, array('class' => 'select2-old-name', 'data-name' => is_object($element->current) ? $element->current->name : '')) }}
+                            </label>
+                        </section>
+
+                        <section class="col-lg-3 pull-right">
+                            <label class="label">&nbsp;</label>
+                            <label class="input">
+                                <input type="button" class="btn btn-primary" id="drop_company_name" value="Сбросить"/>
                             </label>
                         </section>
 
@@ -165,4 +185,49 @@
             cursor: hand;
         }
     </style>
+    <script>
+
+        var format = function(bond) {
+            return '<option value="' + bond.id + '">' + bond.name + '</option>';
+        }
+
+        var select2old = $(".select2-old-name").select2({
+            placeholder: "Выберите...",
+            minimumInputLength: 3,
+            multiple: false,
+            width: '100%',
+            quietMillis: 100,
+            ajax: {
+                url: "{{ URL::route('ajax-get-funds-data') }}",
+                dataType: 'json',
+                type: 'POST',
+                data: function (term, page) {
+                    //console.log(term);
+                    return {
+                        filter: term
+                    };
+                },
+                results: function (data, page) { // parse the results into the format expected by Select2.
+                    //console.log( jQuery.parseJSON(data.funds) );
+                    return { results: jQuery.parseJSON(data.funds) };
+                }
+            },
+            initSelection: function(element, callback) {
+                // the input tag has a value attribute preloaded that points to a preselected movie's id
+                // this function resolves that id attribute to an object that select2 can render
+                // using its formatResult renderer - that way the movie name is shown preselected
+                var id = $(element).val();
+                if (id !== '') {
+                    //alert(id);
+                    var obj = {'name': $(element).data('name')}
+                    callback(obj);
+                }
+            },
+            formatResult: format,
+            formatSelection: format
+        });
+
+        $("#drop_company_name").click(function () { $(select2old).select2("val", ""); });
+
+    </script>
 @stop
