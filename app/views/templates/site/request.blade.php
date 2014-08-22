@@ -15,13 +15,13 @@
                 <h1>Подать запрос</h1>
                 <div class="apply-form">
 
-                    {{ $page->block('intro') }}
-
                     <div class="success hidden">
                     {{ $page->block('success') }}
                     </div>
 
                     {{ Form::open(array('url' => URL::route('send-user-request'), 'class' => '', 'id' => 'sendRequestForm', 'role' => 'form', 'method' => 'POST', 'files' => true)) }}
+
+                        {{ $page->block('intro') }}
 
                         <table class="apply-table">
                             <tr>

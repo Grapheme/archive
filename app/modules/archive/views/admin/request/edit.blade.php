@@ -54,19 +54,6 @@
 
                 </fieldset>
 
-                @if ($element->content)
-                <fieldset>
-
-                    <section>
-                        <label class="label">Коментарий к запросу</label>
-                        <label class="input textarea">
-                            {{ Form::textarea('comment', null, array('rows' => 4)) }}
-                        </label>
-                    </section>
-
-                </fieldset>
-                @endif
-
                 <footer>
                 	<a class="btn btn-default no-margin regular-10 uppercase pull-left btn-spinner" href="{{ link::previous() }}">
                 		<i class="fa fa-arrow-left hidden"></i> <span class="btn-response-text">Назад</span>
@@ -118,6 +105,19 @@
                     </div>
 
                 </fieldset>
+
+                @if ($element->content)
+                <fieldset>
+
+                    <section>
+                        <label class="label">Коментарий к запросу</label>
+                        <label class="input textarea">
+                            {{ Form::textarea('comment', null, array('rows' => 4)) }}
+                        </label>
+                    </section>
+
+                </fieldset>
+                @endif
 
             </div>
         </section>
