@@ -33,15 +33,22 @@
 		margin-right: 10rem / @htmlFontSize;
 		text-transform: lowercase;
 		font-size: 14rem / @htmlFontSize;
+		border-color: #535353;
+		color: #535353;
 
-		&.fail {
-			border-color: #535353;
-			color: #535353;
-		}
-
-		&.done {
+		&.status-type-inwork {
 			border-color: #005cad;
 			color: #005cad;
+		}
+
+		&.status-type-cancel {
+			border-color: #CE6767;
+			color: #CE6767;
+		}
+
+		&.status-type-success {
+			border-color: #0F9C0F;
+			color: #0F9C0F;
 		}
 	}
 

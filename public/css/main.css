@@ -1293,14 +1293,20 @@ header {
   margin-right: 0.625rem;
   text-transform: lowercase;
   font-size: 0.875rem;
-}
-.status .status-type.fail {
   border-color: #535353;
   color: #535353;
 }
-.status .status-type.done {
+.status .status-type.status-type-inwork {
   border-color: #005cad;
   color: #005cad;
+}
+.status .status-type.status-type-cancel {
+  border-color: #CE6767;
+  color: #CE6767;
+}
+.status .status-type.status-type-success {
+  border-color: #0F9C0F;
+  color: #0F9C0F;
 }
 .status .status-desc {
   font-family: 'lato_regular';
