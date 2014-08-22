@@ -311,6 +311,28 @@ ul li {
   margin: 0 auto;
   padding: 0 1.25rem;
 }
+a {
+  color: inherit;
+}
+/** STICKY FOOTER **/
+html,
+body {
+  height: 100%;
+}
+header {
+  background: #fff;
+}
+.body-wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -10rem;
+  background: #f7f7f7;
+}
+.main-footer,
+.push {
+  height: 10rem;
+}
 .main-header {
   padding: 1.875rem 0;
 }
@@ -368,19 +390,30 @@ ul li {
   vertical-align: top;
   width: 51.25rem;
 }
+.main-header .header-block .nav-block .search-anim {
+  -webkit-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
+  position: absolute;
+  overflow: hidden;
+  right: -2.5rem;
+  height: 2.625rem;
+  width: 0;
+  opacity: 0;
+}
+.main-header .header-block .nav-block .search-anim.active {
+  -webkit-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.main-header .header-block .nav-block .search-cont {
+  position: relative;
+  width: 51.25rem;
+}
 .main-header .header-block .nav-block .header-search {
   -webkit-transition: opacity 0.5s ease;
   transition: opacity 0.5s ease;
-  display: none;
   position: absolute;
   width: 100%;
-  top: 0;
-  right: -2.5rem;
   background: #fff;
-  opacity: 0;
-}
-.main-header .header-block .nav-block .header-search.active {
-  opacity: 1;
 }
 .main-header .header-block .nav-block .header-search .header-input {
   font-family: 'lato_light';
@@ -405,10 +438,6 @@ ul li {
   height: 2.1875rem;
   width: 1.875rem;
   margin-right: 1.5625rem;
-  opacity: 0;
-}
-.main-header .header-block .nav-block .header-search .menu-icon.active {
-  opacity: 1;
 }
 .main-header .header-block .nav-block .header-search .menu-icon:hover {
   opacity: .5;
@@ -519,11 +548,14 @@ ul li {
 }
 .index-info {
   padding: 2.8125rem 0 6.25rem;
+  background: #fff;
 }
 .index-info .title {
+  display: inline-block;
   font-size: 1rem;
   color: #888888;
   text-transform: uppercase;
+  text-decoration: none;
   margin-bottom: 3.125rem;
 }
 .index-info .left-block {
@@ -630,7 +662,7 @@ ul li {
   height: 0.1875rem;
   left: 0;
   bottom: 0;
-  background: #000;
+  background: #295aa0;
   z-index: 2;
 }
 .normal-page .nav-cont .nav-line.transition {
@@ -906,6 +938,49 @@ ul li {
 .fonds .fonds-list tr td:nth-of-type(2) {
   text-align: right;
 }
+.js-slider .js-slider-bar {
+  position: relative;
+  margin: 15px 0;
+  width: 270px;
+  height: 3px;
+  background: #dddddd;
+}
+.js-slider .js-slider-bar .js-slider-in {
+  position: absolute;
+  left: 10%;
+  top: -1px;
+  right: 10%;
+  height: 5px;
+  background: #295aa0;
+}
+.js-slider .js-slider-bar .js-slider-in .left-line,
+.js-slider .js-slider-bar .js-slider-in .right-line {
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  top: -2.5px;
+  cursor: pointer;
+}
+.js-slider .js-slider-bar .js-slider-in .left-line:before,
+.js-slider .js-slider-bar .js-slider-in .right-line:before {
+  content: "";
+  position: absolute;
+  background: #295aa0;
+  width: 2px;
+  height: 100%;
+}
+.js-slider .js-slider-bar .js-slider-in .left-line {
+  left: 0;
+}
+.js-slider .js-slider-bar .js-slider-in .left-line:before {
+  left: 0;
+}
+.js-slider .js-slider-bar .js-slider-in .right-line {
+  right: 0;
+}
+.js-slider .js-slider-bar .js-slider-in .right-line:before {
+  right: 0;
+}
 .search-amount {
   font-size: 0.875rem;
   margin-top: 2.5rem;
@@ -1120,6 +1195,26 @@ ul li {
 .contacts .contact-blocks li i {
   display: inline-block;
   line-height: normal;
+}
+.contacts .contact-blocks.auto-columns {
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
+}
+.contacts .map-cont {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+  height: 0;
+}
+.contacts .map-cont.active {
+  height: 27.5rem;
+}
+.contacts #contact-map {
+  width: 100%;
+  height: 0;
+  height: 25rem;
 }
 .status {
   margin: 0;

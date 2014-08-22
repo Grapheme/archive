@@ -2,18 +2,17 @@ var search = (function(){
 	var open = false,
 		allow = true,
 		search_block = $('.header-search'),
+        search_anim = $('.search-anim'),
 		nav_block = $('.main-nav');
 
 	function search_open() {
 		open = true;
 		nav_block.addClass('closed');
-		search_block.show();
-		setTimeout(function(){
-			search_block.addClass('active');
-			setTimeout(function(){
-				search_block.find('.menu-icon').addClass('active');
-			}, 100);
-		}, 15);
+        search_anim.css({
+            'width': '820px',
+            'opacity': 1
+        }).addClass('active');
+        search_block.find('input').trigger('focus');
 		setTimeout(function(){
 			nav_block.hide();
 			allow = true;
@@ -21,16 +20,16 @@ var search = (function(){
 	}
 
 	function search_close() {
+        allow = false;
 		open = false;
 		nav_block.show();
-		search_block.removeClass('active');
+		search_anim.removeClass('active').removeAttr('style');
+        setTimeout(function(){
+            nav_block.removeClass('closed');
+        }, 250);
 		setTimeout(function(){
-			nav_block.removeClass('closed');
-		}, 15);
-		setTimeout(function(){
-			search_block.hide();
 			allow = true;
-		}, 500);
+		}, 750);
 	}
 
 	$(document).on('click', '.search-icon', function(){
@@ -49,7 +48,6 @@ var search = (function(){
 
 	$(document).on('click', '.menu-icon', function(){
 		if(!allow) return;
-		allow = false;
 		search_close();
 	});
 })();
@@ -173,6 +171,82 @@ var page_nav = (function(){
 
 })();
 
+var show_map = (function(){
+    $(document).on('click', '.js-show-map', function(){
+        $('.map-cont').addClass('active');
+        $(this).addClass('closed');
+        $('html, body').animate({
+            scrollTop: $('.map-cont').offset().top + $('#contact-map').height()/2 - $(window).height()/2
+        });
+        return false;
+    });
+})();
+
+/*$.fn.slider = function() {
+    var slider = $(this),
+        bar = slider.find('.js-slider-in'),
+        line_width = $(this).find('.js-slider-bar').width(),
+        drag_allow = false,
+        drag_line = false,
+        original_left = 0,
+        original_width = 0,
+        original_x = 0,
+        min = $(this).data('min'),
+        date = new Date(),
+        max = date.getFullYear();
+
+
+    $(document).on('mousedown', '.js-slider-in span', function(e){
+        drag_allow = true;
+        original_x = e.pageX;
+        original_left = parseInt(bar.css('left'));
+        original_right = parseInt(bar.css('right'));
+        drag_line = $(this);
+    });
+    $(document).on('mouseup', function(){
+        drag_allow = false;
+    });
+    $(document).on('mousemove', function(e){
+        if(drag_allow) {
+            var x = e.pageX - original_x;
+            var new_left = original_left + x;
+            var right = original_right;
+
+            if(drag_line.index() == 0) {
+                if( new_left <= 0 || new_left <= right ) return;
+
+                bar.css({
+                    'left': new_left+'%'
+                });
+            }
+        }
+    });
+
+    function setMin(year) {
+        if(year >= min && year <= max) {
+            var perc = line_width / 100;
+            var year_perc = (max - min) / 100;
+            var none_year = year - min;
+
+            var new_perc = none_year / year_perc;
+        }
+    }
+
+    function setMax(year) {
+        if(year >= min && year <= max) {
+            var perc = line_width / 100;
+            var year_perc = (max - min) / 100;
+            var none_year = year - min;
+
+            var new_perc = none_year / year_perc;
+        }
+    }
+
+    setMin(1993);
+    setMax(2000);
+}
+
+$('.js-slider').slider();*/
 
 /***************************************************************/
 

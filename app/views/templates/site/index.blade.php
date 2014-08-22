@@ -23,13 +23,13 @@
     <section class="index-info">
         <div class="wrapper">
             <div class="left-block">
-                <div class="title">Услуги</div>
+                <a href="{{ URL::to('about#uslugi') }}" class="title">Услуги</a>
 
                 {{ $page->block('second') }}
 
             </div><!--
          --><div class="right-block">
-                <div class="title">Новости</div>
+                <a href="{{ URL::to('news') }}" class="title">Новости</a>
 
                 {{ $page->block('last_news') }}
 
