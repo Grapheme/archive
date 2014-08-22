@@ -662,7 +662,7 @@ header {
   height: 0.1875rem;
   left: 0;
   bottom: 0;
-  background: #000;
+  background: #295aa0;
   z-index: 2;
 }
 .normal-page .nav-cont .nav-line.transition {
@@ -937,12 +937,6 @@ header {
 }
 .fonds .fonds-list tr td:nth-of-type(2) {
   text-align: right;
-}
-.js-slider *::selection {
-  background: transparent;
-}
-.js-slider *::-moz-selection {
-  background: transparent;
 }
 .js-slider .js-slider-bar {
   position: relative;
