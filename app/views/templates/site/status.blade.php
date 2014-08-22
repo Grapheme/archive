@@ -15,8 +15,8 @@
 
                 <h1>Запросы</h1>
 
-                {{ Form::open(array('url' => URL::route('log-out'), 'class' => 'clearfix', 'id' => 'logoutForm', 'role' => 'form', 'method' => 'POST', 'files' => false)) }}
-                <button class="us-btn invert pull-right">Завершить сессию</button>
+                {{ Form::open(array('url' => URL::route('log-out'), 'class' => 'clearfix logout-form', 'id' => 'logoutForm', 'role' => 'form', 'method' => 'POST', 'files' => false)) }}
+                <button class="logout-btn">Завершить сессию</button>
                 {{ Form::close() }}
 
                 @if ($requests->count())

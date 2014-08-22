@@ -415,7 +415,7 @@ function fundsFormSubmit(form) {
                 //console.log(val.name);
                 var date_start = new Date(val.date_start);
                 var date_stop = new Date(val.date_stop);
-                new_str += '<tr><td>' + val.name + '</td><td>' + val.fund_number + '</td><td>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</td></tr>';
+                new_str += '<tr><td>' + val.fund_number + '</td><td>' + val.name + '</td><td>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</td></tr>';
                 //$('.fonds-list tbody').append('<tr><td>' + val.name + '</td><td>' + d.getFullYear() + '-' + val.date_stop + '</td></tr>');
             });
             $('.fonds-list tbody').html(new_str);
