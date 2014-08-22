@@ -253,7 +253,7 @@ class PublicArchiveController extends BaseController {
 
         if (!$auth || !$user) {
             Session::set('auth', false);
-            return Redirect::route('login');
+            return Redirect::route('log-in');
         }
 
         $requests = UserRequest::where('user_id', $auth)

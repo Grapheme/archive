@@ -22,7 +22,7 @@
 
                     {{-- Hash::check('69b4196b', Hash::make('69b4196b')) --}}
 
-                    {{ Form::open(array('url' => URL::route('login'), 'class' => '', 'id' => 'loginForm', 'role' => 'form', 'method' => 'POST', 'files' => false)) }}
+                    {{ Form::open(array('url' => URL::route('log-in'), 'class' => '', 'id' => 'loginForm', 'role' => 'form', 'method' => 'POST', 'files' => false)) }}
 
                         <table class="apply-table">
                             <tr>
