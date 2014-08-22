@@ -2,6 +2,7 @@
 
 
 @section('style')
+    {{ HTML::style('css/jquery-ui.css') }}
 @stop
 
 
@@ -39,23 +40,19 @@
                                 <div class="search-body">
                                     <div class="slider-inputs">
                                         <span>от</span>
-                                        {{ Form::text('start', '', array('class' => 'slider-input atleastone', 'maxlength' => 4)) }}
+                                        {{ Form::text('start', '', array('class' => 'slider-input atleastone', 'id' => 'slider-from', 'maxlength' => 4)) }}
                                     </div>
                                     <div class="slider-inputs">
                                         <span>до</span>
-                                        {{ Form::text('stop', '', array('class' => 'slider-input atleastone', 'maxlength' => 4)) }}
+                                        {{ Form::text('stop', '', array('class' => 'slider-input atleastone', 'id' => 'slider-to', 'maxlength' => 4)) }}
                                         <a href="#" class="input-cross"></a>
                                     </div>
-                                    <!-- <div class="js-slider" data-min="1900">
-                                        <div class="js-slider-bar">
-                                            <div class="js-slider-in">
-                                                <span class="left-line"></span>
-                                                <span class="right-line"></span>
-                                            </div>
-                                        </div>
-                                        <span class="js-slider-min">1943</span>
-                                        <span class="js-slider-max">2014</span>
-                                    </div> -->
+                                </div>
+                                <div class="slider-cont">
+                                    <div id="slider-range"></div>
+                                    <div class="fonds-ranges">
+                                        <span></span><span class="fl-r"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -113,7 +110,39 @@
 
 
 @section('scripts')
+{{ HTML::script('js/vendor/jquery-ui.min.js') }}
 <script>
-    fundsFormSubmit($('#fundsForm'));
+    //fundsFormSubmit($('#fundsForm'));
+    var uislider = (function() {
+        var maximum = new Date().getFullYear();
+        var minimum = 1900;
+        // Минимальное и максимальное значения
+
+        var default_min = 2000;
+        var default_max = 2005;
+        // Значения которые подставляются при загрузке страницы
+
+        $( "#slider-range" ).slider({
+            range: true,
+            min: minimum,
+            max: maximum,
+            values: [ default_min, default_max ],
+            slide: function(event, ui) {
+                $("#slider-from").val(ui.values[0]);
+                $("#slider-to").val(ui.values[1]);
+            },
+            change: function() {
+                $(document).trigger('fonds::change');
+            },
+            create: function(event, ui) {
+                $("#slider-from").val(default_min);
+                $("#slider-to").val(default_max);
+                $('.fonds-ranges span').eq(0).text(minimum);
+                $('.fonds-ranges span').eq(1).text(maximum);
+                $(document).trigger('fonds::change');
+            }
+        });
+
+    })();
 </script>
 @stop

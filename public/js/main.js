@@ -112,8 +112,12 @@ var crosses = (function(){
 		var form = $(this).parents('form');
 		if($(this).val().length == 4) {
 			form.trigger('submit');
+            $( "#slider-range" ).slider( "option", "values", [ $("#slider-from").val(), $("#slider-to").val() ] );
 		}
 	});
+    $(document).on('fonds::change', function(){
+        $('#fundsForm').trigger('submit');
+    });
 })();
 
 var page_nav = (function(){
