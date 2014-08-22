@@ -12,7 +12,12 @@
 
         <section class="normal-page">
             <div class="wrapper">
+
                 <h1>Запросы</h1>
+
+                {{ Form::open(array('url' => URL::route('log-out'), 'class' => 'clearfix', 'id' => 'logoutForm', 'role' => 'form', 'method' => 'POST', 'files' => false)) }}
+                <button class="us-btn invert pull-right">Завершить сессию</button>
+                {{ Form::close() }}
 
                 @if ($requests->count())
 

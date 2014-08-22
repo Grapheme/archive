@@ -35,6 +35,7 @@ class PublicArchiveController extends BaseController {
         Route::post('/ajax/funds-data', array('as' => 'ajax-get-funds-data', 'uses' => __CLASS__.'@postGetFundsData'));
 
         Route::any('/log-in', array('as' => 'log-in', 'uses' => __CLASS__.'@anyLogin'));
+        Route::any('/log-out', array('as' => 'log-out', 'uses' => __CLASS__.'@postLogout'));
         Route::get('/status', array('as' => 'status', 'uses' => __CLASS__.'@getStatus'));
 
         #Route::get('/feedback', array('as' => 'feedback', 'uses' => __CLASS__.'@getFeedback'));
@@ -243,6 +244,11 @@ class PublicArchiveController extends BaseController {
             else
                 return View::make(Helper::layout('login'), compact('null'));
         }
+    }
+
+    public function postLogout() {
+        Session::set('auth', false);
+        return Redirect::route('log-in');
     }
 
     public function getStatus() {
