@@ -62,3 +62,24 @@
 		.regular;
 	}
 }
+.logout-form {
+	position: relative;
+
+	.logout-btn {
+		.light;
+		.transition(border);
+		position: absolute;
+		right: 0;
+		top: -30rem / @htmlFontSize;
+		display: inline-block;
+		background: transparent;
+		border: 0;
+		padding: 0;
+		border-bottom: 1px dashed;
+		outline: none;
+
+		&:hover {
+			border-color: transparent;
+		}
+	}
+}

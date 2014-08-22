@@ -24,7 +24,7 @@
                                 <div class="title">Быстрый поиск</div>
                                 <div class="search-body">
                                     <div class="search-cont">
-                                       {{ Form::text('filter', 'Экспедиция по борьбе', array('class' => 'fond-input atleastone', 'placeholder' => 'Введите название организации')) }}
+                                       {{ Form::text('filter', '', array('class' => 'fond-input atleastone', 'placeholder' => 'Введите название организации')) }}
                                         <a href="#" class="input-cross"></a>
                                     </div>
                                 </div>
@@ -68,33 +68,13 @@
                     <table class="fonds-list hidden">
                         <thead>
                             <tr>
-                                <td nowrap>Название организации</td>
                                 <td nowrap>Номер фонда</td>
+                                <td nowrap>Название организации</td>
                                 <td nowrap>Крайние даты</td>
                             </tr>
                         </thead>
                         <tbody>
                         @if (0)
-                            <tr>
-                                <td>Областной земельный отдел</td>
-                                <td>1780-1917</td>
-                            </tr>
-                            <tr>
-                                <td>Областной земельный отдел</td>
-                                <td>1780-1917</td>
-                            </tr>
-                            <tr>
-                                <td>Областной земельный отдел</td>
-                                <td>1780-1917</td>
-                            </tr>
-                            <tr>
-                                <td>Областной земельный отдел</td>
-                                <td>1780-1917</td>
-                            </tr>
-                            <tr>
-                                <td>Областной земельный отдел</td>
-                                <td>1780-1917</td>
-                            </tr>
                             <tr>
                                 <td>Областной земельный отдел</td>
                                 <td>1780-1917</td>
@@ -115,12 +95,11 @@
     //fundsFormSubmit($('#fundsForm'));
     var uislider = (function() {
         var maximum = new Date().getFullYear();
-        var minimum = {{ date('Y', strtotime(ArchiveFund::where('date_start', '!=', '0000-00-00')->orderBy('date_start', 'ASC')->first()->date_start)) }};
-
+        var minimum = 1900;
         // Минимальное и максимальное значения
 
-        var default_min = 1991;
-        var default_max = 2002;
+        var default_min = 1985;
+        var default_max = 2005;
         // Значения которые подставляются при загрузке страницы
 
         $( "#slider-range" ).slider({

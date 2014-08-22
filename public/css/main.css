@@ -938,8 +938,10 @@ header {
 .fonds .fonds-list tr td {
   padding: 0 1.875rem;
 }
-.fonds .fonds-list tr td:nth-of-type(2) {
-  text-align: right;
+.fonds .fonds-list tr td:nth-of-type(1) {
+  text-align: center;
+  width: 5.625rem;
+  padding: 0 0.3125rem 0 1.5rem;
 }
 .slider-cont {
   width: 16.875rem;
@@ -1315,6 +1317,26 @@ header {
 }
 .status .status-date {
   font-family: 'lato_regular';
+}
+.logout-form {
+  position: relative;
+}
+.logout-form .logout-btn {
+  font-family: 'lato_light';
+  -webkit-transition: border 0.5s ease;
+  transition: border 0.5s ease;
+  position: absolute;
+  right: 0;
+  top: -1.875rem;
+  display: inline-block;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  border-bottom: 1px dashed;
+  outline: none;
+}
+.logout-form .logout-btn:hover {
+  border-color: transparent;
 }
 /* ==========================================================================
    Helper classes
