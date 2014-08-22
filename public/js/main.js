@@ -422,16 +422,17 @@ function fundsFormSubmit(form) {
                     $(val.olds).each(function(key, val){
                         var date_start = new Date(val.date_start);
                         var date_stop = new Date(val.date_stop);
-                        old_names += '<tr class="hidden" data-parent="' + parent_val_id + '"><td style="padding-left:50px;">' + val.name + '</td><td>' + val.fund_number + '</td><td>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</td></tr>';
+                        old_names += '<tr class="hidden" data-parent="' + parent_val_id + '"><td style="padding-left:50px;">' + val.fund_number + '</td><td>' + val.name + '</td><td>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</td></tr>';
                     });
                     val.olds.length;
                     //old_names += '</span>';
                     //alert(old_names);
                 }
                 new_str += '<tr><td>'
-                    + val.name
+                    + val.fund_number
+                    + '</td><td>' + val.name
                     + (old_names ? '<br/><a href="#" data-childs-for="' + val.id + '">Старые названия</a>' : '')
-                    + '</td><td>' + val.fund_number + '</td><td>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</td></tr>' + old_names;
+                    + '</td><td>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</td></tr>' + old_names;
                 //$('.fonds-list tbody').append('<tr><td>' + val.name + '</td><td>' + d.getFullYear() + '-' + val.date_stop + '</td></tr>');
             });
             $('.fonds-list tbody').html(new_str);
