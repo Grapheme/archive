@@ -58,13 +58,14 @@
                     </div>
 
                     <div class="ajaxload clearfix hidden" style="margin: 30px; text-align: center">
-                        <i class="fa fa-cog fa-5x fa-spin"></i>
+                        <i class="fa fa-refresh fa-3x fa-spin"></i>
                     </div>
 
                     <table class="fonds-list hidden">
                         <thead>
                             <tr>
                                 <td nowrap>Название организации</td>
+                                <td nowrap>Номер фонда</td>
                                 <td nowrap>Крайние даты</td>
                             </tr>
                         </thead>
@@ -105,4 +106,7 @@
 
 
 @section('scripts')
+<script>
+    fundsFormSubmit($('#fundsForm'));
+</script>
 @stop
