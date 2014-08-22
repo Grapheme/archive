@@ -177,11 +177,13 @@ class PublicArchiveController extends BaseController {
             $search = true;
         }
         if ($start = Input::get('start')) {
-            $records = $records->where('date_start', '<=', $start);
+            #$records = $records->where('date_start', '<=', $start);
+            $records = $records->where('date_stop', '>=', $start);
             $search = true;
         }
         if ($stop = Input::get('stop')) {
-            $records = $records->where('date_stop', '>=', $stop);
+            #$records = $records->where('date_stop', '>=', $stop);
+            $records = $records->where('date_start', '<=', $stop);
             $search = true;
         }
 
