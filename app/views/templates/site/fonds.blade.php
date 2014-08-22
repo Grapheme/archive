@@ -46,8 +46,15 @@
                                         {{ Form::text('stop', '', array('class' => 'slider-input atleastone', 'maxlength' => 4)) }}
                                         <a href="#" class="input-cross"></a>
                                     </div>
-                                    <!-- <div class="js-slider-bar">
-                                        <div class="js-slider-inbar"></div>
+                                    <!-- <div class="js-slider" data-min="1900">
+                                        <div class="js-slider-bar">
+                                            <div class="js-slider-in">
+                                                <span class="left-line"></span>
+                                                <span class="right-line"></span>
+                                            </div>
+                                        </div>
+                                        <span class="js-slider-min">1943</span>
+                                        <span class="js-slider-max">2014</span>
                                     </div> -->
                                 </div>
                             </div>

@@ -17,3 +17,29 @@ ul {
 	margin: 0 auto;
 	padding: 0 @wrap-padding;
 }
+
+a {
+	color: inherit;
+}
+
+/** STICKY FOOTER **/
+
+html, body {
+	height: 100%;
+}
+
+header {
+	background: #fff;
+}
+
+.body-wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -160rem / @htmlFontSize;
+	background: #f7f7f7;
+}
+
+.main-footer, .push {
+	height: 160rem / @htmlFontSize;
+}

@@ -311,6 +311,28 @@ ul li {
   margin: 0 auto;
   padding: 0 1.25rem;
 }
+a {
+  color: inherit;
+}
+/** STICKY FOOTER **/
+html,
+body {
+  height: 100%;
+}
+header {
+  background: #fff;
+}
+.body-wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -10rem;
+  background: #f7f7f7;
+}
+.main-footer,
+.push {
+  height: 10rem;
+}
 .main-header {
   padding: 1.875rem 0;
 }
@@ -526,6 +548,7 @@ ul li {
 }
 .index-info {
   padding: 2.8125rem 0 6.25rem;
+  background: #fff;
 }
 .index-info .title {
   display: inline-block;
@@ -915,6 +938,55 @@ ul li {
 .fonds .fonds-list tr td:nth-of-type(2) {
   text-align: right;
 }
+.js-slider *::selection {
+  background: transparent;
+}
+.js-slider *::-moz-selection {
+  background: transparent;
+}
+.js-slider .js-slider-bar {
+  position: relative;
+  margin: 15px 0;
+  width: 270px;
+  height: 3px;
+  background: #dddddd;
+}
+.js-slider .js-slider-bar .js-slider-in {
+  position: absolute;
+  left: 10%;
+  top: -1px;
+  right: 10%;
+  height: 5px;
+  background: #295aa0;
+}
+.js-slider .js-slider-bar .js-slider-in .left-line,
+.js-slider .js-slider-bar .js-slider-in .right-line {
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  top: -2.5px;
+  cursor: pointer;
+}
+.js-slider .js-slider-bar .js-slider-in .left-line:before,
+.js-slider .js-slider-bar .js-slider-in .right-line:before {
+  content: "";
+  position: absolute;
+  background: #295aa0;
+  width: 2px;
+  height: 100%;
+}
+.js-slider .js-slider-bar .js-slider-in .left-line {
+  left: 0;
+}
+.js-slider .js-slider-bar .js-slider-in .left-line:before {
+  left: 0;
+}
+.js-slider .js-slider-bar .js-slider-in .right-line {
+  right: 0;
+}
+.js-slider .js-slider-bar .js-slider-in .right-line:before {
+  right: 0;
+}
 .search-amount {
   font-size: 0.875rem;
   margin-top: 2.5rem;
@@ -1115,20 +1187,11 @@ ul li {
   margin-bottom: 1.5625rem;
 }
 .contacts .contact-blocks {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.contacts .contact-blocks li {
-  display: inline-block;
-  vertical-align: top;
-  width: 32%;
-  line-height: 1.875rem;
-}
-.contacts .contact-blocks li span,
-.contacts .contact-blocks li i {
-  display: inline-block;
-  line-height: normal;
+  -webkit-column-count: 3;
+  /* Chrome, Safari, Opera */
+  -moz-column-count: 3;
+  /* Firefox */
+  column-count: 3;
 }
 .contacts .map-cont {
   -webkit-transition: all 0.5s ease;

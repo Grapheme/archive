@@ -11,9 +11,11 @@
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
-    @include(Helper::layout('header'))
-    @yield('content', @$content)
+    <div class="body-wrapper">
+        @include(Helper::layout('header'))
+        @yield('content', @$content)
+        <div class="push"></div>
+    </div>
     @include(Helper::layout('footer'))
     @include(Helper::layout('scripts'))
     @yield('overlays')

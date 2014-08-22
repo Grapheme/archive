@@ -122,3 +122,57 @@
 		}
 	}
 }
+
+.js-slider {
+
+	*::selection {
+		background: transparent;
+	}
+
+	*::-moz-selection {
+		background: transparent;
+	}
+	
+	.js-slider-bar {
+		position: relative;
+		margin: 15px 0;
+		width: 270px;
+		height: 3px;
+		background: #dddddd;
+
+		.js-slider-in {
+			position: absolute;
+			left: 10%;
+			top: -1px;
+			right: 10%;
+			height: 5px;
+			background: #295aa0;
+
+			.left-line, .right-line {
+				position: absolute;
+				height: 10px;
+				width: 10px;
+				top: -2.5px;
+				cursor: pointer;
+
+				&:before {
+					content: "";
+					position: absolute;
+					background: #295aa0;
+					width: 2px;
+					height: 100%;
+				}
+			}
+
+			.left-line {
+				left: 0;
+				&:before {left: 0;}
+			}
+
+			.right-line {
+				right: 0;
+				&:before {right: 0;}
+			}
+		}
+	}
+}

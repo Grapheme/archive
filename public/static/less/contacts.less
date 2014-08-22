@@ -32,19 +32,9 @@
 	}
 
 	.contact-blocks {
-		.list-unstyled;
-
-		li {
-			display: inline-block;
-			vertical-align: top;
-			width: 32%;
-			line-height: 30rem / @htmlFontSize;
-
-			span, i {
-				display: inline-block;
-				line-height: normal;
-			}
-		}
+		-webkit-column-count: 3; /* Chrome, Safari, Opera */
+	    -moz-column-count: 3; /* Firefox */
+	    column-count: 3;
 	}
 
 	.map-cont {
