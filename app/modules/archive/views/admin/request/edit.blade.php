@@ -45,10 +45,17 @@
 
                     @if ($element->file)
                     <section class="clearfix">
-                            <a href="{{ URL::to($element->file) }}" class="btn btn-primary pull-right" target="_blank">
-                                <i class="fa fa-save"></i>
-                                Прикрепленный файл
-                            </a>
+                        <a href="{{ URL::to($element->file) }}" class="btn btn-primary pull-right" target="_blank">
+                            <i class="fa fa-save"></i>
+                            Прикрепленный файл
+                        </a>
+                    </section>
+                    @endif
+
+                    @if ($element->postal)
+                    <section class="clearfix">
+                        <label class="label">Почтовый адрес</label>
+                        <label class="label"><strong>{{ $element->postal }}</strong></label>
                     </section>
                     @endif
 

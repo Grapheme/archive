@@ -24,13 +24,14 @@
                 <ul class="status">
 
                     @foreach ($requests as $request)
+                    {{ Helper::ta_($request) }}
                     <li>
                         <div class="row">
                             <div class="left-td">
                                 Статус
                             </div>
                             <div class="right-td status-title">
-                                <span class="status-type{{ $request->status->slug == 'new' ? ' fail' : ' done' }}">{{ $request->status->name }}</span>
+                                <span class="status-type{{ $request->status->slug ? ' status-type-'.$request->status->slug : '' }}">{{ $request->status->name }}</span>
                                 <span class="status-desc">
                                     @if ($request->status->slug == 'new')
                                     ваш запрос будет обработан в сроки обозначенные регламентом,<br>

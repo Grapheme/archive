@@ -38,6 +38,12 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>Почтовый адрес</td>
+                                <td>
+                                    {{ Form::text('postal', '', array('class' => 'apply-input', 'placeholder' => '')) }}
+                                </td>
+                            </tr>
+                            <tr>
                                 <td>Тип запроса</td>
                                 <td>
                                     {{ Form::select(

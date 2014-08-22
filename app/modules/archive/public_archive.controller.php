@@ -106,6 +106,7 @@ class PublicArchiveController extends BaseController {
             'user_id' => $user->id,
             'type' => Input::get('type'),
             'content' => Input::get('content'),
+            'postal' => Input::get('postal'),
             #'status_id' => Dic::valueBySlugs('request_types', 'new')->id,
         );
         #Helper::dd($input);
@@ -162,9 +163,9 @@ class PublicArchiveController extends BaseController {
 
         $json_request = array('status' => FALSE, 'responseText' => '');
 
-        $search = 1;
-        $records = ArchiveFund::take(5000)
-            ->orderBy('name', 'ASC')
+        $search = false;
+        #$limit = 100;
+        $records = ArchiveFund::orderBy('name', 'ASC')
             ->where('name', '!=', '')
             ->where('date_start', '!=', '0000-00-00')
             ->where('date_stop', '!=', '0000-00-00')
@@ -183,8 +184,11 @@ class PublicArchiveController extends BaseController {
             $search = true;
         }
 
+        #if (!$search)
+        #    return Response::json($json_request, 200);
+
         if (!$search)
-            return Response::json($json_request, 200);
+            $records = $records->take($limit);
 
         $records = $records->get();
 
