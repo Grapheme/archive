@@ -10,22 +10,55 @@
 
 @section('content')
 
+<?
+## Получим ID-шники подходящих записей
+#$results = SphinxSearch::search(Input::get('s'), 'archive_pages_index')->query();
+#Helper::d($results);
+
+## Получим модели с нужными связями
+$results = SphinxSearch::search(Input::get('s'), 'archive_pages_index')->with('meta', 'blocks.meta')->get();
+#Helper::tad($results);
+
+## Получим поисковые подсказки
+$docs = array();
+foreach ($results as $result) {
+    $line = '';
+    foreach ($result->blocks as $block) {
+        $line .= Helper::multiSpace(strip_tags($block->meta->content)) . "\n";
+    }
+    $docs[$result->id] = trim($line);
+}
+#Helper::dd($docs);
+$excerpts = Helper::buildExcerpts($docs, 'archive_pages_index', Input::get('s'));
+#Helper::d($excerpts);
+?>
+
         <section class="normal-page">
             <div class="wrapper">
                 <h1>Результаты поиска</h1>
                 <div class="search">
+
                     <div class="search-amount">
-                        Всего результатов поиска: <span><span class="results_count">7</span></span>
+                        @if (count($results))
+                        Всего результатов поиска: <span><span class="results_count">{{ count($results) }}</span></span>
+                        @else
+                        По запросу "<b>{{ Input::get('s') }}</b>" ничего не найдено.
+                        @endif
                     </div>
 
+                    @if (count($results))
                     <ul class="search-list">
+                        @foreach ($results as $r => $result)
                         <li>
-                            <h3><a href="#">Ростовская область - Архивы России</a></h3>
+                            <h3>
+                                <a href="{{ URL::route('page', $result->slug) }}">{{ $result->name }}</a>
+                            </h3>
                             <div class="search-text">
-                                Государственное казённое учреждение Ростовской области «Архив документов по личному составу Ростовской области» (ГКУ РО «АДЛС») создан и арегистрирован в едином государственном реестре юридических лиц 17 декабря 2012 года на основании Постановления правительства от 13.11. 2012 № 990...
+                                {{ $excerpts[$r] }}
                             </div>
-
+                        @endforeach
                     </ul>
+                    @endif
 
                 </div>
             </div>

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fcbe1dc64cc9811684d610a7c712cc65",
+    "hash": "3b33a51af208a7193abc26e7cab5387a",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1084,16 +1084,16 @@
         },
         {
             "name": "scalia/sphinxsearch",
-            "version": "0.1.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/scalia/sphinxsearch.git",
-                "reference": "812f334a5b21f7e2abc2c99964d7eba0dce83874"
+                "reference": "d2ddfeafd732d6b34ed6b6051b0e3aea4a0d1c91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/scalia/sphinxsearch/zipball/812f334a5b21f7e2abc2c99964d7eba0dce83874",
-                "reference": "812f334a5b21f7e2abc2c99964d7eba0dce83874",
+                "url": "https://api.github.com/repos/scalia/sphinxsearch/zipball/d2ddfeafd732d6b34ed6b6051b0e3aea4a0d1c91",
+                "reference": "d2ddfeafd732d6b34ed6b6051b0e3aea4a0d1c91",
                 "shasum": ""
             },
             "require": {
@@ -1125,7 +1125,7 @@
                 "sphinx",
                 "sphinxsearch"
             ],
-            "time": "2014-05-23 15:14:45"
+            "time": "2014-06-20 16:35:16"
         },
         {
             "name": "stack/builder",

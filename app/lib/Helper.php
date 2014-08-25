@@ -330,5 +330,33 @@ HTML;
 
     }
 
+
+    public static function buildExcerpts($docs = false, $index = '*', $words = false, $opts = false) {
+
+        if (!$docs || !$words)
+            return false;
+
+        $opts_default = array(
+            'before_match' => '<b>',
+            'after_match' => '</b>',
+            'chunk_separator' => '...',
+            'limit' => 256,
+            'around' => 5,
+            'exact_phrase' => FALSE,
+            'single_passage' => FALSE
+        );
+        $opts = $opts_default + (array)$opts;
+
+        $sphinx = new \Sphinx\SphinxClient;
+        $results = $sphinx->buildExcerpts($docs, $index, $words, $opts);
+        unset($sphinx);
+        return $results;
+    }
+
+
+    public static function multiSpace($a) {
+        return preg_replace("~\s\s+~is", " ", $a);
+    }
+
 }
 

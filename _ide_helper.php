@@ -12780,5 +12780,172 @@ namespace {
     }
 
 
+    class SphinxSearch extends \Scalia\SphinxSearch\SphinxSearchFacade{
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function __construct(){
+            \Scalia\SphinxSearch\SphinxSearch::__construct();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function search($string, $index_name = null){
+            return \Scalia\SphinxSearch\SphinxSearch::search($string, $index_name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setFieldWeights($weights){
+            return \Scalia\SphinxSearch\SphinxSearch::setFieldWeights($weights);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setMatchMode($mode){
+            return \Scalia\SphinxSearch\SphinxSearch::setMatchMode($mode);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setRankingMode($mode){
+            return \Scalia\SphinxSearch\SphinxSearch::setRankingMode($mode);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setSortMode($mode, $sortby = null){
+            return \Scalia\SphinxSearch\SphinxSearch::setSortMode($mode, $sortby);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setFilterFloatRange($attribute, $min, $max, $exclude = false){
+            return \Scalia\SphinxSearch\SphinxSearch::setFilterFloatRange($attribute, $min, $max, $exclude);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setGeoAnchor($attrlat, $attrlong, $lat = null, $long = null){
+            return \Scalia\SphinxSearch\SphinxSearch::setGeoAnchor($attrlat, $attrlong, $lat, $long);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setSelect($select){
+            return \Scalia\SphinxSearch\SphinxSearch::setSelect($select);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function limit($limit, $offset = 0, $max_matches = 1000, $cutoff = 1000){
+            return \Scalia\SphinxSearch\SphinxSearch::limit($limit, $offset, $max_matches, $cutoff);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function filter($attribute, $values, $exclude = false){
+            return \Scalia\SphinxSearch\SphinxSearch::filter($attribute, $values, $exclude);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function range($attribute, $min, $max, $exclude = false){
+            return \Scalia\SphinxSearch\SphinxSearch::range($attribute, $min, $max, $exclude);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function query(){
+            return \Scalia\SphinxSearch\SphinxSearch::query();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function get($respect_sort_order = false){
+            return \Scalia\SphinxSearch\SphinxSearch::get($respect_sort_order);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function with(){
+            return \Scalia\SphinxSearch\SphinxSearch::with();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getTotalCount(){
+            return \Scalia\SphinxSearch\SphinxSearch::getTotalCount();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getTime(){
+            return \Scalia\SphinxSearch\SphinxSearch::getTime();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getErrorMessage(){
+            return \Scalia\SphinxSearch\SphinxSearch::getErrorMessage();
+        }
+        
+    }
+
+
 }
 
