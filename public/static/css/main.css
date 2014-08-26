@@ -324,7 +324,7 @@ ul li {
   padding: 0 1.25rem;
 }
 a {
-  color: inherit;
+  color: #3764a6;
 }
 /** STICKY FOOTER **/
 html,
@@ -953,6 +953,7 @@ header {
 }
 .fonds .fonds-list .trows .trow-old:last-child {
   border-bottom: 1px solid #3764a6;
+  padding-bottom: 1rem;
 }
 .fonds .fonds-list .trow-old {
   margin: 0;
