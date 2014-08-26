@@ -929,6 +929,8 @@ header {
 }
 .fonds .fonds-list .trows {
   margin: 0;
+  border-top: 1px solid #cacaca;
+  border-bottom: 1px solid #cacaca;
 }
 .fonds .fonds-list .trow-old {
   margin: 0;
