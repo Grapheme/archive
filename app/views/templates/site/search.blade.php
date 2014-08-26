@@ -13,7 +13,7 @@
 <?
 ## Ищем совпадения в фондах
 $results_funds = SphinxSearch::search(Input::get('s'), 'archive_funds_index')->query();
-$results_funds_count = count($results_funds['matches']);
+$results_funds_count = @count($results_funds['matches']);
 #Helper::dd(count($results_funds['matches']));
 
 ## Получим ID-шники подходящих записей

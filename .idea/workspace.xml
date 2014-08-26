@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9eb288a-66f5-42e9-a6ae-4f6f60b8c9bd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/lib/Helper.php" afterPath="$PROJECT_DIR$/app/lib/Helper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/database.php" afterPath="$PROJECT_DIR$/app/config/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/templates/site/fonds.blade.php" afterPath="$PROJECT_DIR$/app/views/templates/site/fonds.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/modules/archive/public_archive.controller.php" afterPath="$PROJECT_DIR$/app/modules/archive/public_archive.controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/templates/site/search.blade.php" afterPath="$PROJECT_DIR$/app/views/templates/site/search.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -46,12 +43,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search.blade.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="search.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/templates/site/search.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="153" selection-end="241" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="1513">
+            <state line="24" column="23" selection-start="660" selection-end="660" vertical-scroll-proportion="0.72727275" vertical-offset="0" max-vertical-offset="1513">
               <folding>
-                <marker date="1409038535934" expanded="true" signature="2212:2286" placeholder="..." />
+                <marker date="1409039807390" expanded="true" signature="2213:2287" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -105,10 +102,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="public_archive.controller.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="public_archive.controller.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/modules/archive/public_archive.controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="193" column="9" selection-start="6838" selection-end="6838" vertical-scroll-proportion="0.6666667" vertical-offset="2907" max-vertical-offset="5661">
+            <state line="193" column="9" selection-start="6838" selection-end="6838" vertical-scroll-proportion="-14.384615" vertical-offset="2907" max-vertical-offset="5661">
               <folding />
             </state>
           </provider>
@@ -215,10 +212,10 @@
         <option value="C:/usr/local/sphinx/sphinx.conf" />
         <option value="$PROJECT_DIR$/app/config/packages/scalia/sphinxsearch/config.php" />
         <option value="$PROJECT_DIR$/app/lib/Helper.php" />
-        <option value="$PROJECT_DIR$/app/views/templates/site/search.blade.php" />
         <option value="$PROJECT_DIR$/app/views/templates/site/fonds.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/public_archive.controller.php" />
         <option value="$PROJECT_DIR$/app/config/database.php" />
+        <option value="$PROJECT_DIR$/app/views/templates/site/search.blade.php" />
       </list>
     </option>
   </component>
@@ -555,7 +552,11 @@
       <created>1408979955073</created>
       <updated>1408979955073</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="sphinx search+">
+      <created>1409039422799</created>
+      <updated>1409039422799</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -895,15 +896,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/templates/site/search.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="153" selection-end="241" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="1513">
-          <folding>
-            <marker date="1409038535934" expanded="true" signature="2212:2286" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="51" selection-start="408" selection-end="408" vertical-scroll-proportion="0.53518516" vertical-offset="0" max-vertical-offset="952">
@@ -913,8 +905,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/archive/public_archive.controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="193" column="9" selection-start="6838" selection-end="6838" vertical-scroll-proportion="0.6666667" vertical-offset="2907" max-vertical-offset="5661">
+        <state line="193" column="9" selection-start="6838" selection-end="6838" vertical-scroll-proportion="-14.384615" vertical-offset="2907" max-vertical-offset="5661">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/templates/site/search.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="23" selection-start="660" selection-end="660" vertical-scroll-proportion="0.72727275" vertical-offset="0" max-vertical-offset="1513">
+          <folding>
+            <marker date="1409039807390" expanded="true" signature="2213:2287" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
