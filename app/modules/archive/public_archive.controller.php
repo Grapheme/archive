@@ -183,6 +183,7 @@ class PublicArchiveController extends BaseController {
         if ($filter = Input::get('filter')) {
             ## SPHINX
             $results_funds = SphinxSearch::search($filter, 'archive_funds_index')->query();
+            #Helper::dd($results_funds);
             if (isset($results_funds['matches'])) {
                 $funds_ids = array_keys($results_funds['matches']);
                 #Helper:dd($funds_ids);
