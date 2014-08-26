@@ -423,7 +423,7 @@ function fundsFormSubmit(form) {
                     $(val.olds).each(function(key, val){
                         var date_start = new Date(val.date_start);
                         var date_stop = new Date(val.date_stop);
-                        old_names += '<p class="trow-old hidden" data-parent="' + parent_val_id + '"><span>' + val.fund_number + '</span><span style="padding-left:50px;">' + val.name + '</span><span>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</span></p>';
+                        old_names += '<p class="trow-old hidden" data-parent="' + parent_val_id + '"><span>' + val.fund_number + '</span><span>' + val.name + '</span><span>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</span></p>';
                     });
                     old_names += '</section>';
                     val.olds.length;
@@ -433,7 +433,7 @@ function fundsFormSubmit(form) {
                 new_str += '<div class="trow"><span>'
                     + val.fund_number
                     + '</span><span>' + val.name
-                    + (old_names ? '<br/><a href="#" data-childs-for="' + val.id + '" class="us-link">и его предшественники</a>' : '')
+                    + (old_names ? '<br/>и его <a href="#" data-childs-for="' + val.id + '" class="old-link">предшественники</a>' : '')
                     + '</span><span>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</span></div>'
                     + old_names;
                 //$('.fonds-list tbody').append('<tr><td>' + val.name + '</td><td>' + d.getFullYear() + '-' + val.date_stop + '</td></tr>');

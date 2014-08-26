@@ -928,6 +928,18 @@ header {
   line-height: 3.4375rem;
   font-size: 0.875rem;
 }
+.fonds .fonds-list .old-link {
+  -webkit-transition: border 0.5s ease;
+  transition: border 0.5s ease;
+  color: #3764a6;
+  text-decoration: none;
+  border-bottom: 1px solid #3764a6;
+  display: inline-block;
+  line-height: 1em;
+}
+.fonds .fonds-list .old-link:hover {
+  border-color: transparent;
+}
 .fonds .fonds-list .trow {
   min-height: 2.8125rem;
   line-height: 2.8125rem;
@@ -941,9 +953,6 @@ header {
 }
 .fonds .fonds-list .trows .trow-old:last-child {
   border-bottom: 1px solid #3764a6;
-}
-.fonds .fonds-list .trows .trow-old:first-child {
-  border-top: 1px solid #3764a6;
 }
 .fonds .fonds-list .trow-old {
   margin: 0;
