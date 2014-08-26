@@ -40,6 +40,9 @@ class PublicArchiveController extends BaseController {
 
         #Route::get('/feedback', array('as' => 'feedback', 'uses' => __CLASS__.'@getFeedback'));
         Route::post('/ajax/send-feedback', array('as' => 'ajax-send-feedback', 'uses' => __CLASS__.'@postAjaxSendFeedback'));
+
+
+        Route::get('/sphinxtest', array('as' => 'sphinxtest', 'uses' => __CLASS__.'@getSphinxtest'));
     }
 
     ## Shortcodes of module
@@ -157,6 +160,12 @@ class PublicArchiveController extends BaseController {
 	}
 
 
+    public function getSphinxtest() {
+        $results_funds = SphinxSearch::search('област', 'archive_funds_index')->query();
+        echo '<pre>' . print_r($results_funds, 1) . '</pre>';
+        die;
+    }
+
     public function postGetFundsData() {
 
         #Helper::dd(Input::all());
@@ -165,22 +174,41 @@ class PublicArchiveController extends BaseController {
 
         $search = false;
         $limit = 100;
+        $funds_ids = array();
+
         $records = ArchiveFund::orderBy('name', 'ASC')
+            ->with('olds')
             ->where('name', '!=', '')
             ->where('date_start', '!=', '0000-00-00')
             ->where('date_stop', '!=', '0000-00-00')
         ;
-
+        /*
         if ($filter = Input::get('filter')) {
             $records = $records->where('name', 'LIKE', '%' . $filter . '%');
             $search = true;
         }
+        */
+        ## Если задана маска для поиска по названию компании - ищем сфинксом
+        if ($filter = Input::get('filter')) {
+            ## SPHINX
+            $results_funds = SphinxSearch::search($filter, 'archive_funds_index')->query();
+            #Helper::dd($results_funds);
+            if (isset($results_funds['matches'])) {
+                $funds_ids = array_keys($results_funds['matches']);
+                #Helper:dd($funds_ids);
+                $records = $records->whereIn('id', $funds_ids);
+            } else {
+                $records = $records->where('id', 0);
+            }
+        }
         if ($start = Input::get('start')) {
-            $records = $records->where('date_start', '<=', $start);
+            #$records = $records->where('date_start', '<=', $start);
+            $records = $records->where('date_stop', '>=', $start);
             $search = true;
         }
         if ($stop = Input::get('stop')) {
-            $records = $records->where('date_stop', '>=', $stop);
+            #$records = $records->where('date_stop', '>=', $stop);
+            $records = $records->where('date_start', '<=', $stop);
             $search = true;
         }
 

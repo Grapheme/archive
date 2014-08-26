@@ -59,7 +59,8 @@ return array(
 		'Way\Generators\GeneratorsServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
-        'Barryvdh\Debugbar\ServiceProvider'
+        'Barryvdh\Debugbar\ServiceProvider',
+        'Scalia\SphinxSearch\SphinxSearchServiceProvider',
 	),
 	'aliases' => array(
 		'App'             => 'Illuminate\Support\Facades\App',
@@ -100,6 +101,7 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
-		'ImageManipulation' => 'Intervention\Image\Facades\Image'
+		'ImageManipulation' => 'Intervention\Image\Facades\Image',
+        'SphinxSearch'    => 'Scalia\SphinxSearch\SphinxSearchFacade',
 	),
 );

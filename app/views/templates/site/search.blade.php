@@ -10,22 +10,66 @@
 
 @section('content')
 
+<?
+## Ищем совпадения в фондах
+$results_funds = SphinxSearch::search(Input::get('s'), 'archive_funds_index')->query();
+$results_funds_count = @count($results_funds['matches']);
+#Helper::dd(count($results_funds['matches']));
+
+## Получим ID-шники подходящих записей
+#$results = SphinxSearch::search(Input::get('s'), 'archive_pages_index')->query();
+#Helper::d($results);
+
+## Получим модели с нужными связями
+$results = SphinxSearch::search(Input::get('s'), 'archive_pages_index')->with('meta', 'blocks.meta')->get();
+#Helper::tad($results);
+
+## Получим поисковые подсказки
+$docs = array();
+foreach ($results as $result) {
+    $line = '';
+    foreach ($result->blocks as $block) {
+        $line .= Helper::multiSpace(strip_tags($block->meta->content)) . "\n";
+    }
+    $docs[$result->id] = trim($line);
+}
+#Helper::dd($docs);
+$excerpts = Helper::buildExcerpts($docs, 'archive_pages_index', Input::get('s'), array('before_match' => '<span>', 'after_match' => '</span>'));
+#Helper::d($excerpts);
+?>
+
         <section class="normal-page">
             <div class="wrapper">
                 <h1>Результаты поиска</h1>
                 <div class="search">
+
+                    @if ($results_funds_count)
                     <div class="search-amount">
-                        Всего результатов поиска: <span><span class="results_count">7</span></span>
+                        Найдено <span>{{ $results_funds_count }}</span> совпадений в записях по фондам. Для просмотра перейдите на <a href="{{ URL::route('page', 'fonds') }}?s={{ Input::get('s') }}">страницу поиска по фондам</a>.
+                    </div>
+                    @endif
+
+                    <div class="search-amount">
+                        @if (count($results))
+                        Всего результатов поиска: <span><span class="results_count">{{ count($results) }}</span></span>
+                        @else
+                        По запросу "<b>{{ Input::get('s') }}</b>" ничего не найдено.
+                        @endif
                     </div>
 
+                    @if (count($results))
                     <ul class="search-list">
+                        @foreach ($results as $r => $result)
                         <li>
-                            <h3><a href="#">Ростовская область - Архивы России</a></h3>
+                            <h3>
+                                <a href="{{ URL::route('page', $result->slug) }}">{{ $result->name }}</a>
+                            </h3>
                             <div class="search-text">
-                                Государственное казённое учреждение Ростовской области «Архив документов по личному составу Ростовской области» (ГКУ РО «АДЛС») создан и арегистрирован в едином государственном реестре юридических лиц 17 декабря 2012 года на основании Постановления правительства от 13.11. 2012 № 990...
+                                {{ $excerpts[$r] }}
                             </div>
-
+                        @endforeach
                     </ul>
+                    @endif
 
                 </div>
             </div>

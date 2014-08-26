@@ -19,7 +19,7 @@ $route = Route::currentRouteName();
                     </div>
                     <div class="header-menu">
 
-                        {{ Form::open(array('url' => URL::route('page', 'search'), 'class' => '', 'id' => 'searchForm', 'role' => 'form', 'method' => 'POST', 'files' => false)) }}
+                        {{ Form::open(array('url' => URL::route('page', 'search'), 'class' => '', 'id' => 'searchForm', 'role' => 'form', 'method' => 'GET', 'files' => false)) }}
 
                             <div class="nav-block">
                                 <nav class="main-nav">
@@ -38,7 +38,7 @@ $route = Route::currentRouteName();
                                 <div class="search-anim">
                                     <div class="search-cont">
                                         <div class="header-search">
-                                            <input type="text" class="header-input" placeholder="Введите ваш запрос">
+                                            <input type="text" class="header-input" name="s" placeholder="Введите ваш запрос">
                                             <a href="#" class="menu-icon"><span></span></a>
                                         </div>
                                     </div>

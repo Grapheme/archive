@@ -24,7 +24,7 @@
                                 <div class="title">Быстрый поиск</div>
                                 <div class="search-body">
                                     <div class="search-cont">
-                                       {{ Form::text('filter', '', array('class' => 'fond-input atleastone', 'placeholder' => 'Введите название организации')) }}
+                                       {{ Form::text('filter', Input::get('s'), array('class' => 'fond-input atleastone', 'placeholder' => 'Введите название организации')) }}
                                         <a href="#" class="input-cross"></a>
                                     </div>
                                 </div>
@@ -98,8 +98,8 @@
         var minimum = 1900;
         // Минимальное и максимальное значения
 
-        var default_min = 1985;
-        var default_max = 2005;
+        var default_min = {{ Input::get('s') ? 1900 : 1985 }};
+        var default_max = {{ Input::get('s') ? date('Y') : 2005 }};
         // Значения которые подставляются при загрузке страницы
 
         $( "#slider-range" ).slider({

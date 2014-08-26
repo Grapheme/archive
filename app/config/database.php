@@ -15,7 +15,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'archive',
 			'username'  => 'root',
-			'password'  => 'perl03',
+			'password'  => 'k.,jdmythtdyetnyfghfcyj',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

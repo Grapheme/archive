@@ -8,7 +8,8 @@
 		"way/generators": "*",
 		"intervention/image": "dev-master",
 		"barryvdh/laravel-ide-helper": "1.*",
-		"barryvdh/laravel-debugbar": "dev-master"
+		"barryvdh/laravel-debugbar": "dev-master",
+		"scalia/sphinxsearch": "*"
 	},
 	"autoload": {
 		"classmap": [
