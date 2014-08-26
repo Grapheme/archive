@@ -4,12 +4,11 @@
     <bookmark url="file://$PROJECT_DIR$/app/modules/galleries/admin_galleries.controller.php" line="81" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9eb288a-66f5-42e9-a6ae-4f6f60b8c9bd" name="Default" comment="sphinx search">
+    <list default="true" id="f9eb288a-66f5-42e9-a6ae-4f6f60b8c9bd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/lib/Helper.php" afterPath="$PROJECT_DIR$/app/lib/Helper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_ide_helper.php" afterPath="$PROJECT_DIR$/_ide_helper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/packages/scalia/sphinxsearch/config.php" afterPath="$PROJECT_DIR$/app/config/packages/scalia/sphinxsearch/config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/database.php" afterPath="$PROJECT_DIR$/app/config/database.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/templates/site/fonds.blade.php" afterPath="$PROJECT_DIR$/app/views/templates/site/fonds.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/modules/archive/public_archive.controller.php" afterPath="$PROJECT_DIR$/app/modules/archive/public_archive.controller.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/templates/site/search.blade.php" afterPath="$PROJECT_DIR$/app/views/templates/site/search.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -47,13 +46,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="search.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/templates/site/search.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="60" selection-start="1520" selection-end="1520" vertical-scroll-proportion="0.6363636" vertical-offset="493" max-vertical-offset="1309">
+            <state line="15" column="0" selection-start="153" selection-end="241" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="1513">
               <folding>
-                <marker date="1408979808135" expanded="true" signature="1548:1622" placeholder="..." />
+                <marker date="1409038535934" expanded="true" signature="2212:2286" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fonds.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/templates/site/fonds.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="104" column="37" selection-start="4426" selection-end="4426" vertical-scroll-proportion="-5.8846154" vertical-offset="1615" max-vertical-offset="2329">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -61,10 +69,10 @@
       <file leaf-file-name="Helper.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/lib/Helper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="344" column="22" selection-start="10320" selection-end="10320" vertical-scroll-proportion="-8.5" vertical-offset="5627" max-vertical-offset="6273">
+            <state line="348" column="9" selection-start="10439" selection-end="10439" vertical-scroll-proportion="-11.115385" vertical-offset="5627" max-vertical-offset="6290">
               <folding>
-                <marker date="1408979402802" expanded="true" signature="8316:8428" placeholder="..." />
-                <marker date="1408979402802" expanded="true" signature="8374:8428" placeholder="..." />
+                <marker date="1409038436528" expanded="true" signature="8316:8428" placeholder="..." />
+                <marker date="1409038436528" expanded="true" signature="8374:8428" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -73,7 +81,7 @@
       <file leaf-file-name="sphinx.conf" pinned="false" current="false" current-in-tab="false">
         <entry file="file://C:/usr/local/sphinx/sphinx.conf">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="26" selection-start="1766" selection-end="1766" vertical-scroll-proportion="0.0" vertical-offset="824" max-vertical-offset="1768">
+            <state line="105" column="26" selection-start="2214" selection-end="2214" vertical-scroll-proportion="0.0" vertical-offset="1283" max-vertical-offset="2227">
               <folding />
             </state>
           </provider>
@@ -97,10 +105,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="public_archive.controller.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="public_archive.controller.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/modules/archive/public_archive.controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="173" column="0" selection-start="6000" selection-end="6000" vertical-scroll-proportion="0.0" vertical-offset="395" max-vertical-offset="5474">
+            <state line="193" column="9" selection-start="6838" selection-end="6838" vertical-scroll-proportion="0.6666667" vertical-offset="2907" max-vertical-offset="5661">
               <folding />
             </state>
           </provider>
@@ -160,7 +168,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/modules/pages/models/PageMeta.php" />
         <option value="$PROJECT_DIR$/app/modules/pages/views/default.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/pages/views/demo.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/pages/views/admin/index.blade.php" />
@@ -200,17 +207,18 @@
         <option value="$PROJECT_DIR$/app/views/templates/site/request.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/views/admin/request/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/models/ArchiveFund.model.php" />
-        <option value="$PROJECT_DIR$/app/views/templates/site/fonds.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/admin_archive.funds.controller.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/views/admin/funds/edit.blade.php" />
         <option value="$PROJECT_DIR$/public/js/main.js" />
-        <option value="$PROJECT_DIR$/app/modules/archive/public_archive.controller.php" />
         <option value="$PROJECT_DIR$/app/config/app.php" />
         <option value="$PROJECT_DIR$/app/views/templates/site/header.blade.php" />
         <option value="C:/usr/local/sphinx/sphinx.conf" />
         <option value="$PROJECT_DIR$/app/config/packages/scalia/sphinxsearch/config.php" />
         <option value="$PROJECT_DIR$/app/lib/Helper.php" />
         <option value="$PROJECT_DIR$/app/views/templates/site/search.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/templates/site/fonds.blade.php" />
+        <option value="$PROJECT_DIR$/app/modules/archive/public_archive.controller.php" />
+        <option value="$PROJECT_DIR$/app/config/database.php" />
       </list>
     </option>
   </component>
@@ -543,7 +551,11 @@
       <created>1408979831493</created>
       <updated>1408979831493</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="sphinx search+">
+      <created>1408979955073</created>
+      <updated>1408979955073</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -586,7 +598,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="news mainpage href fix" />
     <MESSAGE value="funds ajax gettin'" />
     <MESSAGE value="news order fix" />
     <MESSAGE value="news year hash" />
@@ -611,7 +622,8 @@
     <MESSAGE value="change ranges rule" />
     <MESSAGE value="sphinx search" />
     <MESSAGE value="sphinx search view" />
-    <option name="LAST_COMMIT_MESSAGE" value="sphinx search view" />
+    <MESSAGE value="sphinx search+" />
+    <option name="LAST_COMMIT_MESSAGE" value="sphinx search+" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -619,11 +631,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../infiniti/app/modules/production/admin_production.products.controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="27" selection-start="354" selection-end="354" vertical-scroll-proportion="0.36363637" vertical-offset="0" max-vertical-offset="6443" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/modules/standard.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="50" column="0" selection-start="1564" selection-end="3692" vertical-scroll-proportion="0.45936397" vertical-offset="590" max-vertical-offset="1870" />
@@ -656,7 +663,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/dictionaries/models/Dictionary.model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="37" selection-start="859" selection-end="859" vertical-scroll-proportion="0.75757575" vertical-offset="153" max-vertical-offset="850" />
+        <state line="34" column="37" selection-start="859" selection-end="859" vertical-scroll-proportion="0.75757575" vertical-offset="153" max-vertical-offset="850">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/archive/models/UserInfo.model.php">
@@ -791,7 +800,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/archive/models/ArchiveFund.model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="93" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="510" />
+        <state line="21" column="93" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="510">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/archive/views/admin/request/edit.blade.php">
@@ -834,18 +845,6 @@
         <state line="131" column="34" selection-start="5616" selection-end="5616" vertical-scroll-proportion="0.6060606" vertical-offset="1938" max-vertical-offset="4692" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/modules/archive/public_archive.controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="173" column="0" selection-start="6000" selection-end="6000" vertical-scroll-proportion="0.0" vertical-offset="395" max-vertical-offset="5474">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/templates/site/fonds.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="33" selection-start="3958" selection-end="3958" vertical-scroll-proportion="0.121212125" vertical-offset="1564" max-vertical-offset="2329" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/templates/site/header.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="40" column="91" selection-start="2531" selection-end="2531" vertical-scroll-proportion="0.0" vertical-offset="680" max-vertical-offset="1020">
@@ -867,7 +866,7 @@
     </entry>
     <entry file="file://C:/usr/local/sphinx/sphinx.conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="26" selection-start="1766" selection-end="1766" vertical-scroll-proportion="0.0" vertical-offset="824" max-vertical-offset="1768">
+        <state line="105" column="26" selection-start="2214" selection-end="2214" vertical-scroll-proportion="0.0" vertical-offset="1283" max-vertical-offset="2227">
           <folding />
         </state>
       </provider>
@@ -881,20 +880,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/lib/Helper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="344" column="22" selection-start="10320" selection-end="10320" vertical-scroll-proportion="-8.5" vertical-offset="5627" max-vertical-offset="6273">
+        <state line="348" column="9" selection-start="10439" selection-end="10439" vertical-scroll-proportion="-11.115385" vertical-offset="5627" max-vertical-offset="6290">
           <folding>
-            <marker date="1408979402802" expanded="true" signature="8316:8428" placeholder="..." />
-            <marker date="1408979402802" expanded="true" signature="8374:8428" placeholder="..." />
+            <marker date="1409038436528" expanded="true" signature="8316:8428" placeholder="..." />
+            <marker date="1409038436528" expanded="true" signature="8374:8428" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/templates/site/fonds.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="104" column="37" selection-start="4426" selection-end="4426" vertical-scroll-proportion="-5.8846154" vertical-offset="1615" max-vertical-offset="2329">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/templates/site/search.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="60" selection-start="1520" selection-end="1520" vertical-scroll-proportion="0.6363636" vertical-offset="493" max-vertical-offset="1309">
+        <state line="15" column="0" selection-start="153" selection-end="241" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="1513">
           <folding>
-            <marker date="1408979808135" expanded="true" signature="1548:1622" placeholder="..." />
+            <marker date="1409038535934" expanded="true" signature="2212:2286" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="51" selection-start="408" selection-end="408" vertical-scroll-proportion="0.53518516" vertical-offset="0" max-vertical-offset="952">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/modules/archive/public_archive.controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="193" column="9" selection-start="6838" selection-end="6838" vertical-scroll-proportion="0.6666667" vertical-offset="2907" max-vertical-offset="5661">
+          <folding />
         </state>
       </provider>
     </entry>

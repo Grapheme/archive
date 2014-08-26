@@ -165,16 +165,27 @@ class PublicArchiveController extends BaseController {
 
         $search = false;
         $limit = 100;
+        $funds_ids = array();
+
         $records = ArchiveFund::orderBy('name', 'ASC')
             ->with('olds')
             ->where('name', '!=', '')
             ->where('date_start', '!=', '0000-00-00')
             ->where('date_stop', '!=', '0000-00-00')
         ;
-
+        /*
         if ($filter = Input::get('filter')) {
             $records = $records->where('name', 'LIKE', '%' . $filter . '%');
             $search = true;
+        }
+        */
+        ## Если задана маска для поиска по названию компании - ищем сфинксом
+        if ($filter = Input::get('filter')) {
+            ## SPHINX
+            $results_funds = SphinxSearch::search($filter, 'archive_funds_index')->query();
+            $funds_ids = array_keys($results_funds['matches']);
+            #Helper:dd($funds_ids);
+            $records = $records->whereIn('id', $funds_ids);
         }
         if ($start = Input::get('start')) {
             #$records = $records->where('date_start', '<=', $start);

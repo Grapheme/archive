@@ -11,6 +11,11 @@
 @section('content')
 
 <?
+## Ищем совпадения в фондах
+$results_funds = SphinxSearch::search(Input::get('s'), 'archive_funds_index')->query();
+$results_funds_count = count($results_funds['matches']);
+#Helper::dd(count($results_funds['matches']));
+
 ## Получим ID-шники подходящих записей
 #$results = SphinxSearch::search(Input::get('s'), 'archive_pages_index')->query();
 #Helper::d($results);
@@ -29,7 +34,7 @@ foreach ($results as $result) {
     $docs[$result->id] = trim($line);
 }
 #Helper::dd($docs);
-$excerpts = Helper::buildExcerpts($docs, 'archive_pages_index', Input::get('s'));
+$excerpts = Helper::buildExcerpts($docs, 'archive_pages_index', Input::get('s'), array('before_match' => '<span>', 'after_match' => '</span>'));
 #Helper::d($excerpts);
 ?>
 
@@ -37,6 +42,12 @@ $excerpts = Helper::buildExcerpts($docs, 'archive_pages_index', Input::get('s'))
             <div class="wrapper">
                 <h1>Результаты поиска</h1>
                 <div class="search">
+
+                    @if ($results_funds_count)
+                    <div class="search-amount">
+                        Найдено <span>{{ $results_funds_count }}</span> совпадений в записях по фондам. Для просмотра перейдите на <a href="{{ URL::route('page', 'fonds') }}?s={{ Input::get('s') }}">страницу поиска по фондам</a>.
+                    </div>
+                    @endif
 
                     <div class="search-amount">
                         @if (count($results))

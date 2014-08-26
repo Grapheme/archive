@@ -345,7 +345,8 @@ HTML;
             'exact_phrase' => FALSE,
             'single_passage' => FALSE
         );
-        $opts = $opts_default + (array)$opts;
+        $opts = (array)$opts + $opts_default;
+        #Helper::dd($opts);
 
         $sphinx = new \Sphinx\SphinxClient;
         $results = $sphinx->buildExcerpts($docs, $index, $words, $opts);
