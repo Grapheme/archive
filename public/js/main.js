@@ -418,12 +418,14 @@ function fundsFormSubmit(form) {
                 var old_names = '';
                 if (val.olds.length) {
                     var parent_val_id = val.id;
+                    old_names += '<div class="trows">';
                     //old_names += '<span class="oldnames">';
                     $(val.olds).each(function(key, val){
                         var date_start = new Date(val.date_start);
                         var date_stop = new Date(val.date_stop);
                         old_names += '<p class="trow-old hidden" data-parent="' + parent_val_id + '"><span>' + val.fund_number + '</span><span style="padding-left:50px;">' + val.name + '</span><span>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</span></p>';
                     });
+                    old_names += '</div>';
                     val.olds.length;
                     //old_names += '</span>';
                     //alert(old_names);
@@ -433,7 +435,7 @@ function fundsFormSubmit(form) {
                     + '</span><span>' + val.name
                     + (old_names ? '<br/><a href="#" data-childs-for="' + val.id + '">и его предшественники</a>' : '')
                     + '</span><span>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</span></div>'
-                    + '<div class="trows">' + old_names + '</div>';
+                    + old_names;
                 //$('.fonds-list tbody').append('<tr><td>' + val.name + '</td><td>' + d.getFullYear() + '-' + val.date_stop + '</td></tr>');
             });
             $('.fonds-list .tbody').html(new_str);
