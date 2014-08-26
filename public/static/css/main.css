@@ -937,6 +937,9 @@ header {
   font-family: 'lato_regular';
 }
 .fonds .fonds-list span {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   display: inline-block;
   vertical-align: middle;
   line-height: normal;
