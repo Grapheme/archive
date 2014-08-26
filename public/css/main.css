@@ -914,6 +914,45 @@ header {
   margin-top: 3.125rem;
   width: 100%;
 }
+.fonds .fonds-list .thead {
+  height: 3.4375rem;
+  line-height: 3.4375rem;
+  font-size: 0.875rem;
+}
+.fonds .fonds-list .trow {
+  min-height: 2.8125rem;
+  line-height: 2.8125rem;
+  font-family: 'lato_regular';
+}
+.fonds .fonds-list .trow:nth-of-type(2n+1) {
+  background: #efefef;
+}
+.fonds .fonds-list .trows {
+  margin: 0;
+}
+.fonds .fonds-list .trows-old {
+  margin: 0;
+  min-height: 2.8125rem;
+  line-height: 2.8125rem;
+  font-family: 'lato_regular';
+}
+.fonds .fonds-list span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  padding: 0.625rem 0;
+}
+.fonds .fonds-list span:nth-of-type(1) {
+  width: 7.5rem;
+  text-align: center;
+}
+.fonds .fonds-list span:nth-of-type(2) {
+  width: 35rem;
+}
+.fonds .fonds-list span:nth-of-type(3) {
+  width: 9.375rem;
+  text-align: center;
+}
 .fonds .fonds-list thead {
   font-size: 0.875rem;
 }

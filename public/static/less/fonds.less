@@ -83,6 +83,54 @@
 		margin-top: 50rem / @htmlFontSize;
 		width: 100%;
 
+		.thead {
+			height: 55rem / @htmlFontSize;
+			line-height: 55rem / @htmlFontSize;
+			font-size: 14rem / @htmlFontSize;
+		}
+
+		.trow {
+			min-height: 45rem / @htmlFontSize;
+			line-height: 45rem / @htmlFontSize;
+			.regular;
+
+			&:nth-of-type(2n+1) {
+				background: #efefef;
+			}
+		}
+
+		.trows {
+			margin: 0;
+		}
+
+		.trows-old {
+			margin: 0;
+			min-height: 45rem / @htmlFontSize;
+			line-height: 45rem / @htmlFontSize;
+			.regular;
+		}
+
+		span {
+			display: inline-block;
+			vertical-align: middle;
+			line-height: normal;
+			padding: 10rem / @htmlFontSize 0;
+
+			&:nth-of-type(1) {
+				width: 120rem / @htmlFontSize;
+				text-align: center;
+			}
+
+			&:nth-of-type(2) {
+				width: 560rem / @htmlFontSize;
+			}
+
+			&:nth-of-type(3) {
+				width: 150rem / @htmlFontSize;
+				text-align: center;
+			}
+		}
+
 		thead {
 			font-size: 14rem / @htmlFontSize;
 		}

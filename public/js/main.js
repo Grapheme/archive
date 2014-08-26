@@ -422,23 +422,23 @@ function fundsFormSubmit(form) {
                     $(val.olds).each(function(key, val){
                         var date_start = new Date(val.date_start);
                         var date_stop = new Date(val.date_stop);
-                        old_names += '<tr class="hidden" data-parent="' + parent_val_id + '"><td>' + val.fund_number + '</td><td style="padding-left:50px;">' + val.name + '</td><td>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</td></tr>';
+                        old_names += '<p class="trow-old hidden" data-parent="' + parent_val_id + '"><span>' + val.fund_number + '</span><span style="padding-left:50px;">' + val.name + '</span><span>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</span></p>';
                     });
                     val.olds.length;
                     //old_names += '</span>';
                     //alert(old_names);
                 }
-                new_str += '<tr class="pre-old"><td>'
+                new_str += '<div class="trow"><span>'
                     + val.fund_number
-                    + '</td><td>' + val.name
+                    + '</span><span>' + val.name
                     + (old_names ? '<br/><a href="#" data-childs-for="' + val.id + '">и его предшественники</a>' : '')
-                    + '</td><td>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</td></tr>'
-                    + '<table class="table-old">' + old_names + '</table>';
+                    + '</span><span>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</span></div>'
+                    + '<p class="trows">' + old_names + '</p>';
                 //$('.fonds-list tbody').append('<tr><td>' + val.name + '</td><td>' + d.getFullYear() + '-' + val.date_stop + '</td></tr>');
             });
-            $('.fonds-list tbody').html(new_str);
+            $('.fonds-list .tbody').html(new_str);
         } else {
-            $('.fonds-list tbody').html('<tr><td colspan="3" style="text-align: center">Не найдено подходящих записей. Попробуйте изменить условия поиска.</td></tr>');
+            $('.fonds-list .tbody').html('<div><p style="text-align: center; margin: 0;">Не найдено подходящих записей. Попробуйте изменить условия поиска.</p></div>');
         }
     }
 
