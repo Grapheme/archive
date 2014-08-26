@@ -119,6 +119,7 @@
                 $("#slider-to").val(default_max);
                 $('.fonds-ranges span').eq(0).text(minimum);
                 $('.fonds-ranges span').eq(1).text(maximum);
+                $('.slider-inputs').parent().find('.input-cross').addClass('active');
                 $(document).trigger('fonds::change');
             }
         });
