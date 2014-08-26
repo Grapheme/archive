@@ -40,6 +40,9 @@ class PublicArchiveController extends BaseController {
 
         #Route::get('/feedback', array('as' => 'feedback', 'uses' => __CLASS__.'@getFeedback'));
         Route::post('/ajax/send-feedback', array('as' => 'ajax-send-feedback', 'uses' => __CLASS__.'@postAjaxSendFeedback'));
+
+
+        Route::post('/sphinxtest', array('as' => 'sphinxtest', 'uses' => __CLASS__.'@getSphinxtest'));
     }
 
     ## Shortcodes of module
@@ -156,6 +159,11 @@ class PublicArchiveController extends BaseController {
         return Response::make('1', 200);
 	}
 
+
+    public function getSphinxtest() {
+        $results_funds = SphinxSearch::search('област', 'archive_funds_index')->query();
+        Helper:dd($results_funds);
+    }
 
     public function postGetFundsData() {
 
