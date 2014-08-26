@@ -459,7 +459,7 @@ function fundsFormSubmit(form) {
 
 $(document).on('click', 'a[data-childs-for]', function(){
     //alert($(this).data('childs-for'));
-    $('tr[data-parent="' + $(this).data('childs-for') + '"]').toggleClass('hidden');
+    $('[data-parent="' + $(this).data('childs-for') + '"]').toggleClass('hidden');
     return false;
 });
 
