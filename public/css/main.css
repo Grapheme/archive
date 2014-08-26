@@ -929,8 +929,12 @@ header {
 }
 .fonds .fonds-list .trows {
   margin: 0;
-  border-top: 1px solid #cacaca;
-  border-bottom: 1px solid #cacaca;
+}
+.fonds .fonds-list .trows .trow-old:last-child {
+  border-bottom: 1px solid #3764a6;
+}
+.fonds .fonds-list .trows .trow-old:first-child {
+  border-top: 1px solid #3764a6;
 }
 .fonds .fonds-list .trow-old {
   margin: 0;
