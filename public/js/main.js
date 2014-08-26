@@ -433,7 +433,7 @@ function fundsFormSubmit(form) {
                     + '</span><span>' + val.name
                     + (old_names ? '<br/><a href="#" data-childs-for="' + val.id + '">и его предшественники</a>' : '')
                     + '</span><span>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</span></div>'
-                    + '<p class="trows">' + old_names + '</p>';
+                    + '<div class="trows">' + old_names + '</div>';
                 //$('.fonds-list tbody').append('<tr><td>' + val.name + '</td><td>' + d.getFullYear() + '-' + val.date_stop + '</td></tr>');
             });
             $('.fonds-list .tbody').html(new_str);
