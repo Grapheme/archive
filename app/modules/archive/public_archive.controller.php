@@ -42,7 +42,7 @@ class PublicArchiveController extends BaseController {
         Route::post('/ajax/send-feedback', array('as' => 'ajax-send-feedback', 'uses' => __CLASS__.'@postAjaxSendFeedback'));
 
 
-        Route::post('/sphinxtest', array('as' => 'sphinxtest', 'uses' => __CLASS__.'@getSphinxtest'));
+        Route::get('/sphinxtest', array('as' => 'sphinxtest', 'uses' => __CLASS__.'@getSphinxtest'));
     }
 
     ## Shortcodes of module

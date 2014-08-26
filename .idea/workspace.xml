@@ -104,7 +104,7 @@
       <file leaf-file-name="public_archive.controller.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/modules/archive/public_archive.controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="163" column="53" selection-start="5761" selection-end="5761" vertical-scroll-proportion="0.121212125" vertical-offset="2703" max-vertical-offset="5882">
+            <state line="44" column="18" selection-start="1972" selection-end="1972" vertical-scroll-proportion="0.6969697" vertical-offset="357" max-vertical-offset="5882">
               <folding />
             </state>
           </provider>
@@ -567,7 +567,11 @@
       <created>1409040125519</created>
       <updated>1409040125519</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="sphinx search+">
+      <created>1409040884246</created>
+      <updated>1409040884246</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -925,7 +929,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/archive/public_archive.controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="163" column="53" selection-start="5761" selection-end="5761" vertical-scroll-proportion="0.121212125" vertical-offset="2703" max-vertical-offset="5882">
+        <state line="44" column="18" selection-start="1972" selection-end="1972" vertical-scroll-proportion="0.6969697" vertical-offset="357" max-vertical-offset="5882">
           <folding />
         </state>
       </provider>
