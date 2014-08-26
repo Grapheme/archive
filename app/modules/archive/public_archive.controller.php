@@ -162,7 +162,8 @@ class PublicArchiveController extends BaseController {
 
     public function getSphinxtest() {
         $results_funds = SphinxSearch::search('област', 'archive_funds_index')->query();
-        Helper:dd($results_funds);
+        echo '<pre>' . print_r($results_funds, 1) . '</pre>';
+        die;
     }
 
     public function postGetFundsData() {
