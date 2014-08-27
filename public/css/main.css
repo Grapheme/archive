@@ -222,6 +222,15 @@ h3 a {
 .us-link:hover {
   border-color: transparent;
 }
+.link {
+  -webkit-transition: border 0.5s ease;
+  transition: border 0.5s ease;
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+.link:hover {
+  border-color: transparent;
+}
 .text-element {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -315,7 +324,7 @@ ul li {
   padding: 0 1.25rem;
 }
 a {
-  color: inherit;
+  color: #3764a6;
 }
 /** STICKY FOOTER **/
 html,
@@ -914,6 +923,64 @@ header {
   margin-top: 3.125rem;
   width: 100%;
 }
+.fonds .fonds-list .thead {
+  height: 3.4375rem;
+  line-height: 3.4375rem;
+  font-size: 0.875rem;
+}
+.fonds .fonds-list .old-link {
+  -webkit-transition: border 0.5s ease;
+  transition: border 0.5s ease;
+  color: #3764a6;
+  text-decoration: none;
+  border-bottom: 1px solid #3764a6;
+  display: inline-block;
+  line-height: 1em;
+}
+.fonds .fonds-list .old-link:hover {
+  border-color: transparent;
+}
+.fonds .fonds-list .trow {
+  min-height: 2.8125rem;
+  line-height: 2.8125rem;
+  font-family: 'lato_regular';
+}
+.fonds .fonds-list .trow:nth-of-type(2n+1) {
+  background: #efefef;
+}
+.fonds .fonds-list .trows {
+  margin: 0;
+}
+.fonds .fonds-list .trows .trow-old:last-child {
+  border-bottom: 1px solid #3764a6;
+  padding-bottom: 1rem;
+}
+.fonds .fonds-list .trow-old {
+  margin: 0;
+  min-height: 2.8125rem;
+  line-height: 2.8125rem;
+  font-family: 'lato_regular';
+}
+.fonds .fonds-list span {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  padding: 0.625rem 0;
+}
+.fonds .fonds-list span:nth-of-type(1) {
+  width: 7.5rem;
+  text-align: center;
+}
+.fonds .fonds-list span:nth-of-type(2) {
+  width: 35rem;
+}
+.fonds .fonds-list span:nth-of-type(3) {
+  width: 9.375rem;
+  text-align: center;
+}
 .fonds .fonds-list thead {
   font-size: 0.875rem;
 }
@@ -949,6 +1016,8 @@ header {
 }
 .slider-cont .fonds-ranges {
   margin-top: 0.625rem;
+  color: #cdcdcd;
+  font-size: 0.875rem;
 }
 .slider-cont #slider-range {
   height: 0.1875rem;
@@ -980,51 +1049,6 @@ header {
   top: -0.0625rem;
   border-radius: 0;
 }
-/*.js-slider {
-
-	.js-slider-bar {
-		position: relative;
-		margin: 15px 0;
-		width: 270px;
-		height: 3px;
-		background: #dddddd;
-
-		.js-slider-in {
-			position: absolute;
-			left: 10%;
-			top: -1px;
-			right: 10%;
-			height: 5px;
-			background: #295aa0;
-
-			.left-line, .right-line {
-				position: absolute;
-				height: 10px;
-				width: 10px;
-				top: -2.5px;
-				cursor: pointer;
-
-				&:before {
-					content: "";
-					position: absolute;
-					background: #295aa0;
-					width: 2px;
-					height: 100%;
-				}
-			}
-
-			.left-line {
-				left: 0;
-				&:before {left: 0;}
-			}
-
-			.right-line {
-				right: 0;
-				&:before {right: 0;}
-			}
-		}
-	}
-}*/
 .search-amount {
   font-size: 0.875rem;
   margin-top: 2.5rem;

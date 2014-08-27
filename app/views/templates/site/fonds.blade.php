@@ -65,23 +65,21 @@
                         <i class="fa fa-refresh fa-2x fa-spin" style="color:#005CAD"></i>
                     </div>
 
-                    <table class="fonds-list hidden">
-                        <thead>
-                            <tr>
-                                <td nowrap>Номер фонда</td>
-                                <td nowrap>Название организации</td>
-                                <td nowrap>Крайние даты</td>
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <div class="fonds-list hidden">
+                        <div class="thead">
+                                <span>Номер фонда</span><!--
+                                --><span>Название организации</span><!--
+                                --><span>Крайние даты</span>
+                        </div>
+                        <div class="tbody">
                         @if (0)
                             <tr>
                                 <td>Областной земельный отдел</td>
                                 <td>1780-1917</td>
                             </tr>
                         @endif
-                        </tbody>
-                    </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -119,6 +117,7 @@
                 $("#slider-to").val(default_max);
                 $('.fonds-ranges span').eq(0).text(minimum);
                 $('.fonds-ranges span').eq(1).text(maximum);
+                $('.slider-inputs').parent().find('.input-cross').addClass('active');
                 $(document).trigger('fonds::change');
             }
         });

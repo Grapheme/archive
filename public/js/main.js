@@ -418,26 +418,29 @@ function fundsFormSubmit(form) {
                 var old_names = '';
                 if (val.olds.length) {
                     var parent_val_id = val.id;
+                    old_names += '<section class="trows">';
                     //old_names += '<span class="oldnames">';
                     $(val.olds).each(function(key, val){
                         var date_start = new Date(val.date_start);
                         var date_stop = new Date(val.date_stop);
-                        old_names += '<tr class="hidden" data-parent="' + parent_val_id + '"><td>' + val.fund_number + '</td><td style="padding-left:50px;">' + val.name + '</td><td>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</td></tr>';
+                        old_names += '<p class="trow-old hidden" data-parent="' + parent_val_id + '"><span>' + val.fund_number + '</span><span>' + val.name + '</span><span>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</span></p>';
                     });
+                    old_names += '</section>';
                     val.olds.length;
                     //old_names += '</span>';
                     //alert(old_names);
                 }
-                new_str += '<tr><td>'
+                new_str += '<div class="trow"><span>'
                     + val.fund_number
-                    + '</td><td>' + val.name
-                    + (old_names ? '<br/><a href="#" data-childs-for="' + val.id + '">Старые названия</a>' : '')
-                    + '</td><td>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</td></tr>' + old_names;
+                    + '</span><span>' + val.name
+                    + (old_names ? '<br/>и его <a href="#" data-childs-for="' + val.id + '" class="old-link">предшественники</a>' : '')
+                    + '</span><span>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</span></div>'
+                    + old_names;
                 //$('.fonds-list tbody').append('<tr><td>' + val.name + '</td><td>' + d.getFullYear() + '-' + val.date_stop + '</td></tr>');
             });
-            $('.fonds-list tbody').html(new_str);
+            $('.fonds-list .tbody').html(new_str);
         } else {
-            $('.fonds-list tbody').html('<tr><td colspan="3" style="text-align: center">Не найдено подходящих записей. Попробуйте изменить условия поиска.</td></tr>');
+            $('.fonds-list .tbody').html('<div><p style="text-align: center; margin: 0;">Не найдено подходящих записей. Попробуйте изменить условия поиска.</p></div>');
         }
     }
 
@@ -456,7 +459,7 @@ function fundsFormSubmit(form) {
 
 $(document).on('click', 'a[data-childs-for]', function(){
     //alert($(this).data('childs-for'));
-    $('tr[data-parent="' + $(this).data('childs-for') + '"]').toggleClass('hidden');
+    $('[data-parent="' + $(this).data('childs-for') + '"]').toggleClass('hidden');
     return false;
 });
 
