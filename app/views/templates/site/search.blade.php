@@ -14,7 +14,7 @@
 ## Ищем совпадения в фондах
 $results_funds = SphinxSearch::search(Input::get('s'), 'archive_funds_index')->query();
 $results_funds_count = @count($results_funds['matches']);
-#Helper::dd(count($results_funds['matches']));
+#Helper::dd($results_funds['matches']);
 
 ## Получим ID-шники подходящих записей
 #$results = SphinxSearch::search(Input::get('s'), 'archive_pages_index')->query();
@@ -45,14 +45,17 @@ $excerpts = Helper::buildExcerpts($docs, 'archive_pages_index', Input::get('s'),
 
                     @if ($results_funds_count)
                     <div class="search-amount">
-                        Найдено <span>{{ $results_funds_count }}</span> совпадений в записях по фондам. Для просмотра перейдите на <a href="{{ URL::route('page', 'fonds') }}?s={{ Input::get('s') }}">страницу поиска по фондам</a>.
+                        Найдено
+                        <span>
+                        {{ trans_choice(':count</span> совпадение|:count</span> совпадения|:count</span> совпадений', $results_funds_count, array(), 'ru') }}
+                        в записях по фондам. Для просмотра перейдите на <a href="{{ URL::route('page', 'fonds') }}?s={{ Input::get('s') }}">страницу поиска по фондам</a>.
                     </div>
                     @endif
 
                     <div class="search-amount">
                         @if (count($results))
                         Всего результатов поиска: <span><span class="results_count">{{ count($results) }}</span></span>
-                        @else
+                        @elseif (!$results_funds_count)
                         По запросу "<b>{{ Input::get('s') }}</b>" ничего не найдено.
                         @endif
                     </div>
