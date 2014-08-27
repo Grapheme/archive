@@ -56,7 +56,7 @@ $excerpts = Helper::buildExcerpts($docs, 'archive_pages_index', Input::get('s'),
                         @if (count($results))
                         Всего результатов поиска: <span><span class="results_count">{{ count($results) }}</span></span>
                         @elseif (!$results_funds_count)
-                        По запросу "<b>{{ Input::get('s') }}</b>" ничего не найдено.
+                        По запросу &laquo;<strong>{{ Input::get('s') }}</strong>&raquo; ничего не найдено.
                         @endif
                     </div>
 
