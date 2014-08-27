@@ -21,7 +21,10 @@ $results_funds_count = @count($results_funds['matches']);
 #Helper::d($results);
 
 ## Получим модели с нужными связями
-$results = SphinxSearch::search(Input::get('s'), 'archive_pages_index')->with('meta', 'blocks.meta')->get();
+$results = SphinxSearch::search(Input::get('s'), 'archive_pages_index')
+    ->with('meta', 'blocks.meta')
+    ->setMatchMode(\Sphinx\SphinxClient::SPH_MATCH_ANY)
+    ->get();
 #Helper::tad($results);
 
 ## Получим поисковые подсказки
