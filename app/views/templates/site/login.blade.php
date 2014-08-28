@@ -26,9 +26,9 @@
 
                         <table class="apply-table">
                             <tr>
-                                <td>Email или фамилия</td>
+                                <td>Email или ФИО</td>
                                 <td>
-                                    {{ Form::text('email', '', array('class' => 'apply-input')) }}
+                                    {{ Form::text('email', Helper::cookie_get('auth_name'), array('class' => 'apply-input')) }}
                                 </td>
                             </tr>
                             <tr>

@@ -9,8 +9,8 @@ class UserInfo extends BaseModel {
 	#public static $order_by = "name ASC";
 
 	public static $rules = array(
-        'type' => 'required',
-        'content' => 'required',
+        #'type' => 'required',
+        #'content' => 'required',
 	);
 
     public function requests() {

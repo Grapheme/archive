@@ -60,6 +60,11 @@ var file_input = (function(){
 	});
 })();
 
+$(document).on('click', '.file-btn', function(){
+    $(this).parent().find('.apply-file').trigger('click');
+    return false;
+});
+
 var fonds = (function(){
 	function setNumbers() {
 		var element = $('.fonds-list tbody tr');
@@ -262,10 +267,10 @@ $("#sendRequestForm").validate({
             required: true,
             minlength: 4
         },
-        email: {
-            required: true,
-            email: true
-        },
+        //email: {
+        //    required: true,
+        //    email: true
+        //},
         type: {
             required: true,
             min: 1
@@ -273,13 +278,17 @@ $("#sendRequestForm").validate({
         content: {
             required: true,
             minlength: 10
-        }
+        },
+        file_passport: "required",
+        file_workbook: "required"
     },
     messages: {
         name: '',
         email: '',
         type: '',
-        content: ''
+        content: '',
+        file_passport: 'Загрузите копию паспорта',
+        file_workbook: 'Загрузите копию трудовой книжки'
     },
     errorClass: "inp-error",
     submitHandler: function(form) {
@@ -293,7 +302,7 @@ function sendRequestForm(form) {
 
     //console.log(form);
 
-    var options = { target: null, type: $(form).attr('method') };
+    var options = { target: null, type: $(form).attr('method'), dataType: 'json' };
 
     options.beforeSubmit = function(formData, jqForm, options){
         $(form).find('button').addClass('loading');
@@ -301,6 +310,9 @@ function sendRequestForm(form) {
 
     options.success = function(response, status, xhr, jqForm){
         console.log(response);
+        if (typeof response.password != 'undefined' && typeof response.login != 'undefined') {
+            $('.success').append('<p>При отправке запроса Вы не указали адрес e-mail, поэтому нам некуда отправлять пароль. Пожалуйста, запишите его и храните в надежном месте. Для авторизации используйте следующие данные:</p><p>Ваш логин: <strong>' + response.login + '</strong></p><p>Ваш пароль: <strong>' + response.password + '</strong></p>');
+        }
         $('.success').hide().removeClass('hidden').slideDown();
         $(form).slideUp();
     }
@@ -468,7 +480,7 @@ $("#loginForm").validate({
         //fio: "required",
         email: {
             required: true,
-            email: true
+            //email: true
         },
         password: {
             required: true,

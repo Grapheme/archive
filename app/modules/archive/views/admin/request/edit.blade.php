@@ -43,14 +43,28 @@
                         </label>
                     </section>
 
-                    @if ($element->file)
                     <section class="clearfix">
-                        <a href="{{ URL::to($element->file) }}" class="btn btn-primary pull-right" target="_blank">
+                    @if ($element->file_passport)
+                        <a href="{{ URL::to($element->file_passport) }}" class="btn btn-primary" target="_blank">
+                            <i class="fa fa-save"></i>
+                            Копия паспорта
+                        </a>
+                    @endif
+
+                    @if ($element->file_workbook)
+                        <a href="{{ URL::to($element->file_workbook) }}" class="btn btn-primary" target="_blank">
+                            <i class="fa fa-save"></i>
+                            Копия трудовой книжки
+                        </a>
+                    @endif
+
+                    @if ($element->file)
+                        <a href="{{ URL::to($element->file) }}" class="btn btn-primary" target="_blank">
                             <i class="fa fa-save"></i>
                             Прикрепленный файл
                         </a>
-                    </section>
                     @endif
+                    </section>
 
                     @if ($element->postal)
                     <section class="clearfix">

@@ -32,7 +32,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Email *</td>
+                                <td>Email</td>
                                 <td>
                                     {{ Form::text('email', '', array('class' => 'apply-input')) }}
                                 </td>
@@ -60,13 +60,39 @@
                                     {{ Form::textarea('content', '', array('class' => 'apply-textarea')) }}
                                 </td>
                             </tr>
+                            <tr>
+                                <td>Копия паспорта *</td>
+                                <td>
+                                    <div class="file-btn"><a href="#" class="us-link">выберите файл</a></div>
+                                    {{ Form::file('file_passport', array('class' => 'apply-file', 'accept' => 'image/jpeg,image/png,image/gif')) }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Копия трудовой книжки *</td>
+                                <td>
+                                    <div class="file-btn"><a href="#" class="us-link">выберите файл</a></div>
+                                    {{ Form::file('file_workbook', array('class' => 'apply-file', 'accept' => 'image/jpeg,image/png,image/gif')) }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Файл</td>
+                                <td>
+                                    <div class="file-btn"><a href="#" class="us-link">выберите файл</a></div>
+                                    {{ Form::file('file', array('class' => 'apply-file', 'accept' => 'image/jpeg,image/png,image/gif')) }}
+                                </td>
+                            </tr>
                         </table>
 
                         <div class="form-container">
 
-                            <div class="file-btn">Файл: <a href="#" class="us-link">выберите файл</a></div>
-
+                            К загрузке принимаются только изображения в форматах JPG, PNG или GIF.
+                            
+                            {{--
+                            <div class="file-btn">Дополнительно: <a href="#" class="us-link">выберите файл</a></div>
                             {{ Form::file('file', array('class' => 'apply-file')) }}
+                            --}}
+
+                            <div class="clearfix"></div>
 
                             <button class="us-btn invert{{-- loading--}}">Отправить</button>
 

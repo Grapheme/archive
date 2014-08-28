@@ -85,22 +85,34 @@ class PublicArchiveController extends BaseController {
         if(!Request::ajax())
             App::abort(404);
 
+        $json_request = array('status' => FALSE, 'responseText' => '');
+
         $password = false;
 
         $email = trim(Input::get('email'));
-        if (!$email)
-            return Response::make('invalid email', 400);
+        $name = trim(Input::get('name'));
+
+        if ($email == '' && $name == '') {
+            $json_request['responseText'] = 'invalid email and name';
+            #$json_request['status'] = TRUE;
+            return Response::json($json_request, 200);
+        }
 
         ## Find user by email
-        $user = UserInfo::firstOrCreate(array('email' => $email));
+        if ($email != '')
+            $user = UserInfo::firstOrCreate(array('email' => $email));
+        elseif ($name != '') {
+            $json_request['login'] = $name;
+            $user = UserInfo::firstOrCreate(array('name' => $name));
+        }
 
         ## Set password if it's is null
         if (!$user->password) {
             $password = mb_substr(md5(time() + rand(9999, 99999)), 0, 8);
             $user->password = Hash::make($password);
         }
-        if (!$user->name && Input::get('name'))
-            $user->name = Input::get('name');
+        if (!$user->name && $name)
+            $user->name = $name;
 
         $user->save();
 
@@ -124,6 +136,22 @@ class PublicArchiveController extends BaseController {
             ## If new request
             $request->status_id = $status_new;
 
+            ## Upload file_passport
+            if (Input::hasFile('file_passport')) {
+                $file = Input::file('file_passport');
+                $filename = time() . "_" . rand(1000, 1999) . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path(Config::get('app-default.upload_dir')), $filename);
+                $request->file_passport = Config::get('app-default.upload_dir') . '/' . $filename;
+            }
+
+            ## Upload file_workbook
+            if (Input::hasFile('file_workbook')) {
+                $file = Input::file('file_workbook');
+                $filename = time() . "_" . rand(1000, 1999) . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path(Config::get('app-default.upload_dir')), $filename);
+                $request->file_workbook = Config::get('app-default.upload_dir') . '/' . $filename;
+            }
+
             ## Upload file
             if (Input::hasFile('file')) {
                 $file = Input::file('file');
@@ -144,19 +172,23 @@ class PublicArchiveController extends BaseController {
             ));
 
             ## Send confirmation to user - with password
-            $data = array(
-                'name' => $user->name,
-                'email' => $user->email,
-                'password' => @$password ? $password : NULL,
-            );
-            Mail::send('emails.request_send', $data, function ($message) use ($user) {
-                $message->from(Config::get('mail.from.address'), Config::get('mail.from.name'));
-                $message->subject('Запрос успешно отправлен');
-                $message->to($user->email);
-            });
+            if ($user->email) {
+                $data = array(
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'password' => @$password ? $password : NULL,
+                );
+                Mail::send('emails.request_send', $data, function ($message) use ($user) {
+                    $message->from(Config::get('mail.from.address'), Config::get('mail.from.name'));
+                    $message->subject('Запрос успешно отправлен');
+                    $message->to($user->email);
+                });
+            }
         }
 
-        return Response::make('1', 200);
+        $json_request['password'] = $password;
+        $json_request['status'] = TRUE;
+        return Response::json($json_request, 200);
 	}
 
 
@@ -248,12 +280,18 @@ class PublicArchiveController extends BaseController {
             $email = Input::get('email');
             $password = Input::get('password');
 
-            $user_info = UserInfo::firstOrNew(array('email' => $email));
+            #$user_info = UserInfo::firstOrNew(array('email' => $email));
+            $user_info = UserInfo::where('email', $email)->first();
+
+            if (!is_object($user_info))
+                $user_info = UserInfo::firstOrNew(array('name' => $email));
+
             if ($user_info->password && $user_info->id) {
 
                 if (Hash::check($password, $user_info->password)) {
                     $auth = true;
                     Session::set('auth', $user_info->id);
+                    Helper::cookie_set('auth_name', $email, 60*60*24*30);
                     #return Redirect::route('status');
                     $json_request['redirect'] = URL::route('status');
                     $json_request['status'] = TRUE;
