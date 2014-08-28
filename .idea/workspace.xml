@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9eb288a-66f5-42e9-a6ae-4f6f60b8c9bd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/templates/site/search.blade.php" afterPath="$PROJECT_DIR$/app/views/templates/site/search.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/lib/SystemModules.php" afterPath="$PROJECT_DIR$/app/lib/SystemModules.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/mail.php" afterPath="$PROJECT_DIR$/app/config/mail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/templates/site/scripts.blade.php" afterPath="$PROJECT_DIR$/app/views/templates/site/scripts.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="archive.iws" />
@@ -36,7 +38,7 @@
       <file leaf-file-name="search.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/templates/site/search.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="54" selection-start="681" selection-end="681" vertical-scroll-proportion="0.5133215" vertical-offset="136" max-vertical-offset="1632">
+            <state line="50" column="31" selection-start="1455" selection-end="1455" vertical-scroll-proportion="0.60390764" vertical-offset="510" max-vertical-offset="1632">
               <folding />
             </state>
           </provider>
@@ -54,7 +56,16 @@
       <file leaf-file-name="public_archive.controller.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/modules/archive/public_archive.controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="154" column="43" selection-start="5595" selection-end="5595" vertical-scroll-proportion="0.0" vertical-offset="2499" max-vertical-offset="5899">
+            <state line="265" column="22" selection-start="9111" selection-end="9111" vertical-scroll-proportion="-15.692307" vertical-offset="4097" max-vertical-offset="5899">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mail.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/mail.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="18" selection-start="527" selection-end="527" vertical-scroll-proportion="-14.384615" vertical-offset="0" max-vertical-offset="493">
               <folding />
             </state>
           </provider>
@@ -119,7 +130,6 @@
         <option value="$PROJECT_DIR$/app/config/app-default.php" />
         <option value="$PROJECT_DIR$/app/modules/news/views/news-list.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/news/views/mainpage.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/templates/site/scripts.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/news/public_news.controller.php" />
         <option value="$PROJECT_DIR$/app/modules/news/views/news-list-page.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/news/admin_news.controller.php" />
@@ -134,7 +144,6 @@
         <option value="$PROJECT_DIR$/app/views/templates/site/index.blade.php" />
         <option value="$PROJECT_DIR$/app/views/templates/site/feedback.blade.php" />
         <option value="$PROJECT_DIR$/app/views/templates/site.blade.php" />
-        <option value="$PROJECT_DIR$/app/config/mail.php" />
         <option value="$PROJECT_DIR$/app/views/guests/login.blade.php" />
         <option value="$PROJECT_DIR$/app/views/templates/site/login.blade.php" />
         <option value="$PROJECT_DIR$/app/views/templates/site/status.blade.php" />
@@ -153,6 +162,8 @@
         <option value="$PROJECT_DIR$/app/config/database.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/public_archive.controller.php" />
         <option value="$PROJECT_DIR$/app/views/templates/site/search.blade.php" />
+        <option value="$PROJECT_DIR$/app/config/mail.php" />
+        <option value="$PROJECT_DIR$/app/views/templates/site/scripts.blade.php" />
       </list>
     </option>
   </component>
@@ -525,14 +536,18 @@
       <created>1409150930289</created>
       <updated>1409150930289</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="search fixes+">
+      <created>1409152334360</created>
+      <updated>1409152334360</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32789558" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32682925" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2985318" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -608,11 +623,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/config/app-default.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="731" selection-end="731" vertical-scroll-proportion="0.8185185" vertical-offset="0" max-vertical-offset="561" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/news/views/default.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="18" selection-start="0" selection-end="32" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540" />
@@ -643,11 +653,6 @@
     <entry file="file://$PROJECT_DIR$/app/modules/archive/models/UserInfo.model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="0" selection-start="382" selection-end="382" vertical-scroll-proportion="0.54545456" vertical-offset="0" max-vertical-offset="561" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/templates/site/scripts.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="483" selection-end="483" vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="391" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/app.js">
@@ -735,11 +740,6 @@
         <state line="11" column="28" selection-start="472" selection-end="472" vertical-scroll-proportion="0.33333334" vertical-offset="0" max-vertical-offset="561" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/mail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="2" selection-start="535" selection-end="535" vertical-scroll-proportion="-15.038462" vertical-offset="0" max-vertical-offset="493" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/templates/site.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="6" selection-start="497" selection-end="497" vertical-scroll-proportion="-5.8846154" vertical-offset="34" max-vertical-offset="697" />
@@ -763,11 +763,6 @@
     <entry file="file://$PROJECT_DIR$/app/modules/archive/models/UserRequest.model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="0" selection-start="254" selection-end="395" vertical-scroll-proportion="0.4722222" vertical-offset="0" max-vertical-offset="663" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/templates/site/login.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="46" selection-start="1276" selection-end="1276" vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="1037" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/archive/models/ArchiveFund.model.php">
@@ -817,30 +812,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="427" column="46" selection-start="11094" selection-end="11094" vertical-scroll-proportion="0.028960818" vertical-offset="7259" max-vertical-offset="10234">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/modules/archive/public_archive.controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="43" selection-start="5595" selection-end="5595" vertical-scroll-proportion="0.0" vertical-offset="2499" max-vertical-offset="5899">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/templates/site/header.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="91" selection-start="2531" selection-end="2531" vertical-scroll-proportion="0.3939394" vertical-offset="544" max-vertical-offset="1105">
-          <folding />
-        </state>
+        <state line="427" column="46" selection-start="11094" selection-end="11094" vertical-scroll-proportion="0.028960818" vertical-offset="7259" max-vertical-offset="10234" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/templates/site/requests.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="53" selection-start="675" selection-end="675" vertical-scroll-proportion="0.5151515" vertical-offset="153" max-vertical-offset="867">
-          <folding />
-        </state>
+        <state line="26" column="53" selection-start="675" selection-end="675" vertical-scroll-proportion="0.5151515" vertical-offset="153" max-vertical-offset="867" />
       </provider>
     </entry>
     <entry file="file://C:/usr/local/sphinx/sphinx.conf">
@@ -878,9 +855,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/templates/site/header.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="91" selection-start="2531" selection-end="2531" vertical-scroll-proportion="0.6666667" vertical-offset="391" max-vertical-offset="1105" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/templates/site/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="46" selection-start="1276" selection-end="1276" vertical-scroll-proportion="0.29129663" vertical-offset="465" max-vertical-offset="1054">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/modules/archive/public_archive.controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="265" column="22" selection-start="9111" selection-end="9111" vertical-scroll-proportion="-15.692307" vertical-offset="4097" max-vertical-offset="5899">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/mail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="18" selection-start="527" selection-end="527" vertical-scroll-proportion="-14.384615" vertical-offset="0" max-vertical-offset="493">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/templates/site/footer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="587">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/templates/site/scripts.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="4" selection-start="1825" selection-end="1825" vertical-scroll-proportion="0.9396092" vertical-offset="219" max-vertical-offset="850">
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#noscript#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/templates/site/search.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="54" selection-start="681" selection-end="681" vertical-scroll-proportion="0.5133215" vertical-offset="136" max-vertical-offset="1632">
+        <state line="50" column="31" selection-start="1455" selection-end="1455" vertical-scroll-proportion="0.60390764" vertical-offset="510" max-vertical-offset="1632">
           <folding />
         </state>
       </provider>

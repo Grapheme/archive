@@ -71,7 +71,7 @@ class SystemModules {
         ## System settings
         if (Allow::action('system', 'settings_view', false)) {
             $menu[] = array(
-                'title' => trans('admin.settings'),
+                'title' => 'Настройки',
                 'link' => 'settings',
                 'class' => 'fa-cog',
                 'system' => 1,
