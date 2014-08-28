@@ -25,14 +25,14 @@
 
                         <table class="apply-table">
                             <tr>
-                                <td>Ф.И.О.</td>
+                                <td>Ф.И.О. *</td>
                                 <td>
                                     {{--<input type="text" class="apply-input">--}}
                                     {{ Form::text('name', '', array('class' => 'apply-input')) }}
                                 </td>
                             </tr>
                             <tr>
-                                <td>Email</td>
+                                <td>Email *</td>
                                 <td>
                                     {{ Form::text('email', '', array('class' => 'apply-input')) }}
                                 </td>
@@ -44,7 +44,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Тип запроса</td>
+                                <td>Тип запроса *</td>
                                 <td>
                                     {{ Form::select(
                                     'type',
@@ -55,7 +55,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Текст запроса</td>
+                                <td>Текст запроса *</td>
                                 <td>
                                     {{ Form::textarea('content', '', array('class' => 'apply-textarea')) }}
                                 </td>

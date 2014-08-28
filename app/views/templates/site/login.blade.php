@@ -16,7 +16,7 @@
                 <div class="apply-form">
                     <div class="desc">
                         <p>
-                            Чтобы узнать статус, введите ваш email и пароль, который вы получали при отправке запроса.
+                            Чтобы узнать статус, введите ваш email или фамилию и пароль, который вы получали при отправке запроса.
                         </p>
                     </div>
 
@@ -26,7 +26,7 @@
 
                         <table class="apply-table">
                             <tr>
-                                <td>Email</td>
+                                <td>Email или фамилия</td>
                                 <td>
                                     {{ Form::text('email', '', array('class' => 'apply-input')) }}
                                 </td>
