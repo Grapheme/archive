@@ -45,21 +45,21 @@
 
                     <section class="clearfix">
                     @if ($element->file_passport)
-                        <a href="{{ URL::to($element->file_passport) }}" class="btn btn-primary" target="_blank">
+                        <a href="{{ URL::to($element->file_passport) }}" class="btn btn-primary margin-bottom-10" target="_blank">
                             <i class="fa fa-save"></i>
                             Копия паспорта
                         </a>
                     @endif
 
                     @if ($element->file_workbook)
-                        <a href="{{ URL::to($element->file_workbook) }}" class="btn btn-primary" target="_blank">
+                        <a href="{{ URL::to($element->file_workbook) }}" class="btn btn-primary margin-bottom-10" target="_blank">
                             <i class="fa fa-save"></i>
                             Копия трудовой книжки
                         </a>
                     @endif
 
                     @if ($element->file)
-                        <a href="{{ URL::to($element->file) }}" class="btn btn-primary" target="_blank">
+                        <a href="{{ URL::to($element->file) }}" class="btn btn-primary margin-bottom-10" target="_blank">
                             <i class="fa fa-save"></i>
                             Прикрепленный файл
                         </a>

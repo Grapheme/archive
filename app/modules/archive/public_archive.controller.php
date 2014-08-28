@@ -107,7 +107,7 @@ class PublicArchiveController extends BaseController {
         }
 
         ## Set password if it's is null
-        if (!$user->password) {
+        if (!isset($user->password) || !$user->password || $user->password == '') {
             $password = mb_substr(md5(time() + rand(9999, 99999)), 0, 8);
             $user->password = Hash::make($password);
         }
