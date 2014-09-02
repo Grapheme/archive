@@ -345,17 +345,6 @@ header {
 .push {
   height: 10rem;
 }
-.search-text span {
-  font-weight: bold;
-}
-.inp-error {
-  color: red;
-  font-style: regular;
-}
-.apply-file {
-  position: absolute;
-  opacity: 0;
-}
 .main-header {
   padding: 1.875rem 0;
 }
@@ -378,7 +367,7 @@ header {
   text-transform: uppercase;
   font-size: 0.875rem;
   line-height: 1.4rem;
-  width: 13rem;
+  width: 11.25rem;
   margin-left: 1.5625rem;
 }
 .main-header .header-block {
@@ -600,23 +589,18 @@ header {
   width: 33.33333333%;
   padding: 0 3.75rem 0 1.25rem;
   border-left: 2px solid #dddddd;
-  margin-bottom: 2.5rem;
 }
 .index-info .services li .service-img {
-  height: 4.8125rem;
+  height: 4.6875rem;
   width: 3.875rem;
   background-size: 100% auto;
   background-repeat: no-repeat;
   background-position: center center;
   margin: 0.625rem 0 1.09375rem;
 }
-.index-info .services li .service-img.img-foreign {
-  width: 5rem;
-  height: 4rem;
-}
 .index-info .services li .service-title {
   font-family: 'lato_regular';
-  font-size: .9rem;
+  font-size: 1.125rem;
   color: #27599f;
   text-transform: uppercase;
   margin-bottom: 0.625rem;
