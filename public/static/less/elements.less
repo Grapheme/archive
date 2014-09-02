@@ -26,6 +26,7 @@ h3 {
 .us-btn {
 	.transition;
 	.regular;
+	position: relative;
 	display: inline-block;
 	vertical-align: middle;
 	color: #fff;
@@ -43,6 +44,23 @@ h3 {
 	&:hover {
 		background: #fff;
 		color: #295aa0;
+		padding-right: 55rem / @htmlFontSize;
+
+		&:after {
+			opacity: 1;
+		}
+	}
+
+	&:after {
+		.transition(opacity);
+		.font-awesome;
+		position: absolute;
+		content: "\f054";
+		font-size: 16rem / @htmlFontSize;
+		right: 15rem / @htmlFontSize;
+		height: 100%;
+		line-height: 55rem / @htmlFontSize;
+		opacity: 0;
 	}
 
 	&.invert {
