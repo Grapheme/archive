@@ -1,0 +1,262 @@
+AWSTATS DATA FILE 7.0 (build 1.971)
+# If you remove this file, all statistics for date 201409 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.gkuro-adls.ru.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 1993                
+POS_TIME 2675                
+POS_VISITOR 3424                
+POS_DAY 3557                
+POS_DOMAIN 3707                
+POS_LOGIN 3936                
+POS_ROBOT 4091                
+POS_WORMS 4257                
+POS_EMAILSENDER 4388                
+POS_EMAILRECEIVER 4531                
+POS_SESSION 4607                
+POS_SIDER 4773                
+POS_FILETYPES 5337                
+POS_DOWNLOADS 5531                
+POS_OS 5609                
+POS_BROWSER 5674                
+POS_SCREENSIZE 5816                
+POS_UNKNOWNREFERER 5890                
+POS_UNKNOWNREFERERBROWSER 5977                
+POS_ORIGIN 6059                
+POS_SEREFERRALS 6194                
+POS_PAGEREFS 6338                
+POS_SEARCHWORDS 6516                
+POS_KEYWORDS 6668                
+POS_MISC 2339                
+POS_ERRORS 6727                
+POS_CLUSTER 3792                
+POS_SIDER_404 6836                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20140901235140 170 35380 11376823186877
+FirstTime 20140901052802
+LastTime 20140901235140
+LastUpdate 20140902000107 170 0 170 0 0
+TotalVisits 4                   
+TotalUnique 1                   
+MonthHostsKnown 0                   
+MonthHostsUnknown 1                   
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 4 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 0 0 0 0 1 3366
+1 0 0 0 1 1 4163
+2 0 0 0 1 1 4169
+3 0 0 0 0 1 3360
+4 0 0 0 1 1 4165
+5 1 1 12447 1 1 4165
+6 0 0 0 0 0 0
+7 0 0 0 1 2 7525
+8 0 0 0 1 1 4163
+9 0 0 0 0 0 0
+10 0 0 0 1 1 4171
+11 0 0 0 4 4 6184
+12 15 61 506220 1 2 1328
+13 0 0 0 4 12 175987
+14 0 0 0 2 2 7536
+15 0 0 0 0 0 0
+16 0 0 0 0 0 0
+17 18 53 1827796 2 5 9788
+18 1 1 4174 2 2 8354
+19 1 1 12475 0 0 0
+20 3 3 37425 2 2 8352
+21 2 2 24946 1 1 4176
+22 4 4 49888 0 0 0
+23 2 2 24948 1 1 4176
+END_TIME
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 1
+92.63.103.191 47 129 2482944 20140901235140 20140901194828 /
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 1
+20140901 47 128 2500319 4
+END_DAY
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+ip 47 128 2482944
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 1
+yandex 29 246905 20140901231001 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Session range - Number of visits
+BEGIN_SESSION 3
+0s-30s 1
+30s-2mn 1
+30mn-1h 1
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 14
+/ 17 178819 3 2
+/fonts/lato-light-webfont.woff 5 64988 0 1
+/fonts/lato-regular-webfont.woff 5 65929 0 0
+/fonts/lato-semibold-webfont.woff 4 66297 0 0
+/fonts/lato-medium-webfont.woff 4 66213 0 0
+/admin/pages/1/edit 3 18759 0 0
+/ajax-pages-save-block 2 1552 0 0
+/fonts/fontawesome-webfont.woff 1 84037 0 0
+/ajax/funds-data 1 362416 0 0
+/fonds 1 4126 0 0
+/news 1 5165 0 0
+/admin/pages 1 3152 0 0
+/ajax-pages-get-block 1 2034 0 0
+/admin 1 2460 1 0
+END_SIDER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 7
+css 15 153215 0 0
+png 2 84450 0 0
+woff 19 347464 0 0
+html 17 178819 0 0
+jpg 19 1010533 0 0
+js 45 291424 0 0
+Unknown 11 399664 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 1
+/sound/smallbox.mp3 0 1 17375
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS 3
+macosx 74
+winxp 1
+win7 54
+END_OS
+
+# Browser ID - Hits
+BEGIN_BROWSER 5
+firefox16.0 1
+chrome36.0.1944.0 11
+chrome33.0.1750.146 1
+opera9.80 53
+chrome37.0.2062.94 63
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 0
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 17 18
+From1 0 0
+From2 0 0
+From3 1 1
+From4 29 110
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 1
+http://superdjut.ru/route 1 1
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 3
+401 3 2013
+302 1 1134
+404 4 13450
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 4
+/assets/modules/docmanager/js/docmanager.js 1 -
+/core/xpdo/changelog.txt 1 -
+/xmlrpc.php 1 https://www.google.com/search
+/vamshop.txt 1 -
+END_SIDER_404
