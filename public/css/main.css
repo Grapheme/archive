@@ -169,6 +169,7 @@ h3 a {
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   font-family: 'lato_regular';
+  position: relative;
   display: inline-block;
   vertical-align: middle;
   color: #fff;
@@ -186,6 +187,28 @@ h3 a {
 .us-btn:hover {
   background: #fff;
   color: #295aa0;
+  padding-right: 3.4375rem;
+}
+.us-btn:hover:after {
+  opacity: 1;
+}
+.us-btn:after {
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: absolute;
+  content: "\f054";
+  font-size: 1rem;
+  right: 0.9375rem;
+  height: 100%;
+  line-height: 3.4375rem;
+  opacity: 0;
 }
 .us-btn.invert {
   color: #295aa0;
