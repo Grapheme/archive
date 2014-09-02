@@ -8,9 +8,7 @@ $route = Route::currentRouteName();
                 <div class="header-logo">
                     <a href="{{ URL::to('') }}" class="logo"></a>
                     <a href="{{ URL::to('') }}" class="text">
-                        Архив документов<br>
-                        по личному составу<br>
-                        Ростовской области
+                        ГКУ РО «Архив документов личного состава<br> по Ростовской Области»
                     </a>
                 </div>
                 <div class="header-block">
