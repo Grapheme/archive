@@ -23,7 +23,7 @@
     <section class="index-info">
         <div class="wrapper">
             <div class="left-block">
-                <a href="{{ URL::to('about#uslugi') }}" class="title">Услуги</a>
+                <a href="{{ URL::to('about#uslugi') }}" class="title">Государственные услуги</a>
 
                 {{ $page->block('second') }}
 

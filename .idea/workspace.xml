@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9eb288a-66f5-42e9-a6ae-4f6f60b8c9bd" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/uploads/1409234146_1860.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/uploads/1409234146_1946.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/uploads/1409235907_1143.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/uploads/1409235907_1397.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/uploads/1409236090_1555.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/uploads/1409236090_1909.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/modules/archive/views/admin/request/edit.blade.php" afterPath="$PROJECT_DIR$/app/modules/archive/views/admin/request/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/modules/archive/public_archive.controller.php" afterPath="$PROJECT_DIR$/app/modules/archive/public_archive.controller.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="archive.iws" />
@@ -91,7 +96,7 @@
       <file leaf-file-name="edit.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/modules/archive/views/admin/request/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="112" selection-start="1796" selection-end="1796" vertical-scroll-proportion="0.3939394" vertical-offset="578" max-vertical-offset="3570">
+            <state line="54" column="45" selection-start="2065" selection-end="2065" vertical-scroll-proportion="0.4848485" vertical-offset="646" max-vertical-offset="3570">
               <folding />
             </state>
           </provider>
@@ -597,14 +602,18 @@
       <created>1409236520053</created>
       <updated>1409236520053</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="+">
+      <created>1409237201131</created>
+      <updated>1409237201131</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32682925" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32626426" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2985318" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -656,7 +665,6 @@
     <MESSAGE value="fixes+" />
     <MESSAGE value="old funds company name" />
     <MESSAGE value="old funds company name view &amp; admin" />
-    <MESSAGE value="+" />
     <MESSAGE value="change ranges rule" />
     <MESSAGE value="sphinx search" />
     <MESSAGE value="sphinx search view" />
@@ -665,7 +673,8 @@
     <MESSAGE value="search fixes+" />
     <MESSAGE value="metrika" />
     <MESSAGE value="auth by name &amp; file inputs at request form" />
-    <option name="LAST_COMMIT_MESSAGE" value="auth by name &amp; file inputs at request form" />
+    <MESSAGE value="+" />
+    <option name="LAST_COMMIT_MESSAGE" value="+" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -965,7 +974,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/archive/views/admin/request/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="112" selection-start="1796" selection-end="1796" vertical-scroll-proportion="0.3939394" vertical-offset="578" max-vertical-offset="3570">
+        <state line="54" column="45" selection-start="2065" selection-end="2065" vertical-scroll-proportion="0.4848485" vertical-offset="646" max-vertical-offset="3570">
           <folding />
         </state>
       </provider>
