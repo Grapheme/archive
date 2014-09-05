@@ -181,17 +181,21 @@ class AdminDicvalsController extends BaseController {
     /************************************************************************************/
 
 	#public function deleteDestroy($entity, $id){
-	public function destroy($id){
+	public function destroy($dic_id, $dicval_id){
 
         Allow::permission($this->module['group'], 'dicval');
 
 		if(!Request::ajax())
-            return App::abort(404);
+           App::abort(404);
 
-		$json_request = array('status'=>FALSE, 'responseText'=>'');
+        $dic = Dictionary::find((int)$dic_id);
+        if (!is_object($dic))
+            App::abort(404);
 
-        if (NULL !== DicVal::find($id))
-            DicVal::find($id)->delete();
+        $json_request = array('status' => FALSE, 'responseText'=>'');
+
+        if (NULL !== DicVal::find($dicval_id))
+            DicVal::find($dicval_id)->delete();
 
 		$json_request['responseText'] = 'Удалено';
 		$json_request['status'] = TRUE;
