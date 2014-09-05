@@ -17,6 +17,8 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
+
         {{ HTML::stylemod('css/normalize.css') }}
         {{ HTML::stylemod('css/main.css') }}
         {{ HTML::scriptmod('js/vendor/modernizr-2.6.2.min.js') }}
