@@ -8,7 +8,7 @@ $route = Route::currentRouteName();
                 <div class="header-logo">
                     <a href="{{ URL::to('') }}" class="logo"></a>
                     <a href="{{ URL::to('') }}" class="text">
-                        ГКУ РО «Архив документов личного состава<br> по Ростовской Области»
+                        ГКУ РО «Архив документов личного состава по Ростовской Области»
                     </a>
                 </div>
                 <div class="header-block">
@@ -22,6 +22,7 @@ $route = Route::currentRouteName();
                             <div class="nav-block">
                                 <nav class="main-nav">
                                     <ul>
+                                    	<li{{ $route == 'page' && $page->slug == 'requests' ? ' class="active"' : '' }}><a href="{{ URL::route('page', array('')) }}">Главная</a>
                                         <li{{ $route == 'page' && $page->slug == 'requests' ? ' class="active"' : '' }}><a href="{{ URL::route('page', array('requests')) }}">Запросы</a>
                                         <li{{ $route == 'page' && $page->slug == 'fonds' ? ' class="active"' : '' }}><a href="{{ URL::route('page', array('fonds')) }}">Фонды</a>
                                         {{--

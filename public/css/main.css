@@ -148,7 +148,7 @@ h1 {
   font-family: 'lato_semibold';
   font-size: 2.5rem;
   padding-top: 3.125rem;
-  margin: 0;
+  margin: 0 0 0.4em;
 }
 h2 {
   font-size: 2.125rem;
@@ -159,11 +159,14 @@ h2 {
 h3 {
   font-family: 'lato_regular';
   font-size: 1.5rem;
-  margin: 0 0 0.9375rem;
+  margin: 1.2em 0 0.9375rem;
 }
 h3 a {
   color: #525252;
   text-decoration: none;
+}
+.asterisk {
+	color: #c00;
 }
 .us-btn {
   -webkit-transition: all 0.5s ease;
@@ -245,6 +248,19 @@ h3 a {
 .us-link:hover {
   border-color: transparent;
 }
+.stuff-link {
+	color: #c0c0c0;
+	font-size: 0.9em;
+	display: inline-block;
+	margin: 1.25em 0 0;
+	text-decoration: none;
+	border-bottom: 1px solid;
+	line-height: 1em; 
+} 
+i.stuff-link { 
+	border: none; 
+	margin-right: 0.2em;
+}
 .link {
   -webkit-transition: border 0.5s ease;
   transition: border 0.5s ease;
@@ -258,7 +274,6 @@ h3 a {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'lato_light';
   border: 1px solid #c3c7ca;
   padding: 0 0.625rem;
   outline: 0 none;
@@ -276,7 +291,6 @@ h3 a {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'lato_light';
   border: 1px solid #c3c7ca;
   padding: 0 0.625rem;
   outline: 0 none;
@@ -295,7 +309,6 @@ h3 a {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'lato_light';
   border: 1px solid #c3c7ca;
   padding: 0 0.625rem;
   outline: 0 none;
@@ -314,7 +327,6 @@ h3 a {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'lato_light';
   border: 1px solid #c3c7ca;
   padding: 0 0.625rem;
   outline: 0 none;
@@ -331,8 +343,9 @@ h3 a {
   border-color: #FD7373;
 }
 html {
-  font-size: 16px;
-  font-family: 'lato_light';
+  font-size: 14.5px;
+  line-height: 1.6em;
+  font-family: 'Open Sans', sans-serif;
   color: #333333;
 }
 ul {
@@ -418,7 +431,7 @@ header {
   transition: border 0.5s ease;
   float: right;
   color: #1e54a6;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   text-decoration: none;
   border-bottom: 1px dashed #1e54a6;
@@ -462,7 +475,6 @@ header {
   background: #fff;
 }
 .main-header .header-block .nav-block .header-search .header-input {
-  font-family: 'lato_light';
   position: inline-block;
   vertical-align: middle;
   width: 80%;
@@ -530,7 +542,7 @@ header {
 }
 .main-header .header-block .main-nav ul li {
   display: inline-block;
-  margin-right: 0.9375rem;
+  margin-right: 1.7rem;
 }
 .main-header .header-block .main-nav ul li a {
   -webkit-transition: border 0.1s ease;
@@ -539,7 +551,7 @@ header {
   text-decoration: none;
   text-transform: uppercase;
   color: #444444;
-  font-size: 0.875rem;
+  font-size: 0.925rem;
   padding-bottom: 0.125rem;
   border-bottom: 1px solid transparent;
 }
@@ -621,7 +633,7 @@ header {
   display: inline-block;
   vertical-align: top;
   width: 33.33333333%;
-  padding: 0 3.75rem 0 1.25rem;
+  padding: 0 3.5rem 0 1.25rem;
   border-left: 2px solid #dddddd;
   margin-bottom: 2.5rem;
 }
@@ -638,11 +650,10 @@ header {
   height: 4rem;
 }
 .index-info .services li .service-title {
-  font-family: 'lato_regular';
-  font-size: .9rem;
+  font-size: 1.05rem;
   color: #27599f;
   text-transform: uppercase;
-  margin-bottom: 0.625rem;
+  margin-bottom: 0.65rem;
 }
 .index-info .services li .service-desc {
   font-size: 1rem;
@@ -812,7 +823,7 @@ header {
   padding: 0 3.125rem 0 6.25rem;
 }
 .news-list h3 {
-  margin-bottom: 0.9375rem;
+  margin-bottom: 0.75rem;
 }
 .news-list h3 a {
   color: #525252;
@@ -823,10 +834,10 @@ header {
 }
 .news-list .news-date {
   font-size: 0.875rem;
-  color: #545454;
+  color: #777;
 }
 .news-list .news-text {
-  margin-top: 0.9375rem;
+  margin-top: 1.15rem;
   color: #333333;
 }
 .news-year {
@@ -902,7 +913,6 @@ header {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'lato_light';
   border: 1px solid #c3c7ca;
   padding: 0 0.625rem;
   outline: 0 none;
@@ -942,7 +952,6 @@ header {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'lato_light';
   border: 1px solid #c3c7ca;
   padding: 0 0.625rem;
   outline: 0 none;
@@ -1132,6 +1141,7 @@ header {
 .applies .apply-list .title {
   font-size: 2.125rem;
   padding-top: 2.1875rem;
+  margin-bottom: 1em;
 }
 .applies .apply-list .apply-text {
   -webkit-box-sizing: border-box;
@@ -1163,7 +1173,6 @@ header {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'lato_light';
   border: 1px solid #c3c7ca;
   padding: 0 0.625rem;
   outline: 0 none;
@@ -1183,7 +1192,6 @@ header {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'lato_light';
   border: 1px solid #c3c7ca;
   padding: 0 0.625rem;
   outline: 0 none;
@@ -1205,7 +1213,6 @@ header {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'lato_light';
   border: 1px solid #c3c7ca;
   padding: 0 0.625rem;
   outline: 0 none;
@@ -1385,7 +1392,6 @@ header {
   position: relative;
 }
 .logout-form .logout-btn {
-  font-family: 'lato_light';
   -webkit-transition: border 0.5s ease;
   transition: border 0.5s ease;
   position: absolute;
