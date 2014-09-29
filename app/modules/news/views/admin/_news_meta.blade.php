@@ -44,12 +44,14 @@ foreach ($element->metas as $tmp) {
         </label>
     </section>
 
+    @if (0)
     <section>
         <label class="label">Галерея</label>
         <label class="input">
             {{ ExtForm::gallery('locales[' . $locale_sign . '][gallery_id]', $element_meta->gallery_id) }}
         </label>
     </section>
+    @endif
     @endif
 
 </fieldset>

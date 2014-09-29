@@ -137,8 +137,8 @@
       <file leaf-file-name="_news_meta.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/modules/news/views/admin/_news_meta.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44074073" vertical-offset="255" max-vertical-offset="1156">
-              <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.8740741" vertical-offset="616" max-vertical-offset="1190">
+              <caret line="64" column="11" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -919,7 +919,13 @@
       <option name="project" value="LOCAL" />
       <updated>1411984843013</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="fixes">
+      <created>1411984929792</created>
+      <option name="number" value="00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1411984929792</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -995,7 +1001,6 @@
     <MESSAGE value="log-in fix+" />
     <MESSAGE value="funds" />
     <MESSAGE value="close session" />
-    <MESSAGE value="fixes" />
     <MESSAGE value="fixes+" />
     <MESSAGE value="old funds company name" />
     <MESSAGE value="old funds company name view &amp; admin" />
@@ -1012,7 +1017,8 @@
     <MESSAGE value="+" />
     <MESSAGE value="search fix" />
     <MESSAGE value="github webhook support" />
-    <option name="LAST_COMMIT_MESSAGE" value="github webhook support" />
+    <MESSAGE value="fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1398,8 +1404,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/news/views/admin/_news_meta.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44074073" vertical-offset="255" max-vertical-offset="1156">
-          <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.8740741" vertical-offset="616" max-vertical-offset="1190">
+          <caret line="64" column="11" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
           <folding />
         </state>
       </provider>
