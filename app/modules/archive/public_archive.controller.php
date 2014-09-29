@@ -224,7 +224,16 @@ class PublicArchiveController extends BaseController {
         ## Если задана маска для поиска по названию компании - ищем сфинксом
         if ($filter = Input::get('filter')) {
             ## SPHINX
-            $results_funds = SphinxSearch::search($filter, 'archive_funds_index')->query();
+            $results_funds = SphinxSearch::search($filter, 'archive_funds_index');
+
+            if (Input::get('admin') == 1) {
+                $results_funds = $results_funds
+                    ->setMatchMode(\Sphinx\SphinxClient::SPH_MATCH_EXTENDED)
+                    #->setMatchMode(0)
+                    ->setSortMode(\Sphinx\SphinxClient::SPH_SORT_EXTENDED, "@weight DESC");
+            }
+
+            $results_funds = $results_funds->query();
             #Helper::dd($results_funds);
             if (isset($results_funds['matches'])) {
                 $funds_ids = array_keys($results_funds['matches']);
