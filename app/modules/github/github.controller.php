@@ -36,7 +36,14 @@ class GithubController extends \BaseController {
 
     public static function returnInfo() {
 
-        return null;
+        #return null;
+        return array(
+            'name' => self::$name,
+            'group' => self::$group,
+            'title' => 'GitHub',
+            'visible' => 0,
+            'system' => 1,
+        );
     }
 
     public function gitDeployProject($git_branch,$extends = null){

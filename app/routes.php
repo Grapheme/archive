@@ -215,8 +215,16 @@ foreach ($files as $file) {
 
         ## Get module group & check him to active
         $module_group = @$module_fullname::$group;
-        if (!Allow::module($module_group))
-            continue;
+        echo " [[[ " . Allow::module($module_group) . " ]]] ";
+        if (!Allow::module($module_group)) {
+            if (method_exists($module_fullname, $returnInfo)) {
+                if ($load_debug) echo " [ load info... ] ";
+                $mod_info[$module_fullname::$name] = $module_fullname::$returnInfo();
+                if (!@$mod_info[$module_fullname::$name]['system'])
+                    continue;
+            } else
+                continue;
+        }
 
         ## Load routes...
         if (method_exists($module_fullname, $returnRoutes)) {
@@ -245,7 +253,7 @@ foreach ($files as $file) {
             if ($load_debug) echo " [ load info... ] ";
             $mod_info[$module_name] = $module_fullname::$returnInfo();
         }
-        
+
         ## Load module actions...
         $actions = array();
         if (method_exists($module_fullname, $returnActions)) {
