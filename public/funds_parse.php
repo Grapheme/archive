@@ -20,7 +20,10 @@ setlocale(LC_ALL, 'ru_RU.UTF-8');
 
     $fund = 0;
     #$lines = file('funds_last.csv', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-    $lines = file('list.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    $lines = file('list-new.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+    #Helper::dd(count($lines));
+
     echo "<table border='1'>";
     $i = 0;
     $current_company_id = NULL;
@@ -30,18 +33,23 @@ setlocale(LC_ALL, 'ru_RU.UTF-8');
 
         ++$i;
 
-        #try {
-            #Helper::d($line);
-            list($fund_num, $dates, $org) = explode(';', $line);
-        #} catch (Exception $e) {
-        #    return $e->getMessage() . ' // ' . $line;
-        #}
+        unset($input);
+
+        #Helper::dd($line);
+        #list($fund_num, $dates, $org) = explode(';', $line);
+        $array = explode(';', $line);
+        $fund_num = @$array[0];
+        $dates = @$array[1];
+        $org = @$array[2];
+
         $fund_num = trim($fund_num);
         $dates = trim($dates);
         $org = trim($org);
 
         $fund_num = iconv("CP1251", "UTF-8//IGNORE", $fund_num);
         $org = iconv("CP1251", "UTF-8//IGNORE", $org);
+
+        #Helper::dd("$fund_num, $dates, $org");
 
         $fund = $fund_num != '' ? $fund_num : $fund;
         if ($fund_num == '') {
@@ -110,6 +118,7 @@ setlocale(LC_ALL, 'ru_RU.UTF-8');
 
         ## CREATE
 
+        unset($record);
         $record = ArchiveFund::create($input);
 
         #$record = ArchiveFund::firstOrCreate($input);
@@ -127,7 +136,7 @@ setlocale(LC_ALL, 'ru_RU.UTF-8');
 
         #/*
         echo "<tr><td colspan='10'>";
-        print_r($input);
+        var_dump($input);
         echo "<br/>";
         #print_r($result);
         Helper::ta($record);
@@ -142,7 +151,7 @@ setlocale(LC_ALL, 'ru_RU.UTF-8');
 
 echo "</table>";
 
-#Helper::d(DB::getQueryLog());
+Helper::d(DB::getQueryLog());
 
 ?>
 <style>
