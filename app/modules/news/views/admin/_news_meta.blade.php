@@ -20,12 +20,14 @@ foreach ($element->metas as $tmp) {
         </label>
     </section>
 
+    @if (0)
     <section>
         <label class="label">Анонс</label>
         <label class="textarea">
             {{ Form::textarea('locales['.$locale_sign.'][preview]', $element_meta->preview, array('class' => 'redactor redactor_preview')) }}
         </label>
     </section>
+    @endif
 
     <section>
         <label class="label">Содержание</label>

@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9eb288a-66f5-42e9-a6ae-4f6f60b8c9bd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/modules/archive/models/ArchiveFund.model.php" afterPath="$PROJECT_DIR$/app/modules/archive/models/ArchiveFund.model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/modules/archive/views/admin/funds/edit.blade.php" afterPath="$PROJECT_DIR$/app/modules/archive/views/admin/funds/edit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/modules/news/views/admin/_news_meta.blade.php" afterPath="$PROJECT_DIR$/app/modules/news/views/admin/_news_meta.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="archive.iws" />
@@ -115,11 +114,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/modules/archive/views/admin/funds/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6345811" vertical-offset="1667" max-vertical-offset="4709">
+            <state vertical-scroll-proportion="-11.730769" vertical-offset="1667" max-vertical-offset="4709">
               <caret line="116" column="24" selection-start-line="116" selection-start-column="24" selection-end-line="116" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/modules/news/views/admin/edit.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="60.807693" vertical-offset="1581" max-vertical-offset="3162">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_news_meta.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/modules/news/views/admin/_news_meta.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.44074073" vertical-offset="255" max-vertical-offset="1156">
+              <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -200,7 +219,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/start/global.php" />
         <option value="$PROJECT_DIR$/app/modules/pages/views/by-slug.blade.php" />
         <option value="$PROJECT_DIR$/app/lib/SystemModules.php" />
         <option value="$PROJECT_DIR$/app/views/templates/admin/sidebar.blade.php" />
@@ -251,6 +269,7 @@
         <option value="$PROJECT_DIR$/app/modules/archive/public_archive.controller.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/views/admin/funds/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/models/ArchiveFund.model.php" />
+        <option value="$PROJECT_DIR$/app/modules/news/views/admin/_news_meta.blade.php" />
       </list>
     </option>
   </component>
@@ -894,7 +913,13 @@
       <option name="project" value="LOCAL" />
       <updated>1411984576445</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="github webhook support">
+      <created>1411984843013</created>
+      <option name="number" value="00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1411984843013</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -996,20 +1021,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/modules/archive/admin_archive.request.controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.2727275" vertical-offset="0" max-vertical-offset="4437">
-          <caret line="141" column="47" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/modules/news/public_news.controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.030303031" vertical-offset="2686" max-vertical-offset="4964">
-          <caret line="158" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/pages/admin_pages.menu.controller.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8484849" vertical-offset="493" max-vertical-offset="1411">
@@ -1371,8 +1382,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/archive/views/admin/funds/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6345811" vertical-offset="1667" max-vertical-offset="4709">
+        <state vertical-scroll-proportion="-11.730769" vertical-offset="1667" max-vertical-offset="4709">
           <caret line="116" column="24" selection-start-line="116" selection-start-column="24" selection-end-line="116" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/modules/news/views/admin/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="60.807693" vertical-offset="1581" max-vertical-offset="3162">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/modules/news/views/admin/_news_meta.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44074073" vertical-offset="255" max-vertical-offset="1156">
+          <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
           <folding />
         </state>
       </provider>
