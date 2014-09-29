@@ -211,6 +211,7 @@ class PublicArchiveController extends BaseController {
         $records = ArchiveFund::orderBy('name', 'ASC')
             ->with('olds')
             ->where('name', '!=', '')
+            ->where('current_company_id', '=', NULL)
             ->where('date_start', '!=', '0000-00-00')
             ->where('date_stop', '!=', '0000-00-00')
         ;
