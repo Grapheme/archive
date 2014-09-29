@@ -228,8 +228,8 @@ class PublicArchiveController extends BaseController {
 
             if (Input::get('admin') == 1) {
                 $results_funds = $results_funds
-                    ->setMatchMode(\Sphinx\SphinxClient::SPH_MATCH_EXTENDED)
-                    #->setMatchMode(0)
+                    #->setMatchMode(\Sphinx\SphinxClient::SPH_MATCH_EXTENDED)
+                    ->setMatchMode(2)
                     ->setSortMode(\Sphinx\SphinxClient::SPH_SORT_EXTENDED, "@weight DESC");
             }
 
