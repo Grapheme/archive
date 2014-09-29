@@ -86,6 +86,9 @@
                         <section class="col-lg-3 pull-right">
                             <label class="label">&nbsp;</label>
                             <label class="input">
+                                @if (isset($element->current) && is_object($element->current))
+                                <input type="button" class="btn btn-primary" id="goto_company_name" value="Перейти"/>
+                                @endif
                                 <input type="button" class="btn btn-primary" id="drop_company_name" value="Сбросить"/>
                             </label>
                         </section>
@@ -118,15 +121,15 @@
                         <td>
                             <a href="{{ action($module['entity'].'.edit', $old->id) }}">{{ $old->name }}</a>
                         </td>
-                        <td>
-                            @if ($element->date_start > 0)
-                            {{ DateTime::createFromFormat('Y-m-d', $element->date_start)->format('m.Y') }}
+                        <td nowrap>
+                            @if ((int)$old->date_start > 0)
+                            {{ DateTime::createFromFormat('Y-m-d', $old->date_start)->format('m.Y') }}
                             @else
                             ???
                             @endif
                             -
-                            @if ($element->date_stop > 0)
-                            {{ DateTime::createFromFormat('Y-m-d', $element->date_stop)->format('m.Y') }}
+                            @if ($old->date_stop > 0)
+                            {{ DateTime::createFromFormat('Y-m-d', $old->date_stop)->format('m.Y') }}
                             @else
                             ???
                             @endif
@@ -262,6 +265,8 @@
             formatResult: format,
             formatSelection: format
         });
+
+        $("#goto_company_name").click(function () { location.href = '{{ URL::route('funds.edit', 0) }}'.split('0').join($(select2old).select2("val")); });
 
         $("#drop_company_name").click(function () { $(select2old).select2("val", ""); });
 

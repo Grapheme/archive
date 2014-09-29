@@ -118,8 +118,13 @@ class AdminArchiveFundsController extends BaseController {
 	public function edit($id){
 
         Allow::permission($this->module['group'], $this->module['entity'].'_edit');
-		
-		$element = $this->essence->where('id', $id)->with('current', 'olds')->first();
+
+        #Helper::dd($id);
+
+        #$element = $this->essence->where('id', $id)->with('current', 'olds')->first();
+        $element = $this->essence->where('id', $id)->with('current', 'olds')->first();
+        #Helper::tad($element);
+
 		return View::make($this->module['tpl'].'edit', compact('element'));
 	}
 
