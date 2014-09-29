@@ -106,7 +106,7 @@
             </div>
         </section>
 
-        @if (is_object($element->olds) && $element->olds->count())
+        @if (isset($element->olds) && is_object($element->olds) && $element->olds->count())
         <section class="col col-6">
             <div class="well">
                 <header>Старые названия</header>

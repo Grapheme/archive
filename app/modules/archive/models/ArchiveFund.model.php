@@ -19,7 +19,7 @@ class ArchiveFund extends BaseModel {
     }
 
     public function olds() {
-        return $this->hasMany('ArchiveFund', 'current_company_id', 'id')->orderBy('date_start', 'DESC');
+        return $this->hasMany('ArchiveFund', 'current_company_id', 'id')->where('current_company_id', '!=', NULL)->orderBy('date_start', 'DESC');
     }
 
 }
