@@ -215,7 +215,7 @@ foreach ($files as $file) {
 
         ## Get module group & check him to active
         $module_group = @$module_fullname::$group;
-        echo " [[[ " . Allow::module($module_group) . " ]]] ";
+        #echo " [[[ " . Allow::module($module_group) . " ]]] ";
         if (!Allow::module($module_group)) {
             if (method_exists($module_fullname, $returnInfo)) {
                 if ($load_debug) echo " [ load info... ] ";
