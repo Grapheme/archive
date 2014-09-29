@@ -184,6 +184,12 @@ class PublicArchiveController extends BaseController {
                     $message->to($user->email);
                 });
             }
+
+            Mail::send('emails.new_request', compact('request'), function ($message) {
+                $message->from(Config::get('mail.from.address'), Config::get('mail.from.name'));
+                $message->subject('Добавлен новый запрос');
+                $message->to(Config::get('mail.new_request_address'));
+            });
         }
 
         $json_request['password'] = $password;

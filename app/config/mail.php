@@ -7,6 +7,9 @@ return array(
         #'subject' => 'ВидеоГид, обратная связь',
     ),
 
+    'new_request_address' => 'zapros@gkuro-adls.ru',
+    #'new_request_address' => 'az@grapheme.ru',
+
     'driver' => 'smtp',
     'host' => 'in.mailjet.com',
     'port' => 587,
@@ -20,5 +23,5 @@ return array(
     'sendmail' => '/usr/sbin/sendmail -bs',
     'encryption' => 'tls',
 
-    'pretend' => 1,
+    'pretend' => 0,
 );
