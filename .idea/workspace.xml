@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9eb288a-66f5-42e9-a6ae-4f6f60b8c9bd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/funds_last.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/modules/archive/models/ArchiveFund.model.php" afterPath="$PROJECT_DIR$/app/modules/archive/models/ArchiveFund.model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/modules/archive/admin_archive.funds.controller.php" afterPath="$PROJECT_DIR$/app/modules/archive/admin_archive.funds.controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/modules/archive/views/admin/funds/edit.blade.php" afterPath="$PROJECT_DIR$/app/modules/archive/views/admin/funds/edit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/templates/site/about.blade.php" afterPath="$PROJECT_DIR$/app/views/templates/site/about.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/funds_parse.php" afterPath="$PROJECT_DIR$/public/funds_parse.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -81,10 +78,11 @@
       <file leaf-file-name="funds_parse.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/funds_parse.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="2142">
-              <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+            <state vertical-scroll-proportion="-1.9615384" vertical-offset="442" max-vertical-offset="2652">
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding>
-                <marker date="1411990188453" expanded="true" signature="2261:2511" placeholder="..." />
+                <element signature="e#6#25#0#PHP" expanded="true" />
+                <marker date="1411999416600" expanded="true" signature="2632:2882" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -110,10 +108,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="about.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/templates/site/about.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.59180033" vertical-offset="144" max-vertical-offset="748">
+              <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/modules/archive/views/admin/funds/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8453039" vertical-offset="1292" max-vertical-offset="4811">
+            <state vertical-scroll-proportion="-9.807693" vertical-offset="1292" max-vertical-offset="4811">
               <caret line="91" column="61" selection-start-line="91" selection-start-column="61" selection-end-line="91" selection-end-column="61" />
               <folding>
                 <marker date="1411990740963" expanded="true" signature="5398:5501" placeholder="{...}" />
@@ -236,11 +244,11 @@
         <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/public_archive.controller.php" />
         <option value="$PROJECT_DIR$/app/modules/news/views/admin/_news_meta.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/templates/site/about.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/models/ArchiveFund.model.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/admin_archive.funds.controller.php" />
-        <option value="$PROJECT_DIR$/public/funds_parse.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/views/admin/funds/edit.blade.php" />
+        <option value="$PROJECT_DIR$/public/funds_parse.php" />
+        <option value="$PROJECT_DIR$/app/views/templates/site/about.blade.php" />
       </list>
     </option>
   </component>
@@ -908,7 +916,13 @@
       <option name="project" value="LOCAL" />
       <updated>1411985339746</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="new funds">
+      <created>1411990840596</created>
+      <option name="number" value="00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1411990840596</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -933,9 +947,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32463294" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32463294" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2985318" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1005,7 +1019,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1292,14 +1306,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/templates/site/about.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4185185" vertical-offset="148" max-vertical-offset="731">
-          <caret line="22" column="65" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/templates/site/search.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="748" max-vertical-offset="1598">
@@ -1340,14 +1346,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/modules/archive/models/ArchiveFund.model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="510">
-          <caret line="21" column="110" selection-start-line="21" selection-start-column="110" selection-end-line="21" selection-end-column="110" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/archive/public_archive.controller.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.730769" vertical-offset="3570" max-vertical-offset="6715">
@@ -1372,27 +1370,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/funds_parse.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="2142">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-          <folding>
-            <marker date="1411990188453" expanded="true" signature="2261:2511" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/modules/archive/admin_archive.funds.controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="3978">
-          <caret line="6" column="34" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/archive/views/admin/funds/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8453039" vertical-offset="1292" max-vertical-offset="4811">
+        <state vertical-scroll-proportion="-9.807693" vertical-offset="1292" max-vertical-offset="4811">
           <caret line="91" column="61" selection-start-line="91" selection-start-column="61" selection-end-line="91" selection-end-column="61" />
           <folding>
             <marker date="1411990740963" expanded="true" signature="5398:5501" placeholder="{...}" />
@@ -1410,6 +1390,41 @@
             <marker date="1411990740963" expanded="true" signature="9586:10125" placeholder="..." />
             <marker date="1411990740963" expanded="true" signature="9962:10111" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/modules/archive/models/ArchiveFund.model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="510">
+          <caret line="21" column="110" selection-start-line="21" selection-start-column="110" selection-end-line="21" selection-end-column="110" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/funds_parse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9615384" vertical-offset="442" max-vertical-offset="2652">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#25#0#PHP" expanded="true" />
+            <marker date="1411999416600" expanded="true" signature="2632:2882" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/modules/archive/admin_archive.funds.controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="3978">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/templates/site/about.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59180033" vertical-offset="144" max-vertical-offset="748">
+          <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>

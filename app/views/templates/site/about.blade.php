@@ -26,6 +26,7 @@
                 <li data-tab="ustav">{{ $page->block('ustav') }}
                 <li data-tab="reglament">{{ $page->block('reglament') }}
                 <li data-tab="uslugi">{{ $page->block('uslugi') }}
+                <li data-tab="reading">{{ $page->block('reading') }}
             </ul>
 
         </div>

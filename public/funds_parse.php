@@ -1,4 +1,12 @@
 <?php
+#print_r($_SERVER);
+#print_r(date("d.m.Y H:i:s"));
+#ini_set();
+#echo date("Y-m-d H:i:s");
+#exit;
+/**
+ * Format of the file must be CP1251
+ */
 require __DIR__.'/../bootstrap/autoload.php';
 $app = require_once __DIR__.'/../bootstrap/start.php';
 $app->run();
@@ -11,7 +19,8 @@ setlocale(LC_ALL, 'ru_RU.UTF-8');
     ArchiveFund::truncate();
 
     $fund = 0;
-    $lines = file('funds_last.csv', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    #$lines = file('funds_last.csv', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    $lines = file('list.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     echo "<table border='1'>";
     $i = 0;
     $current_company_id = NULL;
@@ -21,7 +30,12 @@ setlocale(LC_ALL, 'ru_RU.UTF-8');
 
         ++$i;
 
-        list($fund_num, $dates, $org) = explode(';', $line);
+        #try {
+            #Helper::d($line);
+            list($fund_num, $dates, $org) = explode(';', $line);
+        #} catch (Exception $e) {
+        #    return $e->getMessage() . ' // ' . $line;
+        #}
         $fund_num = trim($fund_num);
         $dates = trim($dates);
         $org = trim($org);
@@ -95,25 +109,41 @@ setlocale(LC_ALL, 'ru_RU.UTF-8');
         );
 
         ## CREATE
-        #/*
-        ArchiveFund::create($input);
-        usleep(100);
+
+        $record = ArchiveFund::create($input);
+
+        #$record = ArchiveFund::firstOrCreate($input);
+
+        #$record = new ArchiveFund();
+        #$record->save($input);
+        #$record->update($input);
+        #$last_insert_id = $record->insertGetId($input);
+        usleep(500);
+
+        #ArchiveFund::insertGetId()
+
+        #sleep(1);
         #*/
 
-        /*
+        #/*
         echo "<tr><td colspan='10'>";
         print_r($input);
         echo "<br/>";
-        print_r($result);
+        #print_r($result);
+        Helper::ta($record);
         echo "</td></tr>";
-        */
+        #*/
         #Helper::dd($input);
 
+        unset($record);
     }
 
 #});
 
 echo "</table>";
+
+#Helper::d(DB::getQueryLog());
+
 ?>
 <style>
     .green {background-color:#afa}
