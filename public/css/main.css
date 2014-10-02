@@ -249,10 +249,10 @@ h3 a {
   border-color: transparent;
 }
 .stuff-link {
-	color: #c0c0c0;
-	font-size: 0.9em;
+	color: #999;
+	font-size: 0.8em;
 	display: inline-block;
-	margin: 1.25em 0 0;
+	margin: 1.95em 0 0;
 	text-decoration: none;
 	border-bottom: 1px solid;
 	line-height: 1em; 
@@ -684,7 +684,7 @@ header {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   background: #f7f7f7;
-  height: 10rem;
+  height: 14rem;
   padding-top: 2.8125rem;
   min-width: 75.625rem;
 }
@@ -710,6 +710,26 @@ header {
   text-decoration: none;
   color: #464646;
   line-height: 2.1875rem;
+}
+.main-footer .footer-block ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.main-footer .footer-block ul li {
+	padding: 0;
+	margin: 0.3em 0 0;	
+}
+.main-footer .footer-block ul li:first-child {
+	margin: 1.25em 0 0;
+}
+.main-footer .footer-block ul li a {
+	display: inline-block;
+	color: #999;
+	font-size: 0.7em;
+	text-decoration: none;
+	border-bottom: 1px solid;
+	line-height: 1.1em;	
 }
 .normal-page {
   background: #f7f7f7;
@@ -790,6 +810,15 @@ header {
 .normal-page .page-text p {
   margin-top: 0;
 }
+.normal-page .page-text ul {
+  font-size: inherit;
+  padding: 0;
+  margin: 0;
+}
+.normal-page .page-text ul ol {
+  padding: 0;
+
+}
 .normal-page .page-desc {
   font-style: italic;
   margin-top: 1.25rem;
@@ -810,6 +839,7 @@ header {
   box-sizing: border-box;
   padding-left: 1.25rem;
   border-left: 1px solid #dddddd;
+  margin-top: 1.5em;
 }
 .news-list {
   margin: 0;
