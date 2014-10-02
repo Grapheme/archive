@@ -25,8 +25,8 @@ $route = Route::currentRouteName();
                                     	<li{{ $route == 'page' && $page->slug == 'requests' ? ' class="active"' : '' }}><a href="{{ URL::route('page', array('')) }}">Главная</a>
                                         <li{{ $route == 'page' && $page->slug == 'requests' ? ' class="active"' : '' }}><a href="{{ URL::route('page', array('requests')) }}">Запросы</a>
                                         <li{{ $route == 'page' && $page->slug == 'fonds' ? ' class="active"' : '' }}><a href="{{ URL::route('page', array('fonds')) }}">Фонды</a>
+                                        <li{{ $route == 'page' && $page->slug == 'nsa' ? ' class="active"' : '' }}><a href="{{ URL::route('page', array('nsa')) }}">НСА</a>
                                         {{--
-                                        <li><a href="#">НСА</a>
                                         <li><a href="#">Комплектация</a>
                                         --}}
                                         <li{{ $route == 'news' ? ' class="active"' : '' }}><a href="{{ URL::route('news') }}">Новости</a>

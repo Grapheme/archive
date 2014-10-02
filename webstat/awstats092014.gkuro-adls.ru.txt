@@ -8,33 +8,33 @@ AWSTATS DATA FILE 7.0 (build 1.971)
 # update).
 BEGIN_MAP 27
 POS_GENERAL 1993                
-POS_TIME 2676                
-POS_VISITOR 6964                
-POS_DAY 7109                
-POS_DOMAIN 3393                
-POS_LOGIN 3625                
-POS_ROBOT 3780                
-POS_WORMS 4023                
-POS_EMAILSENDER 4154                
-POS_EMAILRECEIVER 4297                
-POS_SESSION 7271                
-POS_SIDER 7464                
-POS_FILETYPES 4432                
-POS_DOWNLOADS 4710                
-POS_OS 4836                
-POS_BROWSER 4913                
-POS_SCREENSIZE 5181                
-POS_UNKNOWNREFERER 5255                
-POS_UNKNOWNREFERERBROWSER 5391                
-POS_ORIGIN 5473                
-POS_SEREFERRALS 5612                
-POS_PAGEREFS 5767                
-POS_SEARCHWORDS 5945                
-POS_KEYWORDS 6097                
-POS_MISC 2339                
-POS_ERRORS 6156                
-POS_CLUSTER 3481                
-POS_SIDER_404 6292                
+POS_TIME 2666                
+POS_VISITOR 7726                
+POS_DAY 7871                
+POS_DOMAIN 3436                
+POS_LOGIN 3668                
+POS_ROBOT 3823                
+POS_WORMS 4134                
+POS_EMAILSENDER 4265                
+POS_EMAILRECEIVER 4408                
+POS_SESSION 8088                
+POS_SIDER 8294                
+POS_FILETYPES 4543                
+POS_DOWNLOADS 4857                
+POS_OS 5101                
+POS_BROWSER 5210                
+POS_SCREENSIZE 5678                
+POS_UNKNOWNREFERER 5752                
+POS_UNKNOWNREFERERBROWSER 5927                
+POS_ORIGIN 6048                
+POS_SEREFERRALS 6187                
+POS_PAGEREFS 6342                
+POS_SEARCHWORDS 6543                
+POS_KEYWORDS 6711                
+POS_MISC 2329                
+POS_ERRORS 6786                
+POS_CLUSTER 3524                
+POS_SIDER_404 6935                
 END_MAP
 
 # LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
@@ -46,11 +46,11 @@ END_MAP
 # MonthHostsKnown   = Number of hosts known
 # MonthHostsUnKnown = Number of hosts unknown
 BEGIN_GENERAL 8
-LastLine 20140904235611 306 56343 10147521350003
+LastLine 20141001001352 1 0 10151799343730
 FirstTime 20140901052802
-LastTime 20140904222747
-LastUpdate 20140905000106 306 0 306 0 0
-TotalVisits 18                  
+LastTime 20140930201750
+LastUpdate 20141002000106 1 0 0 0 0
+TotalVisits 34                  
 TotalUnique 1                   
 MonthHostsKnown 0                   
 MonthHostsUnknown 2                   
@@ -63,7 +63,7 @@ JavaEnabled 0 0 0
 JavascriptDisabled 0 0 0
 PDFSupport 0 0 0
 WindowsMediaPlayerSupport 0 0 0
-AddToFavourites 0 16 0
+AddToFavourites 0 38 0
 RealPlayerSupport 0 0 0
 TotalMisc 0 0 0
 DirectorSupport 0 0 0
@@ -72,36 +72,36 @@ END_MISC
 
 # Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
 BEGIN_TIME 24
-0 3 3 37476 3 4 15935
-1 4 4 49955 3 3 12579
-2 3 3 37429 5 5 20978
-3 2 2 24950 3 4 12389
-4 2 2 24950 5 6 21344
-5 4 4 49874 4 4 16761
+0 4 4 50447 7 8 22308
+1 4 4 49955 9 9 47354
+2 8 8 102300 8 8 33060
+3 3 3 37925 4 5 16755
+4 4 12 89910 13 14 44996
+5 5 14 107932 6 6 25481
 6 2 2 24946 3 3 12579
-7 6 20 78466 4 5 20156
-8 8 8 45599 12 13 39616
-9 56 124 12355107 12 15 20465
-10 21 42 896546 5 5 20162
-11 57 166 5835036 7 11 21256
-12 42 125 1713326 6 9 12972
-13 5 7 56446 20 52 710558
-14 4 4 49896 9 10 26666
-15 1 1 4209 9 11 27936
-16 67 300 5093020 7 56 606852
-17 55 217 3406527 5 8 22415
-18 2 2 16708 5 5 17286
-19 9 47 886604 3 4 13244
-20 4 4 49957 5 5 20989
-21 38 143 1231719 3 4 13211
-22 5 5 54101 3 3 12623
-23 2 2 24948 5 5 21010
+7 7 30 131807 9 10 41960
+8 9 9 49957 15 16 52694
+9 57 133 12396483 12 15 20465
+10 123 175 2588744 10 12 47341
+11 150 473 11713184 12 19 41687
+12 51 161 2252885 6 9 12972
+13 75 131 1194244 46 87 806286
+14 71 313 2186311 18 39 263752
+15 23 23 632789 9 12 82735
+16 69 324 5293648 10 59 619934
+17 61 264 4009381 14 18 51213
+18 47 198 2438436 14 22 375594
+19 9 47 886604 5 6 21972
+20 26 202 3406852 15 16 354151
+21 38 143 1231719 5 6 21931
+22 5 5 54101 6 6 24707
+23 2 2 24948 10 10 42814
 END_TIME
 
 # Domain - Pages - Hits - Bandwidth
 # The 10 first Pages must be first (order not required for others)
 BEGIN_DOMAIN 1
-ip 402 1237 31908795
+ip 853 2680 50562148
 END_DOMAIN
 
 # Cluster ID - Pages - Hits - Bandwidth
@@ -115,10 +115,12 @@ END_LOGIN
 
 # Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
 # The 10 first Hits must be first (order not required for others)
-BEGIN_ROBOT 3
-yandex 143 1087613 20140904235611 4
+BEGIN_ROBOT 5
+yandex 237 1617185 20140930233939 7
+googlebot 4 647376 20140930202414 1
 [\s_+:,\.\;\/\\-]bot 2 4550 20140904045030 1
 python 2 644 20140904080507 0
+favicon 1 4358 20140929184213 0
 END_ROBOT
 
 # Worm ID - Hits - Bandwidth - Last visit
@@ -137,50 +139,70 @@ BEGIN_EMAILRECEIVER 0
 END_EMAILRECEIVER
 
 # Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
-BEGIN_FILETYPES 11
-mp3 1 104250 0 0
-eot 10 590643 0 0
-css 160 1138449 0 0
-png 8 419174 0 0
-woff 128 3180677 0 0
-html 144 1077022 0 0
-js 409 2253386 0 0
-jpg 112 8575924 0 0
-Unknown 120 5742583 0 0
+BEGIN_FILETYPES 13
+css 334 4207053 0 0
+eot 13 768982 0 0
+mp3 1 208500 0 0
+png 51 770975 0 0
+pdf 2 299807 0 0
+woff 221 4091868 0 0
+html 171 1289497 0 0
+jpg 156 12132789 0 0
+js 1098 6169660 0 0
+Unknown 448 11689292 0 0
+svg 179 451093 0 0
 gz 1 8445734 0 0
-svg 144 346203 0 0
+gif 5 2148 0 0
 END_FILETYPES
 
 # Downloads - Hits - Bandwidth
-BEGIN_DOWNLOADS 3
-/robots.txt 5 0 1695
+BEGIN_DOWNLOADS 6
+/robots.txt 9 0 3051
 /kcmap.tar.gz 1 0 8445734
-/sound/smallbox.mp3 0 8 139000
+/uploads/socialno-pravovie.pdf 1 0 307081
+/uploads/inostrannie.pdf 1 0 326985
+/docs/order_readinghall.pdf 1 2 299807
+/sound/smallbox.mp3 0 14 243250
 END_DOWNLOADS
 
 # OS ID - Hits
-BEGIN_OS 4
-macosx 853
-winxp 5
-Unknown 1
-win7 386
+BEGIN_OS 7
+macosx 956
+winxp 29
+unix 1
+win2000 1
+Unknown 13
+winvista 15
+win7 1681
 END_OS
 
 # Browser ID - Hits
-BEGIN_BROWSER 13
+BEGIN_BROWSER 25
+chrome6.0.427.0 1
 firefox32.0 67
-chrome32.0.1700.102 1
+chrome37.0.2062.124 101
+msie6.0 2
+netscape4.61 1
 firefox3.6 1
-mozilla 43
-msie10.0 25
-firefox16.0 4
-chrome36.0.1944.0 49
-chrome33.0.1750.146 1
+opera8.00 1
+chrome36.0.1944.0 51
+chrome28.0.1500.95 35
 chrome31.0.1650.57 2
-firefox27.0 1
-chrome37.0.2062.94 804
-opera9.80 201
+chrome31.0.1650.63 19
+firefox30.0 109
+opera9.80 1278
 firefox31.0 46
+chrome32.0.1700.102 1
+firefox25.0 10
+mozilla 84
+msie10.0 26
+firefox16.0 6
+chrome33.0.1750.146 1
+chrome37.0.2062.122 37
+firefox27.0 1
+opera9.0 1
+Unknown 11
+chrome37.0.2062.94 804
 END_BROWSER
 
 # Screen size - Hits
@@ -188,123 +210,148 @@ BEGIN_SCREENSIZE 0
 END_SCREENSIZE
 
 # Unknown referer OS - Last visit date
-BEGIN_UNKNOWNREFERER 1
-Mozilla/4.0_(compatible;_Synapse) 20140902184135
+BEGIN_UNKNOWNREFERER 2
+GitHub-Hookshot/64a1910 20140929202239
+Mozilla/4.0_(compatible;_Synapse) 20140930045353
 END_UNKNOWNREFERER
 
 # Unknown referer Browser - Last visit date
-BEGIN_UNKNOWNREFERERBROWSER 0
+BEGIN_UNKNOWNREFERERBROWSER 1
+GitHub-Hookshot/64a1910 20140929202239
 END_UNKNOWNREFERERBROWSER
 
 # Origin - Pages - Hits 
 BEGIN_ORIGIN 6
-From0 137 140
+From0 177 182
 From1 1 1
-From2 2 2
-From3 1 1
-From4 261 1101
+From2 9 9
+From3 6 6
+From4 660 2498
 From5 0 0
 END_ORIGIN
 
 # Search engine referers ID - Pages - Hits
 BEGIN_SEREFERRALS 1
-yandex 2 2
+yandex 9 9
 END_SEREFERRALS
 
 # External page referers - Pages - Hits
 # The 10 first Pages must be first (order not required for others)
-BEGIN_PAGEREFS 1
+BEGIN_PAGEREFS 2
+http://gdzz.url.ph 5 5
 http://superdjut.ru/route 1 1
 END_PAGEREFS
 
 # Search keyphrases - Number of search
 # The 10 first number of search must be first (order not required for others)
-BEGIN_SEARCHWORDS 0
+BEGIN_SEARCHWORDS 1
+gkuro-adls.ru 6
 END_SEARCHWORDS
 
 # Search keywords - Number of search
 # The 10 first number of search must be first (order not required for others)
-BEGIN_KEYWORDS 0
+BEGIN_KEYWORDS 1
+gkuro-adls.ru 6
 END_KEYWORDS
 
 # Errors - Hits - Bandwidth
-BEGIN_ERRORS 5
-401 25 16775
-302 3 3400
-206 4 435808
-301 1 508
-404 54 181630
+BEGIN_ERRORS 6
+401 37 24827
+302 8 9056
+206 5 490607
+500 6 28550
+301 4 2084
+404 71 238782
 END_ERRORS
 
 # URL with 404 errors - Hits - Last URL referer
-BEGIN_SIDER_404 11
+BEGIN_SIDER_404 14
 /img/index/book.svg 11 http://gkuro-adls.ru/
+/git-deploy/master 15 -
 /core/xpdo/changelog.txt 1 -
 /img/index/passport.svg 11 http://gkuro-adls.ru/
+/uploadify/uploadify.swf 1 http://gkuro-adls.ru/uploadify/uploadify.swf
 /fsd 1 -
 /xmlrpc.php 1 https://www.google.com/search
+/yscvqvfrerzm.html 1 -
 /o 1 -
-/04a83f83d5e7.htm 4 -
 /img/index/docs.svg 11 http://gkuro-adls.ru/
-/img/index/wallet.svg 11 http://gkuro-adls.ru/
-/vamshop.txt 1 -
+/04a83f83d5e7.htm 4 -
 /assets/modules/docmanager/js/docmanager.js 1 -
+/vamshop.txt 1 -
+/img/index/wallet.svg 11 http://gkuro-adls.ru/
 END_SIDER_404
 
 # Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
 # [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
 # The 10 first Hits must be first (order not required for others)
 BEGIN_VISITOR 2
-92.63.103.191 402 1244 23463061 20140904222747
+92.63.103.191 853 2695 42116414 20140930201750
 5.139.74.211 0 1 8445734 
 END_VISITOR
 
 # Date - Pages - Hits - Bandwidth - Visits
-BEGIN_DAY 4
+BEGIN_DAY 6
 20140901 47 128 2500319 4
 20140902 188 646 17638831 4
 20140903 70 224 6663637 4
 20140904 97 239 5245008 6
+20140929 396 1306 15546143 7
+20140930 55 137 3361570 9
 END_DAY
 
 # Session range - Number of visits
-BEGIN_SESSION 6
-1h+ 5
-5mn-15mn 1
-30s-2mn 1
+BEGIN_SESSION 7
+1h+ 7
+5mn-15mn 4
+30s-2mn 2
+0s-30s 14
+15mn-30mn 3
 2mn-5mn 2
-0s-30s 8
-30mn-1h 1
+30mn-1h 2
 END_SESSION
 
 # URL - Pages - Bandwidth - Entry - Exit
 # The 10 first Pages must be first (order not required for others)
-BEGIN_SIDER 27
-/ 144 1077022 17 13
-/fonts/lato-light-webfont.woff 48 909832 0 1
-/fonts/lato-regular-webfont.woff 48 923006 0 0
-/fonts/lato-semibold-webfont.woff 17 530376 0 1
-/request 15 63878 0 1
-/requests 14 61373 0 0
-/ajax/funds-data 12 5318498 0 0
-/news 10 51643 0 0
-/contact 10 40151 0 1
-/fonts/lato-medium-webfont.woff 10 397278 0 0
-/admin/pages 4 12815 0 0
-/ajax-pages-save-block 4 3100 0 0
-/log-in 4 13516 0 0
+BEGIN_SIDER 40
+/ajax/funds-data 208 10599625 0 2
+/ 171 1289497 26 18
+/fonts/lato-regular-webfont.woff 68 1120793 0 1
+/fonts/lato-light-webfont.woff 64 1039808 0 2
+/fonts/lato-semibold-webfont.woff 38 729267 0 1
+/about 33 257075 2 3
+/fonts/lato-medium-webfont.woff 27 529704 0 0
+/fonts/fontawesome-webfont.woff 24 672296 0 0
+/news 19 99507 1 0
+/fonds 18 75849 0 0
+/log-in 6 20594 1 0
 /signin 6 5758 0 0
-/fonts/fontawesome-webfont.woff 5 420185 0 0
+/contact 15 60966 2 3
+/admin/archive/funds/create 2 49954 0 0
+/fonts/lato-semibold-webfont.eot 4 238592 0 0
 /feedback 4 13650 0 0
-/fonts/lato-semibold-webfont.eot 3 178944 0 0
-/fonds 8 33023 0 0
-/admin/pages/5/edit 2 12290 0 0
-/ajax-pages-get-block 3 6454 0 0
-/admin 2 5129 1 0
-/admin/pages/1/edit 5 31664 0 0
-/about 8 48210 0 1
-/fonts/lato-regular-webfont.eot 3 177369 0 0
-/fonts/lato-medium-webfont.eot 1 59568 0 0
+/admin/archive/funds/1/edit 5 27265 0 1
+/admin/news 1 3496 0 0
 /fonts/lato-light-webfont.eot 3 174762 0 0
+/request 15 63878 0 1
+/admin/pages/2 1 815 0 0
+/admin/archive/funds/6/edit 2 10206 0 0
+/admin/pages 8 26253 0 0
+/ajax-pages-save-block 12 9310 0 0
+/git-deploy/master 13 21451 1 2
+/admin/archive/funds/10/edit 3 15736 0 0
+/admin/pages/2/edit 13 86167 0 0
+/git-deploy/master/test 1 889 0 0
+/admin/news/4/edit 4 21890 0 0
+/requests 16 70463 0 0
+/admin/archive/funds 6 31939 0 0
+/admin/pages/5/edit 2 12290 0 0
+/admin 7 18488 1 0
+/ajax-pages-get-block 12 30186 0 0
+/admin/pages/1/edit 5 31664 0 0
+/fonts/lato-regular-webfont.eot 4 236492 0 0
+/git-deploy/master/S2IgteaZdojZPYppPPYikcfMJfZgrLSb 1 1132 0 0
+/fonts/lato-medium-webfont.eot 2 119136 0 0
+/ajax-pages-get-page-blocks 1 1365 0 0
 /login 9 21431 0 0
 END_SIDER

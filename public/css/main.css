@@ -1265,6 +1265,12 @@ header {
 .js-tabs li.active {
   display: block;
 }
+.margin {
+	margin: 3em 0 0;
+}
+.margin p {
+	max-width: 52em;
+}
 .contacts {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
