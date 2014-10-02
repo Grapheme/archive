@@ -12,7 +12,9 @@
              --><div class="footer-block">
                     <div class="m-text">Ростов-на-Дону, ул. Соколова 52</div>
                     <a href="tel:+78632405039" class="phone-link">+7 (863) 240-50-39</a><br>
-                    <i class="stuff-link fa fa-envelope"></i> <a href="http://mail.gkuro-adls.ru" target="_blank" class="stuff-link">Вход для сотрудников</a>
+                    <ul>
+                    	<li><a target="_blank" href="#">Карта сайта</a></li>
+                    </ul>
                 </div><!--
              --><div class="footer-block">
                     Приемные часы:<br>
@@ -23,7 +25,8 @@
                 </div><!--
              --><div class="footer-block">
                     Электронная почта:<br>
-                    <a href="mailto:info@gkuro-adls.ru" class="us-link">info@gkuro-adls.ru</a>
+                    <a href="mailto:info@gkuro-adls.ru" class="us-link">info@gkuro-adls.ru</a><br>
+                    <i class="stuff-link fa fa-envelope"></i> <a href="http://mail.gkuro-adls.ru" target="_blank" class="stuff-link">Вход для сотрудников</a>
                 </div>
             </div>
         </footer>
