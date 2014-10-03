@@ -487,6 +487,7 @@ function fundsFormSubmit(form) {
         } else {
             $('.fonds-list .tbody').html('<div><p style="text-align: center; margin: 0;">Не найдено подходящих записей. Попробуйте изменить условия поиска.</p></div>');
         }
+        $('.fonds-list').removeAttr('style');
     }
 
     options.error = function(xhr, textStatus, errorThrown){
@@ -497,7 +498,6 @@ function fundsFormSubmit(form) {
         //$(form).find('button').removeClass('loading');
         $('.fonds-list').removeClass('hidden');
         $('.ajaxload').addClass('hidden');
-        $('.found-list').removeAttr('style');
     }
 
     $(form).ajaxSubmit(options);
