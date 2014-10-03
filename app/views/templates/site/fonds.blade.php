@@ -140,6 +140,9 @@
             if(sort_type != this_sort) {
                 sort_parent.attr('data-sort-type', 'asc');
             }
+
+            console.log('БЫЛО '+ sort_type);
+            console.log('СТАЛО '+ this_sort);
         }
 
         $(document).on('click', '.js-sort', function(){
