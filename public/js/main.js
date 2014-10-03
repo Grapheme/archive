@@ -621,9 +621,15 @@ function isNumber(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
-function numSort(array) {
+function numSort(array, type) {
+
+
     var sorted = array.sort(function(a, b){
-     return a.number - b.number;
+        if(type == "asc") {
+            return a.number - b.number;
+        } else {
+            return b.number - a.number;
+        }
     });
 
     return sorted;
@@ -632,12 +638,19 @@ function numSort(array) {
 function nameSort(array) {
     var sorted = array.sort(function(a, b){
         var nameA=a.org.toLowerCase(), nameB=b.org.toLowerCase();
-
-        if (nameA < nameB)
-            return -1
-        if (nameA > nameB)
-            return 1
-        return 0
+        if(type == "asc") {
+            if (nameA < nameB)
+                return -1
+            if (nameA > nameB)
+                return 1
+            return 0
+        } else {
+            if (nameA > nameB)
+                return -1
+            if (nameA < nameB)
+                return 1
+            return 0
+        }
     });
 
     return sorted;
