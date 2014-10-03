@@ -129,7 +129,7 @@
         var sort_parent = $('.js-sort-parent');
 
         function changeType(this_sort) {
-            var sort_type = sort_parent.attr('data-sort-type');
+            var sort_type = sort_parent.attr('data-sort');
 
             if(sort_type == 'asc') {
                 sort_parent.attr('data-sort-type', 'desc');
