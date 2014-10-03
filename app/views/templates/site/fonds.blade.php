@@ -67,8 +67,8 @@
 
                     <div class="fonds-list hidden">
                         <div class="thead">
-                                <span>Номер фонда</span><!--
-                                --><span>Название организации</span><!--
+                                <span class="js-sort" data-sort="number">Номер фонда</span><!--
+                                --><span class="js-sort" data-sort="org">Название организации</span><!--
                                 --><span>Крайние даты</span>
                         </div>
                         <div class="tbody">
@@ -122,6 +122,10 @@
             }
         });
 
+    })();
+
+    var sort_init = (function(){
+        $('.js-sort').css('cursor', 'pointer');
     })();
 </script>
 @stop
