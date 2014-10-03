@@ -628,3 +628,15 @@ function numSort(array) {
 
     return sorted;
 }
+
+function nameSort(array) {
+    array.sort(function(a, b){
+        var nameA=a.org.toLowerCase(), nameB=b.org.toLowerCase();
+
+        if (nameA < nameB)
+            return -1
+        if (nameA > nameB)
+            return 1
+        return 0
+    });
+}
