@@ -453,8 +453,7 @@ function fundsFormSubmit(form) {
                     + '</span><span>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</span></div>'
                     + old_names;
 
-                new_str += this_str;
-
+                //new_str += this_str;
                 data_array[i] = 
                                 { 
                                     number: val.fund_number,
@@ -465,6 +464,21 @@ function fundsFormSubmit(form) {
                 //$('.fonds-list tbody').append('<tr><td>' + val.name + '</td><td>' + d.getFullYear() + '-' + val.date_stop + '</td></tr>');
                 i++;
             });
+        
+            var sort_elem = $('.js-sort-parent').attr('data-sort');
+            var sort_type = $('.js-sort-parent').attr('data-sort-type');
+            var sorted_array;
+
+            if(sort_elem == 'num') {
+                sorted_array = numSort(data_array, sort_type);
+            } else {
+                sorted_array = nameSort(data_array, sort_type);
+            }
+
+            $.each(sorted_array, function(index, value){
+                new_str += value.html;
+            });
+
             $('.fonds-list .tbody').html(new_str);
             info_array = data_array;
         } else {
