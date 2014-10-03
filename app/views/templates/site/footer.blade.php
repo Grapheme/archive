@@ -13,7 +13,7 @@
                     <div class="m-text">Ростов-на-Дону, ул. Соколова 52</div>
                     <a href="tel:+78632405039" class="phone-link">+7 (863) 240-50-39</a><br>
                     <ul>
-                    	<li><a target="_blank" href="#">Карта сайта</a></li>
+                    	<li><a target="_blank" href="{{URL::to('sitemap')}}">Карта сайта</a></li>
                     </ul>
                 </div><!--
              --><div class="footer-block">
