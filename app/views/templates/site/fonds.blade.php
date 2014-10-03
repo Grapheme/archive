@@ -128,17 +128,24 @@
         $('.js-sort').css('cursor', 'pointer');
         var sort_parent = $('.js-sort-parent');
 
-        function changeType() {
-            if(sort_parent.attr('data-sort-type') == 'asc') {
+        function changeType(this_sort) {
+            var sort_type = sort_parent.attr('data-sort-type');
+
+            if(sort_type == 'asc') {
                 sort_parent.attr('data-sort-type', 'desc');
             } else {
+                sort_parent.attr('data-sort-type', 'asc');
+            }
+
+            if(sort_type != this_sort) {
                 sort_parent.attr('data-sort-type', 'asc');
             }
         }
 
         $(document).on('click', '.js-sort', function(){
-            sort_parent.attr('data-sort', $(this).attr('data-sort'));
-            changeType();
+            var this_sort = $(this).attr('data-sort');
+            changeType(this_sort);
+            sort_parent.attr('data-sort', this_sort);
             $(document).trigger('fonds::change');
         });
     })();
