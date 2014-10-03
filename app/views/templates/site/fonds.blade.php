@@ -143,9 +143,6 @@
         }
 
         $(document).on('click', '.js-sort', function(){
-            $('.fonds-list').css({
-                'min-height': parseInt($('.fonds-list').height())
-            });
             var this_sort = $(this).attr('data-sort');
             changeType(this_sort);
             sort_parent.attr('data-sort', this_sort);
