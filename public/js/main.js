@@ -635,7 +635,7 @@ function numSort(array, type) {
     return sorted;
 }
 
-function nameSort(array) {
+function nameSort(array, type) {
     var sorted = array.sort(function(a, b){
         var nameA=a.org.toLowerCase(), nameB=b.org.toLowerCase();
         if(type == "asc") {
