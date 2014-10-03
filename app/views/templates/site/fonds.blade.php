@@ -65,9 +65,9 @@
                         <i class="fa fa-refresh fa-2x fa-spin" style="color:#005CAD"></i>
                     </div>
 
-                    <div class="fonds-list hidden js-sort-parent" data-sort="num" data-sort-type="desc">
+                    <div class="fonds-list hidden js-sort-parent" data-sort="org" data-sort-type="asc">
                         <div class="thead">
-                                <span class="js-sort" data-sort="number">Номер фонда</span><!--
+                                <span class="js-sort" data-sort="num">Номер фонда</span><!--
                                 --><span class="js-sort" data-sort="org">Название организации</span><!--
                                 --><span>Крайние даты</span>
                         </div>
@@ -126,8 +126,19 @@
 
     var sort_init = (function(){
         $('.js-sort').css('cursor', 'pointer');
+        var sort_parent = $('.js-sort-parent');
 
-        $(document).on('click', function(){
+        function changeType() {
+            if(sort_parent == 'asc') {
+                sort_parent.attr('data-sort-type', 'desc');
+            } else {
+                sort_parent.attr('data-sort-type', 'asc');
+            }
+        }
+
+        $(document).on('click', 'js-sort', function(){
+            sort_parent.attr('data-sort', $(this).attr('data-sort'));
+            changeType();
             $(document).trigger('fonds::change');
         });
     })();
