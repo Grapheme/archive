@@ -623,6 +623,6 @@ function isNumber(n) {
 
 function numSort(array) {
     array.sort(function(a, b){
-     return a.age-b.age
+     return a.number - b.number;
     });
 }
