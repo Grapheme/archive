@@ -136,7 +136,7 @@
             }
         }
 
-        $(document).on('click', 'js-sort', function(){
+        $(document).on('click', '.js-sort', function(){
             sort_parent.attr('data-sort', $(this).attr('data-sort'));
             changeType();
             $(document).trigger('fonds::change');
