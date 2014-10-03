@@ -408,10 +408,9 @@ function fundsFormSubmit(form) {
 
     options.beforeSubmit = function(formData, jqForm, options){
         //$(form).find('button').addClass('loading');
-        $('.found-list').css({
-                'min-height': parseInt($('.found-list').height())
+        $('.fonds-list').css({
+                'min-height': parseInt($('.fonds-list').height()
             });
-        $('.fonds-list').addClass('blablabla');
         $('.fonds-list').addClass('hidden');
         this_timeout = setTimeout(function(){
         	$('.ajaxload').removeClass('hidden');
@@ -498,7 +497,7 @@ function fundsFormSubmit(form) {
         //$(form).find('button').removeClass('loading');
         $('.fonds-list').removeClass('hidden');
         $('.ajaxload').addClass('hidden');
-        //$('.found-list').removeAttr('style');
+        $('.found-list').removeAttr('style');
     }
 
     $(form).ajaxSubmit(options);
