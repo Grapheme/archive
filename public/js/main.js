@@ -428,7 +428,7 @@ function fundsFormSubmit(form) {
             var data_array = [];
             var i = 0;
             $(funds).each(function(key, val){
-                console.log(val);
+                //console.log(val);
                 var date_start = new Date(val.date_start);
                 var date_stop = new Date(val.date_stop);
                 var old_names = '';
@@ -630,7 +630,7 @@ function numSort(array) {
 }
 
 function nameSort(array) {
-    array.sort(function(a, b){
+    var sorted = array.sort(function(a, b){
         var nameA=a.org.toLowerCase(), nameB=b.org.toLowerCase();
 
         if (nameA < nameB)
@@ -639,4 +639,6 @@ function nameSort(array) {
             return 1
         return 0
     });
+
+    return sorted;
 }
