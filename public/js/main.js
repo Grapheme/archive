@@ -9,7 +9,7 @@ var search = (function(){
 		open = true;
 		nav_block.addClass('closed');
         search_anim.css({
-            'width': '820px',
+            'width': '800px',
             'opacity': 1
         }).addClass('active');
         search_block.find('input').trigger('focus');
