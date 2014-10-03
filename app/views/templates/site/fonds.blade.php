@@ -126,6 +126,10 @@
 
     var sort_init = (function(){
         $('.js-sort').css('cursor', 'pointer');
+
+        $(document).on('click', function(){
+            $(document).trigger('fonds::change');
+        });
     })();
 </script>
 @stop
