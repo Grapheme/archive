@@ -409,7 +409,7 @@ function fundsFormSubmit(form) {
     options.beforeSubmit = function(formData, jqForm, options){
         //$(form).find('button').addClass('loading');
         $('.fonds-list').css({
-                'min-height': parseInt($('.fonds-list').height()
+                'min-height': parseInt($('.fonds-list').height())
             });
         $('.fonds-list').addClass('hidden');
         this_timeout = setTimeout(function(){
