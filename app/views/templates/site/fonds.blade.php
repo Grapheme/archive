@@ -141,8 +141,6 @@
             if(sort_elem != this_sort) {
                 sort_parent.attr('data-sort-type', 'asc');
             }
-
-            console.log(sort_type != this_sort);
         }
 
         $(document).on('click', '.js-sort', function(){
