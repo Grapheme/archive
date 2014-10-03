@@ -411,6 +411,7 @@ function fundsFormSubmit(form) {
         $('.found-list').css({
                 'min-height': parseInt($('.found-list').height())
             });
+        $('.fonds-list').addClass('blablabla');
         $('.fonds-list').addClass('hidden');
         this_timeout = setTimeout(function(){
         	$('.ajaxload').removeClass('hidden');
