@@ -466,7 +466,7 @@ function fundsFormSubmit(form) {
                 i++;
             });
             $('.fonds-list .tbody').html(new_str);
-            info_obj = data_array;
+            info_array = data_array;
         } else {
             $('.fonds-list .tbody').html('<div><p style="text-align: center; margin: 0;">Не найдено подходящих записей. Попробуйте изменить условия поиска.</p></div>');
         }
