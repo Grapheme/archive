@@ -65,7 +65,7 @@
                         <i class="fa fa-refresh fa-2x fa-spin" style="color:#005CAD"></i>
                     </div>
 
-                    <div class="fonds-list hidden">
+                    <div class="fonds-list hidden js-sort-parent" data-sort="org" data-sort-type="asc">
                         <div class="thead">
                                 <span class="js-sort" data-sort="number">Номер фонда</span><!--
                                 --><span class="js-sort" data-sort="org">Название организации</span><!--
