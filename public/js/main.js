@@ -408,7 +408,9 @@ function fundsFormSubmit(form) {
 
     options.beforeSubmit = function(formData, jqForm, options){
         //$(form).find('button').addClass('loading');
-        $('.found-list').css('min-height', $('.found-list').height());
+        $('.found-list').css({
+                'min-height': parseInt($('.found-list').height())
+            });
         $('.fonds-list').addClass('hidden');
         this_timeout = setTimeout(function(){
         	$('.ajaxload').removeClass('hidden');
