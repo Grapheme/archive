@@ -622,7 +622,9 @@ function isNumber(n) {
 }
 
 function numSort(array) {
-    array.sort(function(a, b){
+    var sorted = array.sort(function(a, b){
      return a.number - b.number;
     });
+
+    return sorted;
 }
