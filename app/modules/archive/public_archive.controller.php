@@ -289,9 +289,10 @@ class PublicArchiveController extends BaseController {
         if (!$search)
             $records = $records->take($limit);
 
+        Event::listen('illuminate.query',function($query){ echo "<pre>" . print_r($query, 1) . "</pre>\n"; });
         $records = $records->get();
 
-        Helper::tad($records);
+        #Helper::tad($records);
 
         $json_request['funds'] = $records->toJson();
         $json_request['status'] = TRUE;
