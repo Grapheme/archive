@@ -219,7 +219,7 @@ class PublicArchiveController extends BaseController {
         $records = ArchiveFund::orderBy('name', 'ASC')
             ->with('olds')
             ->where('name', '!=', '')
-            ->whereIn('current_company_id', array(0, NULL))
+            ->whereIn('current_company_id', array(0, '0', NULL))
             ->where('date_start', '!=', '0000-00-00')
             ->where('date_stop', '!=', '0000-00-00')
         ;
@@ -266,7 +266,7 @@ class PublicArchiveController extends BaseController {
 
             if (isset($results_funds['matches'])) {
                 $funds_ids = array_keys($results_funds['matches']);
-                #Helper:dd($funds_ids);
+                Helper:dd($funds_ids);
                 $records = $records->whereIn('id', $funds_ids);
             } else {
                 $records = $records->where('id', 0);
