@@ -223,6 +223,11 @@ class PublicArchiveController extends BaseController {
             ->where('date_start', '!=', '0000-00-00')
             ->where('date_stop', '!=', '0000-00-00')
         ;
+
+        if (@$input['current_id']) {
+            $records = $records->where('id', '!=', $input['current_id']);
+        }
+
         /*
         if ($filter = Input::get('filter')) {
             $records = $records->where('name', 'LIKE', '%' . $filter . '%');

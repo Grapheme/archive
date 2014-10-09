@@ -236,7 +236,7 @@
             width: '100%',
             quietMillis: 100,
             ajax: {
-                url: "{{ URL::route('ajax-get-funds-data', array('admin' => 1)) }}",
+                url: "{{ URL::route('ajax-get-funds-data', array('admin' => 1, 'current_id' => $element->id)) }}",
                 dataType: 'json',
                 type: 'POST',
                 quietMillis: 500,

@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9eb288a-66f5-42e9-a6ae-4f6f60b8c9bd" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/modules/archive/views/admin/funds/edit.blade.php" afterPath="$PROJECT_DIR$/app/modules/archive/views/admin/funds/edit.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/modules/archive/public_archive.controller.php" afterPath="$PROJECT_DIR$/app/modules/archive/public_archive.controller.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -120,8 +121,8 @@
       <file leaf-file-name="public_archive.controller.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/modules/archive/public_archive.controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3939394" vertical-offset="3536" max-vertical-offset="7259">
-              <caret line="221" column="0" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.6666667" vertical-offset="3485" max-vertical-offset="7344">
+              <caret line="227" column="71" selection-start-line="227" selection-start-column="71" selection-end-line="227" selection-end-column="71" />
               <folding />
             </state>
           </provider>
@@ -130,7 +131,7 @@
       <file leaf-file-name="admin_archive.funds.controller.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/modules/archive/admin_archive.funds.controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-81.07692" vertical-offset="867" max-vertical-offset="3978">
+            <state vertical-scroll-proportion="-41.846153" vertical-offset="1887" max-vertical-offset="3978">
               <caret line="175" column="45" selection-start-line="175" selection-start-column="45" selection-end-line="175" selection-end-column="45" />
               <folding />
             </state>
@@ -140,17 +141,17 @@
       <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/modules/archive/views/admin/funds/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1547" max-vertical-offset="4743">
-              <caret line="91" column="61" selection-start-line="91" selection-start-column="61" selection-end-line="91" selection-end-column="61" />
+            <state vertical-scroll-proportion="-3.9230769" vertical-offset="3944" max-vertical-offset="4811">
+              <caret line="238" column="107" selection-start-line="238" selection-start-column="107" selection-end-line="238" selection-end-column="107" />
               <folding>
-                <marker date="1411990740963" expanded="true" signature="5398:5501" placeholder="{...}" />
-                <marker date="1411990740963" expanded="true" signature="5686:5788" placeholder="{...}" />
-                <marker date="1411990740963" expanded="true" signature="6154:6244" placeholder="{...}" />
-                <marker date="1411990740963" expanded="true" signature="7269:7526" placeholder="..." />
-                <marker date="1411990740963" expanded="true" signature="7314:7467" placeholder="..." />
-                <marker date="1411990740963" expanded="true" signature="7327:7466" placeholder="..." />
-                <marker date="1411990740963" expanded="true" signature="7378:7452" placeholder="..." />
-                <marker date="1411990740963" expanded="true" signature="7533:7662" placeholder="..." />
+                <marker date="1412844827070" expanded="true" signature="5398:5501" placeholder="{...}" />
+                <marker date="1412844827070" expanded="true" signature="5686:5788" placeholder="{...}" />
+                <marker date="1412844827070" expanded="true" signature="6154:6244" placeholder="{...}" />
+                <marker date="1412844827070" expanded="true" signature="7269:7526" placeholder="..." />
+                <marker date="1412844827070" expanded="true" signature="7314:7467" placeholder="..." />
+                <marker date="1412844827070" expanded="true" signature="7327:7466" placeholder="..." />
+                <marker date="1412844827070" expanded="true" signature="7378:7452" placeholder="..." />
+                <marker date="1412844827070" expanded="true" signature="7533:7662" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -251,13 +252,13 @@
         <option value="$PROJECT_DIR$/app/modules/news/views/admin/_news_meta.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/models/ArchiveFund.model.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/admin_archive.funds.controller.php" />
-        <option value="$PROJECT_DIR$/app/modules/archive/views/admin/funds/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/views/templates/site/about.blade.php" />
         <option value="C:/list.txt" />
         <option value="$PROJECT_DIR$/public/list.txt" />
         <option value="$PROJECT_DIR$/public/list-new.txt" />
         <option value="$PROJECT_DIR$/public/funds_parse.php" />
         <option value="$PROJECT_DIR$/app/config/mail.php" />
+        <option value="$PROJECT_DIR$/app/modules/archive/views/admin/funds/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/modules/archive/public_archive.controller.php" />
       </list>
     </option>
@@ -898,7 +899,13 @@
       <option name="project" value="LOCAL" />
       <updated>1412844461819</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="search">
+      <created>1412844708296</created>
+      <option name="number" value="00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1412844708296</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1262,23 +1269,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/modules/archive/views/admin/funds/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1547" max-vertical-offset="4743">
-          <caret line="91" column="61" selection-start-line="91" selection-start-column="61" selection-end-line="91" selection-end-column="61" />
-          <folding>
-            <marker date="1411990740963" expanded="true" signature="5398:5501" placeholder="{...}" />
-            <marker date="1411990740963" expanded="true" signature="5686:5788" placeholder="{...}" />
-            <marker date="1411990740963" expanded="true" signature="6154:6244" placeholder="{...}" />
-            <marker date="1411990740963" expanded="true" signature="7269:7526" placeholder="..." />
-            <marker date="1411990740963" expanded="true" signature="7314:7467" placeholder="..." />
-            <marker date="1411990740963" expanded="true" signature="7327:7466" placeholder="..." />
-            <marker date="1411990740963" expanded="true" signature="7378:7452" placeholder="..." />
-            <marker date="1411990740963" expanded="true" signature="7533:7662" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/templates/site/about.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7736185" vertical-offset="144" max-vertical-offset="748">
@@ -1380,9 +1370,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/modules/archive/views/admin/funds/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9230769" vertical-offset="3944" max-vertical-offset="4811">
+          <caret line="238" column="107" selection-start-line="238" selection-start-column="107" selection-end-line="238" selection-end-column="107" />
+          <folding>
+            <marker date="1412844827070" expanded="true" signature="5398:5501" placeholder="{...}" />
+            <marker date="1412844827070" expanded="true" signature="5686:5788" placeholder="{...}" />
+            <marker date="1412844827070" expanded="true" signature="6154:6244" placeholder="{...}" />
+            <marker date="1412844827070" expanded="true" signature="7269:7526" placeholder="..." />
+            <marker date="1412844827070" expanded="true" signature="7314:7467" placeholder="..." />
+            <marker date="1412844827070" expanded="true" signature="7327:7466" placeholder="..." />
+            <marker date="1412844827070" expanded="true" signature="7378:7452" placeholder="..." />
+            <marker date="1412844827070" expanded="true" signature="7533:7662" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/archive/admin_archive.funds.controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-81.07692" vertical-offset="867" max-vertical-offset="3978">
+        <state vertical-scroll-proportion="-41.846153" vertical-offset="1887" max-vertical-offset="3978">
           <caret line="175" column="45" selection-start-line="175" selection-start-column="45" selection-end-line="175" selection-end-column="45" />
           <folding />
         </state>
@@ -1390,8 +1397,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/archive/public_archive.controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3939394" vertical-offset="3536" max-vertical-offset="7259">
-          <caret line="221" column="0" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6666667" vertical-offset="3485" max-vertical-offset="7344">
+          <caret line="227" column="71" selection-start-line="227" selection-start-column="71" selection-end-line="227" selection-end-column="71" />
           <folding />
         </state>
       </provider>
