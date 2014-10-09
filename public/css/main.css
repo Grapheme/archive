@@ -158,7 +158,8 @@ h2 {
 }
 h3 {
   font-family: 'lato_regular';
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  line-height: 1.3em;
   margin: 1.2em 0 0.9375rem;
 }
 h3 a {
@@ -166,7 +167,7 @@ h3 a {
   text-decoration: none;
 }
 .asterisk {
-	color: #c00;
+  color: #c00;
 }
 .us-btn {
   -webkit-transition: all 0.5s ease;
@@ -249,17 +250,17 @@ h3 a {
   border-color: transparent;
 }
 .stuff-link {
-	color: #c0c0c0;
-	font-size: 0.9em;
-	display: inline-block;
-	margin: 1.25em 0 0;
-	text-decoration: none;
-	border-bottom: 1px solid;
-	line-height: 1em; 
+  color: #999;
+  font-size: 0.7em;
+  display: inline-block;
+  margin: 3.45em 0 0;
+  text-decoration: none;
+  border-bottom: 1px solid;
+  line-height: 1em; 
 } 
 i.stuff-link { 
-	border: none; 
-	margin-right: 0.2em;
+  border: none; 
+  margin-right: 0.2em;
 }
 .link {
   -webkit-transition: border 0.5s ease;
@@ -516,7 +517,9 @@ header {
   width: 100%;
   height: 100%;
   background: #000;
-  top: -300%;
+  -webkit-transform: translateY(-300%);
+      -ms-transform: translateY(-300%);
+          transform: translateY(-300%);
 }
 .main-header .header-block .nav-block .header-search .menu-icon span:after {
   content: "";
@@ -524,7 +527,9 @@ header {
   width: 100%;
   height: 100%;
   background: #000;
-  top: 300%;
+  -webkit-transform: translateY(300%);
+      -ms-transform: translateY(300%);
+          transform: translateY(300%);
 }
 .main-header .header-block .main-nav {
   -webkit-transition: opacity 0.5s ease;
@@ -616,10 +621,15 @@ header {
   text-decoration: none;
   margin-bottom: 3.125rem;
 }
+.index-info .right-block .title {
+	margin-bottom: 1.25em;
+	margin-top: 1em;
+}
 .index-info .left-block {
   display: inline-block;
   vertical-align: top;
-  width: 75%;
+  /*width: 75%;*/
+  width: 100%;
 }
 .index-info .services {
   margin: 0;
@@ -632,7 +642,8 @@ header {
   box-sizing: border-box;
   display: inline-block;
   vertical-align: top;
-  width: 33.33333333%;
+  /*width: 33.33333333%;*/
+  width: 25%;
   padding: 0 3.5rem 0 1.25rem;
   border-left: 2px solid #dddddd;
   margin-bottom: 2.5rem;
@@ -654,6 +665,8 @@ header {
   color: #27599f;
   text-transform: uppercase;
   margin-bottom: 0.65rem;
+  display: block;
+  text-decoration: none;
 }
 .index-info .services li .service-desc {
   font-size: 1rem;
@@ -661,7 +674,8 @@ header {
 .index-info .right-block {
   display: inline-block;
   vertical-align: top;
-  width: 25%;
+  /*width: 25%;*/
+  width: 100%;
 }
 .index-info .right-block .index-news {
   margin: 0;
@@ -670,6 +684,10 @@ header {
 }
 .index-info .right-block .index-news li {
   margin-bottom: 1.875rem;
+  display: inline-block;
+  width: 23%;
+  vertical-align: top;
+  margin-right: 2%;
 }
 .index-info .right-block .index-news li:last-child {
   margin-bottom: 0;
@@ -684,7 +702,7 @@ header {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   background: #f7f7f7;
-  height: 10rem;
+  height: 14rem;
   padding-top: 2.8125rem;
   min-width: 75.625rem;
 }
@@ -710,6 +728,26 @@ header {
   text-decoration: none;
   color: #464646;
   line-height: 2.1875rem;
+}
+.main-footer .footer-block ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.main-footer .footer-block ul li {
+  padding: 0;
+  margin: 0.3em 0 0;  
+}
+.main-footer .footer-block ul li:first-child {
+  margin: 1.25em 0 0;
+}
+.main-footer .footer-block ul li a {
+  display: inline-block;
+  color: #999;
+  font-size: 0.7em;
+  text-decoration: none;
+  border-bottom: 1px solid;
+  line-height: 1.1em; 
 }
 .normal-page {
   background: #f7f7f7;
@@ -790,6 +828,20 @@ header {
 .normal-page .page-text p {
   margin-top: 0;
 }
+.normal-page .page-text ul {
+  font-size: inherit;
+  padding: 0;
+  margin: 0;
+}
+.normal-page .page-text ul ol {
+  padding: 0;
+
+}
+.normal-page .page-text > ol,
+.normal-page .page-text > ol li ol {
+	list-style: none;
+	margin: 0.2em 0;
+}
 .normal-page .page-desc {
   font-style: italic;
   margin-top: 1.25rem;
@@ -810,6 +862,7 @@ header {
   box-sizing: border-box;
   padding-left: 1.25rem;
   border-left: 1px solid #dddddd;
+  margin-top: 1.5em;
 }
 .news-list {
   margin: 0;
@@ -1264,6 +1317,12 @@ header {
 }
 .js-tabs li.active {
   display: block;
+}
+.margin {
+  margin: 3em 0 0;
+}
+.margin p {
+  max-width: 52em;
 }
 .contacts {
   -webkit-box-sizing: border-box;

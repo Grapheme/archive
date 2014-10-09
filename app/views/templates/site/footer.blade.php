@@ -3,10 +3,18 @@
             <div class="wrapper">
                 <div class="footer-block s-text">
                     &copy; 2014, ГКУ РО «Архив документов<br> по личному составу Ростовской области»
+                    <ul>
+                    	<li><a target="_blank" href="http://cuadaro.donland.ru/">Комитет по управлению архивным делом РО</a></li>
+                    	<li><a target="_blank" href="http://mkrf.ru/">Сайт министерства культуры РФ</a></li>
+                    	<li><a target="_blank" href="http://donland.ru">Официальный портал правительства РО</a></li>
+                    </ul>
                 </div><!--
              --><div class="footer-block">
                     <div class="m-text">Ростов-на-Дону, ул. Соколова 52</div>
-                    <a href="tel:+78632405039" class="phone-link">+7 (863) 240-50-39</a>
+                    <a href="tel:+78632405039" class="phone-link">+7 (863) 240-50-39</a><br>
+                    <ul>
+                    	<li><a target="_blank" href="{{URL::to('sitemap')}}">Карта сайта</a></li>
+                    </ul>
                 </div><!--
              --><div class="footer-block">
                     Приемные часы:<br>

@@ -65,10 +65,10 @@
                         <i class="fa fa-refresh fa-2x fa-spin" style="color:#005CAD"></i>
                     </div>
 
-                    <div class="fonds-list hidden">
+                    <div class="fonds-list js-sort-parent" data-sort="org" data-sort-type="asc" style="opacity: 0">
                         <div class="thead">
-                                <span>Номер фонда</span><!--
-                                --><span>Название организации</span><!--
+                                <span class="js-sort" data-sort="num">Номер фонда</span><!--
+                                --><span class="js-sort" data-sort="org">Название организации</span><!--
                                 --><span>Крайние даты</span>
                         </div>
                         <div class="tbody">
@@ -122,6 +122,33 @@
             }
         });
 
+    })();
+
+    var sort_init = (function(){
+        $('.js-sort').css('cursor', 'pointer');
+        var sort_parent = $('.js-sort-parent');
+
+        function changeType(this_sort) {
+            var sort_type = sort_parent.attr('data-sort-type');
+            var sort_elem = sort_parent.attr('data-sort');
+
+            if(sort_type == 'asc') {
+                sort_parent.attr('data-sort-type', 'desc');
+            } else {
+                sort_parent.attr('data-sort-type', 'asc');
+            }
+
+            if(sort_elem != this_sort) {
+                sort_parent.attr('data-sort-type', 'asc');
+            }
+        }
+
+        $(document).on('click', '.js-sort', function(){
+            var this_sort = $(this).attr('data-sort');
+            changeType(this_sort);
+            sort_parent.attr('data-sort', this_sort);
+            $(document).trigger('fonds::change');
+        });
     })();
 </script>
 @stop

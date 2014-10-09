@@ -9,7 +9,7 @@ var search = (function(){
 		open = true;
 		nav_block.addClass('closed');
         search_anim.css({
-            'width': '820px',
+            'width': '800px',
             'opacity': 1
         }).addClass('active');
         search_block.find('input').trigger('focus');
@@ -406,7 +406,10 @@ function fundsFormSubmit(form) {
 
     options.beforeSubmit = function(formData, jqForm, options){
         //$(form).find('button').addClass('loading');
-        $('.fonds-list').addClass('hidden');
+        $('.fonds-list').css({
+                'min-height': parseInt($('.fonds-list').height()),
+                'opacity': 0
+            });
         this_timeout = setTimeout(function(){
         	$('.ajaxload').removeClass('hidden');
         }, 1000);
@@ -423,8 +426,10 @@ function fundsFormSubmit(form) {
         var funds = jQuery.parseJSON(response.funds);
         if (typeof(response.funds) != 'undefined' && funds.length) {
             var new_str = '';
+            var data_array = [];
+            var i = 0;
             $(funds).each(function(key, val){
-                console.log(val);
+                //console.log(val);
                 var date_start = new Date(val.date_start);
                 var date_stop = new Date(val.date_stop);
                 var old_names = '';
@@ -435,21 +440,46 @@ function fundsFormSubmit(form) {
                     $(val.olds).each(function(key, val){
                         var date_start = new Date(val.date_start);
                         var date_stop = new Date(val.date_stop);
-                        old_names += '<p class="trow-old hidden" data-parent="' + parent_val_id + '"><span>' + val.fund_number + '</span><span>' + val.name + '</span><span>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</span></p>';
+                        old_names += '<p class="trow-old hidden" data-parent="' + parent_val_id + '"><span>&nbsp;</span><span>' + val.name + '</span><span>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</span></p>';
                     });
                     old_names += '</section>';
                     val.olds.length;
                     //old_names += '</span>';
                     //alert(old_names);
                 }
-                new_str += '<div class="trow"><span>'
+                var this_str = '<div class="trow"><span>'
                     + val.fund_number
                     + '</span><span>' + val.name
                     + (old_names ? '<br/>и его <a href="#" data-childs-for="' + val.id + '" class="old-link">предшественники</a>' : '')
                     + '</span><span>' + date_start.getFullYear() + '-' + date_stop.getFullYear() + '</span></div>'
                     + old_names;
+
+                //new_str += this_str;
+                data_array[i] = 
+                                { 
+                                    number: val.fund_number,
+                                    org: val.name,
+                                    html: this_str
+                                };
+
                 //$('.fonds-list tbody').append('<tr><td>' + val.name + '</td><td>' + d.getFullYear() + '-' + val.date_stop + '</td></tr>');
+                i++;
             });
+        
+            var sort_elem = $('.js-sort-parent').attr('data-sort');
+            var sort_type = $('.js-sort-parent').attr('data-sort-type');
+            var sorted_array;
+
+            if(sort_elem == 'num') {
+                sorted_array = numSort(data_array, sort_type);
+            } else {
+                sorted_array = nameSort(data_array, sort_type);
+            }
+
+            $.each(sorted_array, function(index, value){
+                new_str += value.html;
+            });
+
             $('.fonds-list .tbody').html(new_str);
         } else {
             $('.fonds-list .tbody').html('<div><p style="text-align: center; margin: 0;">Не найдено подходящих записей. Попробуйте изменить условия поиска.</p></div>');
@@ -462,7 +492,7 @@ function fundsFormSubmit(form) {
 
     options.complete = function(data, textStatus, jqXHR){
         //$(form).find('button').removeClass('loading');
-        $('.fonds-list').removeClass('hidden');
+        $('.fonds-list').removeAttr('style');
         $('.ajaxload').addClass('hidden');
     }
 
@@ -603,4 +633,39 @@ function sendFeedbackForm(form) {
 
 function isNumber(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+function numSort(array, type) {
+
+
+    var sorted = array.sort(function(a, b){
+        if(type == "asc") {
+            return a.number - b.number;
+        } else {
+            return b.number - a.number;
+        }
+    });
+
+    return sorted;
+}
+
+function nameSort(array, type) {
+    var sorted = array.sort(function(a, b){
+        var nameA=a.org.toLowerCase(), nameB=b.org.toLowerCase();
+        if(type == "asc") {
+            if (nameA < nameB)
+                return -1
+            if (nameA > nameB)
+                return 1
+            return 0
+        } else {
+            if (nameA > nameB)
+                return -1
+            if (nameA < nameB)
+                return 1
+            return 0
+        }
+    });
+
+    return sorted;
 }
