@@ -120,8 +120,8 @@
       <file leaf-file-name="public_archive.controller.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/modules/archive/public_archive.controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5151515" vertical-offset="4658" max-vertical-offset="7259">
-              <caret line="291" column="110" selection-start-line="291" selection-start-column="110" selection-end-line="291" selection-end-column="110" />
+            <state vertical-scroll-proportion="0.3939394" vertical-offset="3536" max-vertical-offset="7259">
+              <caret line="221" column="0" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -892,7 +892,13 @@
       <option name="project" value="LOCAL" />
       <updated>1412844423194</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="search">
+      <created>1412844461819</created>
+      <option name="number" value="00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1412844461819</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1384,8 +1390,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/modules/archive/public_archive.controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5151515" vertical-offset="4658" max-vertical-offset="7259">
-          <caret line="291" column="110" selection-start-line="291" selection-start-column="110" selection-end-line="291" selection-end-column="110" />
+        <state vertical-scroll-proportion="0.3939394" vertical-offset="3536" max-vertical-offset="7259">
+          <caret line="221" column="0" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -219,7 +219,7 @@ class PublicArchiveController extends BaseController {
         $records = ArchiveFund::orderBy('name', 'ASC')
             ->with('olds')
             ->where('name', '!=', '')
-            ->whereIn('current_company_id', array(0, '0', NULL))
+            ->where('current_company_id', 0)
             ->where('date_start', '!=', '0000-00-00')
             ->where('date_stop', '!=', '0000-00-00')
         ;
@@ -289,7 +289,7 @@ class PublicArchiveController extends BaseController {
         if (!$search)
             $records = $records->take($limit);
 
-        Event::listen('illuminate.query',function($query){ echo "<pre>" . print_r($query, 1) . "</pre>\n"; });
+        #Event::listen('illuminate.query',function($query){ echo "<pre>" . print_r($query, 1) . "</pre>\n"; });
         $records = $records->get();
 
         #Helper::tad($records);
