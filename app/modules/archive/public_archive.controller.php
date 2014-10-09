@@ -266,7 +266,7 @@ class PublicArchiveController extends BaseController {
 
             if (isset($results_funds['matches'])) {
                 $funds_ids = array_keys($results_funds['matches']);
-                Helper:dd($funds_ids);
+                #Helper:dd($funds_ids);
                 $records = $records->whereIn('id', $funds_ids);
             } else {
                 $records = $records->where('id', 0);
@@ -291,7 +291,7 @@ class PublicArchiveController extends BaseController {
 
         $records = $records->get();
 
-        #Helper::tad($records);
+        Helper::tad($records);
 
         $json_request['funds'] = $records->toJson();
         $json_request['status'] = TRUE;
