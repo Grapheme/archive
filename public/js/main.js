@@ -370,13 +370,13 @@ $("#fundsForm").validate({
             require_from_group: [1, ".atleastone"],
             digits: true,
             min: 1900,
-            max: 2014
+            max: new Date().getFullYear()
         },
         stop: {
             require_from_group: [1, ".atleastone"],
             digits: true,
             min: 1900,
-            max: 2014
+            max: new Date().getFullYear()
         }
     },
     messages: {
