@@ -253,11 +253,18 @@ h3 a {
   color: #999;
   font-size: 0.7em;
   display: inline-block;
-  margin: 3.45em 0 0;
   text-decoration: none;
   border-bottom: 1px solid;
   line-height: 1em; 
+  margin: 3.45em 0 0;
+  transition: all 0.5s ease;
 } 
+.stuff-link:hover {
+	border-bottom: 1px solid transparent;
+}
+.stuff-link.executive {
+  margin: 0;
+}
 i.stuff-link { 
   border: none; 
   margin-right: 0.2em;
@@ -270,6 +277,14 @@ i.stuff-link {
 }
 .link:hover {
   border-color: transparent;
+}
+.usefull-links a {
+	display: inline-block;
+	opacity: 0.5;
+	transition: all 1s ease; 
+}
+.usefull-links a:hover {
+	opacity: 1;
 }
 .text-element {
   -webkit-box-sizing: border-box;
