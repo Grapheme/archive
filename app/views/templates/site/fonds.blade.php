@@ -92,7 +92,8 @@
 <script>
     //fundsFormSubmit($('#fundsForm'));
     var uislider = (function() {
-        var maximum = new Date().getFullYear();
+//        var maximum = new Date().getFullYear();
+        var maximum = {{ date('Y') }};
         var minimum = 1900;
         // Минимальное и максимальное значения
 
