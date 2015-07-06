@@ -14,7 +14,7 @@
                     </ul>
                 </div><!--
              --><div class="footer-block">
-                    <div class="m-text">Ростов-на-Дону, ул. Соколова 52</div>
+                    <div class="m-text">Ростов-на-Дону, пр. Ворошиловский 6а</div>
                     <a href="tel:+78632405039" class="phone-link">+7 (863) 240-50-39</a><br>
                 </div><!--
              --><div class="footer-block">
