@@ -17,19 +17,24 @@ $years = array();
             <h1>Новости</h1>
 
             @if(isset($news) && is_object($news) && $news->count())
-            <ul class="news-list">
-                @foreach($news as $new)
-                <? $years[date('Y', strtotime($new->published_at))] = 1; ?>
-                <li data-year="{{ date('Y', strtotime($new->published_at)) }}">
-                    <h3>
-                        <a name="{{ $new->slug }}">{{ $new->meta->title }}</a>
-                    </h3>
-                    <div class="news-date">{{ Helper::rdate('j M Y', $new->published_at) }}</div>
-                    <div class="news-text">
-                        <p>{{ $new->meta->content }}</p>
-                    </div>
-                @endforeach
-            </ul>
+                <ul class="news-list">
+                    @foreach($news as $new)
+                        <? $years[date('Y', strtotime($new->published_at))] = 1; ?>
+                        {{ Helper::ta_($new) }}
+                        <li data-year="{{ date('Y', strtotime($new->published_at)) }}">
+                            <h3>
+                                <a name="{{ $new->slug }}">{{ $new->meta->title }}</a>
+                            </h3>
+                            <div class="news-date">{{ Helper::rdate('j M Y', $new->published_at) }}</div>
+                            <div class="news-text">
+                                @if (isset($new->meta) && is_object($new->meta) && isset($new->meta->photo) && is_object($new->meta->photo))
+                                    <p><img src="{{ $new->meta->photo->full() }}" style="max-width:100%" /></p>
+                                @endif
+                                <p>{{ $new->meta->content }}</p>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
             @endif
 
             <ul class="news-year">

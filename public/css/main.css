@@ -158,7 +158,8 @@ h2 {
 }
 h3 {
   font-family: 'lato_regular';
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  line-height: 1.3em;
   margin: 1.2em 0 0.9375rem;
 }
 h3 a {
@@ -252,11 +253,18 @@ h3 a {
   color: #999;
   font-size: 0.7em;
   display: inline-block;
-  margin: 3.45em 0 0;
   text-decoration: none;
   border-bottom: 1px solid;
   line-height: 1em; 
+  margin: 3.45em 0 0;
+  transition: all 0.5s ease;
 } 
+.stuff-link:hover {
+	border-bottom: 1px solid transparent;
+}
+.stuff-link.executive {
+  margin: 0;
+}
 i.stuff-link { 
   border: none; 
   margin-right: 0.2em;
@@ -269,6 +277,14 @@ i.stuff-link {
 }
 .link:hover {
   border-color: transparent;
+}
+.usefull-links a {
+	display: inline-block;
+	opacity: 0.5;
+	transition: all 1s ease; 
+}
+.usefull-links a:hover {
+	opacity: 1;
 }
 .text-element {
   -webkit-box-sizing: border-box;
@@ -620,10 +636,15 @@ header {
   text-decoration: none;
   margin-bottom: 3.125rem;
 }
+.index-info .right-block .title {
+	margin-bottom: 1.25em;
+	margin-top: 1em;
+}
 .index-info .left-block {
   display: inline-block;
   vertical-align: top;
-  width: 75%;
+  /*width: 75%;*/
+  width: 100%;
 }
 .index-info .services {
   margin: 0;
@@ -636,7 +657,8 @@ header {
   box-sizing: border-box;
   display: inline-block;
   vertical-align: top;
-  width: 33.33333333%;
+  /*width: 33.33333333%;*/
+  width: 25%;
   padding: 0 3.5rem 0 1.25rem;
   border-left: 2px solid #dddddd;
   margin-bottom: 2.5rem;
@@ -658,6 +680,8 @@ header {
   color: #27599f;
   text-transform: uppercase;
   margin-bottom: 0.65rem;
+  display: block;
+  text-decoration: none;
 }
 .index-info .services li .service-desc {
   font-size: 1rem;
@@ -665,7 +689,8 @@ header {
 .index-info .right-block {
   display: inline-block;
   vertical-align: top;
-  width: 25%;
+  /*width: 25%;*/
+  width: 100%;
 }
 .index-info .right-block .index-news {
   margin: 0;
@@ -674,6 +699,10 @@ header {
 }
 .index-info .right-block .index-news li {
   margin-bottom: 1.875rem;
+  display: inline-block;
+  width: 23%;
+  vertical-align: top;
+  margin-right: 2%;
 }
 .index-info .right-block .index-news li:last-child {
   margin-bottom: 0;
@@ -822,6 +851,11 @@ header {
 .normal-page .page-text ul ol {
   padding: 0;
 
+}
+.normal-page .page-text > ol,
+.normal-page .page-text > ol li ol {
+	list-style: none;
+	margin: 0.2em 0;
 }
 .normal-page .page-desc {
   font-style: italic;

@@ -20,11 +20,12 @@ setlocale(LC_ALL, 'ru_RU.UTF-8');
 
     $fund = 0;
     #$lines = file('funds_last.csv', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-    $lines = file('list-new.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    $lines = file('last.csv', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
+    #Helper::dd($lines);
     #Helper::dd(count($lines));
 
-    echo "<table border='1'>";
+    #echo "<table border='1'>";
     $i = 0;
     $current_company_id = NULL;
     $cci = NULL;
@@ -32,6 +33,9 @@ setlocale(LC_ALL, 'ru_RU.UTF-8');
     foreach ($lines as $l => $line) {
 
         ++$i;
+
+        if ($line == ';;')
+            continue;
 
         unset($input);
 
@@ -46,8 +50,12 @@ setlocale(LC_ALL, 'ru_RU.UTF-8');
         $dates = trim($dates);
         $org = trim($org);
 
-        $fund_num = iconv("CP1251", "UTF-8//IGNORE", $fund_num);
-        $org = iconv("CP1251", "UTF-8//IGNORE", $org);
+        $org = preg_replace("~^\"~is", '', $org);
+        $org = preg_replace("~\"$~is", '', $org);
+        $org = str_replace('""', '"', $org);
+
+        #$fund_num = iconv("CP1251", "UTF-8//IGNORE", $fund_num);
+        #$org = iconv("CP1251", "UTF-8//IGNORE", $org);
 
         #Helper::dd("$fund_num, $dates, $org");
 
@@ -56,20 +64,18 @@ setlocale(LC_ALL, 'ru_RU.UTF-8');
             $current_company_id = $cci;
         } else {
             $cci = $i;
-            $current_company_id = NULL;
+            $current_company_id = 0;
         }
         #$fund = is_numeric($fund_num) ? $fund_num : $fund;
         #$fund = $fund_num ? $fund_num : $fund;
         #$fund_num = mb_convert_encoding($fund_num,'utf8','utf-16');
-
         #$fund_num = mb_convert_encoding($fund_num, 'utf-8', 'cp1251');
-
         #var_dump($fund_num); echo " -> ";
         #dd( is_numeric($fund_num) ) ;
 
         if(
             !$fund_num && !$dates && !$org
-            || $fund_num > 751
+            #|| $fund_num > 751
         )
             continue;
 
@@ -96,6 +102,7 @@ setlocale(LC_ALL, 'ru_RU.UTF-8');
         }
 
         ## ECHO
+        /*
         echo "<tr class='{$class}'>
             <td>#" . ($i) . "</td>
             <td>{$fund}</td>
@@ -104,6 +111,8 @@ setlocale(LC_ALL, 'ru_RU.UTF-8');
             <td nowrap>{$date_start} - {$date_stop}</td>
             <td nowrap>{$org}</td>
         </tr>";
+        */
+        #die;
 
         $input = array(
             'id' => $i,
@@ -134,7 +143,9 @@ setlocale(LC_ALL, 'ru_RU.UTF-8');
         #sleep(1);
         #*/
 
-        #/*
+        echo $i . ' - ' . $fund . ' - ' . Helper::translit($org) . "\n";
+
+        /*
         echo "<tr><td colspan='10'>";
         var_dump($input);
         echo "<br/>";
@@ -149,10 +160,10 @@ setlocale(LC_ALL, 'ru_RU.UTF-8');
 
 #});
 
-echo "</table>";
+#echo "</table>";
 
-Helper::d(DB::getQueryLog());
-
+#Helper::d(DB::getQueryLog());
+die;
 ?>
 <style>
     .green {background-color:#afa}

@@ -208,6 +208,8 @@ class PublicArchiveController extends BaseController {
 
         #Helper::dd(Input::all());
 
+        $input = Input::all();
+
         $json_request = array('status' => FALSE, 'responseText' => '');
 
         $search = false;
@@ -217,10 +219,15 @@ class PublicArchiveController extends BaseController {
         $records = ArchiveFund::orderBy('name', 'ASC')
             ->with('olds')
             ->where('name', '!=', '')
-            ->where('current_company_id', '=', NULL)
+            ->where('current_company_id', 0)
             ->where('date_start', '!=', '0000-00-00')
             ->where('date_stop', '!=', '0000-00-00')
         ;
+
+        if (@$input['current_id']) {
+            $records = $records->where('id', '!=', $input['current_id']);
+        }
+
         /*
         if ($filter = Input::get('filter')) {
             $records = $records->where('name', 'LIKE', '%' . $filter . '%');
@@ -229,18 +236,39 @@ class PublicArchiveController extends BaseController {
         */
         ## Если задана маска для поиска по названию компании - ищем сфинксом
         if ($filter = Input::get('filter')) {
+
+            /*
+            if (@$input['admin']) {
+                $records_like = $records;
+                #Helper::dd('%'.$filter.'%');
+                Event::listen('illuminate.query',function($query){ echo "<pre>" . print_r($query, 1) . "</pre>\n"; });
+                $records_like = $records_like->where('name', 'LIKE', '%'.$filter.'%')->get();
+                Helper::tad($records_like);
+                if (count($records_like)) {
+                    $json_request['funds'] = $records_like->toJson();
+                    $json_request['status'] = TRUE;
+                    Helper::tad($records_like);
+                    return Response::json($json_request, 200);
+                }
+            }
+            #*/
+
             ## SPHINX
             $results_funds = SphinxSearch::search($filter, 'archive_funds_index');
 
-            if (Input::get('admin') == 1) {
+            if (@$input['admin']) {
                 $results_funds = $results_funds
                     #->setMatchMode(\Sphinx\SphinxClient::SPH_MATCH_EXTENDED)
+                    #->setMatchMode(2)
                     ->setMatchMode(2)
-                    ->setSortMode(\Sphinx\SphinxClient::SPH_SORT_EXTENDED, "@weight DESC");
+                    ->setSortMode(\Sphinx\SphinxClient::SPH_SORT_EXTENDED, "@weight DESC")
+                ;
             }
 
             $results_funds = $results_funds->query();
+
             #Helper::dd($results_funds);
+
             if (isset($results_funds['matches'])) {
                 $funds_ids = array_keys($results_funds['matches']);
                 #Helper:dd($funds_ids);
@@ -266,7 +294,10 @@ class PublicArchiveController extends BaseController {
         if (!$search)
             $records = $records->take($limit);
 
+        #Event::listen('illuminate.query',function($query){ echo "<pre>" . print_r($query, 1) . "</pre>\n"; });
         $records = $records->get();
+
+        #Helper::tad($records);
 
         $json_request['funds'] = $records->toJson();
         $json_request['status'] = TRUE;
